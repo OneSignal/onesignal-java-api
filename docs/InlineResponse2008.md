@@ -1,14 +1,13 @@
 
 
-# InlineResponse2004
+# InlineResponse2008
 
 
 ## Properties
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**success** | **Boolean** |  |  [optional] |
-|**id** | **String** |  |  [optional] |
+|**csvFileUrl** | **String** |  |  [optional] |
 
 
 

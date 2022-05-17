@@ -1,8 +1,8 @@
 # onesignal-java-client
 
 OneSignal
-- API version: 1.0.2
-  - Build date: 2022-04-26T05:37:43.612Z[Etc/UTC]
+- API version: 1.0.1
+  - Build date: 2022-05-17T20:25:16.843Z[Etc/UTC]
 
 A powerful way to send personalized messages at scale and build effective customer engagement strategies. Learn more at onesignal.com
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>org.openapitools</groupId>
   <artifactId>onesignal-java-client</artifactId>
-  <version>1.0.2</version>
+  <version>1.0.1</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -57,7 +57,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "org.openapitools:onesignal-java-client:1.0.2"
+     implementation "org.openapitools:onesignal-java-client:1.0.1"
   }
 ```
 
@@ -71,7 +71,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/onesignal-java-client-1.0.2.jar`
+* `target/onesignal-java-client-1.0.1.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -89,11 +89,24 @@ import com.onesignal.client.models.*;
 import com.onesignal.client.api.DefaultApi;
 
 public class Example {
-  public static void main(String[] args) {
-    // Define constants
-    String appKeyToken = "YOUR_APP_KEY";
-    String userKeyToken = "YOUR_USER_TOKEN";
+  private static final String appId = "YOUR_APP_ID";
+  private static final String appKeyToken = "YOUR_APP_KEY";
+  private static final String userKeyToken = "YOUR_USER_TOKEN";
 
+  private static Notification createNotification() {
+    Notification notification = new Notification();
+    notification.setAppId(appId);
+    notification.setIsChrome(true);
+    notification.setIsAnyWeb(true);
+    notification.setIncludedSegments(Arrays.asList(new String[]{"Subscribed Users"}));
+    StringMap contentStringMap = new StringMap();
+    contentStringMap.en("Test");
+    notification.setContents(contentStringMap);
+
+    return notification;
+  }
+
+  public static void main(String[] args) {
     // Setting up the client
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     HttpBearerAuth appKey = (HttpBearerAuth) defaultClient.getAuthentication("app_key");
@@ -155,9 +168,9 @@ Class | Method | HTTP request | Description
  - [InlineResponse200](docs/InlineResponse200.md)
  - [InlineResponse2001](docs/InlineResponse2001.md)
  - [InlineResponse2002](docs/InlineResponse2002.md)
- - [InlineResponse2003](docs/InlineResponse2003.md)
- - [InlineResponse2004](docs/InlineResponse2004.md)
  - [InlineResponse2005](docs/InlineResponse2005.md)
+ - [InlineResponse2007](docs/InlineResponse2007.md)
+ - [InlineResponse2008](docs/InlineResponse2008.md)
  - [InlineResponse201](docs/InlineResponse201.md)
  - [InlineResponse400](docs/InlineResponse400.md)
  - [InlineResponse4001](docs/InlineResponse4001.md)
@@ -170,6 +183,8 @@ Class | Method | HTTP request | Description
  - [NotificationAllOfAndroidBackgroundLayout](docs/NotificationAllOfAndroidBackgroundLayout.md)
  - [NotificationSlice](docs/NotificationSlice.md)
  - [NotificationTarget](docs/NotificationTarget.md)
+ - [NotificationWithMeta](docs/NotificationWithMeta.md)
+ - [NotificationWithMetaAllOf](docs/NotificationWithMetaAllOf.md)
  - [Operator](docs/Operator.md)
  - [OutcomeData](docs/OutcomeData.md)
  - [OutcomesData](docs/OutcomesData.md)

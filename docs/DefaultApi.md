@@ -231,7 +231,7 @@ public class Example {
 
 <a name="createPlayer"></a>
 # **createPlayer**
-> InlineResponse2004 createPlayer(player)
+> InlineResponse2005 createPlayer(player)
 
 Add a device
 
@@ -259,7 +259,7 @@ public class Example {
     DefaultApi apiInstance = new DefaultApi(defaultClient);
     Player player = new Player(); // Player | 
     try {
-      InlineResponse2004 result = apiInstance.createPlayer(player);
+      InlineResponse2005 result = apiInstance.createPlayer(player);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling DefaultApi#createPlayer");
@@ -280,7 +280,7 @@ public class Example {
 
 ### Return type
 
-[**InlineResponse2004**](InlineResponse2004.md)
+[**InlineResponse2005**](InlineResponse2005.md)
 
 ### Authorization
 
@@ -369,7 +369,7 @@ public class Example {
 
 <a name="deletePlayer"></a>
 # **deletePlayer**
-> InlineResponse2001 deletePlayer(appId, playerId)
+> InlineResponse2007 deletePlayer(appId, playerId)
 
 Delete a user record
 
@@ -398,7 +398,7 @@ public class Example {
     String appId = "appId_example"; // String | The OneSignal App ID for your app.  Available in Keys & IDs.
     String playerId = "playerId_example"; // String | The OneSignal player_id
     try {
-      InlineResponse2001 result = apiInstance.deletePlayer(appId, playerId);
+      InlineResponse2007 result = apiInstance.deletePlayer(appId, playerId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling DefaultApi#deletePlayer");
@@ -420,7 +420,7 @@ public class Example {
 
 ### Return type
 
-[**InlineResponse2001**](InlineResponse2001.md)
+[**InlineResponse2007**](InlineResponse2007.md)
 
 ### Authorization
 
@@ -440,7 +440,7 @@ public class Example {
 
 <a name="deleteSegments"></a>
 # **deleteSegments**
-> InlineResponse2003 deleteSegments(appId, segmentId)
+> InlineResponse2001 deleteSegments(appId, segmentId)
 
 Delete Segments
 
@@ -469,7 +469,7 @@ public class Example {
     String appId = "appId_example"; // String | The OneSignal App ID for your app.  Available in Keys & IDs.
     String segmentId = "segmentId_example"; // String | The segment_id can be found in the URL of the segment when viewing it in the dashboard.
     try {
-      InlineResponse2003 result = apiInstance.deleteSegments(appId, segmentId);
+      InlineResponse2001 result = apiInstance.deleteSegments(appId, segmentId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling DefaultApi#deleteSegments");
@@ -491,7 +491,7 @@ public class Example {
 
 ### Return type
 
-[**InlineResponse2003**](InlineResponse2003.md)
+[**InlineResponse2001**](InlineResponse2001.md)
 
 ### Authorization
 
@@ -511,7 +511,7 @@ public class Example {
 
 <a name="exportPlayers"></a>
 # **exportPlayers**
-> InlineResponse2005 exportPlayers(appId, exportPlayersRequestBody)
+> InlineResponse2008 exportPlayers(appId, exportPlayersRequestBody)
 
 CSV export
 
@@ -540,7 +540,7 @@ public class Example {
     String appId = "appId_example"; // String | The app ID that you want to export devices from
     ExportPlayersRequestBody exportPlayersRequestBody = new ExportPlayersRequestBody(); // ExportPlayersRequestBody | 
     try {
-      InlineResponse2005 result = apiInstance.exportPlayers(appId, exportPlayersRequestBody);
+      InlineResponse2008 result = apiInstance.exportPlayers(appId, exportPlayersRequestBody);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling DefaultApi#exportPlayers");
@@ -562,7 +562,7 @@ public class Example {
 
 ### Return type
 
-[**InlineResponse2005**](InlineResponse2005.md)
+[**InlineResponse2008**](InlineResponse2008.md)
 
 ### Authorization
 
@@ -648,7 +648,7 @@ public class Example {
 
 <a name="getApps"></a>
 # **getApps**
-> String getApps()
+> List&lt;App&gt; getApps()
 
 View apps
 
@@ -675,7 +675,7 @@ public class Example {
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
     try {
-      String result = apiInstance.getApps();
+      List<App> result = apiInstance.getApps();
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling DefaultApi#getApps");
@@ -693,7 +693,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-**String**
+[**List&lt;App&gt;**](App.md)
 
 ### Authorization
 
@@ -711,7 +711,7 @@ This endpoint does not need any parameter.
 
 <a name="getNotification"></a>
 # **getNotification**
-> Notification getNotification(appId, notificationId)
+> NotificationWithMeta getNotification(appId, notificationId)
 
 View notification
 
@@ -740,7 +740,7 @@ public class Example {
     String appId = "appId_example"; // String | 
     String notificationId = "notificationId_example"; // String | 
     try {
-      Notification result = apiInstance.getNotification(appId, notificationId);
+      NotificationWithMeta result = apiInstance.getNotification(appId, notificationId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling DefaultApi#getNotification");
@@ -762,7 +762,7 @@ public class Example {
 
 ### Return type
 
-[**Notification**](Notification.md)
+[**NotificationWithMeta**](NotificationWithMeta.md)
 
 ### Authorization
 
@@ -877,7 +877,7 @@ public class Example {
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
     String appId = "appId_example"; // String | The app ID that you want to view notifications from
-    String limit = "limit_example"; // String | How many notifications to return.  Max is 50.  Default is 50.
+    Integer limit = 56; // Integer | How many notifications to return.  Max is 50.  Default is 50.
     Integer offset = 56; // Integer | Page offset.  Default is 0.  Results are sorted by queued_at in descending order.  queued_at is a representation of the time that the notification was queued at.
     Integer kind = 0; // Integer | Kind of notifications returned:   * unset - All notification types (default)   * `0` - Dashboard only   * `1` - API only   * `3` - Automated only 
     try {
@@ -899,7 +899,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **appId** | **String**| The app ID that you want to view notifications from | |
-| **limit** | **String**| How many notifications to return.  Max is 50.  Default is 50. | [optional] |
+| **limit** | **Integer**| How many notifications to return.  Max is 50.  Default is 50. | [optional] |
 | **offset** | **Integer**| Page offset.  Default is 0.  Results are sorted by queued_at in descending order.  queued_at is a representation of the time that the notification was queued at. | [optional] |
 | **kind** | **Integer**| Kind of notifications returned:   * unset - All notification types (default)   * &#x60;0&#x60; - Dashboard only   * &#x60;1&#x60; - API only   * &#x60;3&#x60; - Automated only  | [optional] [enum: 0, 1, 3] |
 
@@ -1098,7 +1098,7 @@ public class Example {
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
     String appId = "appId_example"; // String | The app ID that you want to view players from
-    String limit = "limit_example"; // String | How many devices to return. Max is 300. Default is 300
+    Integer limit = 56; // Integer | How many devices to return. Max is 300. Default is 300
     Integer offset = 56; // Integer | Result offset. Default is 0. Results are sorted by id;
     try {
       PlayerSlice result = apiInstance.getPlayers(appId, limit, offset);
@@ -1119,7 +1119,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **appId** | **String**| The app ID that you want to view players from | |
-| **limit** | **String**| How many devices to return. Max is 300. Default is 300 | [optional] |
+| **limit** | **Integer**| How many devices to return. Max is 300. Default is 300 | [optional] |
 | **offset** | **Integer**| Result offset. Default is 0. Results are sorted by id; | [optional] |
 
 ### Return type
@@ -1280,7 +1280,7 @@ public class Example {
 
 <a name="updatePlayerTags"></a>
 # **updatePlayerTags**
-> InlineResponse2003 updatePlayerTags(appId, externalUserId, updatePlayerTagsRequestBody)
+> InlineResponse2001 updatePlayerTags(appId, externalUserId, updatePlayerTagsRequestBody)
 
 Edit tags with external user id
 
@@ -1310,7 +1310,7 @@ public class Example {
     String externalUserId = "externalUserId_example"; // String | The External User ID mapped to teh device record in OneSignal.  Must be actively set on the device to be updated.
     UpdatePlayerTagsRequestBody updatePlayerTagsRequestBody = new UpdatePlayerTagsRequestBody(); // UpdatePlayerTagsRequestBody | 
     try {
-      InlineResponse2003 result = apiInstance.updatePlayerTags(appId, externalUserId, updatePlayerTagsRequestBody);
+      InlineResponse2001 result = apiInstance.updatePlayerTags(appId, externalUserId, updatePlayerTagsRequestBody);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling DefaultApi#updatePlayerTags");
@@ -1333,7 +1333,7 @@ public class Example {
 
 ### Return type
 
-[**InlineResponse2003**](InlineResponse2003.md)
+[**InlineResponse2001**](InlineResponse2001.md)
 
 ### Authorization
 

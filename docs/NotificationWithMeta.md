@@ -1,6 +1,6 @@
 
 
-# Notification
+# NotificationWithMeta
 
 
 ## Properties
@@ -99,13 +99,13 @@
 |**collapseId** | **String** | Channel: Push Notifications Platform: iOS 10+, Android Only one notification with the same id will be shown on the device. Use the same id to update an existing notification instead of showing a new one. Limit of 64 characters.  |  [optional] |
 |**webPushTopic** | **String** | Channel: Push Notifications Platform: All Browsers Display multiple notifications at once with different topics.  |  [optional] |
 |**apnsAlert** | **Object** | Channel: Push Notifications Platform: iOS 10+ iOS can localize push notification messages on the client using special parameters such as loc-key. When using the Create Notification endpoint, you must include these parameters inside of a field called apns_alert. Please see Apple&#39;s guide on localizing push notifications to learn more.  |  [optional] |
-|**sendAfter** | **OffsetDateTime** | Channel: All Schedule notification for future delivery. API defaults to UTC -1100 Examples: All examples are the exact same date &amp; time. \&quot;Thu Sep 24 2015 14:00:00 GMT-0700 (PDT)\&quot; \&quot;September 24th 2015, 2:00:00 pm UTC-07:00\&quot; \&quot;2015-09-24 14:00:00 GMT-0700\&quot; \&quot;Sept 24 2015 14:00:00 GMT-0700\&quot; \&quot;Thu Sep 24 2015 14:00:00 GMT-0700 (Pacific Daylight Time)\&quot; Note: SMS currently only supports send_after parameter.  |  [optional] |
+|**sendAfter** | **Long** | Unix timestamp indicating when notification delivery should begin. |  [optional] |
 |**delayedOption** | **String** | Channel: All Possible values are: timezone (Deliver at a specific time-of-day in each users own timezone) last-active Same as Intelligent Delivery . (Deliver at the same time of day as each user last used your app). If send_after is used, this takes effect after the send_after time has elapsed.  |  [optional] |
 |**deliveryTimeOfDay** | **String** | Channel: All Use with delayed_option&#x3D;timezone. Examples: \&quot;9:00AM\&quot; \&quot;21:45\&quot; \&quot;9:45:30\&quot;  |  [optional] |
 |**ttl** | **Integer** | Channel: Push Notifications Platform: iOS, Android, Chrome, Firefox, Safari, ChromeWeb Time To Live - In seconds. The notification will be expired if the device does not come back online within this time. The default is 259,200 seconds (3 days). Max value to set is 2419200 seconds (28 days).  |  [optional] |
 |**priority** | **Integer** | Channel: Push Notifications Platform: Android, Chrome, ChromeWeb Delivery priority through the push server (example GCM/FCM). Pass 10 for high priority or any other integer for normal priority. Defaults to normal priority for Android and high for iOS. For Android 6.0+ devices setting priority to high will wake the device out of doze mode.  |  [optional] |
 |**apnsPushTypeOverride** | **String** | Channel: Push Notifications Platform: iOS valid values: voip Set the value to voip for sending VoIP Notifications This field maps to the APNS header apns-push-type. Note: alert and background are automatically set by OneSignal  |  [optional] |
-|**throttleRatePerMinute** | **String** | Channel: All Apps with throttling enabled:   - the parameter value will be used to override the default application throttling value set from the dashboard settings.   - parameter value 0 indicates not to apply throttling to the notification.   - if the parameter is not passed then the default app throttling value will be applied to the notification. Apps with throttling disabled:   - this parameter can be used to throttle delivery for the notification even though throttling is not enabled at the application level. Refer to throttling for more details.  |  [optional] |
+|**throttleRatePerMinute** | **Integer** | number of push notifications sent per minute. Paid Feature Only. If throttling is not enabled for the app or the notification, and for free accounts, null is returned. Refer to Throttling for more details. |  [optional] |
 |**androidGroup** | **String** | Channel: Push Notifications Platform: Android Notifications with the same group will be stacked together using Android&#39;s Notification Grouping feature.  |  [optional] |
 |**androidGroupMessage** | **String** | Channel: Push Notifications Platform: Android Note: This only works for Android 6 and older. Android 7+ allows full expansion of all message. Summary message to display when 2+ notifications are stacked together. Default is \&quot;# new messages\&quot;. Include $[notif_count] in your message and it will be replaced with the current number. Languages - The value of each key is the message that will be sent to users for that language. \&quot;en\&quot; (English) is required. The key of each hash is either a a 2 character language code or one of zh-Hans/zh-Hant for Simplified or Traditional Chinese. Read more: supported languages. Example: {\&quot;en\&quot;: \&quot;You have $[notif_count] new messages\&quot;}  |  [optional] |
 |**admGroup** | **String** | Channel: Push Notifications Platform: Amazon Notifications with the same group will be stacked together using Android&#39;s Notification Grouping feature.  |  [optional] |
@@ -119,6 +119,16 @@
 |**emailFromAddress** | **String** | Channel: Email The email address the email is from. If not specified, will default to \&quot;from email\&quot; set in the OneSignal Dashboard Email Settings.  |  [optional] |
 |**smsFrom** | **String** | Channel: SMS Phone Number used to send SMS. Should be a registered Twilio phone number in E.164 format.  |  [optional] |
 |**smsMediaUrls** | **List&lt;String&gt;** | Channel: SMS URLs for the media files to be attached to the SMS content. Limit: 10 media urls with a total max. size of 5MBs.  |  [optional] |
+|**successful** | **Integer** | Number of notifications that were successfully delivered. |  [optional] |
+|**failed** | **Integer** | Number of notifications that could not be delivered due to those devices being unsubscribed. |  [optional] |
+|**errored** | **Integer** | Number of notifications that could not be delivered due to an error. You can find more information by viewing the notification in the dashboard. |  [optional] |
+|**converted** | **Integer** | Number of users who have clicked / tapped on your notification. |  [optional] |
+|**received** | **Integer** | Confirmed Deliveries number of devices that received the push notification. Paid Feature Only. Free accounts will see 0. |  [optional] |
+|**outcomes** | [**List&lt;OutcomeData&gt;**](OutcomeData.md) |  |  [optional] |
+|**remaining** | **Integer** | Number of notifications that have not been sent out yet. This can mean either our system is still processing the notification or you have delayed options set. |  [optional] |
+|**queuedAt** | **Long** | Unix timestamp indicating when the notification was created. |  [optional] |
+|**completedAt** | **Long** | Unix timestamp indicating when notification delivery completed. The delivery duration from start to finish can be calculated with completed_at - send_after. |  [optional] |
+|**platformDeliveryStats** | [**PlatformDeliveryData**](PlatformDeliveryData.md) |  |  [optional] |
 
 
 
