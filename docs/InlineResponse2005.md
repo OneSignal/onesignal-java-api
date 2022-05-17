@@ -7,7 +7,8 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**csvFileUrl** | **String** |  |  [optional] |
+|**success** | **Boolean** |  |  [optional] |
+|**id** | **String** |  |  [optional] |
 
 
 

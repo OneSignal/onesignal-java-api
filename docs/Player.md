@@ -9,7 +9,7 @@
 |------------ | ------------- | ------------- | -------------|
 |**id** | **String** | The device&#39;s OneSignal ID |  [readonly] |
 |**invalidIdentifier** | **Boolean** | If true, this is the equivalent of a user being Unsubscribed |  [optional] [readonly] |
-|**appId** | **String** |  |  |
+|**appId** | **String** |  |  [optional] |
 |**deviceType** | **Integer** | Required The device&#39;s platform:   0 &#x3D; iOS   1 &#x3D; Android   2 &#x3D; Amazon   3 &#x3D; WindowsPhone (MPNS)   4 &#x3D; Chrome Apps / Extensions   5 &#x3D; Chrome Web Push   6 &#x3D; Windows (WNS)   7 &#x3D; Safari   8 &#x3D; Firefox   9 &#x3D; MacOS   10 &#x3D; Alexa   11 &#x3D; Email   13 &#x3D; For Huawei App Gallery Builds SDK Setup. Not for Huawei Devices using FCM   14 &#x3D; SMS  |  |
 |**externalUserId** | **String** | a custom user ID |  [optional] |
 |**externalUserIdAuthHash** | **String** | Only required if you have enabled Identity Verification and device_type is NOT 11 email. |  [optional] |
@@ -25,8 +25,8 @@
 |**sessionCount** | **Integer** | Number of times the user has played the game, defaults to 1 |  [optional] |
 |**tags** | **Object** | Custom tags for the player. Only support string and integer key value pairs. Does not support arrays or other nested objects. Setting a tag value to null or an empty string will remove the tag. Example: {\&quot;foo\&quot;:\&quot;bar\&quot;,\&quot;this\&quot;:\&quot;that\&quot;} Limitations: - 100 tags per call - Android SDK users: tags cannot be removed or changed via API if set through SDK sendTag methods. Recommended to only tag devices with 1 kilobyte of data Please consider using your own Database to save more than 1 kilobyte of data. See: Internal Database &amp; CRM  |  [optional] |
 |**amountSpent** | **String** | Amount the user has spent in USD, up to two decimal places |  [optional] |
-|**createdAt** | **Integer** | Unixtime when the player joined the game |  [optional] |
-|**playtime** | **Integer** | Seconds player was running your app. |  [optional] |
+|**createdAt** | **Long** | Unixtime when the player joined the game |  [optional] |
+|**playtime** | **Long** | Seconds player was running your app. |  [optional] |
 |**badgeCount** | **Integer** | Current iOS badge count displayed on the app icon NOTE: Not supported for apps created after June 2018, since badge count for apps created after this date are handled on the client.  |  [optional] |
 |**lastActive** | **Integer** | Unixtime when the player was last active |  [optional] |
 |**notificationTypes** | **Integer** | 1 &#x3D; subscribed -2 &#x3D; unsubscribed iOS - These values are set each time the user opens the app from the SDK. Use the SDK function set Subscription instead. Android - You may set this but you can no longer use the SDK method setSubscription later in your app as it will create synchronization issues.  |  [optional] |

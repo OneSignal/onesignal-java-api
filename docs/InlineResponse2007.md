@@ -1,13 +1,13 @@
 
 
-# InlineResponse2003
+# InlineResponse2007
 
 
 ## Properties
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**success** | **Boolean** |  |  [optional] |
+|**success** | **String** |  |  [optional] |
 
 
 

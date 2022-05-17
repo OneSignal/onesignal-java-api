@@ -8,7 +8,7 @@ info:
     customer engagement strategies. Learn more at onesignal.com
   termsOfService: https://onesignal.com/tos
   title: OneSignal
-  version: 1.0.2
+  version: 1.0.1
 servers:
 - url: https://onesignal.com/api/v1
 paths:
@@ -31,7 +31,7 @@ paths:
         name: limit
         required: false
         schema:
-          type: string
+          type: integer
         style: form
       - description: Page offset.  Default is 0.  Results are sorted by queued_at
           in descending order.  queued_at is a representation of the time that the
@@ -160,60 +160,7 @@ paths:
           content:
             application/json:
               schema:
-                allOf:
-                - $ref: '#/components/schemas/Notification'
-                - $ref: '#/components/schemas/DeliveryData'
-                - $ref: '#/components/schemas/OutcomesData'
-                - properties:
-                    remaining:
-                      description: Number of notifications that have not been sent
-                        out yet. This can mean either our system is still processing
-                        the notification or you have delayed options set.
-                      type: integer
-                    successful:
-                      description: Number of notifications that were successfully
-                        delivered.
-                      type: integer
-                    failed:
-                      description: Number of notifications that could not be delivered
-                        due to those devices being unsubscribed.
-                      type: integer
-                    errored:
-                      description: Number of notifications that could not be delivered
-                        due to an error. You can find more information by viewing
-                        the notification in the dashboard.
-                      type: integer
-                    converted:
-                      description: Number of users who have clicked / tapped on your
-                        notification.
-                      type: integer
-                    queued_at:
-                      description: Unix timestamp indicating when the notification
-                        was created.
-                      type: integer
-                    send_after:
-                      description: Unix timestamp indicating when notification delivery
-                        should begin.
-                      type: integer
-                    completed_at:
-                      description: Unix timestamp indicating when notification delivery
-                        completed. The delivery duration from start to finish can
-                        be calculated with completed_at - send_after.
-                      type: integer
-                    platform_delivery_stats:
-                      $ref: '#/components/schemas/PlatformDeliveryData'
-                    received:
-                      description: Confirmed Deliveries number of devices that received
-                        the push notification. Paid Feature Only. Free accounts will
-                        see 0.
-                      type: integer
-                    throttle_rate_per_minute:
-                      description: "number of push notifications sent per minute.\
-                        \ Paid Feature Only. If throttling is not enabled for the\
-                        \ app or the notification, and for free accounts, null is\
-                        \ returned. Refer to Throttling for more details."
-                      type: integer
-                  type: object
+                $ref: '#/components/schemas/NotificationWithMeta'
           description: OK
       security:
       - app_key: []
@@ -228,7 +175,7 @@ paths:
           content:
             application/json:
               schema:
-                type: string
+                $ref: '#/components/schemas/Apps'
           description: OK
       security:
       - user_key: []
@@ -442,7 +389,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_200_3'
+                $ref: '#/components/schemas/inline_response_200_1'
           description: OK
       security:
       - app_key: []
@@ -530,7 +477,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_200_3'
+                $ref: '#/components/schemas/inline_response_200_1'
           description: OK
         "400":
           content:
@@ -542,7 +489,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_200_3'
+                $ref: '#/components/schemas/inline_response_200_1'
           description: Not Found
       security:
       - app_key: []
@@ -652,7 +599,7 @@ paths:
         name: limit
         required: false
         schema:
-          type: string
+          type: integer
         style: form
       - description: Result offset. Default is 0. Results are sorted by id;
         explode: true
@@ -700,7 +647,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_200_4'
+                $ref: '#/components/schemas/inline_response_200_5'
           description: OK
       security:
       - app_key: []
@@ -734,7 +681,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_200_1'
+                $ref: '#/components/schemas/inline_response_200_7'
           description: OK
         "400":
           content:
@@ -746,7 +693,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_200_1'
+                $ref: '#/components/schemas/inline_response_200_7'
           description: Not Found
       security:
       - app_key: []
@@ -904,7 +851,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_200_5'
+                $ref: '#/components/schemas/inline_response_200_8'
           description: OK
         "400":
           content:
@@ -1279,6 +1226,12 @@ components:
       - $ref: '#/components/schemas/Notification_allOf'
       - required:
         - app_id
+    NotificationWithMeta:
+      allOf:
+      - $ref: '#/components/schemas/Notification'
+      - $ref: '#/components/schemas/DeliveryData'
+      - $ref: '#/components/schemas/OutcomesData'
+      - $ref: '#/components/schemas/NotificationWithMeta_allOf'
     Button:
       properties:
         id:
@@ -1425,13 +1378,7 @@ components:
         vi:
           description: Text in Vietnamese.
           type: string
-      required:
-      - en
       type: object
-    Notifications:
-      items:
-        $ref: '#/components/schemas/Notification'
-      type: array
     NotificationSlice:
       example:
         offset: 6
@@ -1449,7 +1396,7 @@ components:
           type: integer
         notifications:
           items:
-            $ref: '#/components/schemas/Notification'
+            $ref: '#/components/schemas/NotificationWithMeta'
           type: array
       type: object
     PlatformDeliveryData:
@@ -1471,14 +1418,19 @@ components:
     DeliveryData:
       properties:
         successful:
+          nullable: true
           type: integer
         failed:
+          nullable: true
           type: integer
         errored:
+          nullable: true
           type: integer
         converted:
+          nullable: true
           type: integer
         received:
+          nullable: true
           type: integer
       type: object
     Purchase:
@@ -1685,6 +1637,7 @@ components:
           type: string
         timezone:
           description: "Number of seconds away from UTC. Example: -28800\n"
+          nullable: true
           type: integer
         game_version:
           description: "Version of your app. Example: 1.1\n"
@@ -1726,9 +1679,11 @@ components:
           type: string
         created_at:
           description: Unixtime when the player joined the game
+          format: int64
           type: integer
         playtime:
           description: Seconds player was running your app.
+          format: int64
           type: integer
         badge_count:
           description: "Current iOS badge count displayed on the app icon\nNOTE: Not\
@@ -1751,6 +1706,7 @@ components:
             1 = Development
             2 = Ad-Hoc
             Omit this field for App Store builds.
+          nullable: true
           type: integer
         long:
           description: "Longitude of the device, used for geotagging to segment on."
@@ -1762,7 +1718,6 @@ components:
           description: Country code in the ISO 3166-1 Alpha 2 format
           type: string
       required:
-      - app_id
       - device_type
       - id
       type: object
@@ -1860,6 +1815,7 @@ components:
       description: |
         Returned if no subscribed players.
       items:
+        format: string
         type: string
       type: array
     Notification200Errors:
@@ -1895,10 +1851,10 @@ components:
       type: object
     inline_response_200_1:
       example:
-        success: success
+        success: true
       properties:
         success:
-          type: string
+          type: boolean
       type: object
     get_notification_request_body:
       properties:
@@ -1923,11 +1879,11 @@ components:
       type: object
     inline_response_200_2:
       example:
-        success: success
+        success: true
         destination_url: destination_url
       properties:
         success:
-          type: string
+          type: boolean
         destination_url:
           type: string
       type: object
@@ -1952,13 +1908,6 @@ components:
             \ more than 1 kilobyte of data.  See: Internal Database & CRM\n"
           type: object
       title: update_player_tags_request_body
-      type: object
-    inline_response_200_3:
-      example:
-        success: true
-      properties:
-        success:
-          type: boolean
       type: object
     inline_response_201:
       example:
@@ -1987,7 +1936,7 @@ components:
             type: string
           type: array
       type: object
-    inline_response_200_4:
+    inline_response_200_5:
       example:
         success: true
         id: id
@@ -1995,6 +1944,13 @@ components:
         success:
           type: boolean
         id:
+          type: string
+      type: object
+    inline_response_200_7:
+      example:
+        success: success
+      properties:
+        success:
           type: string
       type: object
     export_players_request_body:
@@ -2015,7 +1971,7 @@ components:
           type: string
       title: export_players_request_body
       type: object
-    inline_response_200_5:
+    inline_response_200_8:
       example:
         csv_file_url: csv_file_url
       properties:
@@ -2055,16 +2011,19 @@ components:
           default: true
           description: Indicates whether to send to all devices registered under your
             app's Apple iOS platform.
+          nullable: true
           type: boolean
           writeOnly: true
         isAndroid:
           description: Indicates whether to send to all devices registered under your
             app's Google Android platform.
+          nullable: true
           type: boolean
           writeOnly: true
         isHuawei:
           description: Indicates whether to send to all devices registered under your
             app's Huawei Android platform.
+          nullable: true
           type: boolean
           writeOnly: true
         isAnyWeb:
@@ -2072,39 +2031,46 @@ components:
             \ including Chrome, Firefox, and Safari.\nYou may use this instead as\
             \ a combined flag instead of separately enabling isChromeWeb, isFirefox,\
             \ and isSafari, though the three options are equivalent to this one.\n"
+          nullable: true
           type: boolean
           writeOnly: true
         isChromeWeb:
           description: "Indicates whether to send to all Google Chrome, Chrome on\
             \ Android, and Mozilla Firefox users registered under your Chrome & Firefox\
             \ web push platform."
+          nullable: true
           type: boolean
           writeOnly: true
         isFirefox:
           description: Indicates whether to send to all Mozilla Firefox desktop users
             registered under your Firefox web push platform.
+          nullable: true
           type: boolean
           writeOnly: true
         isSafari:
           description: Does not support iOS Safari. Indicates whether to send to all
             Apple's Safari desktop users registered under your Safari web push platform.
             Read more iOS Safari
+          nullable: true
           type: boolean
           writeOnly: true
         isWP_WNS:
           description: Indicates whether to send to all devices registered under your
             app's Windows platform.
+          nullable: true
           type: boolean
           writeOnly: true
         isAdm:
           description: Indicates whether to send to all devices registered under your
             app's Amazon Fire platform.
+          nullable: true
           type: boolean
           writeOnly: true
         isChrome:
           description: |
             This flag is not used for web push Please see isChromeWeb for sending to web push users. This flag only applies to Google Chrome Apps & Extensions.
             Indicates whether to send to all devices registered under your app's Google Chrome Apps & Extension platform.
+          nullable: true
           type: boolean
           writeOnly: true
         channel_for_external_user_ids:
@@ -2214,6 +2180,7 @@ components:
             \ this as content-available=1). Note: Not applicable if the app is in\
             \ the \"force-quit\" state (i.e app was swiped away). Omit the contents\
             \ field to prevent displaying a visible notification.\n"
+          nullable: true
           type: boolean
           writeOnly: true
         mutable_content:
@@ -2460,6 +2427,7 @@ components:
             \ if the user set \"Hide sensitive notification content\" in the system\
             \ settings)\n-1 = Secret (Notification does not show on the lock screen\
             \ at all)\n"
+          nullable: true
           type: integer
           writeOnly: true
         huawei_visibility:
@@ -2473,6 +2441,7 @@ components:
             \ if the user set \"Hide sensitive notification content\" in the system\
             \ settings)\n-1 = Secret (Notification does not show on the lock screen\
             \ at all)\n"
+          nullable: true
           type: integer
           writeOnly: true
         ios_badgeType:
@@ -2490,6 +2459,7 @@ components:
             \ describes the value to set or amount to increase/decrease your app's\
             \ iOS badge count by.\nYou can use a negative number to decrease the badge\
             \ count when used with an ios_badgeType of Increase.\n"
+          nullable: true
           type: integer
           writeOnly: true
         collapse_id:
@@ -2518,6 +2488,7 @@ components:
             \ 2015, 2:00:00 pm UTC-07:00\"\n\"2015-09-24 14:00:00 GMT-0700\"\n\"Sept\
             \ 24 2015 14:00:00 GMT-0700\"\n\"Thu Sep 24 2015 14:00:00 GMT-0700 (Pacific\
             \ Daylight Time)\"\nNote: SMS currently only supports send_after parameter.\n"
+          format: date-time
           type: string
           writeOnly: true
         delayed_option:
@@ -2539,6 +2510,7 @@ components:
             \ will be expired if the device does not come back online within this\
             \ time. The default is 259,200 seconds (3 days).\nMax value to set is\
             \ 2419200 seconds (28 days).\n"
+          nullable: true
           type: integer
           writeOnly: true
         priority:
@@ -2547,6 +2519,7 @@ components:
             \ high priority or any other integer for normal priority. Defaults to\
             \ normal priority for Android and high for iOS. For Android 6.0+ devices\
             \ setting priority to high will wake the device out of doze mode.\n"
+          nullable: true
           type: integer
           writeOnly: true
         apns_push_type_override:
@@ -2629,7 +2602,7 @@ components:
             \ summary_arg\"\n"
           type: integer
           writeOnly: true
-        email_subect:
+        email_subject:
           description: "Channel: Email\nRequired.  The subject of the email.\n"
           type: string
           writeOnly: true
@@ -2664,6 +2637,59 @@ components:
             type: string
           type: array
           writeOnly: true
+      type: object
+    NotificationWithMeta_allOf:
+      properties:
+        remaining:
+          description: Number of notifications that have not been sent out yet. This
+            can mean either our system is still processing the notification or you
+            have delayed options set.
+          type: integer
+        successful:
+          description: Number of notifications that were successfully delivered.
+          type: integer
+        failed:
+          description: Number of notifications that could not be delivered due to
+            those devices being unsubscribed.
+          type: integer
+        errored:
+          description: Number of notifications that could not be delivered due to
+            an error. You can find more information by viewing the notification in
+            the dashboard.
+          type: integer
+        converted:
+          description: Number of users who have clicked / tapped on your notification.
+          type: integer
+        queued_at:
+          description: Unix timestamp indicating when the notification was created.
+          format: int64
+          type: integer
+        send_after:
+          description: Unix timestamp indicating when notification delivery should
+            begin.
+          format: int64
+          type: integer
+        completed_at:
+          description: Unix timestamp indicating when notification delivery completed.
+            The delivery duration from start to finish can be calculated with completed_at
+            - send_after.
+          format: int64
+          nullable: true
+          type: integer
+        platform_delivery_stats:
+          $ref: '#/components/schemas/PlatformDeliveryData'
+        received:
+          description: Confirmed Deliveries number of devices that received the push
+            notification. Paid Feature Only. Free accounts will see 0.
+          nullable: true
+          type: integer
+        throttle_rate_per_minute:
+          description: "number of push notifications sent per minute. Paid Feature\
+            \ Only. If throttling is not enabled for the app or the notification,\
+            \ and for free accounts, null is returned. Refer to Throttling for more\
+            \ details."
+          nullable: true
+          type: integer
       type: object
   securitySchemes:
     app_key:
