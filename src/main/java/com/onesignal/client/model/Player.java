@@ -50,7 +50,7 @@ import com.onesignal.client.JSON;
 /**
  * Player
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-05-18T21:16:00.973Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T17:51:27.173Z[Etc/UTC]")
 public class Player {
   private static final long serialVersionUID = 1L;
 
@@ -124,7 +124,7 @@ public class Player {
 
   public static final String SERIALIZED_NAME_AMOUNT_SPENT = "amount_spent";
   @SerializedName(SERIALIZED_NAME_AMOUNT_SPENT)
-  private String amountSpent;
+  private BigDecimal amountSpent;
 
   public static final String SERIALIZED_NAME_CREATED_AT = "created_at";
   @SerializedName(SERIALIZED_NAME_CREATED_AT)
@@ -548,7 +548,7 @@ public class Player {
   }
 
 
-  public Player amountSpent(String amountSpent) {
+  public Player amountSpent(BigDecimal amountSpent) {
     
     this.amountSpent = amountSpent;
     return this;
@@ -561,12 +561,12 @@ public class Player {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Amount the user has spent in USD, up to two decimal places")
 
-  public String getAmountSpent() {
+  public BigDecimal getAmountSpent() {
     return amountSpent;
   }
 
 
-  public void setAmountSpent(String amountSpent) {
+  public void setAmountSpent(BigDecimal amountSpent) {
     this.amountSpent = amountSpent;
   }
 

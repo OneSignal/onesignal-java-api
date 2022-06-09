@@ -49,7 +49,7 @@ import com.onesignal.client.JSON;
 /**
  * Purchase
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-05-18T21:16:00.973Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T17:51:27.173Z[Etc/UTC]")
 public class Purchase {
   private static final long serialVersionUID = 1L;
 

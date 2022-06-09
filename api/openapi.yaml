@@ -1559,29 +1559,29 @@ components:
         external_user_id_auth_hash: external_user_id_auth_hash
         device_model: device_model
         timezone: 5
-        created_at: 7
+        created_at: 9
         device_type: 5
         language: language
-        playtime: 9
-        long: 1.2315135367772556
-        amount_spent: amount_spent
+        playtime: 3
+        long: 1.0246457001441578
+        amount_spent: 7.061401241503109
         id: id
         app_id: app_id
-        lat: 1.0246457001441578
+        lat: 1.4894159098541704
         identifier: identifier
         game_version: game_version
-        notification_types: 4
+        notification_types: 7
         device_os: device_os
         email_auth_hash: email_auth_hash
-        test_type: 7
+        test_type: 1
         external_user_id: external_user_id
         tags: "{}"
         ad_id: ad_id
         session_count: 2
         sdk: sdk
-        last_active: 2
+        last_active: 4
         invalid_identifier: true
-        badge_count: 3
+        badge_count: 2
       properties:
         id:
           description: The device's OneSignal ID
@@ -1676,7 +1676,7 @@ components:
           type: object
         amount_spent:
           description: "Amount the user has spent in USD, up to two decimal places"
-          type: string
+          type: number
         created_at:
           description: Unixtime when the player joined the game
           format: int64
@@ -1734,56 +1734,56 @@ components:
           external_user_id_auth_hash: external_user_id_auth_hash
           device_model: device_model
           timezone: 5
-          created_at: 7
+          created_at: 9
           device_type: 5
           language: language
-          playtime: 9
-          long: 1.2315135367772556
-          amount_spent: amount_spent
+          playtime: 3
+          long: 1.0246457001441578
+          amount_spent: 7.061401241503109
           id: id
           app_id: app_id
-          lat: 1.0246457001441578
+          lat: 1.4894159098541704
           identifier: identifier
           game_version: game_version
-          notification_types: 4
+          notification_types: 7
           device_os: device_os
           email_auth_hash: email_auth_hash
-          test_type: 7
+          test_type: 1
           external_user_id: external_user_id
           tags: "{}"
           ad_id: ad_id
           session_count: 2
           sdk: sdk
-          last_active: 2
+          last_active: 4
           invalid_identifier: true
-          badge_count: 3
+          badge_count: 2
         - country: country
           external_user_id_auth_hash: external_user_id_auth_hash
           device_model: device_model
           timezone: 5
-          created_at: 7
+          created_at: 9
           device_type: 5
           language: language
-          playtime: 9
-          long: 1.2315135367772556
-          amount_spent: amount_spent
+          playtime: 3
+          long: 1.0246457001441578
+          amount_spent: 7.061401241503109
           id: id
           app_id: app_id
-          lat: 1.0246457001441578
+          lat: 1.4894159098541704
           identifier: identifier
           game_version: game_version
-          notification_types: 4
+          notification_types: 7
           device_os: device_os
           email_auth_hash: email_auth_hash
-          test_type: 7
+          test_type: 1
           external_user_id: external_user_id
           tags: "{}"
           ad_id: ad_id
           session_count: 2
           sdk: sdk
-          last_active: 2
+          last_active: 4
           invalid_identifier: true
-          badge_count: 3
+          badge_count: 2
         limit: 1
       properties:
         total_count:
