@@ -134,7 +134,7 @@ public class DefaultApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         // Adds client sdk version header
-        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, name=onesignal-java, version=1.0.1");
+        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=1.0.1");
 
         if (appId != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("app_id", appId));
@@ -275,7 +275,7 @@ public class DefaultApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         // Adds client sdk version header
-        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, name=onesignal-java, version=1.0.1");
+        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=1.0.1");
 
         final String[] localVarAccepts = {
             "application/json"
@@ -405,7 +405,7 @@ public class DefaultApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         // Adds client sdk version header
-        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, name=onesignal-java, version=1.0.1");
+        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=1.0.1");
 
         final String[] localVarAccepts = {
             "application/json"
@@ -537,7 +537,7 @@ public class DefaultApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         // Adds client sdk version header
-        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, name=onesignal-java, version=1.0.1");
+        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=1.0.1");
 
         final String[] localVarAccepts = {
             "application/json"
@@ -670,7 +670,7 @@ public class DefaultApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         // Adds client sdk version header
-        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, name=onesignal-java, version=1.0.1");
+        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=1.0.1");
 
         final String[] localVarAccepts = {
             "application/json"
@@ -812,7 +812,7 @@ public class DefaultApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         // Adds client sdk version header
-        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, name=onesignal-java, version=1.0.1");
+        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=1.0.1");
 
         if (appId != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("app_id", appId));
@@ -964,7 +964,7 @@ public class DefaultApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         // Adds client sdk version header
-        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, name=onesignal-java, version=1.0.1");
+        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=1.0.1");
 
         final String[] localVarAccepts = {
             "application/json"
@@ -1110,7 +1110,7 @@ public class DefaultApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         // Adds client sdk version header
-        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, name=onesignal-java, version=1.0.1");
+        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=1.0.1");
 
         final String[] localVarAccepts = {
             "application/json"
@@ -1246,7 +1246,7 @@ public class DefaultApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         // Adds client sdk version header
-        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, name=onesignal-java, version=1.0.1");
+        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=1.0.1");
 
         final String[] localVarAccepts = {
             "application/json"
@@ -1374,7 +1374,7 @@ public class DefaultApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         // Adds client sdk version header
-        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, name=onesignal-java, version=1.0.1");
+        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=1.0.1");
 
         final String[] localVarAccepts = {
             "application/json"
@@ -1497,7 +1497,7 @@ public class DefaultApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         // Adds client sdk version header
-        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, name=onesignal-java, version=1.0.1");
+        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=1.0.1");
 
         if (appId != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("app_id", appId));
@@ -1641,7 +1641,7 @@ public class DefaultApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         // Adds client sdk version header
-        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, name=onesignal-java, version=1.0.1");
+        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=1.0.1");
 
         final String[] localVarAccepts = {
             "application/json"
@@ -1784,7 +1784,7 @@ public class DefaultApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         // Adds client sdk version header
-        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, name=onesignal-java, version=1.0.1");
+        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=1.0.1");
 
         if (appId != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("app_id", appId));
@@ -1944,7 +1944,7 @@ public class DefaultApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         // Adds client sdk version header
-        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, name=onesignal-java, version=1.0.1");
+        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=1.0.1");
 
         if (outcomeNames != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("outcome_names", outcomeNames));
@@ -2116,7 +2116,7 @@ public class DefaultApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         // Adds client sdk version header
-        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, name=onesignal-java, version=1.0.1");
+        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=1.0.1");
 
         if (appId != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("app_id", appId));
@@ -2266,7 +2266,7 @@ public class DefaultApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         // Adds client sdk version header
-        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, name=onesignal-java, version=1.0.1");
+        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=1.0.1");
 
         if (appId != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("app_id", appId));
@@ -2415,7 +2415,7 @@ public class DefaultApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         // Adds client sdk version header
-        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, name=onesignal-java, version=1.0.1");
+        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=1.0.1");
 
         final String[] localVarAccepts = {
             "application/json"
@@ -2554,7 +2554,7 @@ public class DefaultApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         // Adds client sdk version header
-        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, name=onesignal-java, version=1.0.1");
+        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=1.0.1");
 
         final String[] localVarAccepts = {
             "application/json"
@@ -2695,7 +2695,7 @@ public class DefaultApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         // Adds client sdk version header
-        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, name=onesignal-java, version=1.0.1");
+        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=1.0.1");
 
         final String[] localVarAccepts = {
             "application/json"

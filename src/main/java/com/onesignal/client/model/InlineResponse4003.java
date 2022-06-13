@@ -50,7 +50,7 @@ import com.onesignal.client.JSON;
 /**
  * InlineResponse4003
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-05-18T21:16:00.973Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T17:51:27.173Z[Etc/UTC]")
 public class InlineResponse4003 {
   private static final long serialVersionUID = 1L;
 
