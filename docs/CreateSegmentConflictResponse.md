@@ -1,13 +1,13 @@
 
 
-# InlineResponse4001
+# CreateSegmentConflictResponse
 
 
 ## Properties
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**success** | **String** |  |  [optional] |
+|**success** | **Boolean** |  |  [optional] |
 |**errors** | **List&lt;String&gt;** |  |  [optional] |
 
 

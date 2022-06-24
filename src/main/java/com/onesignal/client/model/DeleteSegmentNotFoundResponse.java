@@ -46,24 +46,20 @@ import java.util.Set;
 import com.onesignal.client.JSON;
 
 /**
- * InlineResponse201
+ * DeleteSegmentNotFoundResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T17:51:27.173Z[Etc/UTC]")
-public class InlineResponse201 {
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-24T20:14:48.185Z[Etc/UTC]")
+public class DeleteSegmentNotFoundResponse {
   private static final long serialVersionUID = 1L;
 
   public static final String SERIALIZED_NAME_SUCCESS = "success";
   @SerializedName(SERIALIZED_NAME_SUCCESS)
   private Boolean success;
 
-  public static final String SERIALIZED_NAME_ID = "id";
-  @SerializedName(SERIALIZED_NAME_ID)
-  private String id;
-
-  public InlineResponse201() { 
+  public DeleteSegmentNotFoundResponse() { 
   }
 
-  public InlineResponse201 success(Boolean success) {
+  public DeleteSegmentNotFoundResponse success(Boolean success) {
     
     this.success = success;
     return this;
@@ -86,29 +82,6 @@ public class InlineResponse201 {
   }
 
 
-  public InlineResponse201 id(String id) {
-    
-    this.id = id;
-    return this;
-  }
-
-   /**
-   * UUID of created segment
-   * @return id
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "UUID of created segment")
-
-  public String getId() {
-    return id;
-  }
-
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-
 
   @Override
   public boolean equals(Object o) {
@@ -118,22 +91,20 @@ public class InlineResponse201 {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    InlineResponse201 inlineResponse201 = (InlineResponse201) o;
-    return Objects.equals(this.success, inlineResponse201.success) &&
-        Objects.equals(this.id, inlineResponse201.id);
+    DeleteSegmentNotFoundResponse deleteSegmentNotFoundResponse = (DeleteSegmentNotFoundResponse) o;
+    return Objects.equals(this.success, deleteSegmentNotFoundResponse.success);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(success, id);
+    return Objects.hash(success);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class InlineResponse201 {\n");
+    sb.append("class DeleteSegmentNotFoundResponse {\n");
     sb.append("    success: ").append(toIndentedString(success)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -157,7 +128,6 @@ public class InlineResponse201 {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("success");
-    openapiFields.add("id");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -167,22 +137,22 @@ public class InlineResponse201 {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!InlineResponse201.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'InlineResponse201' and its subtypes
+       if (!DeleteSegmentNotFoundResponse.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'DeleteSegmentNotFoundResponse' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<InlineResponse201> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(InlineResponse201.class));
+       final TypeAdapter<DeleteSegmentNotFoundResponse> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(DeleteSegmentNotFoundResponse.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<InlineResponse201>() {
+       return (TypeAdapter<T>) new TypeAdapter<DeleteSegmentNotFoundResponse>() {
            @Override
-           public void write(JsonWriter out, InlineResponse201 value) throws IOException {
+           public void write(JsonWriter out, DeleteSegmentNotFoundResponse value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public InlineResponse201 read(JsonReader in) throws IOException {
+           public DeleteSegmentNotFoundResponse read(JsonReader in) throws IOException {
              JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
 
              return thisAdapter.fromJsonTree(jsonObj);
@@ -193,18 +163,18 @@ public class InlineResponse201 {
   }
 
  /**
-  * Create an instance of InlineResponse201 given an JSON string
+  * Create an instance of DeleteSegmentNotFoundResponse given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of InlineResponse201
-  * @throws IOException if the JSON string is invalid with respect to InlineResponse201
+  * @return An instance of DeleteSegmentNotFoundResponse
+  * @throws IOException if the JSON string is invalid with respect to DeleteSegmentNotFoundResponse
   */
-  public static InlineResponse201 fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, InlineResponse201.class);
+  public static DeleteSegmentNotFoundResponse fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, DeleteSegmentNotFoundResponse.class);
   }
 
  /**
-  * Convert an instance of InlineResponse201 to an JSON string
+  * Convert an instance of DeleteSegmentNotFoundResponse to an JSON string
   *
   * @return JSON string
   */

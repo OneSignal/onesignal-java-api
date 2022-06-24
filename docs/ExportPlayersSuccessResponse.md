@@ -1,14 +1,13 @@
 
 
-# InlineResponse2002
+# ExportPlayersSuccessResponse
 
 
 ## Properties
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**success** | **Boolean** |  |  [optional] |
-|**destinationUrl** | **String** |  |  [optional] |
+|**csvFileUrl** | **String** |  |  [optional] |
 
 
 

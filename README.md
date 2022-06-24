@@ -2,7 +2,7 @@
 
 OneSignal
 - API version: 1.0.1
-  - Build date: 2022-06-09T17:51:27.173Z[Etc/UTC]
+  - Build date: 2022-06-24T20:14:48.185Z[Etc/UTC]
 
 A powerful way to send personalized messages at scale and build effective customer engagement strategies. Learn more at onesignal.com
 
@@ -119,7 +119,7 @@ public class Example {
     Notification notification = createNotification();
 
     // Sending the request
-    InlineResponse200 response = api.createNotification(notification);
+    CreateNotificationSuccessResponse response = api.createNotification(notification);
 
     // Checking the result
     System.out.print(response.getId();
@@ -159,28 +159,33 @@ Class | Method | HTTP request | Description
 
  - [App](docs/App.md)
  - [Button](docs/Button.md)
+ - [CancelNotificationSuccessResponse](docs/CancelNotificationSuccessResponse.md)
+ - [CreateNotificationBadRequestResponse](docs/CreateNotificationBadRequestResponse.md)
+ - [CreateNotificationSuccessResponse](docs/CreateNotificationSuccessResponse.md)
+ - [CreatePlayerSuccessResponse](docs/CreatePlayerSuccessResponse.md)
+ - [CreateSegmentBadRequestResponse](docs/CreateSegmentBadRequestResponse.md)
+ - [CreateSegmentConflictResponse](docs/CreateSegmentConflictResponse.md)
+ - [CreateSegmentSuccessResponse](docs/CreateSegmentSuccessResponse.md)
+ - [DeletePlayerBadRequestResponse](docs/DeletePlayerBadRequestResponse.md)
+ - [DeletePlayerNotFoundResponse](docs/DeletePlayerNotFoundResponse.md)
+ - [DeletePlayerSuccessResponse](docs/DeletePlayerSuccessResponse.md)
+ - [DeleteSegmentBadRequestResponse](docs/DeleteSegmentBadRequestResponse.md)
+ - [DeleteSegmentNotFoundResponse](docs/DeleteSegmentNotFoundResponse.md)
+ - [DeleteSegmentSuccessResponse](docs/DeleteSegmentSuccessResponse.md)
  - [DeliveryData](docs/DeliveryData.md)
  - [ExportPlayersRequestBody](docs/ExportPlayersRequestBody.md)
+ - [ExportPlayersSuccessResponse](docs/ExportPlayersSuccessResponse.md)
  - [Filter](docs/Filter.md)
  - [FilterExpressions](docs/FilterExpressions.md)
  - [FilterNotificationTarget](docs/FilterNotificationTarget.md)
  - [GetNotificationRequestBody](docs/GetNotificationRequestBody.md)
- - [InlineResponse200](docs/InlineResponse200.md)
- - [InlineResponse2001](docs/InlineResponse2001.md)
- - [InlineResponse2002](docs/InlineResponse2002.md)
- - [InlineResponse2005](docs/InlineResponse2005.md)
- - [InlineResponse2007](docs/InlineResponse2007.md)
- - [InlineResponse2008](docs/InlineResponse2008.md)
- - [InlineResponse201](docs/InlineResponse201.md)
- - [InlineResponse400](docs/InlineResponse400.md)
- - [InlineResponse4001](docs/InlineResponse4001.md)
- - [InlineResponse4002](docs/InlineResponse4002.md)
- - [InlineResponse4003](docs/InlineResponse4003.md)
  - [InvalidIdentifierError](docs/InvalidIdentifierError.md)
  - [Notification](docs/Notification.md)
  - [Notification200Errors](docs/Notification200Errors.md)
  - [NotificationAllOf](docs/NotificationAllOf.md)
  - [NotificationAllOfAndroidBackgroundLayout](docs/NotificationAllOfAndroidBackgroundLayout.md)
+ - [NotificationHistoryBadRequestResponse](docs/NotificationHistoryBadRequestResponse.md)
+ - [NotificationHistorySuccessResponse](docs/NotificationHistorySuccessResponse.md)
  - [NotificationSlice](docs/NotificationSlice.md)
  - [NotificationTarget](docs/NotificationTarget.md)
  - [NotificationWithMeta](docs/NotificationWithMeta.md)
@@ -196,7 +201,9 @@ Class | Method | HTTP request | Description
  - [Segment](docs/Segment.md)
  - [SegmentNotificationTarget](docs/SegmentNotificationTarget.md)
  - [StringMap](docs/StringMap.md)
+ - [UpdatePlayerSuccessResponse](docs/UpdatePlayerSuccessResponse.md)
  - [UpdatePlayerTagsRequestBody](docs/UpdatePlayerTagsRequestBody.md)
+ - [UpdatePlayerTagsSuccessResponse](docs/UpdatePlayerTagsSuccessResponse.md)
 
 
 ## Documentation for Authorization

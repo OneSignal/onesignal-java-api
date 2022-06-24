@@ -1,13 +1,13 @@
 
 
-# InlineResponse2001
+# DeletePlayerNotFoundResponse
 
 
 ## Properties
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**success** | **Boolean** |  |  [optional] |
+|**success** | **String** |  |  [optional] |
 
 
 

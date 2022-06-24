@@ -28,27 +28,34 @@ import java.io.IOException;
 
 
 import com.onesignal.client.model.App;
+import com.onesignal.client.model.CancelNotificationSuccessResponse;
+import com.onesignal.client.model.CreateNotificationBadRequestResponse;
+import com.onesignal.client.model.CreateNotificationSuccessResponse;
+import com.onesignal.client.model.CreatePlayerSuccessResponse;
+import com.onesignal.client.model.CreateSegmentBadRequestResponse;
+import com.onesignal.client.model.CreateSegmentConflictResponse;
+import com.onesignal.client.model.CreateSegmentSuccessResponse;
+import com.onesignal.client.model.DeletePlayerBadRequestResponse;
+import com.onesignal.client.model.DeletePlayerNotFoundResponse;
+import com.onesignal.client.model.DeletePlayerSuccessResponse;
+import com.onesignal.client.model.DeleteSegmentBadRequestResponse;
+import com.onesignal.client.model.DeleteSegmentNotFoundResponse;
+import com.onesignal.client.model.DeleteSegmentSuccessResponse;
 import com.onesignal.client.model.ExportPlayersRequestBody;
+import com.onesignal.client.model.ExportPlayersSuccessResponse;
 import com.onesignal.client.model.GetNotificationRequestBody;
-import com.onesignal.client.model.InlineResponse200;
-import com.onesignal.client.model.InlineResponse2001;
-import com.onesignal.client.model.InlineResponse2002;
-import com.onesignal.client.model.InlineResponse2005;
-import com.onesignal.client.model.InlineResponse2007;
-import com.onesignal.client.model.InlineResponse2008;
-import com.onesignal.client.model.InlineResponse201;
-import com.onesignal.client.model.InlineResponse400;
-import com.onesignal.client.model.InlineResponse4001;
-import com.onesignal.client.model.InlineResponse4002;
-import com.onesignal.client.model.InlineResponse4003;
 import com.onesignal.client.model.Notification;
+import com.onesignal.client.model.NotificationHistoryBadRequestResponse;
+import com.onesignal.client.model.NotificationHistorySuccessResponse;
 import com.onesignal.client.model.NotificationSlice;
 import com.onesignal.client.model.NotificationWithMeta;
 import com.onesignal.client.model.OutcomesData;
 import com.onesignal.client.model.Player;
 import com.onesignal.client.model.PlayerSlice;
 import com.onesignal.client.model.Segment;
+import com.onesignal.client.model.UpdatePlayerSuccessResponse;
 import com.onesignal.client.model.UpdatePlayerTagsRequestBody;
+import com.onesignal.client.model.UpdatePlayerTagsSuccessResponse;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -184,7 +191,7 @@ public class DefaultApi {
      * Used to stop a scheduled or currently outgoing notification
      * @param appId  (required)
      * @param notificationId  (required)
-     * @return InlineResponse2001
+     * @return CancelNotificationSuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -192,8 +199,8 @@ public class DefaultApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public InlineResponse2001 cancelNotification(String appId, String notificationId) throws ApiException {
-        ApiResponse<InlineResponse2001> localVarResp = cancelNotificationWithHttpInfo(appId, notificationId);
+    public CancelNotificationSuccessResponse cancelNotification(String appId, String notificationId) throws ApiException {
+        ApiResponse<CancelNotificationSuccessResponse> localVarResp = cancelNotificationWithHttpInfo(appId, notificationId);
         return localVarResp.getData();
     }
 
@@ -202,7 +209,7 @@ public class DefaultApi {
      * Used to stop a scheduled or currently outgoing notification
      * @param appId  (required)
      * @param notificationId  (required)
-     * @return ApiResponse&lt;InlineResponse2001&gt;
+     * @return ApiResponse&lt;CancelNotificationSuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -210,9 +217,9 @@ public class DefaultApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<InlineResponse2001> cancelNotificationWithHttpInfo(String appId, String notificationId) throws ApiException {
+    public ApiResponse<CancelNotificationSuccessResponse> cancelNotificationWithHttpInfo(String appId, String notificationId) throws ApiException {
         okhttp3.Call localVarCall = cancelNotificationValidateBeforeCall(appId, notificationId, null);
-        Type localVarReturnType = new TypeToken<InlineResponse2001>(){}.getType();
+        Type localVarReturnType = new TypeToken<CancelNotificationSuccessResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -230,10 +237,10 @@ public class DefaultApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call cancelNotificationAsync(String appId, String notificationId, final ApiCallback<InlineResponse2001> _callback) throws ApiException {
+    public okhttp3.Call cancelNotificationAsync(String appId, String notificationId, final ApiCallback<CancelNotificationSuccessResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = cancelNotificationValidateBeforeCall(appId, notificationId, _callback);
-        Type localVarReturnType = new TypeToken<InlineResponse2001>(){}.getType();
+        Type localVarReturnType = new TypeToken<CancelNotificationSuccessResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -445,7 +452,7 @@ public class DefaultApi {
      * Create notification
      * Sends notifications to your users 
      * @param notification  (required)
-     * @return InlineResponse200
+     * @return CreateNotificationSuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -454,8 +461,8 @@ public class DefaultApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
      */
-    public InlineResponse200 createNotification(Notification notification) throws ApiException {
-        ApiResponse<InlineResponse200> localVarResp = createNotificationWithHttpInfo(notification);
+    public CreateNotificationSuccessResponse createNotification(Notification notification) throws ApiException {
+        ApiResponse<CreateNotificationSuccessResponse> localVarResp = createNotificationWithHttpInfo(notification);
         return localVarResp.getData();
     }
 
@@ -463,7 +470,7 @@ public class DefaultApi {
      * Create notification
      * Sends notifications to your users 
      * @param notification  (required)
-     * @return ApiResponse&lt;InlineResponse200&gt;
+     * @return ApiResponse&lt;CreateNotificationSuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -472,9 +479,9 @@ public class DefaultApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<InlineResponse200> createNotificationWithHttpInfo(Notification notification) throws ApiException {
+    public ApiResponse<CreateNotificationSuccessResponse> createNotificationWithHttpInfo(Notification notification) throws ApiException {
         okhttp3.Call localVarCall = createNotificationValidateBeforeCall(notification, null);
-        Type localVarReturnType = new TypeToken<InlineResponse200>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateNotificationSuccessResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -492,10 +499,10 @@ public class DefaultApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createNotificationAsync(Notification notification, final ApiCallback<InlineResponse200> _callback) throws ApiException {
+    public okhttp3.Call createNotificationAsync(Notification notification, final ApiCallback<CreateNotificationSuccessResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = createNotificationValidateBeforeCall(notification, _callback);
-        Type localVarReturnType = new TypeToken<InlineResponse200>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateNotificationSuccessResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -577,7 +584,7 @@ public class DefaultApi {
      * Add a device
      * Register a new device to one of your OneSignal apps &amp;#x1F6A7; Don&#39;t use this This API endpoint is designed to be used from our open source Mobile and Web Push SDKs. It is not designed for developers to use it directly, unless instructed to do so by OneSignal support. If you use this method instead of our SDKs, many OneSignal features such as conversion tracking, timezone tracking, language detection, and rich-push won&#39;t work out of the box. It will also make it harder to identify possible setup issues. This method is used to register a new device with OneSignal. If a device is already registered with the specified identifier, then this will update the existing device record instead of creating a new one. The returned player is a player / user ID. Use the returned ID to send push notifications to this specific user later, or to include this player when sending to a set of users. &amp;#x1F6A7; iOS Must set test_type to 1 when building your iOS app as development. Omit this field in your production app builds. 
      * @param player  (required)
-     * @return InlineResponse2005
+     * @return CreatePlayerSuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -585,8 +592,8 @@ public class DefaultApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public InlineResponse2005 createPlayer(Player player) throws ApiException {
-        ApiResponse<InlineResponse2005> localVarResp = createPlayerWithHttpInfo(player);
+    public CreatePlayerSuccessResponse createPlayer(Player player) throws ApiException {
+        ApiResponse<CreatePlayerSuccessResponse> localVarResp = createPlayerWithHttpInfo(player);
         return localVarResp.getData();
     }
 
@@ -594,7 +601,7 @@ public class DefaultApi {
      * Add a device
      * Register a new device to one of your OneSignal apps &amp;#x1F6A7; Don&#39;t use this This API endpoint is designed to be used from our open source Mobile and Web Push SDKs. It is not designed for developers to use it directly, unless instructed to do so by OneSignal support. If you use this method instead of our SDKs, many OneSignal features such as conversion tracking, timezone tracking, language detection, and rich-push won&#39;t work out of the box. It will also make it harder to identify possible setup issues. This method is used to register a new device with OneSignal. If a device is already registered with the specified identifier, then this will update the existing device record instead of creating a new one. The returned player is a player / user ID. Use the returned ID to send push notifications to this specific user later, or to include this player when sending to a set of users. &amp;#x1F6A7; iOS Must set test_type to 1 when building your iOS app as development. Omit this field in your production app builds. 
      * @param player  (required)
-     * @return ApiResponse&lt;InlineResponse2005&gt;
+     * @return ApiResponse&lt;CreatePlayerSuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -602,9 +609,9 @@ public class DefaultApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<InlineResponse2005> createPlayerWithHttpInfo(Player player) throws ApiException {
+    public ApiResponse<CreatePlayerSuccessResponse> createPlayerWithHttpInfo(Player player) throws ApiException {
         okhttp3.Call localVarCall = createPlayerValidateBeforeCall(player, null);
-        Type localVarReturnType = new TypeToken<InlineResponse2005>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreatePlayerSuccessResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -621,10 +628,10 @@ public class DefaultApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createPlayerAsync(Player player, final ApiCallback<InlineResponse2005> _callback) throws ApiException {
+    public okhttp3.Call createPlayerAsync(Player player, final ApiCallback<CreatePlayerSuccessResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = createPlayerValidateBeforeCall(player, _callback);
-        Type localVarReturnType = new TypeToken<InlineResponse2005>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreatePlayerSuccessResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -711,7 +718,7 @@ public class DefaultApi {
      * Create segments visible and usable in the dashboard and API - Required: OneSignal Paid Plan The Create Segment method is used when you want your server to programmatically create a segment instead of using the OneSignal Dashboard UI. Just like creating Segments from the dashboard you can pass in filters with multiple \&quot;AND\&quot; or \&quot;OR\&quot; operator&#39;s. &amp;#x1F6A7; Does Not Update Segments This endpoint will only create segments, it does not edit or update currently created Segments. You will need to use the Delete Segments endpoint and re-create it with this endpoint to edit. 
      * @param appId The OneSignal App ID for your app.  Available in Keys &amp; IDs. (required)
      * @param segment  (optional)
-     * @return InlineResponse201
+     * @return CreateSegmentSuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -721,8 +728,8 @@ public class DefaultApi {
         <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
      </table>
      */
-    public InlineResponse201 createSegments(String appId, Segment segment) throws ApiException {
-        ApiResponse<InlineResponse201> localVarResp = createSegmentsWithHttpInfo(appId, segment);
+    public CreateSegmentSuccessResponse createSegments(String appId, Segment segment) throws ApiException {
+        ApiResponse<CreateSegmentSuccessResponse> localVarResp = createSegmentsWithHttpInfo(appId, segment);
         return localVarResp.getData();
     }
 
@@ -731,7 +738,7 @@ public class DefaultApi {
      * Create segments visible and usable in the dashboard and API - Required: OneSignal Paid Plan The Create Segment method is used when you want your server to programmatically create a segment instead of using the OneSignal Dashboard UI. Just like creating Segments from the dashboard you can pass in filters with multiple \&quot;AND\&quot; or \&quot;OR\&quot; operator&#39;s. &amp;#x1F6A7; Does Not Update Segments This endpoint will only create segments, it does not edit or update currently created Segments. You will need to use the Delete Segments endpoint and re-create it with this endpoint to edit. 
      * @param appId The OneSignal App ID for your app.  Available in Keys &amp; IDs. (required)
      * @param segment  (optional)
-     * @return ApiResponse&lt;InlineResponse201&gt;
+     * @return ApiResponse&lt;CreateSegmentSuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -741,9 +748,9 @@ public class DefaultApi {
         <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<InlineResponse201> createSegmentsWithHttpInfo(String appId, Segment segment) throws ApiException {
+    public ApiResponse<CreateSegmentSuccessResponse> createSegmentsWithHttpInfo(String appId, Segment segment) throws ApiException {
         okhttp3.Call localVarCall = createSegmentsValidateBeforeCall(appId, segment, null);
-        Type localVarReturnType = new TypeToken<InlineResponse201>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateSegmentSuccessResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -763,10 +770,10 @@ public class DefaultApi {
         <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createSegmentsAsync(String appId, Segment segment, final ApiCallback<InlineResponse201> _callback) throws ApiException {
+    public okhttp3.Call createSegmentsAsync(String appId, Segment segment, final ApiCallback<CreateSegmentSuccessResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = createSegmentsValidateBeforeCall(appId, segment, _callback);
-        Type localVarReturnType = new TypeToken<InlineResponse201>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateSegmentSuccessResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -862,7 +869,7 @@ public class DefaultApi {
      * Delete player - Required: Used to delete a single, specific Player ID record from a specific OneSignal app. 
      * @param appId The OneSignal App ID for your app.  Available in Keys &amp; IDs. (required)
      * @param playerId The OneSignal player_id (required)
-     * @return InlineResponse2007
+     * @return DeletePlayerSuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -872,8 +879,8 @@ public class DefaultApi {
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
      </table>
      */
-    public InlineResponse2007 deletePlayer(String appId, String playerId) throws ApiException {
-        ApiResponse<InlineResponse2007> localVarResp = deletePlayerWithHttpInfo(appId, playerId);
+    public DeletePlayerSuccessResponse deletePlayer(String appId, String playerId) throws ApiException {
+        ApiResponse<DeletePlayerSuccessResponse> localVarResp = deletePlayerWithHttpInfo(appId, playerId);
         return localVarResp.getData();
     }
 
@@ -882,7 +889,7 @@ public class DefaultApi {
      * Delete player - Required: Used to delete a single, specific Player ID record from a specific OneSignal app. 
      * @param appId The OneSignal App ID for your app.  Available in Keys &amp; IDs. (required)
      * @param playerId The OneSignal player_id (required)
-     * @return ApiResponse&lt;InlineResponse2007&gt;
+     * @return ApiResponse&lt;DeletePlayerSuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -892,9 +899,9 @@ public class DefaultApi {
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<InlineResponse2007> deletePlayerWithHttpInfo(String appId, String playerId) throws ApiException {
+    public ApiResponse<DeletePlayerSuccessResponse> deletePlayerWithHttpInfo(String appId, String playerId) throws ApiException {
         okhttp3.Call localVarCall = deletePlayerValidateBeforeCall(appId, playerId, null);
-        Type localVarReturnType = new TypeToken<InlineResponse2007>(){}.getType();
+        Type localVarReturnType = new TypeToken<DeletePlayerSuccessResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -914,10 +921,10 @@ public class DefaultApi {
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deletePlayerAsync(String appId, String playerId, final ApiCallback<InlineResponse2007> _callback) throws ApiException {
+    public okhttp3.Call deletePlayerAsync(String appId, String playerId, final ApiCallback<DeletePlayerSuccessResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = deletePlayerValidateBeforeCall(appId, playerId, _callback);
-        Type localVarReturnType = new TypeToken<InlineResponse2007>(){}.getType();
+        Type localVarReturnType = new TypeToken<DeletePlayerSuccessResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -1010,7 +1017,7 @@ public class DefaultApi {
      * Delete segments (not user devices) - Required: OneSignal Paid Plan You can delete a segment under your app by calling this API. You must provide an API key in the Authorization header that has admin access on the app. The segment_id can be found in the URL of the segment when viewing it in the dashboard. 
      * @param appId The OneSignal App ID for your app.  Available in Keys &amp; IDs. (required)
      * @param segmentId The segment_id can be found in the URL of the segment when viewing it in the dashboard. (required)
-     * @return InlineResponse2001
+     * @return DeleteSegmentSuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1020,8 +1027,8 @@ public class DefaultApi {
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
      </table>
      */
-    public InlineResponse2001 deleteSegments(String appId, String segmentId) throws ApiException {
-        ApiResponse<InlineResponse2001> localVarResp = deleteSegmentsWithHttpInfo(appId, segmentId);
+    public DeleteSegmentSuccessResponse deleteSegments(String appId, String segmentId) throws ApiException {
+        ApiResponse<DeleteSegmentSuccessResponse> localVarResp = deleteSegmentsWithHttpInfo(appId, segmentId);
         return localVarResp.getData();
     }
 
@@ -1030,7 +1037,7 @@ public class DefaultApi {
      * Delete segments (not user devices) - Required: OneSignal Paid Plan You can delete a segment under your app by calling this API. You must provide an API key in the Authorization header that has admin access on the app. The segment_id can be found in the URL of the segment when viewing it in the dashboard. 
      * @param appId The OneSignal App ID for your app.  Available in Keys &amp; IDs. (required)
      * @param segmentId The segment_id can be found in the URL of the segment when viewing it in the dashboard. (required)
-     * @return ApiResponse&lt;InlineResponse2001&gt;
+     * @return ApiResponse&lt;DeleteSegmentSuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1040,9 +1047,9 @@ public class DefaultApi {
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<InlineResponse2001> deleteSegmentsWithHttpInfo(String appId, String segmentId) throws ApiException {
+    public ApiResponse<DeleteSegmentSuccessResponse> deleteSegmentsWithHttpInfo(String appId, String segmentId) throws ApiException {
         okhttp3.Call localVarCall = deleteSegmentsValidateBeforeCall(appId, segmentId, null);
-        Type localVarReturnType = new TypeToken<InlineResponse2001>(){}.getType();
+        Type localVarReturnType = new TypeToken<DeleteSegmentSuccessResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -1062,10 +1069,10 @@ public class DefaultApi {
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteSegmentsAsync(String appId, String segmentId, final ApiCallback<InlineResponse2001> _callback) throws ApiException {
+    public okhttp3.Call deleteSegmentsAsync(String appId, String segmentId, final ApiCallback<DeleteSegmentSuccessResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = deleteSegmentsValidateBeforeCall(appId, segmentId, _callback);
-        Type localVarReturnType = new TypeToken<InlineResponse2001>(){}.getType();
+        Type localVarReturnType = new TypeToken<DeleteSegmentSuccessResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -1151,7 +1158,7 @@ public class DefaultApi {
      * Generate a compressed CSV export of all of your current user data This method can be used to generate a compressed CSV export of all of your current user data. It is a much faster alternative than retrieving this data using the /players API endpoint. The file will be compressed using GZip. The file may take several minutes to generate depending on the number of users in your app. The URL generated will be available for 3 days and includes random v4 uuid as part of the resource name to be unguessable. &amp;#x1F6A7; 403 Error Responses          You can test if it is complete by making a GET request to the csv_file_url value. This file may take time to generate depending on how many device records are being pulled. If the file is not ready, a 403 error will be returned. Otherwise the file itself will be returned. &amp;#x1F6A7; Requires Authentication Key Requires your OneSignal App&#39;s REST API Key, available in Keys &amp; IDs. &amp;#x1F6A7; Concurrent Exports Only one concurrent export is allowed per OneSignal account. Please ensure you have successfully downloaded the .csv.gz file before exporting another app. CSV File Format: - Default Columns:   | Field | Details |   | --- | --- |   | id | OneSignal Player Id |   | identifier | Push Token |   | session_count | Number of times they visited the app or site   | language | Device language code |   | timezone | Number of seconds away from UTC. Example: -28800 |   | game_version | Version of your mobile app gathered from Android Studio versionCode in your App/build.gradle and iOS uses kCFBundleVersionKey in Xcode. |   | device_os | Device Operating System Version. Example: 80 &#x3D; Chrome 80, 9 &#x3D; Android 9 |   | device_type | Device Operating System Type |   | device_model | Device Hardware String Code. Example: Mobile Web Subscribers will have &#x60;Linux armv&#x60; |   | ad_id | Based on the Google Advertising Id for Android, identifierForVendor for iOS. OptedOut means user turned off Advertising tracking on the device. |   | tags | Current OneSignal Data Tags on the device. |   | last_active | Date and time the user last opened the mobile app or visited the site. |   | playtime | Total amount of time in seconds the user had the mobile app open. |   | amount_spent |  Mobile only - amount spent in USD on In-App Purchases. |    | created_at | Date and time the device record was created in OneSignal. Mobile - first time they opened the app with OneSignal SDK. Web - first time the user subscribed to the site. |   | invalid_identifier | t &#x3D; unsubscribed, f &#x3D; subscibed |   | badge_count | Current number of badges on the device | - Extra Columns:   | Field | Details |   | --- | --- |   | external_user_id | Your User Id set on the device |   | notification_types | Notification types |   | location | Location points (Latitude and Longitude) set on the device. |   | country | Country code |   | rooted | Android device rooted or not |   | ip | IP Address of the device if being tracked. See Handling Personal Data. |   | web_auth | Web Only authorization key. |   | web_p256 | Web Only p256 key. | 
      * @param appId The app ID that you want to export devices from (required)
      * @param exportPlayersRequestBody  (optional)
-     * @return InlineResponse2008
+     * @return ExportPlayersSuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1160,8 +1167,8 @@ public class DefaultApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
      */
-    public InlineResponse2008 exportPlayers(String appId, ExportPlayersRequestBody exportPlayersRequestBody) throws ApiException {
-        ApiResponse<InlineResponse2008> localVarResp = exportPlayersWithHttpInfo(appId, exportPlayersRequestBody);
+    public ExportPlayersSuccessResponse exportPlayers(String appId, ExportPlayersRequestBody exportPlayersRequestBody) throws ApiException {
+        ApiResponse<ExportPlayersSuccessResponse> localVarResp = exportPlayersWithHttpInfo(appId, exportPlayersRequestBody);
         return localVarResp.getData();
     }
 
@@ -1170,7 +1177,7 @@ public class DefaultApi {
      * Generate a compressed CSV export of all of your current user data This method can be used to generate a compressed CSV export of all of your current user data. It is a much faster alternative than retrieving this data using the /players API endpoint. The file will be compressed using GZip. The file may take several minutes to generate depending on the number of users in your app. The URL generated will be available for 3 days and includes random v4 uuid as part of the resource name to be unguessable. &amp;#x1F6A7; 403 Error Responses          You can test if it is complete by making a GET request to the csv_file_url value. This file may take time to generate depending on how many device records are being pulled. If the file is not ready, a 403 error will be returned. Otherwise the file itself will be returned. &amp;#x1F6A7; Requires Authentication Key Requires your OneSignal App&#39;s REST API Key, available in Keys &amp; IDs. &amp;#x1F6A7; Concurrent Exports Only one concurrent export is allowed per OneSignal account. Please ensure you have successfully downloaded the .csv.gz file before exporting another app. CSV File Format: - Default Columns:   | Field | Details |   | --- | --- |   | id | OneSignal Player Id |   | identifier | Push Token |   | session_count | Number of times they visited the app or site   | language | Device language code |   | timezone | Number of seconds away from UTC. Example: -28800 |   | game_version | Version of your mobile app gathered from Android Studio versionCode in your App/build.gradle and iOS uses kCFBundleVersionKey in Xcode. |   | device_os | Device Operating System Version. Example: 80 &#x3D; Chrome 80, 9 &#x3D; Android 9 |   | device_type | Device Operating System Type |   | device_model | Device Hardware String Code. Example: Mobile Web Subscribers will have &#x60;Linux armv&#x60; |   | ad_id | Based on the Google Advertising Id for Android, identifierForVendor for iOS. OptedOut means user turned off Advertising tracking on the device. |   | tags | Current OneSignal Data Tags on the device. |   | last_active | Date and time the user last opened the mobile app or visited the site. |   | playtime | Total amount of time in seconds the user had the mobile app open. |   | amount_spent |  Mobile only - amount spent in USD on In-App Purchases. |    | created_at | Date and time the device record was created in OneSignal. Mobile - first time they opened the app with OneSignal SDK. Web - first time the user subscribed to the site. |   | invalid_identifier | t &#x3D; unsubscribed, f &#x3D; subscibed |   | badge_count | Current number of badges on the device | - Extra Columns:   | Field | Details |   | --- | --- |   | external_user_id | Your User Id set on the device |   | notification_types | Notification types |   | location | Location points (Latitude and Longitude) set on the device. |   | country | Country code |   | rooted | Android device rooted or not |   | ip | IP Address of the device if being tracked. See Handling Personal Data. |   | web_auth | Web Only authorization key. |   | web_p256 | Web Only p256 key. | 
      * @param appId The app ID that you want to export devices from (required)
      * @param exportPlayersRequestBody  (optional)
-     * @return ApiResponse&lt;InlineResponse2008&gt;
+     * @return ApiResponse&lt;ExportPlayersSuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1179,9 +1186,9 @@ public class DefaultApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<InlineResponse2008> exportPlayersWithHttpInfo(String appId, ExportPlayersRequestBody exportPlayersRequestBody) throws ApiException {
+    public ApiResponse<ExportPlayersSuccessResponse> exportPlayersWithHttpInfo(String appId, ExportPlayersRequestBody exportPlayersRequestBody) throws ApiException {
         okhttp3.Call localVarCall = exportPlayersValidateBeforeCall(appId, exportPlayersRequestBody, null);
-        Type localVarReturnType = new TypeToken<InlineResponse2008>(){}.getType();
+        Type localVarReturnType = new TypeToken<ExportPlayersSuccessResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -1200,10 +1207,10 @@ public class DefaultApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call exportPlayersAsync(String appId, ExportPlayersRequestBody exportPlayersRequestBody, final ApiCallback<InlineResponse2008> _callback) throws ApiException {
+    public okhttp3.Call exportPlayersAsync(String appId, ExportPlayersRequestBody exportPlayersRequestBody, final ApiCallback<ExportPlayersSuccessResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = exportPlayersValidateBeforeCall(appId, exportPlayersRequestBody, _callback);
-        Type localVarReturnType = new TypeToken<InlineResponse2008>(){}.getType();
+        Type localVarReturnType = new TypeToken<ExportPlayersSuccessResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -1687,7 +1694,7 @@ public class DefaultApi {
      * -&gt; View the devices sent a message - OneSignal Paid Plan Required This method will return all devices that were sent the given notification_id of an Email or Push Notification if used within 7 days of the date sent. After 7 days of the sending date, the message history data will be unavailable. After a successful response is received, the destination url may be polled until the file becomes available. Most exports are done in ~1-3 minutes, so setting a poll interval of 10 seconds should be adequate. For use cases that are not meant to be consumed by a script, an email will be sent to the supplied email address. &amp;#x1F6A7; Requirements A OneSignal Paid Plan. Turn on Send History via OneSignal API in Settings -&gt; Analytics. Cannot get data before this was turned on. Must be called within 7 days after sending the message. Messages targeting under 1000 recipients will not have \&quot;sent\&quot; events recorded, but will show \&quot;clicked\&quot; events. Requires your OneSignal App&#39;s REST API Key, available in Keys &amp; IDs.
      * @param notificationId The \&quot;id\&quot; of the message found in the Notification object (required)
      * @param getNotificationRequestBody  (required)
-     * @return InlineResponse2002
+     * @return NotificationHistorySuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1696,8 +1703,8 @@ public class DefaultApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
      */
-    public InlineResponse2002 getNotificationHistory(String notificationId, GetNotificationRequestBody getNotificationRequestBody) throws ApiException {
-        ApiResponse<InlineResponse2002> localVarResp = getNotificationHistoryWithHttpInfo(notificationId, getNotificationRequestBody);
+    public NotificationHistorySuccessResponse getNotificationHistory(String notificationId, GetNotificationRequestBody getNotificationRequestBody) throws ApiException {
+        ApiResponse<NotificationHistorySuccessResponse> localVarResp = getNotificationHistoryWithHttpInfo(notificationId, getNotificationRequestBody);
         return localVarResp.getData();
     }
 
@@ -1706,7 +1713,7 @@ public class DefaultApi {
      * -&gt; View the devices sent a message - OneSignal Paid Plan Required This method will return all devices that were sent the given notification_id of an Email or Push Notification if used within 7 days of the date sent. After 7 days of the sending date, the message history data will be unavailable. After a successful response is received, the destination url may be polled until the file becomes available. Most exports are done in ~1-3 minutes, so setting a poll interval of 10 seconds should be adequate. For use cases that are not meant to be consumed by a script, an email will be sent to the supplied email address. &amp;#x1F6A7; Requirements A OneSignal Paid Plan. Turn on Send History via OneSignal API in Settings -&gt; Analytics. Cannot get data before this was turned on. Must be called within 7 days after sending the message. Messages targeting under 1000 recipients will not have \&quot;sent\&quot; events recorded, but will show \&quot;clicked\&quot; events. Requires your OneSignal App&#39;s REST API Key, available in Keys &amp; IDs.
      * @param notificationId The \&quot;id\&quot; of the message found in the Notification object (required)
      * @param getNotificationRequestBody  (required)
-     * @return ApiResponse&lt;InlineResponse2002&gt;
+     * @return ApiResponse&lt;NotificationHistorySuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1715,9 +1722,9 @@ public class DefaultApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<InlineResponse2002> getNotificationHistoryWithHttpInfo(String notificationId, GetNotificationRequestBody getNotificationRequestBody) throws ApiException {
+    public ApiResponse<NotificationHistorySuccessResponse> getNotificationHistoryWithHttpInfo(String notificationId, GetNotificationRequestBody getNotificationRequestBody) throws ApiException {
         okhttp3.Call localVarCall = getNotificationHistoryValidateBeforeCall(notificationId, getNotificationRequestBody, null);
-        Type localVarReturnType = new TypeToken<InlineResponse2002>(){}.getType();
+        Type localVarReturnType = new TypeToken<NotificationHistorySuccessResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -1736,10 +1743,10 @@ public class DefaultApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getNotificationHistoryAsync(String notificationId, GetNotificationRequestBody getNotificationRequestBody, final ApiCallback<InlineResponse2002> _callback) throws ApiException {
+    public okhttp3.Call getNotificationHistoryAsync(String notificationId, GetNotificationRequestBody getNotificationRequestBody, final ApiCallback<NotificationHistorySuccessResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getNotificationHistoryValidateBeforeCall(notificationId, getNotificationRequestBody, _callback);
-        Type localVarReturnType = new TypeToken<InlineResponse2002>(){}.getType();
+        Type localVarReturnType = new TypeToken<NotificationHistorySuccessResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -2600,7 +2607,7 @@ public class DefaultApi {
      * Update an existing device in one of your OneSignal apps
      * @param playerId Player&#39;s OneSignal ID (required)
      * @param player  (required)
-     * @return InlineResponse2001
+     * @return UpdatePlayerSuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -2608,8 +2615,8 @@ public class DefaultApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public InlineResponse2001 updatePlayer(String playerId, Player player) throws ApiException {
-        ApiResponse<InlineResponse2001> localVarResp = updatePlayerWithHttpInfo(playerId, player);
+    public UpdatePlayerSuccessResponse updatePlayer(String playerId, Player player) throws ApiException {
+        ApiResponse<UpdatePlayerSuccessResponse> localVarResp = updatePlayerWithHttpInfo(playerId, player);
         return localVarResp.getData();
     }
 
@@ -2618,7 +2625,7 @@ public class DefaultApi {
      * Update an existing device in one of your OneSignal apps
      * @param playerId Player&#39;s OneSignal ID (required)
      * @param player  (required)
-     * @return ApiResponse&lt;InlineResponse2001&gt;
+     * @return ApiResponse&lt;UpdatePlayerSuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -2626,9 +2633,9 @@ public class DefaultApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<InlineResponse2001> updatePlayerWithHttpInfo(String playerId, Player player) throws ApiException {
+    public ApiResponse<UpdatePlayerSuccessResponse> updatePlayerWithHttpInfo(String playerId, Player player) throws ApiException {
         okhttp3.Call localVarCall = updatePlayerValidateBeforeCall(playerId, player, null);
-        Type localVarReturnType = new TypeToken<InlineResponse2001>(){}.getType();
+        Type localVarReturnType = new TypeToken<UpdatePlayerSuccessResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -2646,10 +2653,10 @@ public class DefaultApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updatePlayerAsync(String playerId, Player player, final ApiCallback<InlineResponse2001> _callback) throws ApiException {
+    public okhttp3.Call updatePlayerAsync(String playerId, Player player, final ApiCallback<UpdatePlayerSuccessResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = updatePlayerValidateBeforeCall(playerId, player, _callback);
-        Type localVarReturnType = new TypeToken<InlineResponse2001>(){}.getType();
+        Type localVarReturnType = new TypeToken<UpdatePlayerSuccessResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -2742,7 +2749,7 @@ public class DefaultApi {
      * @param appId The OneSignal App ID the user record is found under. (required)
      * @param externalUserId The External User ID mapped to teh device record in OneSignal.  Must be actively set on the device to be updated. (required)
      * @param updatePlayerTagsRequestBody  (optional)
-     * @return InlineResponse2001
+     * @return UpdatePlayerTagsSuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -2750,8 +2757,8 @@ public class DefaultApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public InlineResponse2001 updatePlayerTags(String appId, String externalUserId, UpdatePlayerTagsRequestBody updatePlayerTagsRequestBody) throws ApiException {
-        ApiResponse<InlineResponse2001> localVarResp = updatePlayerTagsWithHttpInfo(appId, externalUserId, updatePlayerTagsRequestBody);
+    public UpdatePlayerTagsSuccessResponse updatePlayerTags(String appId, String externalUserId, UpdatePlayerTagsRequestBody updatePlayerTagsRequestBody) throws ApiException {
+        ApiResponse<UpdatePlayerTagsSuccessResponse> localVarResp = updatePlayerTagsWithHttpInfo(appId, externalUserId, updatePlayerTagsRequestBody);
         return localVarResp.getData();
     }
 
@@ -2761,7 +2768,7 @@ public class DefaultApi {
      * @param appId The OneSignal App ID the user record is found under. (required)
      * @param externalUserId The External User ID mapped to teh device record in OneSignal.  Must be actively set on the device to be updated. (required)
      * @param updatePlayerTagsRequestBody  (optional)
-     * @return ApiResponse&lt;InlineResponse2001&gt;
+     * @return ApiResponse&lt;UpdatePlayerTagsSuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -2769,9 +2776,9 @@ public class DefaultApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<InlineResponse2001> updatePlayerTagsWithHttpInfo(String appId, String externalUserId, UpdatePlayerTagsRequestBody updatePlayerTagsRequestBody) throws ApiException {
+    public ApiResponse<UpdatePlayerTagsSuccessResponse> updatePlayerTagsWithHttpInfo(String appId, String externalUserId, UpdatePlayerTagsRequestBody updatePlayerTagsRequestBody) throws ApiException {
         okhttp3.Call localVarCall = updatePlayerTagsValidateBeforeCall(appId, externalUserId, updatePlayerTagsRequestBody, null);
-        Type localVarReturnType = new TypeToken<InlineResponse2001>(){}.getType();
+        Type localVarReturnType = new TypeToken<UpdatePlayerTagsSuccessResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -2790,10 +2797,10 @@ public class DefaultApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updatePlayerTagsAsync(String appId, String externalUserId, UpdatePlayerTagsRequestBody updatePlayerTagsRequestBody, final ApiCallback<InlineResponse2001> _callback) throws ApiException {
+    public okhttp3.Call updatePlayerTagsAsync(String appId, String externalUserId, UpdatePlayerTagsRequestBody updatePlayerTagsRequestBody, final ApiCallback<UpdatePlayerTagsSuccessResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = updatePlayerTagsValidateBeforeCall(appId, externalUserId, updatePlayerTagsRequestBody, _callback);
-        Type localVarReturnType = new TypeToken<InlineResponse2001>(){}.getType();
+        Type localVarReturnType = new TypeToken<UpdatePlayerTagsSuccessResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

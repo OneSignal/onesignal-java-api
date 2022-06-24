@@ -1,13 +1,13 @@
 
 
-# InlineResponse2008
+# DeleteSegmentBadRequestResponse
 
 
 ## Properties
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**csvFileUrl** | **String** |  |  [optional] |
+|**erorrs** | **List&lt;String&gt;** |  |  [optional] |
 
 
 

@@ -27,7 +27,7 @@ All URIs are relative to *https://onesignal.com/api/v1*
 
 <a name="cancelNotification"></a>
 # **cancelNotification**
-> InlineResponse2001 cancelNotification(appId, notificationId)
+> CancelNotificationSuccessResponse cancelNotification(appId, notificationId)
 
 Stop a scheduled or currently outgoing notification
 
@@ -56,7 +56,7 @@ public class Example {
     String appId = "appId_example"; // String | 
     String notificationId = "notificationId_example"; // String | 
     try {
-      InlineResponse2001 result = apiInstance.cancelNotification(appId, notificationId);
+      CancelNotificationSuccessResponse result = apiInstance.cancelNotification(appId, notificationId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling DefaultApi#cancelNotification");
@@ -78,7 +78,7 @@ public class Example {
 
 ### Return type
 
-[**InlineResponse2001**](InlineResponse2001.md)
+[**CancelNotificationSuccessResponse**](CancelNotificationSuccessResponse.md)
 
 ### Authorization
 
@@ -163,7 +163,7 @@ public class Example {
 
 <a name="createNotification"></a>
 # **createNotification**
-> InlineResponse200 createNotification(notification)
+> CreateNotificationSuccessResponse createNotification(notification)
 
 Create notification
 
@@ -191,7 +191,7 @@ public class Example {
     DefaultApi apiInstance = new DefaultApi(defaultClient);
     Notification notification = new Notification(); // Notification | 
     try {
-      InlineResponse200 result = apiInstance.createNotification(notification);
+      CreateNotificationSuccessResponse result = apiInstance.createNotification(notification);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling DefaultApi#createNotification");
@@ -212,7 +212,7 @@ public class Example {
 
 ### Return type
 
-[**InlineResponse200**](InlineResponse200.md)
+[**CreateNotificationSuccessResponse**](CreateNotificationSuccessResponse.md)
 
 ### Authorization
 
@@ -231,7 +231,7 @@ public class Example {
 
 <a name="createPlayer"></a>
 # **createPlayer**
-> InlineResponse2005 createPlayer(player)
+> CreatePlayerSuccessResponse createPlayer(player)
 
 Add a device
 
@@ -259,7 +259,7 @@ public class Example {
     DefaultApi apiInstance = new DefaultApi(defaultClient);
     Player player = new Player(); // Player | 
     try {
-      InlineResponse2005 result = apiInstance.createPlayer(player);
+      CreatePlayerSuccessResponse result = apiInstance.createPlayer(player);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling DefaultApi#createPlayer");
@@ -280,7 +280,7 @@ public class Example {
 
 ### Return type
 
-[**InlineResponse2005**](InlineResponse2005.md)
+[**CreatePlayerSuccessResponse**](CreatePlayerSuccessResponse.md)
 
 ### Authorization
 
@@ -298,7 +298,7 @@ public class Example {
 
 <a name="createSegments"></a>
 # **createSegments**
-> InlineResponse201 createSegments(appId, segment)
+> CreateSegmentSuccessResponse createSegments(appId, segment)
 
 Create Segments
 
@@ -327,7 +327,7 @@ public class Example {
     String appId = "appId_example"; // String | The OneSignal App ID for your app.  Available in Keys & IDs.
     Segment segment = new Segment(); // Segment | 
     try {
-      InlineResponse201 result = apiInstance.createSegments(appId, segment);
+      CreateSegmentSuccessResponse result = apiInstance.createSegments(appId, segment);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling DefaultApi#createSegments");
@@ -349,7 +349,7 @@ public class Example {
 
 ### Return type
 
-[**InlineResponse201**](InlineResponse201.md)
+[**CreateSegmentSuccessResponse**](CreateSegmentSuccessResponse.md)
 
 ### Authorization
 
@@ -369,7 +369,7 @@ public class Example {
 
 <a name="deletePlayer"></a>
 # **deletePlayer**
-> InlineResponse2007 deletePlayer(appId, playerId)
+> DeletePlayerSuccessResponse deletePlayer(appId, playerId)
 
 Delete a user record
 
@@ -398,7 +398,7 @@ public class Example {
     String appId = "appId_example"; // String | The OneSignal App ID for your app.  Available in Keys & IDs.
     String playerId = "playerId_example"; // String | The OneSignal player_id
     try {
-      InlineResponse2007 result = apiInstance.deletePlayer(appId, playerId);
+      DeletePlayerSuccessResponse result = apiInstance.deletePlayer(appId, playerId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling DefaultApi#deletePlayer");
@@ -420,7 +420,7 @@ public class Example {
 
 ### Return type
 
-[**InlineResponse2007**](InlineResponse2007.md)
+[**DeletePlayerSuccessResponse**](DeletePlayerSuccessResponse.md)
 
 ### Authorization
 
@@ -440,7 +440,7 @@ public class Example {
 
 <a name="deleteSegments"></a>
 # **deleteSegments**
-> InlineResponse2001 deleteSegments(appId, segmentId)
+> DeleteSegmentSuccessResponse deleteSegments(appId, segmentId)
 
 Delete Segments
 
@@ -469,7 +469,7 @@ public class Example {
     String appId = "appId_example"; // String | The OneSignal App ID for your app.  Available in Keys & IDs.
     String segmentId = "segmentId_example"; // String | The segment_id can be found in the URL of the segment when viewing it in the dashboard.
     try {
-      InlineResponse2001 result = apiInstance.deleteSegments(appId, segmentId);
+      DeleteSegmentSuccessResponse result = apiInstance.deleteSegments(appId, segmentId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling DefaultApi#deleteSegments");
@@ -491,7 +491,7 @@ public class Example {
 
 ### Return type
 
-[**InlineResponse2001**](InlineResponse2001.md)
+[**DeleteSegmentSuccessResponse**](DeleteSegmentSuccessResponse.md)
 
 ### Authorization
 
@@ -511,7 +511,7 @@ public class Example {
 
 <a name="exportPlayers"></a>
 # **exportPlayers**
-> InlineResponse2008 exportPlayers(appId, exportPlayersRequestBody)
+> ExportPlayersSuccessResponse exportPlayers(appId, exportPlayersRequestBody)
 
 CSV export
 
@@ -540,7 +540,7 @@ public class Example {
     String appId = "appId_example"; // String | The app ID that you want to export devices from
     ExportPlayersRequestBody exportPlayersRequestBody = new ExportPlayersRequestBody(); // ExportPlayersRequestBody | 
     try {
-      InlineResponse2008 result = apiInstance.exportPlayers(appId, exportPlayersRequestBody);
+      ExportPlayersSuccessResponse result = apiInstance.exportPlayers(appId, exportPlayersRequestBody);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling DefaultApi#exportPlayers");
@@ -562,7 +562,7 @@ public class Example {
 
 ### Return type
 
-[**InlineResponse2008**](InlineResponse2008.md)
+[**ExportPlayersSuccessResponse**](ExportPlayersSuccessResponse.md)
 
 ### Authorization
 
@@ -780,7 +780,7 @@ public class Example {
 
 <a name="getNotificationHistory"></a>
 # **getNotificationHistory**
-> InlineResponse2002 getNotificationHistory(notificationId, getNotificationRequestBody)
+> NotificationHistorySuccessResponse getNotificationHistory(notificationId, getNotificationRequestBody)
 
 Notification History
 
@@ -809,7 +809,7 @@ public class Example {
     String notificationId = "notificationId_example"; // String | The \"id\" of the message found in the Notification object
     GetNotificationRequestBody getNotificationRequestBody = new GetNotificationRequestBody(); // GetNotificationRequestBody | 
     try {
-      InlineResponse2002 result = apiInstance.getNotificationHistory(notificationId, getNotificationRequestBody);
+      NotificationHistorySuccessResponse result = apiInstance.getNotificationHistory(notificationId, getNotificationRequestBody);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling DefaultApi#getNotificationHistory");
@@ -831,7 +831,7 @@ public class Example {
 
 ### Return type
 
-[**InlineResponse2002**](InlineResponse2002.md)
+[**NotificationHistorySuccessResponse**](NotificationHistorySuccessResponse.md)
 
 ### Authorization
 
@@ -1211,7 +1211,7 @@ public class Example {
 
 <a name="updatePlayer"></a>
 # **updatePlayer**
-> InlineResponse2001 updatePlayer(playerId, player)
+> UpdatePlayerSuccessResponse updatePlayer(playerId, player)
 
 Edit device
 
@@ -1240,7 +1240,7 @@ public class Example {
     String playerId = "playerId_example"; // String | Player's OneSignal ID
     Player player = new Player(); // Player | 
     try {
-      InlineResponse2001 result = apiInstance.updatePlayer(playerId, player);
+      UpdatePlayerSuccessResponse result = apiInstance.updatePlayer(playerId, player);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling DefaultApi#updatePlayer");
@@ -1262,7 +1262,7 @@ public class Example {
 
 ### Return type
 
-[**InlineResponse2001**](InlineResponse2001.md)
+[**UpdatePlayerSuccessResponse**](UpdatePlayerSuccessResponse.md)
 
 ### Authorization
 
@@ -1280,7 +1280,7 @@ public class Example {
 
 <a name="updatePlayerTags"></a>
 # **updatePlayerTags**
-> InlineResponse2001 updatePlayerTags(appId, externalUserId, updatePlayerTagsRequestBody)
+> UpdatePlayerTagsSuccessResponse updatePlayerTags(appId, externalUserId, updatePlayerTagsRequestBody)
 
 Edit tags with external user id
 
@@ -1310,7 +1310,7 @@ public class Example {
     String externalUserId = "externalUserId_example"; // String | The External User ID mapped to teh device record in OneSignal.  Must be actively set on the device to be updated.
     UpdatePlayerTagsRequestBody updatePlayerTagsRequestBody = new UpdatePlayerTagsRequestBody(); // UpdatePlayerTagsRequestBody | 
     try {
-      InlineResponse2001 result = apiInstance.updatePlayerTags(appId, externalUserId, updatePlayerTagsRequestBody);
+      UpdatePlayerTagsSuccessResponse result = apiInstance.updatePlayerTags(appId, externalUserId, updatePlayerTagsRequestBody);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling DefaultApi#updatePlayerTags");
@@ -1333,7 +1333,7 @@ public class Example {
 
 ### Return type
 
-[**InlineResponse2001**](InlineResponse2001.md)
+[**UpdatePlayerTagsSuccessResponse**](UpdatePlayerTagsSuccessResponse.md)
 
 ### Authorization
 

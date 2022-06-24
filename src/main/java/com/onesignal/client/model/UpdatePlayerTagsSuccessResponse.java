@@ -23,8 +23,6 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import java.io.Serializable;
 
 import com.google.gson.Gson;
@@ -48,47 +46,39 @@ import java.util.Set;
 import com.onesignal.client.JSON;
 
 /**
- * InlineResponse400
+ * UpdatePlayerTagsSuccessResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T17:51:27.173Z[Etc/UTC]")
-public class InlineResponse400 {
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-24T20:14:48.185Z[Etc/UTC]")
+public class UpdatePlayerTagsSuccessResponse {
   private static final long serialVersionUID = 1L;
 
-  public static final String SERIALIZED_NAME_ERRORS = "errors";
-  @SerializedName(SERIALIZED_NAME_ERRORS)
-  private List<String> errors = null;
+  public static final String SERIALIZED_NAME_SUCCESS = "success";
+  @SerializedName(SERIALIZED_NAME_SUCCESS)
+  private Boolean success;
 
-  public InlineResponse400() { 
+  public UpdatePlayerTagsSuccessResponse() { 
   }
 
-  public InlineResponse400 errors(List<String> errors) {
+  public UpdatePlayerTagsSuccessResponse success(Boolean success) {
     
-    this.errors = errors;
-    return this;
-  }
-
-  public InlineResponse400 addErrorsItem(String errorsItem) {
-    if (this.errors == null) {
-      this.errors = new ArrayList<>();
-    }
-    this.errors.add(errorsItem);
+    this.success = success;
     return this;
   }
 
    /**
-   * Get errors
-   * @return errors
+   * Get success
+   * @return success
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public List<String> getErrors() {
-    return errors;
+  public Boolean getSuccess() {
+    return success;
   }
 
 
-  public void setErrors(List<String> errors) {
-    this.errors = errors;
+  public void setSuccess(Boolean success) {
+    this.success = success;
   }
 
 
@@ -101,20 +91,20 @@ public class InlineResponse400 {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    InlineResponse400 inlineResponse400 = (InlineResponse400) o;
-    return Objects.equals(this.errors, inlineResponse400.errors);
+    UpdatePlayerTagsSuccessResponse updatePlayerTagsSuccessResponse = (UpdatePlayerTagsSuccessResponse) o;
+    return Objects.equals(this.success, updatePlayerTagsSuccessResponse.success);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(errors);
+    return Objects.hash(success);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class InlineResponse400 {\n");
-    sb.append("    errors: ").append(toIndentedString(errors)).append("\n");
+    sb.append("class UpdatePlayerTagsSuccessResponse {\n");
+    sb.append("    success: ").append(toIndentedString(success)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -137,7 +127,7 @@ public class InlineResponse400 {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("errors");
+    openapiFields.add("success");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -147,22 +137,22 @@ public class InlineResponse400 {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!InlineResponse400.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'InlineResponse400' and its subtypes
+       if (!UpdatePlayerTagsSuccessResponse.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'UpdatePlayerTagsSuccessResponse' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<InlineResponse400> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(InlineResponse400.class));
+       final TypeAdapter<UpdatePlayerTagsSuccessResponse> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(UpdatePlayerTagsSuccessResponse.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<InlineResponse400>() {
+       return (TypeAdapter<T>) new TypeAdapter<UpdatePlayerTagsSuccessResponse>() {
            @Override
-           public void write(JsonWriter out, InlineResponse400 value) throws IOException {
+           public void write(JsonWriter out, UpdatePlayerTagsSuccessResponse value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public InlineResponse400 read(JsonReader in) throws IOException {
+           public UpdatePlayerTagsSuccessResponse read(JsonReader in) throws IOException {
              JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
 
              return thisAdapter.fromJsonTree(jsonObj);
@@ -173,18 +163,18 @@ public class InlineResponse400 {
   }
 
  /**
-  * Create an instance of InlineResponse400 given an JSON string
+  * Create an instance of UpdatePlayerTagsSuccessResponse given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of InlineResponse400
-  * @throws IOException if the JSON string is invalid with respect to InlineResponse400
+  * @return An instance of UpdatePlayerTagsSuccessResponse
+  * @throws IOException if the JSON string is invalid with respect to UpdatePlayerTagsSuccessResponse
   */
-  public static InlineResponse400 fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, InlineResponse400.class);
+  public static UpdatePlayerTagsSuccessResponse fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, UpdatePlayerTagsSuccessResponse.class);
   }
 
  /**
-  * Convert an instance of InlineResponse400 to an JSON string
+  * Convert an instance of UpdatePlayerTagsSuccessResponse to an JSON string
   *
   * @return JSON string
   */

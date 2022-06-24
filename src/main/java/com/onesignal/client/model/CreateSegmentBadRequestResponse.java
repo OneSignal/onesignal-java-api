@@ -23,6 +23,8 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.io.Serializable;
 
 import com.google.gson.Gson;
@@ -46,20 +48,24 @@ import java.util.Set;
 import com.onesignal.client.JSON;
 
 /**
- * InlineResponse2001
+ * CreateSegmentBadRequestResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T17:51:27.173Z[Etc/UTC]")
-public class InlineResponse2001 {
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-24T20:14:48.185Z[Etc/UTC]")
+public class CreateSegmentBadRequestResponse {
   private static final long serialVersionUID = 1L;
 
   public static final String SERIALIZED_NAME_SUCCESS = "success";
   @SerializedName(SERIALIZED_NAME_SUCCESS)
   private Boolean success;
 
-  public InlineResponse2001() { 
+  public static final String SERIALIZED_NAME_ERRORS = "errors";
+  @SerializedName(SERIALIZED_NAME_ERRORS)
+  private List<String> errors = null;
+
+  public CreateSegmentBadRequestResponse() { 
   }
 
-  public InlineResponse2001 success(Boolean success) {
+  public CreateSegmentBadRequestResponse success(Boolean success) {
     
     this.success = success;
     return this;
@@ -82,6 +88,37 @@ public class InlineResponse2001 {
   }
 
 
+  public CreateSegmentBadRequestResponse errors(List<String> errors) {
+    
+    this.errors = errors;
+    return this;
+  }
+
+  public CreateSegmentBadRequestResponse addErrorsItem(String errorsItem) {
+    if (this.errors == null) {
+      this.errors = new ArrayList<>();
+    }
+    this.errors.add(errorsItem);
+    return this;
+  }
+
+   /**
+   * Get errors
+   * @return errors
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public List<String> getErrors() {
+    return errors;
+  }
+
+
+  public void setErrors(List<String> errors) {
+    this.errors = errors;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -91,20 +128,22 @@ public class InlineResponse2001 {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    InlineResponse2001 inlineResponse2001 = (InlineResponse2001) o;
-    return Objects.equals(this.success, inlineResponse2001.success);
+    CreateSegmentBadRequestResponse createSegmentBadRequestResponse = (CreateSegmentBadRequestResponse) o;
+    return Objects.equals(this.success, createSegmentBadRequestResponse.success) &&
+        Objects.equals(this.errors, createSegmentBadRequestResponse.errors);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(success);
+    return Objects.hash(success, errors);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class InlineResponse2001 {\n");
+    sb.append("class CreateSegmentBadRequestResponse {\n");
     sb.append("    success: ").append(toIndentedString(success)).append("\n");
+    sb.append("    errors: ").append(toIndentedString(errors)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -128,6 +167,7 @@ public class InlineResponse2001 {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("success");
+    openapiFields.add("errors");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -137,22 +177,22 @@ public class InlineResponse2001 {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!InlineResponse2001.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'InlineResponse2001' and its subtypes
+       if (!CreateSegmentBadRequestResponse.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'CreateSegmentBadRequestResponse' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<InlineResponse2001> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(InlineResponse2001.class));
+       final TypeAdapter<CreateSegmentBadRequestResponse> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(CreateSegmentBadRequestResponse.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<InlineResponse2001>() {
+       return (TypeAdapter<T>) new TypeAdapter<CreateSegmentBadRequestResponse>() {
            @Override
-           public void write(JsonWriter out, InlineResponse2001 value) throws IOException {
+           public void write(JsonWriter out, CreateSegmentBadRequestResponse value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public InlineResponse2001 read(JsonReader in) throws IOException {
+           public CreateSegmentBadRequestResponse read(JsonReader in) throws IOException {
              JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
 
              return thisAdapter.fromJsonTree(jsonObj);
@@ -163,18 +203,18 @@ public class InlineResponse2001 {
   }
 
  /**
-  * Create an instance of InlineResponse2001 given an JSON string
+  * Create an instance of CreateSegmentBadRequestResponse given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of InlineResponse2001
-  * @throws IOException if the JSON string is invalid with respect to InlineResponse2001
+  * @return An instance of CreateSegmentBadRequestResponse
+  * @throws IOException if the JSON string is invalid with respect to CreateSegmentBadRequestResponse
   */
-  public static InlineResponse2001 fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, InlineResponse2001.class);
+  public static CreateSegmentBadRequestResponse fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, CreateSegmentBadRequestResponse.class);
   }
 
  /**
-  * Convert an instance of InlineResponse2001 to an JSON string
+  * Convert an instance of CreateSegmentBadRequestResponse to an JSON string
   *
   * @return JSON string
   */
