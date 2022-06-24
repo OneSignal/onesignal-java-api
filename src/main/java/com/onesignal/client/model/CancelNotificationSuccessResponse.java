@@ -20,12 +20,9 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.onesignal.client.model.OutcomeData;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import java.io.Serializable;
 
 import com.google.gson.Gson;
@@ -49,47 +46,39 @@ import java.util.Set;
 import com.onesignal.client.JSON;
 
 /**
- * OutcomesData
+ * CancelNotificationSuccessResponse
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-24T20:14:48.185Z[Etc/UTC]")
-public class OutcomesData {
+public class CancelNotificationSuccessResponse {
   private static final long serialVersionUID = 1L;
 
-  public static final String SERIALIZED_NAME_OUTCOMES = "outcomes";
-  @SerializedName(SERIALIZED_NAME_OUTCOMES)
-  private List<OutcomeData> outcomes = null;
+  public static final String SERIALIZED_NAME_SUCCESS = "success";
+  @SerializedName(SERIALIZED_NAME_SUCCESS)
+  private Boolean success;
 
-  public OutcomesData() { 
+  public CancelNotificationSuccessResponse() { 
   }
 
-  public OutcomesData outcomes(List<OutcomeData> outcomes) {
+  public CancelNotificationSuccessResponse success(Boolean success) {
     
-    this.outcomes = outcomes;
-    return this;
-  }
-
-  public OutcomesData addOutcomesItem(OutcomeData outcomesItem) {
-    if (this.outcomes == null) {
-      this.outcomes = new ArrayList<>();
-    }
-    this.outcomes.add(outcomesItem);
+    this.success = success;
     return this;
   }
 
    /**
-   * Get outcomes
-   * @return outcomes
+   * Get success
+   * @return success
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public List<OutcomeData> getOutcomes() {
-    return outcomes;
+  public Boolean getSuccess() {
+    return success;
   }
 
 
-  public void setOutcomes(List<OutcomeData> outcomes) {
-    this.outcomes = outcomes;
+  public void setSuccess(Boolean success) {
+    this.success = success;
   }
 
 
@@ -102,20 +91,20 @@ public class OutcomesData {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    OutcomesData outcomesData = (OutcomesData) o;
-    return Objects.equals(this.outcomes, outcomesData.outcomes);
+    CancelNotificationSuccessResponse cancelNotificationSuccessResponse = (CancelNotificationSuccessResponse) o;
+    return Objects.equals(this.success, cancelNotificationSuccessResponse.success);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(outcomes);
+    return Objects.hash(success);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class OutcomesData {\n");
-    sb.append("    outcomes: ").append(toIndentedString(outcomes)).append("\n");
+    sb.append("class CancelNotificationSuccessResponse {\n");
+    sb.append("    success: ").append(toIndentedString(success)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -138,7 +127,7 @@ public class OutcomesData {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("outcomes");
+    openapiFields.add("success");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -148,22 +137,22 @@ public class OutcomesData {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!OutcomesData.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'OutcomesData' and its subtypes
+       if (!CancelNotificationSuccessResponse.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'CancelNotificationSuccessResponse' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<OutcomesData> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(OutcomesData.class));
+       final TypeAdapter<CancelNotificationSuccessResponse> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(CancelNotificationSuccessResponse.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<OutcomesData>() {
+       return (TypeAdapter<T>) new TypeAdapter<CancelNotificationSuccessResponse>() {
            @Override
-           public void write(JsonWriter out, OutcomesData value) throws IOException {
+           public void write(JsonWriter out, CancelNotificationSuccessResponse value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public OutcomesData read(JsonReader in) throws IOException {
+           public CancelNotificationSuccessResponse read(JsonReader in) throws IOException {
              JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
 
              return thisAdapter.fromJsonTree(jsonObj);
@@ -174,18 +163,18 @@ public class OutcomesData {
   }
 
  /**
-  * Create an instance of OutcomesData given an JSON string
+  * Create an instance of CancelNotificationSuccessResponse given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of OutcomesData
-  * @throws IOException if the JSON string is invalid with respect to OutcomesData
+  * @return An instance of CancelNotificationSuccessResponse
+  * @throws IOException if the JSON string is invalid with respect to CancelNotificationSuccessResponse
   */
-  public static OutcomesData fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, OutcomesData.class);
+  public static CancelNotificationSuccessResponse fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, CancelNotificationSuccessResponse.class);
   }
 
  /**
-  * Convert an instance of OutcomesData to an JSON string
+  * Convert an instance of CancelNotificationSuccessResponse to an JSON string
   *
   * @return JSON string
   */

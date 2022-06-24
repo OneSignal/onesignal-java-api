@@ -46,39 +46,39 @@ import java.util.Set;
 import com.onesignal.client.JSON;
 
 /**
- * InlineResponse2008
+ * DeletePlayerNotFoundResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T17:51:27.173Z[Etc/UTC]")
-public class InlineResponse2008 {
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-24T20:14:48.185Z[Etc/UTC]")
+public class DeletePlayerNotFoundResponse {
   private static final long serialVersionUID = 1L;
 
-  public static final String SERIALIZED_NAME_CSV_FILE_URL = "csv_file_url";
-  @SerializedName(SERIALIZED_NAME_CSV_FILE_URL)
-  private String csvFileUrl;
+  public static final String SERIALIZED_NAME_SUCCESS = "success";
+  @SerializedName(SERIALIZED_NAME_SUCCESS)
+  private String success;
 
-  public InlineResponse2008() { 
+  public DeletePlayerNotFoundResponse() { 
   }
 
-  public InlineResponse2008 csvFileUrl(String csvFileUrl) {
+  public DeletePlayerNotFoundResponse success(String success) {
     
-    this.csvFileUrl = csvFileUrl;
+    this.success = success;
     return this;
   }
 
    /**
-   * Get csvFileUrl
-   * @return csvFileUrl
+   * Get success
+   * @return success
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public String getCsvFileUrl() {
-    return csvFileUrl;
+  public String getSuccess() {
+    return success;
   }
 
 
-  public void setCsvFileUrl(String csvFileUrl) {
-    this.csvFileUrl = csvFileUrl;
+  public void setSuccess(String success) {
+    this.success = success;
   }
 
 
@@ -91,20 +91,20 @@ public class InlineResponse2008 {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    InlineResponse2008 inlineResponse2008 = (InlineResponse2008) o;
-    return Objects.equals(this.csvFileUrl, inlineResponse2008.csvFileUrl);
+    DeletePlayerNotFoundResponse deletePlayerNotFoundResponse = (DeletePlayerNotFoundResponse) o;
+    return Objects.equals(this.success, deletePlayerNotFoundResponse.success);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(csvFileUrl);
+    return Objects.hash(success);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class InlineResponse2008 {\n");
-    sb.append("    csvFileUrl: ").append(toIndentedString(csvFileUrl)).append("\n");
+    sb.append("class DeletePlayerNotFoundResponse {\n");
+    sb.append("    success: ").append(toIndentedString(success)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -127,7 +127,7 @@ public class InlineResponse2008 {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("csv_file_url");
+    openapiFields.add("success");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -137,22 +137,22 @@ public class InlineResponse2008 {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!InlineResponse2008.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'InlineResponse2008' and its subtypes
+       if (!DeletePlayerNotFoundResponse.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'DeletePlayerNotFoundResponse' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<InlineResponse2008> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(InlineResponse2008.class));
+       final TypeAdapter<DeletePlayerNotFoundResponse> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(DeletePlayerNotFoundResponse.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<InlineResponse2008>() {
+       return (TypeAdapter<T>) new TypeAdapter<DeletePlayerNotFoundResponse>() {
            @Override
-           public void write(JsonWriter out, InlineResponse2008 value) throws IOException {
+           public void write(JsonWriter out, DeletePlayerNotFoundResponse value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public InlineResponse2008 read(JsonReader in) throws IOException {
+           public DeletePlayerNotFoundResponse read(JsonReader in) throws IOException {
              JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
 
              return thisAdapter.fromJsonTree(jsonObj);
@@ -163,18 +163,18 @@ public class InlineResponse2008 {
   }
 
  /**
-  * Create an instance of InlineResponse2008 given an JSON string
+  * Create an instance of DeletePlayerNotFoundResponse given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of InlineResponse2008
-  * @throws IOException if the JSON string is invalid with respect to InlineResponse2008
+  * @return An instance of DeletePlayerNotFoundResponse
+  * @throws IOException if the JSON string is invalid with respect to DeletePlayerNotFoundResponse
   */
-  public static InlineResponse2008 fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, InlineResponse2008.class);
+  public static DeletePlayerNotFoundResponse fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, DeletePlayerNotFoundResponse.class);
   }
 
  /**
-  * Convert an instance of InlineResponse2008 to an JSON string
+  * Convert an instance of DeletePlayerNotFoundResponse to an JSON string
   *
   * @return JSON string
   */

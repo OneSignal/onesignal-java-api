@@ -1,13 +1,13 @@
 
 
-# InlineResponse4003
+# CreateNotificationBadRequestResponse
 
 
 ## Properties
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**erorrs** | **List&lt;String&gt;** |  |  [optional] |
+|**errors** | **List&lt;String&gt;** |  |  [optional] |
 
 
 

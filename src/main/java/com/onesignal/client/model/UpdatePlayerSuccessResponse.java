@@ -23,8 +23,6 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import java.io.Serializable;
 
 import com.google.gson.Gson;
@@ -48,24 +46,20 @@ import java.util.Set;
 import com.onesignal.client.JSON;
 
 /**
- * InlineResponse4002
+ * UpdatePlayerSuccessResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T17:51:27.173Z[Etc/UTC]")
-public class InlineResponse4002 {
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-24T20:14:48.185Z[Etc/UTC]")
+public class UpdatePlayerSuccessResponse {
   private static final long serialVersionUID = 1L;
 
   public static final String SERIALIZED_NAME_SUCCESS = "success";
   @SerializedName(SERIALIZED_NAME_SUCCESS)
   private Boolean success;
 
-  public static final String SERIALIZED_NAME_ERRORS = "errors";
-  @SerializedName(SERIALIZED_NAME_ERRORS)
-  private List<String> errors = null;
-
-  public InlineResponse4002() { 
+  public UpdatePlayerSuccessResponse() { 
   }
 
-  public InlineResponse4002 success(Boolean success) {
+  public UpdatePlayerSuccessResponse success(Boolean success) {
     
     this.success = success;
     return this;
@@ -88,37 +82,6 @@ public class InlineResponse4002 {
   }
 
 
-  public InlineResponse4002 errors(List<String> errors) {
-    
-    this.errors = errors;
-    return this;
-  }
-
-  public InlineResponse4002 addErrorsItem(String errorsItem) {
-    if (this.errors == null) {
-      this.errors = new ArrayList<>();
-    }
-    this.errors.add(errorsItem);
-    return this;
-  }
-
-   /**
-   * Get errors
-   * @return errors
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public List<String> getErrors() {
-    return errors;
-  }
-
-
-  public void setErrors(List<String> errors) {
-    this.errors = errors;
-  }
-
-
 
   @Override
   public boolean equals(Object o) {
@@ -128,22 +91,20 @@ public class InlineResponse4002 {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    InlineResponse4002 inlineResponse4002 = (InlineResponse4002) o;
-    return Objects.equals(this.success, inlineResponse4002.success) &&
-        Objects.equals(this.errors, inlineResponse4002.errors);
+    UpdatePlayerSuccessResponse updatePlayerSuccessResponse = (UpdatePlayerSuccessResponse) o;
+    return Objects.equals(this.success, updatePlayerSuccessResponse.success);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(success, errors);
+    return Objects.hash(success);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class InlineResponse4002 {\n");
+    sb.append("class UpdatePlayerSuccessResponse {\n");
     sb.append("    success: ").append(toIndentedString(success)).append("\n");
-    sb.append("    errors: ").append(toIndentedString(errors)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -167,7 +128,6 @@ public class InlineResponse4002 {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("success");
-    openapiFields.add("errors");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -177,22 +137,22 @@ public class InlineResponse4002 {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!InlineResponse4002.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'InlineResponse4002' and its subtypes
+       if (!UpdatePlayerSuccessResponse.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'UpdatePlayerSuccessResponse' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<InlineResponse4002> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(InlineResponse4002.class));
+       final TypeAdapter<UpdatePlayerSuccessResponse> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(UpdatePlayerSuccessResponse.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<InlineResponse4002>() {
+       return (TypeAdapter<T>) new TypeAdapter<UpdatePlayerSuccessResponse>() {
            @Override
-           public void write(JsonWriter out, InlineResponse4002 value) throws IOException {
+           public void write(JsonWriter out, UpdatePlayerSuccessResponse value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public InlineResponse4002 read(JsonReader in) throws IOException {
+           public UpdatePlayerSuccessResponse read(JsonReader in) throws IOException {
              JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
 
              return thisAdapter.fromJsonTree(jsonObj);
@@ -203,18 +163,18 @@ public class InlineResponse4002 {
   }
 
  /**
-  * Create an instance of InlineResponse4002 given an JSON string
+  * Create an instance of UpdatePlayerSuccessResponse given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of InlineResponse4002
-  * @throws IOException if the JSON string is invalid with respect to InlineResponse4002
+  * @return An instance of UpdatePlayerSuccessResponse
+  * @throws IOException if the JSON string is invalid with respect to UpdatePlayerSuccessResponse
   */
-  public static InlineResponse4002 fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, InlineResponse4002.class);
+  public static UpdatePlayerSuccessResponse fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, UpdatePlayerSuccessResponse.class);
   }
 
  /**
-  * Convert an instance of InlineResponse4002 to an JSON string
+  * Convert an instance of UpdatePlayerSuccessResponse to an JSON string
   *
   * @return JSON string
   */

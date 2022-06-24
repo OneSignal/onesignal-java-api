@@ -46,20 +46,24 @@ import java.util.Set;
 import com.onesignal.client.JSON;
 
 /**
- * InlineResponse2007
+ * CreateSegmentSuccessResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T17:51:27.173Z[Etc/UTC]")
-public class InlineResponse2007 {
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-24T20:14:48.185Z[Etc/UTC]")
+public class CreateSegmentSuccessResponse {
   private static final long serialVersionUID = 1L;
 
   public static final String SERIALIZED_NAME_SUCCESS = "success";
   @SerializedName(SERIALIZED_NAME_SUCCESS)
-  private String success;
+  private Boolean success;
 
-  public InlineResponse2007() { 
+  public static final String SERIALIZED_NAME_ID = "id";
+  @SerializedName(SERIALIZED_NAME_ID)
+  private String id;
+
+  public CreateSegmentSuccessResponse() { 
   }
 
-  public InlineResponse2007 success(String success) {
+  public CreateSegmentSuccessResponse success(Boolean success) {
     
     this.success = success;
     return this;
@@ -72,13 +76,36 @@ public class InlineResponse2007 {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public String getSuccess() {
+  public Boolean getSuccess() {
     return success;
   }
 
 
-  public void setSuccess(String success) {
+  public void setSuccess(Boolean success) {
     this.success = success;
+  }
+
+
+  public CreateSegmentSuccessResponse id(String id) {
+    
+    this.id = id;
+    return this;
+  }
+
+   /**
+   * UUID of created segment
+   * @return id
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "UUID of created segment")
+
+  public String getId() {
+    return id;
+  }
+
+
+  public void setId(String id) {
+    this.id = id;
   }
 
 
@@ -91,20 +118,22 @@ public class InlineResponse2007 {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    InlineResponse2007 inlineResponse2007 = (InlineResponse2007) o;
-    return Objects.equals(this.success, inlineResponse2007.success);
+    CreateSegmentSuccessResponse createSegmentSuccessResponse = (CreateSegmentSuccessResponse) o;
+    return Objects.equals(this.success, createSegmentSuccessResponse.success) &&
+        Objects.equals(this.id, createSegmentSuccessResponse.id);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(success);
+    return Objects.hash(success, id);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class InlineResponse2007 {\n");
+    sb.append("class CreateSegmentSuccessResponse {\n");
     sb.append("    success: ").append(toIndentedString(success)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -128,6 +157,7 @@ public class InlineResponse2007 {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("success");
+    openapiFields.add("id");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -137,22 +167,22 @@ public class InlineResponse2007 {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!InlineResponse2007.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'InlineResponse2007' and its subtypes
+       if (!CreateSegmentSuccessResponse.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'CreateSegmentSuccessResponse' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<InlineResponse2007> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(InlineResponse2007.class));
+       final TypeAdapter<CreateSegmentSuccessResponse> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(CreateSegmentSuccessResponse.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<InlineResponse2007>() {
+       return (TypeAdapter<T>) new TypeAdapter<CreateSegmentSuccessResponse>() {
            @Override
-           public void write(JsonWriter out, InlineResponse2007 value) throws IOException {
+           public void write(JsonWriter out, CreateSegmentSuccessResponse value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public InlineResponse2007 read(JsonReader in) throws IOException {
+           public CreateSegmentSuccessResponse read(JsonReader in) throws IOException {
              JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
 
              return thisAdapter.fromJsonTree(jsonObj);
@@ -163,18 +193,18 @@ public class InlineResponse2007 {
   }
 
  /**
-  * Create an instance of InlineResponse2007 given an JSON string
+  * Create an instance of CreateSegmentSuccessResponse given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of InlineResponse2007
-  * @throws IOException if the JSON string is invalid with respect to InlineResponse2007
+  * @return An instance of CreateSegmentSuccessResponse
+  * @throws IOException if the JSON string is invalid with respect to CreateSegmentSuccessResponse
   */
-  public static InlineResponse2007 fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, InlineResponse2007.class);
+  public static CreateSegmentSuccessResponse fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, CreateSegmentSuccessResponse.class);
   }
 
  /**
-  * Convert an instance of InlineResponse2007 to an JSON string
+  * Convert an instance of CreateSegmentSuccessResponse to an JSON string
   *
   * @return JSON string
   */

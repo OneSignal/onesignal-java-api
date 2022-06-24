@@ -20,7 +20,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.onesignal.client.model.OutcomeData;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -49,47 +48,47 @@ import java.util.Set;
 import com.onesignal.client.JSON;
 
 /**
- * OutcomesData
+ * DeleteSegmentBadRequestResponse
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-24T20:14:48.185Z[Etc/UTC]")
-public class OutcomesData {
+public class DeleteSegmentBadRequestResponse {
   private static final long serialVersionUID = 1L;
 
-  public static final String SERIALIZED_NAME_OUTCOMES = "outcomes";
-  @SerializedName(SERIALIZED_NAME_OUTCOMES)
-  private List<OutcomeData> outcomes = null;
+  public static final String SERIALIZED_NAME_ERORRS = "erorrs";
+  @SerializedName(SERIALIZED_NAME_ERORRS)
+  private List<String> erorrs = null;
 
-  public OutcomesData() { 
+  public DeleteSegmentBadRequestResponse() { 
   }
 
-  public OutcomesData outcomes(List<OutcomeData> outcomes) {
+  public DeleteSegmentBadRequestResponse erorrs(List<String> erorrs) {
     
-    this.outcomes = outcomes;
+    this.erorrs = erorrs;
     return this;
   }
 
-  public OutcomesData addOutcomesItem(OutcomeData outcomesItem) {
-    if (this.outcomes == null) {
-      this.outcomes = new ArrayList<>();
+  public DeleteSegmentBadRequestResponse addErorrsItem(String erorrsItem) {
+    if (this.erorrs == null) {
+      this.erorrs = new ArrayList<>();
     }
-    this.outcomes.add(outcomesItem);
+    this.erorrs.add(erorrsItem);
     return this;
   }
 
    /**
-   * Get outcomes
-   * @return outcomes
+   * Get erorrs
+   * @return erorrs
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public List<OutcomeData> getOutcomes() {
-    return outcomes;
+  public List<String> getErorrs() {
+    return erorrs;
   }
 
 
-  public void setOutcomes(List<OutcomeData> outcomes) {
-    this.outcomes = outcomes;
+  public void setErorrs(List<String> erorrs) {
+    this.erorrs = erorrs;
   }
 
 
@@ -102,20 +101,20 @@ public class OutcomesData {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    OutcomesData outcomesData = (OutcomesData) o;
-    return Objects.equals(this.outcomes, outcomesData.outcomes);
+    DeleteSegmentBadRequestResponse deleteSegmentBadRequestResponse = (DeleteSegmentBadRequestResponse) o;
+    return Objects.equals(this.erorrs, deleteSegmentBadRequestResponse.erorrs);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(outcomes);
+    return Objects.hash(erorrs);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class OutcomesData {\n");
-    sb.append("    outcomes: ").append(toIndentedString(outcomes)).append("\n");
+    sb.append("class DeleteSegmentBadRequestResponse {\n");
+    sb.append("    erorrs: ").append(toIndentedString(erorrs)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -138,7 +137,7 @@ public class OutcomesData {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("outcomes");
+    openapiFields.add("erorrs");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -148,22 +147,22 @@ public class OutcomesData {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!OutcomesData.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'OutcomesData' and its subtypes
+       if (!DeleteSegmentBadRequestResponse.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'DeleteSegmentBadRequestResponse' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<OutcomesData> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(OutcomesData.class));
+       final TypeAdapter<DeleteSegmentBadRequestResponse> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(DeleteSegmentBadRequestResponse.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<OutcomesData>() {
+       return (TypeAdapter<T>) new TypeAdapter<DeleteSegmentBadRequestResponse>() {
            @Override
-           public void write(JsonWriter out, OutcomesData value) throws IOException {
+           public void write(JsonWriter out, DeleteSegmentBadRequestResponse value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public OutcomesData read(JsonReader in) throws IOException {
+           public DeleteSegmentBadRequestResponse read(JsonReader in) throws IOException {
              JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
 
              return thisAdapter.fromJsonTree(jsonObj);
@@ -174,18 +173,18 @@ public class OutcomesData {
   }
 
  /**
-  * Create an instance of OutcomesData given an JSON string
+  * Create an instance of DeleteSegmentBadRequestResponse given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of OutcomesData
-  * @throws IOException if the JSON string is invalid with respect to OutcomesData
+  * @return An instance of DeleteSegmentBadRequestResponse
+  * @throws IOException if the JSON string is invalid with respect to DeleteSegmentBadRequestResponse
   */
-  public static OutcomesData fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, OutcomesData.class);
+  public static DeleteSegmentBadRequestResponse fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, DeleteSegmentBadRequestResponse.class);
   }
 
  /**
-  * Convert an instance of OutcomesData to an JSON string
+  * Convert an instance of DeleteSegmentBadRequestResponse to an JSON string
   *
   * @return JSON string
   */

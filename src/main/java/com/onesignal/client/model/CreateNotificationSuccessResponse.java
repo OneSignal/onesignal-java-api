@@ -47,10 +47,10 @@ import java.util.Set;
 import com.onesignal.client.JSON;
 
 /**
- * InlineResponse200
+ * CreateNotificationSuccessResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T17:51:27.173Z[Etc/UTC]")
-public class InlineResponse200 {
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-24T20:14:48.185Z[Etc/UTC]")
+public class CreateNotificationSuccessResponse {
   private static final long serialVersionUID = 1L;
 
   public static final String SERIALIZED_NAME_ID = "id";
@@ -69,10 +69,10 @@ public class InlineResponse200 {
   @SerializedName(SERIALIZED_NAME_ERRORS)
   private Notification200Errors errors;
 
-  public InlineResponse200() { 
+  public CreateNotificationSuccessResponse() { 
   }
 
-  public InlineResponse200 id(String id) {
+  public CreateNotificationSuccessResponse id(String id) {
     
     this.id = id;
     return this;
@@ -95,7 +95,7 @@ public class InlineResponse200 {
   }
 
 
-  public InlineResponse200 recipients(Integer recipients) {
+  public CreateNotificationSuccessResponse recipients(Integer recipients) {
     
     this.recipients = recipients;
     return this;
@@ -118,7 +118,7 @@ public class InlineResponse200 {
   }
 
 
-  public InlineResponse200 externalId(String externalId) {
+  public CreateNotificationSuccessResponse externalId(String externalId) {
     
     this.externalId = externalId;
     return this;
@@ -141,7 +141,7 @@ public class InlineResponse200 {
   }
 
 
-  public InlineResponse200 errors(Notification200Errors errors) {
+  public CreateNotificationSuccessResponse errors(Notification200Errors errors) {
     
     this.errors = errors;
     return this;
@@ -173,11 +173,11 @@ public class InlineResponse200 {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    InlineResponse200 inlineResponse200 = (InlineResponse200) o;
-    return Objects.equals(this.id, inlineResponse200.id) &&
-        Objects.equals(this.recipients, inlineResponse200.recipients) &&
-        Objects.equals(this.externalId, inlineResponse200.externalId) &&
-        Objects.equals(this.errors, inlineResponse200.errors);
+    CreateNotificationSuccessResponse createNotificationSuccessResponse = (CreateNotificationSuccessResponse) o;
+    return Objects.equals(this.id, createNotificationSuccessResponse.id) &&
+        Objects.equals(this.recipients, createNotificationSuccessResponse.recipients) &&
+        Objects.equals(this.externalId, createNotificationSuccessResponse.externalId) &&
+        Objects.equals(this.errors, createNotificationSuccessResponse.errors);
   }
 
   @Override
@@ -188,7 +188,7 @@ public class InlineResponse200 {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class InlineResponse200 {\n");
+    sb.append("class CreateNotificationSuccessResponse {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    recipients: ").append(toIndentedString(recipients)).append("\n");
     sb.append("    externalId: ").append(toIndentedString(externalId)).append("\n");
@@ -230,22 +230,22 @@ public class InlineResponse200 {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!InlineResponse200.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'InlineResponse200' and its subtypes
+       if (!CreateNotificationSuccessResponse.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'CreateNotificationSuccessResponse' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<InlineResponse200> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(InlineResponse200.class));
+       final TypeAdapter<CreateNotificationSuccessResponse> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(CreateNotificationSuccessResponse.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<InlineResponse200>() {
+       return (TypeAdapter<T>) new TypeAdapter<CreateNotificationSuccessResponse>() {
            @Override
-           public void write(JsonWriter out, InlineResponse200 value) throws IOException {
+           public void write(JsonWriter out, CreateNotificationSuccessResponse value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public InlineResponse200 read(JsonReader in) throws IOException {
+           public CreateNotificationSuccessResponse read(JsonReader in) throws IOException {
              JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
 
              return thisAdapter.fromJsonTree(jsonObj);
@@ -256,18 +256,18 @@ public class InlineResponse200 {
   }
 
  /**
-  * Create an instance of InlineResponse200 given an JSON string
+  * Create an instance of CreateNotificationSuccessResponse given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of InlineResponse200
-  * @throws IOException if the JSON string is invalid with respect to InlineResponse200
+  * @return An instance of CreateNotificationSuccessResponse
+  * @throws IOException if the JSON string is invalid with respect to CreateNotificationSuccessResponse
   */
-  public static InlineResponse200 fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, InlineResponse200.class);
+  public static CreateNotificationSuccessResponse fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, CreateNotificationSuccessResponse.class);
   }
 
  /**
-  * Convert an instance of InlineResponse200 to an JSON string
+  * Convert an instance of CreateNotificationSuccessResponse to an JSON string
   *
   * @return JSON string
   */

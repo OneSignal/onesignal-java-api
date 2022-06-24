@@ -23,8 +23,6 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import java.io.Serializable;
 
 import com.google.gson.Gson;
@@ -48,47 +46,39 @@ import java.util.Set;
 import com.onesignal.client.JSON;
 
 /**
- * InlineResponse4003
+ * DeleteSegmentSuccessResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T17:51:27.173Z[Etc/UTC]")
-public class InlineResponse4003 {
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-24T20:14:48.185Z[Etc/UTC]")
+public class DeleteSegmentSuccessResponse {
   private static final long serialVersionUID = 1L;
 
-  public static final String SERIALIZED_NAME_ERORRS = "erorrs";
-  @SerializedName(SERIALIZED_NAME_ERORRS)
-  private List<String> erorrs = null;
+  public static final String SERIALIZED_NAME_SUCCESS = "success";
+  @SerializedName(SERIALIZED_NAME_SUCCESS)
+  private Boolean success;
 
-  public InlineResponse4003() { 
+  public DeleteSegmentSuccessResponse() { 
   }
 
-  public InlineResponse4003 erorrs(List<String> erorrs) {
+  public DeleteSegmentSuccessResponse success(Boolean success) {
     
-    this.erorrs = erorrs;
-    return this;
-  }
-
-  public InlineResponse4003 addErorrsItem(String erorrsItem) {
-    if (this.erorrs == null) {
-      this.erorrs = new ArrayList<>();
-    }
-    this.erorrs.add(erorrsItem);
+    this.success = success;
     return this;
   }
 
    /**
-   * Get erorrs
-   * @return erorrs
+   * Get success
+   * @return success
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public List<String> getErorrs() {
-    return erorrs;
+  public Boolean getSuccess() {
+    return success;
   }
 
 
-  public void setErorrs(List<String> erorrs) {
-    this.erorrs = erorrs;
+  public void setSuccess(Boolean success) {
+    this.success = success;
   }
 
 
@@ -101,20 +91,20 @@ public class InlineResponse4003 {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    InlineResponse4003 inlineResponse4003 = (InlineResponse4003) o;
-    return Objects.equals(this.erorrs, inlineResponse4003.erorrs);
+    DeleteSegmentSuccessResponse deleteSegmentSuccessResponse = (DeleteSegmentSuccessResponse) o;
+    return Objects.equals(this.success, deleteSegmentSuccessResponse.success);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(erorrs);
+    return Objects.hash(success);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class InlineResponse4003 {\n");
-    sb.append("    erorrs: ").append(toIndentedString(erorrs)).append("\n");
+    sb.append("class DeleteSegmentSuccessResponse {\n");
+    sb.append("    success: ").append(toIndentedString(success)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -137,7 +127,7 @@ public class InlineResponse4003 {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("erorrs");
+    openapiFields.add("success");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -147,22 +137,22 @@ public class InlineResponse4003 {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!InlineResponse4003.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'InlineResponse4003' and its subtypes
+       if (!DeleteSegmentSuccessResponse.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'DeleteSegmentSuccessResponse' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<InlineResponse4003> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(InlineResponse4003.class));
+       final TypeAdapter<DeleteSegmentSuccessResponse> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(DeleteSegmentSuccessResponse.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<InlineResponse4003>() {
+       return (TypeAdapter<T>) new TypeAdapter<DeleteSegmentSuccessResponse>() {
            @Override
-           public void write(JsonWriter out, InlineResponse4003 value) throws IOException {
+           public void write(JsonWriter out, DeleteSegmentSuccessResponse value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public InlineResponse4003 read(JsonReader in) throws IOException {
+           public DeleteSegmentSuccessResponse read(JsonReader in) throws IOException {
              JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
 
              return thisAdapter.fromJsonTree(jsonObj);
@@ -173,18 +163,18 @@ public class InlineResponse4003 {
   }
 
  /**
-  * Create an instance of InlineResponse4003 given an JSON string
+  * Create an instance of DeleteSegmentSuccessResponse given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of InlineResponse4003
-  * @throws IOException if the JSON string is invalid with respect to InlineResponse4003
+  * @return An instance of DeleteSegmentSuccessResponse
+  * @throws IOException if the JSON string is invalid with respect to DeleteSegmentSuccessResponse
   */
-  public static InlineResponse4003 fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, InlineResponse4003.class);
+  public static DeleteSegmentSuccessResponse fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, DeleteSegmentSuccessResponse.class);
   }
 
  /**
-  * Convert an instance of InlineResponse4003 to an JSON string
+  * Convert an instance of DeleteSegmentSuccessResponse to an JSON string
   *
   * @return JSON string
   */

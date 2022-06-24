@@ -1,6 +1,6 @@
 
 
-# InlineResponse2005
+# CreatePlayerSuccessResponse
 
 
 ## Properties

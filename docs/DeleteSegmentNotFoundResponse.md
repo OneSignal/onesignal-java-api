@@ -1,13 +1,13 @@
 
 
-# InlineResponse2007
+# DeleteSegmentNotFoundResponse
 
 
 ## Properties
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**success** | **String** |  |  [optional] |
+|**success** | **Boolean** |  |  [optional] |
 
 
 

@@ -1,6 +1,6 @@
 
 
-# InlineResponse4002
+# CreateSegmentBadRequestResponse
 
 
 ## Properties

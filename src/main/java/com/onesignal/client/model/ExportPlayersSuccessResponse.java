@@ -23,8 +23,6 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import java.io.Serializable;
 
 import com.google.gson.Gson;
@@ -48,74 +46,39 @@ import java.util.Set;
 import com.onesignal.client.JSON;
 
 /**
- * InlineResponse4001
+ * ExportPlayersSuccessResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T17:51:27.173Z[Etc/UTC]")
-public class InlineResponse4001 {
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-24T20:14:48.185Z[Etc/UTC]")
+public class ExportPlayersSuccessResponse {
   private static final long serialVersionUID = 1L;
 
-  public static final String SERIALIZED_NAME_SUCCESS = "success";
-  @SerializedName(SERIALIZED_NAME_SUCCESS)
-  private String success;
+  public static final String SERIALIZED_NAME_CSV_FILE_URL = "csv_file_url";
+  @SerializedName(SERIALIZED_NAME_CSV_FILE_URL)
+  private String csvFileUrl;
 
-  public static final String SERIALIZED_NAME_ERRORS = "errors";
-  @SerializedName(SERIALIZED_NAME_ERRORS)
-  private List<String> errors = null;
-
-  public InlineResponse4001() { 
+  public ExportPlayersSuccessResponse() { 
   }
 
-  public InlineResponse4001 success(String success) {
+  public ExportPlayersSuccessResponse csvFileUrl(String csvFileUrl) {
     
-    this.success = success;
+    this.csvFileUrl = csvFileUrl;
     return this;
   }
 
    /**
-   * Get success
-   * @return success
+   * Get csvFileUrl
+   * @return csvFileUrl
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public String getSuccess() {
-    return success;
+  public String getCsvFileUrl() {
+    return csvFileUrl;
   }
 
 
-  public void setSuccess(String success) {
-    this.success = success;
-  }
-
-
-  public InlineResponse4001 errors(List<String> errors) {
-    
-    this.errors = errors;
-    return this;
-  }
-
-  public InlineResponse4001 addErrorsItem(String errorsItem) {
-    if (this.errors == null) {
-      this.errors = new ArrayList<>();
-    }
-    this.errors.add(errorsItem);
-    return this;
-  }
-
-   /**
-   * Get errors
-   * @return errors
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public List<String> getErrors() {
-    return errors;
-  }
-
-
-  public void setErrors(List<String> errors) {
-    this.errors = errors;
+  public void setCsvFileUrl(String csvFileUrl) {
+    this.csvFileUrl = csvFileUrl;
   }
 
 
@@ -128,22 +91,20 @@ public class InlineResponse4001 {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    InlineResponse4001 inlineResponse4001 = (InlineResponse4001) o;
-    return Objects.equals(this.success, inlineResponse4001.success) &&
-        Objects.equals(this.errors, inlineResponse4001.errors);
+    ExportPlayersSuccessResponse exportPlayersSuccessResponse = (ExportPlayersSuccessResponse) o;
+    return Objects.equals(this.csvFileUrl, exportPlayersSuccessResponse.csvFileUrl);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(success, errors);
+    return Objects.hash(csvFileUrl);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class InlineResponse4001 {\n");
-    sb.append("    success: ").append(toIndentedString(success)).append("\n");
-    sb.append("    errors: ").append(toIndentedString(errors)).append("\n");
+    sb.append("class ExportPlayersSuccessResponse {\n");
+    sb.append("    csvFileUrl: ").append(toIndentedString(csvFileUrl)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -166,8 +127,7 @@ public class InlineResponse4001 {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("success");
-    openapiFields.add("errors");
+    openapiFields.add("csv_file_url");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -177,22 +137,22 @@ public class InlineResponse4001 {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!InlineResponse4001.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'InlineResponse4001' and its subtypes
+       if (!ExportPlayersSuccessResponse.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'ExportPlayersSuccessResponse' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<InlineResponse4001> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(InlineResponse4001.class));
+       final TypeAdapter<ExportPlayersSuccessResponse> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(ExportPlayersSuccessResponse.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<InlineResponse4001>() {
+       return (TypeAdapter<T>) new TypeAdapter<ExportPlayersSuccessResponse>() {
            @Override
-           public void write(JsonWriter out, InlineResponse4001 value) throws IOException {
+           public void write(JsonWriter out, ExportPlayersSuccessResponse value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public InlineResponse4001 read(JsonReader in) throws IOException {
+           public ExportPlayersSuccessResponse read(JsonReader in) throws IOException {
              JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
 
              return thisAdapter.fromJsonTree(jsonObj);
@@ -203,18 +163,18 @@ public class InlineResponse4001 {
   }
 
  /**
-  * Create an instance of InlineResponse4001 given an JSON string
+  * Create an instance of ExportPlayersSuccessResponse given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of InlineResponse4001
-  * @throws IOException if the JSON string is invalid with respect to InlineResponse4001
+  * @return An instance of ExportPlayersSuccessResponse
+  * @throws IOException if the JSON string is invalid with respect to ExportPlayersSuccessResponse
   */
-  public static InlineResponse4001 fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, InlineResponse4001.class);
+  public static ExportPlayersSuccessResponse fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, ExportPlayersSuccessResponse.class);
   }
 
  /**
-  * Convert an instance of InlineResponse4001 to an JSON string
+  * Convert an instance of ExportPlayersSuccessResponse to an JSON string
   *
   * @return JSON string
   */

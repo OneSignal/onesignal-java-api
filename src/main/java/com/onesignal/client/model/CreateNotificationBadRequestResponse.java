@@ -23,6 +23,8 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.io.Serializable;
 
 import com.google.gson.Gson;
@@ -46,66 +48,47 @@ import java.util.Set;
 import com.onesignal.client.JSON;
 
 /**
- * InlineResponse2002
+ * CreateNotificationBadRequestResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T17:51:27.173Z[Etc/UTC]")
-public class InlineResponse2002 {
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-24T20:14:48.185Z[Etc/UTC]")
+public class CreateNotificationBadRequestResponse {
   private static final long serialVersionUID = 1L;
 
-  public static final String SERIALIZED_NAME_SUCCESS = "success";
-  @SerializedName(SERIALIZED_NAME_SUCCESS)
-  private Boolean success;
+  public static final String SERIALIZED_NAME_ERRORS = "errors";
+  @SerializedName(SERIALIZED_NAME_ERRORS)
+  private List<String> errors = null;
 
-  public static final String SERIALIZED_NAME_DESTINATION_URL = "destination_url";
-  @SerializedName(SERIALIZED_NAME_DESTINATION_URL)
-  private String destinationUrl;
-
-  public InlineResponse2002() { 
+  public CreateNotificationBadRequestResponse() { 
   }
 
-  public InlineResponse2002 success(Boolean success) {
+  public CreateNotificationBadRequestResponse errors(List<String> errors) {
     
-    this.success = success;
+    this.errors = errors;
+    return this;
+  }
+
+  public CreateNotificationBadRequestResponse addErrorsItem(String errorsItem) {
+    if (this.errors == null) {
+      this.errors = new ArrayList<>();
+    }
+    this.errors.add(errorsItem);
     return this;
   }
 
    /**
-   * Get success
-   * @return success
+   * Get errors
+   * @return errors
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public Boolean getSuccess() {
-    return success;
+  public List<String> getErrors() {
+    return errors;
   }
 
 
-  public void setSuccess(Boolean success) {
-    this.success = success;
-  }
-
-
-  public InlineResponse2002 destinationUrl(String destinationUrl) {
-    
-    this.destinationUrl = destinationUrl;
-    return this;
-  }
-
-   /**
-   * Get destinationUrl
-   * @return destinationUrl
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public String getDestinationUrl() {
-    return destinationUrl;
-  }
-
-
-  public void setDestinationUrl(String destinationUrl) {
-    this.destinationUrl = destinationUrl;
+  public void setErrors(List<String> errors) {
+    this.errors = errors;
   }
 
 
@@ -118,22 +101,20 @@ public class InlineResponse2002 {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    InlineResponse2002 inlineResponse2002 = (InlineResponse2002) o;
-    return Objects.equals(this.success, inlineResponse2002.success) &&
-        Objects.equals(this.destinationUrl, inlineResponse2002.destinationUrl);
+    CreateNotificationBadRequestResponse createNotificationBadRequestResponse = (CreateNotificationBadRequestResponse) o;
+    return Objects.equals(this.errors, createNotificationBadRequestResponse.errors);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(success, destinationUrl);
+    return Objects.hash(errors);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class InlineResponse2002 {\n");
-    sb.append("    success: ").append(toIndentedString(success)).append("\n");
-    sb.append("    destinationUrl: ").append(toIndentedString(destinationUrl)).append("\n");
+    sb.append("class CreateNotificationBadRequestResponse {\n");
+    sb.append("    errors: ").append(toIndentedString(errors)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -156,8 +137,7 @@ public class InlineResponse2002 {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("success");
-    openapiFields.add("destination_url");
+    openapiFields.add("errors");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -167,22 +147,22 @@ public class InlineResponse2002 {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!InlineResponse2002.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'InlineResponse2002' and its subtypes
+       if (!CreateNotificationBadRequestResponse.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'CreateNotificationBadRequestResponse' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<InlineResponse2002> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(InlineResponse2002.class));
+       final TypeAdapter<CreateNotificationBadRequestResponse> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(CreateNotificationBadRequestResponse.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<InlineResponse2002>() {
+       return (TypeAdapter<T>) new TypeAdapter<CreateNotificationBadRequestResponse>() {
            @Override
-           public void write(JsonWriter out, InlineResponse2002 value) throws IOException {
+           public void write(JsonWriter out, CreateNotificationBadRequestResponse value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public InlineResponse2002 read(JsonReader in) throws IOException {
+           public CreateNotificationBadRequestResponse read(JsonReader in) throws IOException {
              JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
 
              return thisAdapter.fromJsonTree(jsonObj);
@@ -193,18 +173,18 @@ public class InlineResponse2002 {
   }
 
  /**
-  * Create an instance of InlineResponse2002 given an JSON string
+  * Create an instance of CreateNotificationBadRequestResponse given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of InlineResponse2002
-  * @throws IOException if the JSON string is invalid with respect to InlineResponse2002
+  * @return An instance of CreateNotificationBadRequestResponse
+  * @throws IOException if the JSON string is invalid with respect to CreateNotificationBadRequestResponse
   */
-  public static InlineResponse2002 fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, InlineResponse2002.class);
+  public static CreateNotificationBadRequestResponse fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, CreateNotificationBadRequestResponse.class);
   }
 
  /**
-  * Convert an instance of InlineResponse2002 to an JSON string
+  * Convert an instance of CreateNotificationBadRequestResponse to an JSON string
   *
   * @return JSON string
   */

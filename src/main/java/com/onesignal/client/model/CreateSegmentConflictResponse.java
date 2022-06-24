@@ -20,7 +20,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.onesignal.client.model.OutcomeData;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -49,47 +48,74 @@ import java.util.Set;
 import com.onesignal.client.JSON;
 
 /**
- * OutcomesData
+ * CreateSegmentConflictResponse
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-24T20:14:48.185Z[Etc/UTC]")
-public class OutcomesData {
+public class CreateSegmentConflictResponse {
   private static final long serialVersionUID = 1L;
 
-  public static final String SERIALIZED_NAME_OUTCOMES = "outcomes";
-  @SerializedName(SERIALIZED_NAME_OUTCOMES)
-  private List<OutcomeData> outcomes = null;
+  public static final String SERIALIZED_NAME_SUCCESS = "success";
+  @SerializedName(SERIALIZED_NAME_SUCCESS)
+  private Boolean success;
 
-  public OutcomesData() { 
+  public static final String SERIALIZED_NAME_ERRORS = "errors";
+  @SerializedName(SERIALIZED_NAME_ERRORS)
+  private List<String> errors = null;
+
+  public CreateSegmentConflictResponse() { 
   }
 
-  public OutcomesData outcomes(List<OutcomeData> outcomes) {
+  public CreateSegmentConflictResponse success(Boolean success) {
     
-    this.outcomes = outcomes;
-    return this;
-  }
-
-  public OutcomesData addOutcomesItem(OutcomeData outcomesItem) {
-    if (this.outcomes == null) {
-      this.outcomes = new ArrayList<>();
-    }
-    this.outcomes.add(outcomesItem);
+    this.success = success;
     return this;
   }
 
    /**
-   * Get outcomes
-   * @return outcomes
+   * Get success
+   * @return success
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public List<OutcomeData> getOutcomes() {
-    return outcomes;
+  public Boolean getSuccess() {
+    return success;
   }
 
 
-  public void setOutcomes(List<OutcomeData> outcomes) {
-    this.outcomes = outcomes;
+  public void setSuccess(Boolean success) {
+    this.success = success;
+  }
+
+
+  public CreateSegmentConflictResponse errors(List<String> errors) {
+    
+    this.errors = errors;
+    return this;
+  }
+
+  public CreateSegmentConflictResponse addErrorsItem(String errorsItem) {
+    if (this.errors == null) {
+      this.errors = new ArrayList<>();
+    }
+    this.errors.add(errorsItem);
+    return this;
+  }
+
+   /**
+   * Get errors
+   * @return errors
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public List<String> getErrors() {
+    return errors;
+  }
+
+
+  public void setErrors(List<String> errors) {
+    this.errors = errors;
   }
 
 
@@ -102,20 +128,22 @@ public class OutcomesData {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    OutcomesData outcomesData = (OutcomesData) o;
-    return Objects.equals(this.outcomes, outcomesData.outcomes);
+    CreateSegmentConflictResponse createSegmentConflictResponse = (CreateSegmentConflictResponse) o;
+    return Objects.equals(this.success, createSegmentConflictResponse.success) &&
+        Objects.equals(this.errors, createSegmentConflictResponse.errors);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(outcomes);
+    return Objects.hash(success, errors);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class OutcomesData {\n");
-    sb.append("    outcomes: ").append(toIndentedString(outcomes)).append("\n");
+    sb.append("class CreateSegmentConflictResponse {\n");
+    sb.append("    success: ").append(toIndentedString(success)).append("\n");
+    sb.append("    errors: ").append(toIndentedString(errors)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -138,7 +166,8 @@ public class OutcomesData {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("outcomes");
+    openapiFields.add("success");
+    openapiFields.add("errors");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -148,22 +177,22 @@ public class OutcomesData {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!OutcomesData.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'OutcomesData' and its subtypes
+       if (!CreateSegmentConflictResponse.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'CreateSegmentConflictResponse' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<OutcomesData> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(OutcomesData.class));
+       final TypeAdapter<CreateSegmentConflictResponse> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(CreateSegmentConflictResponse.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<OutcomesData>() {
+       return (TypeAdapter<T>) new TypeAdapter<CreateSegmentConflictResponse>() {
            @Override
-           public void write(JsonWriter out, OutcomesData value) throws IOException {
+           public void write(JsonWriter out, CreateSegmentConflictResponse value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public OutcomesData read(JsonReader in) throws IOException {
+           public CreateSegmentConflictResponse read(JsonReader in) throws IOException {
              JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
 
              return thisAdapter.fromJsonTree(jsonObj);
@@ -174,18 +203,18 @@ public class OutcomesData {
   }
 
  /**
-  * Create an instance of OutcomesData given an JSON string
+  * Create an instance of CreateSegmentConflictResponse given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of OutcomesData
-  * @throws IOException if the JSON string is invalid with respect to OutcomesData
+  * @return An instance of CreateSegmentConflictResponse
+  * @throws IOException if the JSON string is invalid with respect to CreateSegmentConflictResponse
   */
-  public static OutcomesData fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, OutcomesData.class);
+  public static CreateSegmentConflictResponse fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, CreateSegmentConflictResponse.class);
   }
 
  /**
-  * Convert an instance of OutcomesData to an JSON string
+  * Convert an instance of CreateSegmentConflictResponse to an JSON string
   *
   * @return JSON string
   */

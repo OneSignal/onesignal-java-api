@@ -1,6 +1,6 @@
 
 
-# InlineResponse200
+# CreateNotificationSuccessResponse
 
 
 ## Properties
