@@ -55,7 +55,7 @@ import com.onesignal.client.JSON;
 /**
  * NotificationAllOf
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-24T20:14:48.185Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-07-13T21:20:07.400Z[Etc/UTC]")
 public class NotificationAllOf {
   private static final long serialVersionUID = 1L;
 
@@ -66,6 +66,10 @@ public class NotificationAllOf {
   public static final String SERIALIZED_NAME_VALUE = "value";
   @SerializedName(SERIALIZED_NAME_VALUE)
   private Integer value;
+
+  public static final String SERIALIZED_NAME_NAME = "name";
+  @SerializedName(SERIALIZED_NAME_NAME)
+  private String name;
 
   /**
    * Gets or Sets aggregation
@@ -506,6 +510,29 @@ public class NotificationAllOf {
   }
 
 
+
+
+  public NotificationAllOf name(String name) {
+    
+    this.name = name;
+    return this;
+  }
+
+   /**
+   * Required for SMS Messages. An identifier for tracking message within the OneSignal dashboard or export analytics. Not shown to end user.
+   * @return name
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Required for SMS Messages. An identifier for tracking message within the OneSignal dashboard or export analytics. Not shown to end user.")
+
+  public String getName() {
+    return name;
+  }
+
+
+  public void setName(String name) {
+    this.name = name;
+  }
 
 
    /**
@@ -2513,6 +2540,7 @@ public class NotificationAllOf {
     NotificationAllOf notificationAllOf = (NotificationAllOf) o;
     return Objects.equals(this.id, notificationAllOf.id) &&
         Objects.equals(this.value, notificationAllOf.value) &&
+        Objects.equals(this.name, notificationAllOf.name) &&
         Objects.equals(this.aggregation, notificationAllOf.aggregation) &&
         Objects.equals(this.isIos, notificationAllOf.isIos) &&
         Objects.equals(this.isAndroid, notificationAllOf.isAndroid) &&
@@ -2607,7 +2635,7 @@ public class NotificationAllOf {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, value, aggregation, isIos, isAndroid, isHuawei, isAnyWeb, isChromeWeb, isFirefox, isSafari, isWPWNS, isAdm, isChrome, channelForExternalUserIds, appId, externalId, contents, headings, subtitle, data, huaweiMsgType, url, webUrl, appUrl, iosAttachments, templateId, contentAvailable, mutableContent, targetContentIdentifier, bigPicture, huaweiBigPicture, admBigPicture, chromeBigPicture, chromeWebImage, buttons, webButtons, iosCategory, androidChannelId, huaweiChannelId, existingAndroidChannelId, huaweiExistingChannelId, androidBackgroundLayout, smallIcon, huaweiSmallIcon, largeIcon, huaweiLargeIcon, admSmallIcon, admLargeIcon, chromeWebIcon, chromeWebBadge, firefoxIcon, chromeIcon, iosSound, androidSound, huaweiSound, admSound, wpWnsSound, androidLedColor, huaweiLedColor, androidAccentColor, huaweiAccentColor, androidVisibility, huaweiVisibility, iosBadgeType, iosBadgeCount, collapseId, webPushTopic, apnsAlert, sendAfter, delayedOption, deliveryTimeOfDay, ttl, priority, apnsPushTypeOverride, throttleRatePerMinute, androidGroup, androidGroupMessage, admGroup, admGroupMessage, threadId, summaryArg, summaryArgCount, emailSubject, emailBody, emailFromName, emailFromAddress, smsFrom, smsMediaUrls);
+    return Objects.hash(id, value, name, aggregation, isIos, isAndroid, isHuawei, isAnyWeb, isChromeWeb, isFirefox, isSafari, isWPWNS, isAdm, isChrome, channelForExternalUserIds, appId, externalId, contents, headings, subtitle, data, huaweiMsgType, url, webUrl, appUrl, iosAttachments, templateId, contentAvailable, mutableContent, targetContentIdentifier, bigPicture, huaweiBigPicture, admBigPicture, chromeBigPicture, chromeWebImage, buttons, webButtons, iosCategory, androidChannelId, huaweiChannelId, existingAndroidChannelId, huaweiExistingChannelId, androidBackgroundLayout, smallIcon, huaweiSmallIcon, largeIcon, huaweiLargeIcon, admSmallIcon, admLargeIcon, chromeWebIcon, chromeWebBadge, firefoxIcon, chromeIcon, iosSound, androidSound, huaweiSound, admSound, wpWnsSound, androidLedColor, huaweiLedColor, androidAccentColor, huaweiAccentColor, androidVisibility, huaweiVisibility, iosBadgeType, iosBadgeCount, collapseId, webPushTopic, apnsAlert, sendAfter, delayedOption, deliveryTimeOfDay, ttl, priority, apnsPushTypeOverride, throttleRatePerMinute, androidGroup, androidGroupMessage, admGroup, admGroupMessage, threadId, summaryArg, summaryArgCount, emailSubject, emailBody, emailFromName, emailFromAddress, smsFrom, smsMediaUrls);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -2623,6 +2651,7 @@ public class NotificationAllOf {
     sb.append("class NotificationAllOf {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    value: ").append(toIndentedString(value)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    aggregation: ").append(toIndentedString(aggregation)).append("\n");
     sb.append("    isIos: ").append(toIndentedString(isIos)).append("\n");
     sb.append("    isAndroid: ").append(toIndentedString(isAndroid)).append("\n");
@@ -2733,6 +2762,7 @@ public class NotificationAllOf {
     openapiFields = new HashSet<String>();
     openapiFields.add("id");
     openapiFields.add("value");
+    openapiFields.add("name");
     openapiFields.add("aggregation");
     openapiFields.add("isIos");
     openapiFields.add("isAndroid");
