@@ -2050,6 +2050,13 @@ components:
         value:
           readOnly: true
           type: integer
+        name:
+          description: |-
+            Required for SMS Messages.
+            An identifier for tracking message within the OneSignal dashboard or export analytics.
+            Not shown to end user.
+          type: string
+          writeOnly: true
         aggregation:
           enum:
           - sum

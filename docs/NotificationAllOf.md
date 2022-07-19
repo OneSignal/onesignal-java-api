@@ -9,6 +9,7 @@
 |------------ | ------------- | ------------- | -------------|
 |**id** | **String** |  |  [optional] |
 |**value** | **Integer** |  |  [optional] [readonly] |
+|**name** | **String** | Required for SMS Messages. An identifier for tracking message within the OneSignal dashboard or export analytics. Not shown to end user. |  [optional] |
 |**aggregation** | [**AggregationEnum**](#AggregationEnum) |  |  [optional] [readonly] |
 |**isIos** | **Boolean** | Indicates whether to send to all devices registered under your app&#39;s Apple iOS platform. |  [optional] |
 |**isAndroid** | **Boolean** | Indicates whether to send to all devices registered under your app&#39;s Google Android platform. |  [optional] |

@@ -57,7 +57,7 @@ import com.onesignal.client.JSON;
 /**
  * Notification
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-24T20:14:48.185Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-07-13T21:20:07.400Z[Etc/UTC]")
 public class Notification {
   private static final long serialVersionUID = 1L;
 
@@ -164,6 +164,10 @@ public class Notification {
   public static final String SERIALIZED_NAME_VALUE = "value";
   @SerializedName(SERIALIZED_NAME_VALUE)
   private Integer value;
+
+  public static final String SERIALIZED_NAME_NAME = "name";
+  @SerializedName(SERIALIZED_NAME_NAME)
+  private String name;
 
   /**
    * Gets or Sets aggregation
@@ -1252,6 +1256,29 @@ public class Notification {
   }
 
 
+
+
+  public Notification name(String name) {
+    
+    this.name = name;
+    return this;
+  }
+
+   /**
+   * Required for SMS Messages. An identifier for tracking message within the OneSignal dashboard or export analytics. Not shown to end user.
+   * @return name
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Required for SMS Messages. An identifier for tracking message within the OneSignal dashboard or export analytics. Not shown to end user.")
+
+  public String getName() {
+    return name;
+  }
+
+
+  public void setName(String name) {
+    this.name = name;
+  }
 
 
    /**
@@ -3283,6 +3310,7 @@ public class Notification {
         Objects.equals(this.includeAndroidRegIds, notification.includeAndroidRegIds) &&
         Objects.equals(this.id, notification.id) &&
         Objects.equals(this.value, notification.value) &&
+        Objects.equals(this.name, notification.name) &&
         Objects.equals(this.aggregation, notification.aggregation) &&
         Objects.equals(this.isIos, notification.isIos) &&
         Objects.equals(this.isAndroid, notification.isAndroid) &&
@@ -3377,7 +3405,7 @@ public class Notification {
 
   @Override
   public int hashCode() {
-    return Objects.hash(includedSegments, excludedSegments, lastSession, firstSession, sessionCount, sessionTime, amountSpent, boughtSku, tag, language, appVersion, location, email, country, includePlayerIds, includeExternalUserIds, includeEmailTokens, includePhoneNumbers, includeIosTokens, includeWpWnsUris, includeAmazonRegIds, includeChromeRegIds, includeChromeWebRegIds, includeAndroidRegIds, id, value, aggregation, isIos, isAndroid, isHuawei, isAnyWeb, isChromeWeb, isFirefox, isSafari, isWPWNS, isAdm, isChrome, channelForExternalUserIds, appId, externalId, contents, headings, subtitle, data, huaweiMsgType, url, webUrl, appUrl, iosAttachments, templateId, contentAvailable, mutableContent, targetContentIdentifier, bigPicture, huaweiBigPicture, admBigPicture, chromeBigPicture, chromeWebImage, buttons, webButtons, iosCategory, androidChannelId, huaweiChannelId, existingAndroidChannelId, huaweiExistingChannelId, androidBackgroundLayout, smallIcon, huaweiSmallIcon, largeIcon, huaweiLargeIcon, admSmallIcon, admLargeIcon, chromeWebIcon, chromeWebBadge, firefoxIcon, chromeIcon, iosSound, androidSound, huaweiSound, admSound, wpWnsSound, androidLedColor, huaweiLedColor, androidAccentColor, huaweiAccentColor, androidVisibility, huaweiVisibility, iosBadgeType, iosBadgeCount, collapseId, webPushTopic, apnsAlert, sendAfter, delayedOption, deliveryTimeOfDay, ttl, priority, apnsPushTypeOverride, throttleRatePerMinute, androidGroup, androidGroupMessage, admGroup, admGroupMessage, threadId, summaryArg, summaryArgCount, emailSubject, emailBody, emailFromName, emailFromAddress, smsFrom, smsMediaUrls);
+    return Objects.hash(includedSegments, excludedSegments, lastSession, firstSession, sessionCount, sessionTime, amountSpent, boughtSku, tag, language, appVersion, location, email, country, includePlayerIds, includeExternalUserIds, includeEmailTokens, includePhoneNumbers, includeIosTokens, includeWpWnsUris, includeAmazonRegIds, includeChromeRegIds, includeChromeWebRegIds, includeAndroidRegIds, id, value, name, aggregation, isIos, isAndroid, isHuawei, isAnyWeb, isChromeWeb, isFirefox, isSafari, isWPWNS, isAdm, isChrome, channelForExternalUserIds, appId, externalId, contents, headings, subtitle, data, huaweiMsgType, url, webUrl, appUrl, iosAttachments, templateId, contentAvailable, mutableContent, targetContentIdentifier, bigPicture, huaweiBigPicture, admBigPicture, chromeBigPicture, chromeWebImage, buttons, webButtons, iosCategory, androidChannelId, huaweiChannelId, existingAndroidChannelId, huaweiExistingChannelId, androidBackgroundLayout, smallIcon, huaweiSmallIcon, largeIcon, huaweiLargeIcon, admSmallIcon, admLargeIcon, chromeWebIcon, chromeWebBadge, firefoxIcon, chromeIcon, iosSound, androidSound, huaweiSound, admSound, wpWnsSound, androidLedColor, huaweiLedColor, androidAccentColor, huaweiAccentColor, androidVisibility, huaweiVisibility, iosBadgeType, iosBadgeCount, collapseId, webPushTopic, apnsAlert, sendAfter, delayedOption, deliveryTimeOfDay, ttl, priority, apnsPushTypeOverride, throttleRatePerMinute, androidGroup, androidGroupMessage, admGroup, admGroupMessage, threadId, summaryArg, summaryArgCount, emailSubject, emailBody, emailFromName, emailFromAddress, smsFrom, smsMediaUrls);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -3417,6 +3445,7 @@ public class Notification {
     sb.append("    includeAndroidRegIds: ").append(toIndentedString(includeAndroidRegIds)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    value: ").append(toIndentedString(value)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    aggregation: ").append(toIndentedString(aggregation)).append("\n");
     sb.append("    isIos: ").append(toIndentedString(isIos)).append("\n");
     sb.append("    isAndroid: ").append(toIndentedString(isAndroid)).append("\n");
@@ -3551,6 +3580,7 @@ public class Notification {
     openapiFields.add("include_android_reg_ids");
     openapiFields.add("id");
     openapiFields.add("value");
+    openapiFields.add("name");
     openapiFields.add("aggregation");
     openapiFields.add("isIos");
     openapiFields.add("isAndroid");
