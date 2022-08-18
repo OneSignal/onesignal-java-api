@@ -50,7 +50,7 @@ import com.onesignal.client.JSON;
 /**
  * ExportPlayersRequestBody
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-07-13T21:20:07.400Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-18T22:09:10.481Z[Etc/UTC]")
 public class ExportPlayersRequestBody {
   private static final long serialVersionUID = 1L;
 
@@ -60,7 +60,7 @@ public class ExportPlayersRequestBody {
 
   public static final String SERIALIZED_NAME_LAST_ACTIVE_SINCE = "last_active_since";
   @SerializedName(SERIALIZED_NAME_LAST_ACTIVE_SINCE)
-  private Integer lastActiveSince;
+  private String lastActiveSince;
 
   public static final String SERIALIZED_NAME_SEGMENT_NAME = "segment_name";
   @SerializedName(SERIALIZED_NAME_SEGMENT_NAME)
@@ -100,7 +100,7 @@ public class ExportPlayersRequestBody {
   }
 
 
-  public ExportPlayersRequestBody lastActiveSince(Integer lastActiveSince) {
+  public ExportPlayersRequestBody lastActiveSince(String lastActiveSince) {
     
     this.lastActiveSince = lastActiveSince;
     return this;
@@ -113,12 +113,12 @@ public class ExportPlayersRequestBody {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Export all devices with a last_active timestamp greater than this time.  Unixtime in seconds.")
 
-  public Integer getLastActiveSince() {
+  public String getLastActiveSince() {
     return lastActiveSince;
   }
 
 
-  public void setLastActiveSince(Integer lastActiveSince) {
+  public void setLastActiveSince(String lastActiveSince) {
     this.lastActiveSince = lastActiveSince;
   }
 

@@ -20,15 +20,12 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.onesignal.client.model.BasicNotification;
 import com.onesignal.client.model.BasicNotificationAllOfAndroidBackgroundLayout;
 import com.onesignal.client.model.Button;
-import com.onesignal.client.model.NotificationAllOf;
 import com.onesignal.client.model.StringMap;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -55,107 +52,11 @@ import java.util.Set;
 import com.onesignal.client.JSON;
 
 /**
- * Notification
+ * BasicNotificationAllOf
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-18T22:09:10.481Z[Etc/UTC]")
-public class Notification {
+public class BasicNotificationAllOf {
   private static final long serialVersionUID = 1L;
-
-  public static final String SERIALIZED_NAME_INCLUDED_SEGMENTS = "included_segments";
-  @SerializedName(SERIALIZED_NAME_INCLUDED_SEGMENTS)
-  private List<String> includedSegments = null;
-
-  public static final String SERIALIZED_NAME_EXCLUDED_SEGMENTS = "excluded_segments";
-  @SerializedName(SERIALIZED_NAME_EXCLUDED_SEGMENTS)
-  private List<String> excludedSegments = null;
-
-  public static final String SERIALIZED_NAME_LAST_SESSION = "last_session";
-  @SerializedName(SERIALIZED_NAME_LAST_SESSION)
-  private String lastSession;
-
-  public static final String SERIALIZED_NAME_FIRST_SESSION = "first_session";
-  @SerializedName(SERIALIZED_NAME_FIRST_SESSION)
-  private String firstSession;
-
-  public static final String SERIALIZED_NAME_SESSION_COUNT = "session_count";
-  @SerializedName(SERIALIZED_NAME_SESSION_COUNT)
-  private String sessionCount;
-
-  public static final String SERIALIZED_NAME_SESSION_TIME = "session_time";
-  @SerializedName(SERIALIZED_NAME_SESSION_TIME)
-  private String sessionTime;
-
-  public static final String SERIALIZED_NAME_AMOUNT_SPENT = "amount_spent";
-  @SerializedName(SERIALIZED_NAME_AMOUNT_SPENT)
-  private String amountSpent;
-
-  public static final String SERIALIZED_NAME_BOUGHT_SKU = "bought_sku";
-  @SerializedName(SERIALIZED_NAME_BOUGHT_SKU)
-  private String boughtSku;
-
-  public static final String SERIALIZED_NAME_TAG = "tag";
-  @SerializedName(SERIALIZED_NAME_TAG)
-  private String tag;
-
-  public static final String SERIALIZED_NAME_LANGUAGE = "language";
-  @SerializedName(SERIALIZED_NAME_LANGUAGE)
-  private String language;
-
-  public static final String SERIALIZED_NAME_APP_VERSION = "app_version";
-  @SerializedName(SERIALIZED_NAME_APP_VERSION)
-  private String appVersion;
-
-  public static final String SERIALIZED_NAME_LOCATION = "location";
-  @SerializedName(SERIALIZED_NAME_LOCATION)
-  private String location;
-
-  public static final String SERIALIZED_NAME_EMAIL = "email";
-  @SerializedName(SERIALIZED_NAME_EMAIL)
-  private String email;
-
-  public static final String SERIALIZED_NAME_COUNTRY = "country";
-  @SerializedName(SERIALIZED_NAME_COUNTRY)
-  private String country;
-
-  public static final String SERIALIZED_NAME_INCLUDE_PLAYER_IDS = "include_player_ids";
-  @SerializedName(SERIALIZED_NAME_INCLUDE_PLAYER_IDS)
-  private List<String> includePlayerIds = null;
-
-  public static final String SERIALIZED_NAME_INCLUDE_EXTERNAL_USER_IDS = "include_external_user_ids";
-  @SerializedName(SERIALIZED_NAME_INCLUDE_EXTERNAL_USER_IDS)
-  private List<String> includeExternalUserIds = null;
-
-  public static final String SERIALIZED_NAME_INCLUDE_EMAIL_TOKENS = "include_email_tokens";
-  @SerializedName(SERIALIZED_NAME_INCLUDE_EMAIL_TOKENS)
-  private List<String> includeEmailTokens = null;
-
-  public static final String SERIALIZED_NAME_INCLUDE_PHONE_NUMBERS = "include_phone_numbers";
-  @SerializedName(SERIALIZED_NAME_INCLUDE_PHONE_NUMBERS)
-  private List<String> includePhoneNumbers = null;
-
-  public static final String SERIALIZED_NAME_INCLUDE_IOS_TOKENS = "include_ios_tokens";
-  @SerializedName(SERIALIZED_NAME_INCLUDE_IOS_TOKENS)
-  private List<String> includeIosTokens = null;
-
-  public static final String SERIALIZED_NAME_INCLUDE_WP_WNS_URIS = "include_wp_wns_uris";
-  @SerializedName(SERIALIZED_NAME_INCLUDE_WP_WNS_URIS)
-  private List<String> includeWpWnsUris = null;
-
-  public static final String SERIALIZED_NAME_INCLUDE_AMAZON_REG_IDS = "include_amazon_reg_ids";
-  @SerializedName(SERIALIZED_NAME_INCLUDE_AMAZON_REG_IDS)
-  private List<String> includeAmazonRegIds = null;
-
-  public static final String SERIALIZED_NAME_INCLUDE_CHROME_REG_IDS = "include_chrome_reg_ids";
-  @SerializedName(SERIALIZED_NAME_INCLUDE_CHROME_REG_IDS)
-  private List<String> includeChromeRegIds = null;
-
-  public static final String SERIALIZED_NAME_INCLUDE_CHROME_WEB_REG_IDS = "include_chrome_web_reg_ids";
-  @SerializedName(SERIALIZED_NAME_INCLUDE_CHROME_WEB_REG_IDS)
-  private List<String> includeChromeWebRegIds = null;
-
-  public static final String SERIALIZED_NAME_INCLUDE_ANDROID_REG_IDS = "include_android_reg_ids";
-  @SerializedName(SERIALIZED_NAME_INCLUDE_ANDROID_REG_IDS)
-  private List<String> includeAndroidRegIds = null;
 
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -556,15 +457,11 @@ public class Notification {
   @SerializedName(SERIALIZED_NAME_SMS_MEDIA_URLS)
   private List<String> smsMediaUrls = null;
 
-  public static final String SERIALIZED_NAME_SEND_AFTER = "send_after";
-  @SerializedName(SERIALIZED_NAME_SEND_AFTER)
-  private OffsetDateTime sendAfter;
-
-  public Notification() { 
+  public BasicNotificationAllOf() { 
   }
 
   
-  public Notification(
+  public BasicNotificationAllOf(
      Integer value, 
      AggregationEnum aggregation
   ) {
@@ -573,655 +470,7 @@ public class Notification {
     this.aggregation = aggregation;
   }
 
-  public Notification includedSegments(List<String> includedSegments) {
-    
-    this.includedSegments = includedSegments;
-    return this;
-  }
-
-  public Notification addIncludedSegmentsItem(String includedSegmentsItem) {
-    if (this.includedSegments == null) {
-      this.includedSegments = new ArrayList<>();
-    }
-    this.includedSegments.add(includedSegmentsItem);
-    return this;
-  }
-
-   /**
-   * The segment names you want to target. Users in these segments will receive a notification. This targeting parameter is only compatible with excluded_segments. Example: [\&quot;Active Users\&quot;, \&quot;Inactive Users\&quot;] 
-   * @return includedSegments
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The segment names you want to target. Users in these segments will receive a notification. This targeting parameter is only compatible with excluded_segments. Example: [\"Active Users\", \"Inactive Users\"] ")
-
-  public List<String> getIncludedSegments() {
-    return includedSegments;
-  }
-
-
-  public void setIncludedSegments(List<String> includedSegments) {
-    this.includedSegments = includedSegments;
-  }
-
-
-  public Notification excludedSegments(List<String> excludedSegments) {
-    
-    this.excludedSegments = excludedSegments;
-    return this;
-  }
-
-  public Notification addExcludedSegmentsItem(String excludedSegmentsItem) {
-    if (this.excludedSegments == null) {
-      this.excludedSegments = new ArrayList<>();
-    }
-    this.excludedSegments.add(excludedSegmentsItem);
-    return this;
-  }
-
-   /**
-   * Segment that will be excluded when sending. Users in these segments will not receive a notification, even if they were included in included_segments. This targeting parameter is only compatible with included_segments. Example: [\&quot;Active Users\&quot;, \&quot;Inactive Users\&quot;] 
-   * @return excludedSegments
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Segment that will be excluded when sending. Users in these segments will not receive a notification, even if they were included in included_segments. This targeting parameter is only compatible with included_segments. Example: [\"Active Users\", \"Inactive Users\"] ")
-
-  public List<String> getExcludedSegments() {
-    return excludedSegments;
-  }
-
-
-  public void setExcludedSegments(List<String> excludedSegments) {
-    this.excludedSegments = excludedSegments;
-  }
-
-
-  public Notification lastSession(String lastSession) {
-    
-    this.lastSession = lastSession;
-    return this;
-  }
-
-   /**
-   * relation &#x3D; \&quot;&gt;\&quot; or \&quot;&lt;\&quot; hours_ago &#x3D; number of hours before or after the users last session. Example: \&quot;1.1\&quot; 
-   * @return lastSession
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "relation = \">\" or \"<\" hours_ago = number of hours before or after the users last session. Example: \"1.1\" ")
-
-  public String getLastSession() {
-    return lastSession;
-  }
-
-
-  public void setLastSession(String lastSession) {
-    this.lastSession = lastSession;
-  }
-
-
-  public Notification firstSession(String firstSession) {
-    
-    this.firstSession = firstSession;
-    return this;
-  }
-
-   /**
-   * relation &#x3D; \&quot;&gt;\&quot; or \&quot;&lt;\&quot; hours_ago &#x3D; number of hours before or after the users first session. Example: \&quot;1.1\&quot; 
-   * @return firstSession
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "relation = \">\" or \"<\" hours_ago = number of hours before or after the users first session. Example: \"1.1\" ")
-
-  public String getFirstSession() {
-    return firstSession;
-  }
-
-
-  public void setFirstSession(String firstSession) {
-    this.firstSession = firstSession;
-  }
-
-
-  public Notification sessionCount(String sessionCount) {
-    
-    this.sessionCount = sessionCount;
-    return this;
-  }
-
-   /**
-   * relation &#x3D; \&quot;&gt;\&quot;, \&quot;&lt;\&quot;, \&quot;&#x3D;\&quot; or \&quot;!&#x3D;\&quot; value &#x3D; number sessions. Example: \&quot;1\&quot; 
-   * @return sessionCount
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "relation = \">\", \"<\", \"=\" or \"!=\" value = number sessions. Example: \"1\" ")
-
-  public String getSessionCount() {
-    return sessionCount;
-  }
-
-
-  public void setSessionCount(String sessionCount) {
-    this.sessionCount = sessionCount;
-  }
-
-
-  public Notification sessionTime(String sessionTime) {
-    
-    this.sessionTime = sessionTime;
-    return this;
-  }
-
-   /**
-   * relation &#x3D; \&quot;&gt;\&quot;, \&quot;&lt;\&quot;, \&quot;&#x3D;\&quot; or \&quot;!&#x3D;\&quot; value &#x3D; Time in seconds the user has been in your app. Example: \&quot;3600\&quot; 
-   * @return sessionTime
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "relation = \">\", \"<\", \"=\" or \"!=\" value = Time in seconds the user has been in your app. Example: \"3600\" ")
-
-  public String getSessionTime() {
-    return sessionTime;
-  }
-
-
-  public void setSessionTime(String sessionTime) {
-    this.sessionTime = sessionTime;
-  }
-
-
-  public Notification amountSpent(String amountSpent) {
-    
-    this.amountSpent = amountSpent;
-    return this;
-  }
-
-   /**
-   * relation &#x3D; \&quot;&gt;\&quot;, \&quot;&lt;\&quot;, or \&quot;&#x3D;\&quot; value &#x3D; Amount in USD a user has spent on IAP (In App Purchases). Example: \&quot;0.99\&quot; 
-   * @return amountSpent
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "relation = \">\", \"<\", or \"=\" value = Amount in USD a user has spent on IAP (In App Purchases). Example: \"0.99\" ")
-
-  public String getAmountSpent() {
-    return amountSpent;
-  }
-
-
-  public void setAmountSpent(String amountSpent) {
-    this.amountSpent = amountSpent;
-  }
-
-
-  public Notification boughtSku(String boughtSku) {
-    
-    this.boughtSku = boughtSku;
-    return this;
-  }
-
-   /**
-   * relation &#x3D; \&quot;&gt;\&quot;, \&quot;&lt;\&quot; or \&quot;&#x3D;\&quot; key &#x3D; SKU purchased in your app as an IAP (In App Purchases). Example: \&quot;com.domain.100coinpack\&quot; value &#x3D; value of SKU to compare to. Example: \&quot;0.99\&quot; 
-   * @return boughtSku
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "relation = \">\", \"<\" or \"=\" key = SKU purchased in your app as an IAP (In App Purchases). Example: \"com.domain.100coinpack\" value = value of SKU to compare to. Example: \"0.99\" ")
-
-  public String getBoughtSku() {
-    return boughtSku;
-  }
-
-
-  public void setBoughtSku(String boughtSku) {
-    this.boughtSku = boughtSku;
-  }
-
-
-  public Notification tag(String tag) {
-    
-    this.tag = tag;
-    return this;
-  }
-
-   /**
-   * relation &#x3D; \&quot;&gt;\&quot;, \&quot;&lt;\&quot;, \&quot;&#x3D;\&quot;, \&quot;!&#x3D;\&quot;, \&quot;exists\&quot;, \&quot;not_exists\&quot;, \&quot;time_elapsed_gt\&quot; (paid plan only) or \&quot;time_elapsed_lt\&quot; (paid plan only) See Time Operators key &#x3D; Tag key to compare. value &#x3D; Tag value to compare. Not required for \&quot;exists\&quot; or \&quot;not_exists\&quot;. Example: See Formatting Filters 
-   * @return tag
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "relation = \">\", \"<\", \"=\", \"!=\", \"exists\", \"not_exists\", \"time_elapsed_gt\" (paid plan only) or \"time_elapsed_lt\" (paid plan only) See Time Operators key = Tag key to compare. value = Tag value to compare. Not required for \"exists\" or \"not_exists\". Example: See Formatting Filters ")
-
-  public String getTag() {
-    return tag;
-  }
-
-
-  public void setTag(String tag) {
-    this.tag = tag;
-  }
-
-
-  public Notification language(String language) {
-    
-    this.language = language;
-    return this;
-  }
-
-   /**
-   * relation &#x3D; \&quot;&#x3D;\&quot; or \&quot;!&#x3D;\&quot; value &#x3D; 2 character language code. Example: \&quot;en\&quot;. For a list of all language codes see Language &amp; Localization. 
-   * @return language
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "relation = \"=\" or \"!=\" value = 2 character language code. Example: \"en\". For a list of all language codes see Language & Localization. ")
-
-  public String getLanguage() {
-    return language;
-  }
-
-
-  public void setLanguage(String language) {
-    this.language = language;
-  }
-
-
-  public Notification appVersion(String appVersion) {
-    
-    this.appVersion = appVersion;
-    return this;
-  }
-
-   /**
-   * relation &#x3D; \&quot;&gt;\&quot;, \&quot;&lt;\&quot;, \&quot;&#x3D;\&quot; or \&quot;!&#x3D;\&quot; value &#x3D; app version. Example: \&quot;1.0.0\&quot; 
-   * @return appVersion
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "relation = \">\", \"<\", \"=\" or \"!=\" value = app version. Example: \"1.0.0\" ")
-
-  public String getAppVersion() {
-    return appVersion;
-  }
-
-
-  public void setAppVersion(String appVersion) {
-    this.appVersion = appVersion;
-  }
-
-
-  public Notification location(String location) {
-    
-    this.location = location;
-    return this;
-  }
-
-   /**
-   * radius &#x3D; in meters lat &#x3D; latitude long &#x3D; longitude 
-   * @return location
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "radius = in meters lat = latitude long = longitude ")
-
-  public String getLocation() {
-    return location;
-  }
-
-
-  public void setLocation(String location) {
-    this.location = location;
-  }
-
-
-  public Notification email(String email) {
-    
-    this.email = email;
-    return this;
-  }
-
-   /**
-   * value &#x3D; email address Only for sending Push Notifications Use this for targeting push subscribers associated with an email set with all SDK setEmail methods To send emails to specific email addresses use include_email_tokens parameter 
-   * @return email
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "value = email address Only for sending Push Notifications Use this for targeting push subscribers associated with an email set with all SDK setEmail methods To send emails to specific email addresses use include_email_tokens parameter ")
-
-  public String getEmail() {
-    return email;
-  }
-
-
-  public void setEmail(String email) {
-    this.email = email;
-  }
-
-
-  public Notification country(String country) {
-    
-    this.country = country;
-    return this;
-  }
-
-   /**
-   * relation &#x3D; \&quot;&#x3D;\&quot; value &#x3D; 2-digit Country code Example: \&quot;field\&quot;: \&quot;country\&quot;, \&quot;relation\&quot;: \&quot;&#x3D;\&quot;, \&quot;value\&quot;, \&quot;US\&quot; 
-   * @return country
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "relation = \"=\" value = 2-digit Country code Example: \"field\": \"country\", \"relation\": \"=\", \"value\", \"US\" ")
-
-  public String getCountry() {
-    return country;
-  }
-
-
-  public void setCountry(String country) {
-    this.country = country;
-  }
-
-
-  public Notification includePlayerIds(List<String> includePlayerIds) {
-    
-    this.includePlayerIds = includePlayerIds;
-    return this;
-  }
-
-  public Notification addIncludePlayerIdsItem(String includePlayerIdsItem) {
-    if (this.includePlayerIds == null) {
-      this.includePlayerIds = new ArrayList<>();
-    }
-    this.includePlayerIds.add(includePlayerIdsItem);
-    return this;
-  }
-
-   /**
-   * Specific playerids to send your notification to. _Does not require API Auth Key. Do not combine with other targeting parameters. Not compatible with any other targeting parameters. Example: [\&quot;1dd608f2-c6a1-11e3-851d-000c2940e62c\&quot;] Limit of 2,000 entries per REST API call 
-   * @return includePlayerIds
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Specific playerids to send your notification to. _Does not require API Auth Key. Do not combine with other targeting parameters. Not compatible with any other targeting parameters. Example: [\"1dd608f2-c6a1-11e3-851d-000c2940e62c\"] Limit of 2,000 entries per REST API call ")
-
-  public List<String> getIncludePlayerIds() {
-    return includePlayerIds;
-  }
-
-
-  public void setIncludePlayerIds(List<String> includePlayerIds) {
-    this.includePlayerIds = includePlayerIds;
-  }
-
-
-  public Notification includeExternalUserIds(List<String> includeExternalUserIds) {
-    
-    this.includeExternalUserIds = includeExternalUserIds;
-    return this;
-  }
-
-  public Notification addIncludeExternalUserIdsItem(String includeExternalUserIdsItem) {
-    if (this.includeExternalUserIds == null) {
-      this.includeExternalUserIds = new ArrayList<>();
-    }
-    this.includeExternalUserIds.add(includeExternalUserIdsItem);
-    return this;
-  }
-
-   /**
-   * Target specific devices by custom user IDs assigned via API. Not compatible with any other targeting parameters Example: [\&quot;custom-id-assigned-by-api\&quot;] REQUIRED: REST API Key Authentication Limit of 2,000 entries per REST API call. Note: If targeting push, email, or sms subscribers with same ids, use with channel_for_external_user_ids to indicate you are sending a push or email or sms. 
-   * @return includeExternalUserIds
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Target specific devices by custom user IDs assigned via API. Not compatible with any other targeting parameters Example: [\"custom-id-assigned-by-api\"] REQUIRED: REST API Key Authentication Limit of 2,000 entries per REST API call. Note: If targeting push, email, or sms subscribers with same ids, use with channel_for_external_user_ids to indicate you are sending a push or email or sms. ")
-
-  public List<String> getIncludeExternalUserIds() {
-    return includeExternalUserIds;
-  }
-
-
-  public void setIncludeExternalUserIds(List<String> includeExternalUserIds) {
-    this.includeExternalUserIds = includeExternalUserIds;
-  }
-
-
-  public Notification includeEmailTokens(List<String> includeEmailTokens) {
-    
-    this.includeEmailTokens = includeEmailTokens;
-    return this;
-  }
-
-  public Notification addIncludeEmailTokensItem(String includeEmailTokensItem) {
-    if (this.includeEmailTokens == null) {
-      this.includeEmailTokens = new ArrayList<>();
-    }
-    this.includeEmailTokens.add(includeEmailTokensItem);
-    return this;
-  }
-
-   /**
-   * Recommended for Sending Emails - Target specific email addresses. If an email does not correspond to an existing user, a new user will be created. Example: nick@catfac.ts Limit of 2,000 entries per REST API call 
-   * @return includeEmailTokens
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Recommended for Sending Emails - Target specific email addresses. If an email does not correspond to an existing user, a new user will be created. Example: nick@catfac.ts Limit of 2,000 entries per REST API call ")
-
-  public List<String> getIncludeEmailTokens() {
-    return includeEmailTokens;
-  }
-
-
-  public void setIncludeEmailTokens(List<String> includeEmailTokens) {
-    this.includeEmailTokens = includeEmailTokens;
-  }
-
-
-  public Notification includePhoneNumbers(List<String> includePhoneNumbers) {
-    
-    this.includePhoneNumbers = includePhoneNumbers;
-    return this;
-  }
-
-  public Notification addIncludePhoneNumbersItem(String includePhoneNumbersItem) {
-    if (this.includePhoneNumbers == null) {
-      this.includePhoneNumbers = new ArrayList<>();
-    }
-    this.includePhoneNumbers.add(includePhoneNumbersItem);
-    return this;
-  }
-
-   /**
-   * Recommended for Sending SMS - Target specific phone numbers. The phone number should be in the E.164 format. Phone number should be an existing subscriber on OneSignal. Refer our docs to learn how to add phone numbers to OneSignal. Example phone number: +1999999999 Limit of 2,000 entries per REST API call 
-   * @return includePhoneNumbers
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Recommended for Sending SMS - Target specific phone numbers. The phone number should be in the E.164 format. Phone number should be an existing subscriber on OneSignal. Refer our docs to learn how to add phone numbers to OneSignal. Example phone number: +1999999999 Limit of 2,000 entries per REST API call ")
-
-  public List<String> getIncludePhoneNumbers() {
-    return includePhoneNumbers;
-  }
-
-
-  public void setIncludePhoneNumbers(List<String> includePhoneNumbers) {
-    this.includePhoneNumbers = includePhoneNumbers;
-  }
-
-
-  public Notification includeIosTokens(List<String> includeIosTokens) {
-    
-    this.includeIosTokens = includeIosTokens;
-    return this;
-  }
-
-  public Notification addIncludeIosTokensItem(String includeIosTokensItem) {
-    if (this.includeIosTokens == null) {
-      this.includeIosTokens = new ArrayList<>();
-    }
-    this.includeIosTokens.add(includeIosTokensItem);
-    return this;
-  }
-
-   /**
-   * Not Recommended: Please consider using include_player_ids or include_external_user_ids instead. Target using iOS device tokens. Warning: Only works with Production tokens. All non-alphanumeric characters must be removed from each token. If a token does not correspond to an existing user, a new user will be created. Example: ce777617da7f548fe7a9ab6febb56cf39fba6d38203... Limit of 2,000 entries per REST API call 
-   * @return includeIosTokens
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Not Recommended: Please consider using include_player_ids or include_external_user_ids instead. Target using iOS device tokens. Warning: Only works with Production tokens. All non-alphanumeric characters must be removed from each token. If a token does not correspond to an existing user, a new user will be created. Example: ce777617da7f548fe7a9ab6febb56cf39fba6d38203... Limit of 2,000 entries per REST API call ")
-
-  public List<String> getIncludeIosTokens() {
-    return includeIosTokens;
-  }
-
-
-  public void setIncludeIosTokens(List<String> includeIosTokens) {
-    this.includeIosTokens = includeIosTokens;
-  }
-
-
-  public Notification includeWpWnsUris(List<String> includeWpWnsUris) {
-    
-    this.includeWpWnsUris = includeWpWnsUris;
-    return this;
-  }
-
-  public Notification addIncludeWpWnsUrisItem(String includeWpWnsUrisItem) {
-    if (this.includeWpWnsUris == null) {
-      this.includeWpWnsUris = new ArrayList<>();
-    }
-    this.includeWpWnsUris.add(includeWpWnsUrisItem);
-    return this;
-  }
-
-   /**
-   * Not Recommended: Please consider using include_player_ids or include_external_user_ids instead. Target using Windows URIs. If a token does not correspond to an existing user, a new user will be created. Example: http://s.notify.live.net/u/1/bn1/HmQAAACPaLDr-... Limit of 2,000 entries per REST API call 
-   * @return includeWpWnsUris
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Not Recommended: Please consider using include_player_ids or include_external_user_ids instead. Target using Windows URIs. If a token does not correspond to an existing user, a new user will be created. Example: http://s.notify.live.net/u/1/bn1/HmQAAACPaLDr-... Limit of 2,000 entries per REST API call ")
-
-  public List<String> getIncludeWpWnsUris() {
-    return includeWpWnsUris;
-  }
-
-
-  public void setIncludeWpWnsUris(List<String> includeWpWnsUris) {
-    this.includeWpWnsUris = includeWpWnsUris;
-  }
-
-
-  public Notification includeAmazonRegIds(List<String> includeAmazonRegIds) {
-    
-    this.includeAmazonRegIds = includeAmazonRegIds;
-    return this;
-  }
-
-  public Notification addIncludeAmazonRegIdsItem(String includeAmazonRegIdsItem) {
-    if (this.includeAmazonRegIds == null) {
-      this.includeAmazonRegIds = new ArrayList<>();
-    }
-    this.includeAmazonRegIds.add(includeAmazonRegIdsItem);
-    return this;
-  }
-
-   /**
-   * Not Recommended: Please consider using include_player_ids or include_external_user_ids instead. Target using Amazon ADM registration IDs. If a token does not correspond to an existing user, a new user will be created. Example: amzn1.adm-registration.v1.XpvSSUk0Rc3hTVVV... Limit of 2,000 entries per REST API call 
-   * @return includeAmazonRegIds
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Not Recommended: Please consider using include_player_ids or include_external_user_ids instead. Target using Amazon ADM registration IDs. If a token does not correspond to an existing user, a new user will be created. Example: amzn1.adm-registration.v1.XpvSSUk0Rc3hTVVV... Limit of 2,000 entries per REST API call ")
-
-  public List<String> getIncludeAmazonRegIds() {
-    return includeAmazonRegIds;
-  }
-
-
-  public void setIncludeAmazonRegIds(List<String> includeAmazonRegIds) {
-    this.includeAmazonRegIds = includeAmazonRegIds;
-  }
-
-
-  public Notification includeChromeRegIds(List<String> includeChromeRegIds) {
-    
-    this.includeChromeRegIds = includeChromeRegIds;
-    return this;
-  }
-
-  public Notification addIncludeChromeRegIdsItem(String includeChromeRegIdsItem) {
-    if (this.includeChromeRegIds == null) {
-      this.includeChromeRegIds = new ArrayList<>();
-    }
-    this.includeChromeRegIds.add(includeChromeRegIdsItem);
-    return this;
-  }
-
-   /**
-   * Not Recommended: Please consider using include_player_ids or include_external_user_ids instead. Target using Chrome App registration IDs. If a token does not correspond to an existing user, a new user will be created. Example: APA91bEeiUeSukAAUdnw3O2RB45FWlSpgJ7Ji_... Limit of 2,000 entries per REST API call 
-   * @return includeChromeRegIds
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Not Recommended: Please consider using include_player_ids or include_external_user_ids instead. Target using Chrome App registration IDs. If a token does not correspond to an existing user, a new user will be created. Example: APA91bEeiUeSukAAUdnw3O2RB45FWlSpgJ7Ji_... Limit of 2,000 entries per REST API call ")
-
-  public List<String> getIncludeChromeRegIds() {
-    return includeChromeRegIds;
-  }
-
-
-  public void setIncludeChromeRegIds(List<String> includeChromeRegIds) {
-    this.includeChromeRegIds = includeChromeRegIds;
-  }
-
-
-  public Notification includeChromeWebRegIds(List<String> includeChromeWebRegIds) {
-    
-    this.includeChromeWebRegIds = includeChromeWebRegIds;
-    return this;
-  }
-
-  public Notification addIncludeChromeWebRegIdsItem(String includeChromeWebRegIdsItem) {
-    if (this.includeChromeWebRegIds == null) {
-      this.includeChromeWebRegIds = new ArrayList<>();
-    }
-    this.includeChromeWebRegIds.add(includeChromeWebRegIdsItem);
-    return this;
-  }
-
-   /**
-   * Not Recommended: Please consider using include_player_ids or include_external_user_ids instead. Target using Chrome Web Push registration IDs. If a token does not correspond to an existing user, a new user will be created. Example: APA91bEeiUeSukAAUdnw3O2RB45FWlSpgJ7Ji_... Limit of 2,000 entries per REST API call 
-   * @return includeChromeWebRegIds
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Not Recommended: Please consider using include_player_ids or include_external_user_ids instead. Target using Chrome Web Push registration IDs. If a token does not correspond to an existing user, a new user will be created. Example: APA91bEeiUeSukAAUdnw3O2RB45FWlSpgJ7Ji_... Limit of 2,000 entries per REST API call ")
-
-  public List<String> getIncludeChromeWebRegIds() {
-    return includeChromeWebRegIds;
-  }
-
-
-  public void setIncludeChromeWebRegIds(List<String> includeChromeWebRegIds) {
-    this.includeChromeWebRegIds = includeChromeWebRegIds;
-  }
-
-
-  public Notification includeAndroidRegIds(List<String> includeAndroidRegIds) {
-    
-    this.includeAndroidRegIds = includeAndroidRegIds;
-    return this;
-  }
-
-  public Notification addIncludeAndroidRegIdsItem(String includeAndroidRegIdsItem) {
-    if (this.includeAndroidRegIds == null) {
-      this.includeAndroidRegIds = new ArrayList<>();
-    }
-    this.includeAndroidRegIds.add(includeAndroidRegIdsItem);
-    return this;
-  }
-
-   /**
-   * Not Recommended: Please consider using include_player_ids or include_external_user_ids instead. Target using Android device registration IDs. If a token does not correspond to an existing user, a new user will be created. Example: APA91bEeiUeSukAAUdnw3O2RB45FWlSpgJ7Ji_... Limit of 2,000 entries per REST API call 
-   * @return includeAndroidRegIds
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Not Recommended: Please consider using include_player_ids or include_external_user_ids instead. Target using Android device registration IDs. If a token does not correspond to an existing user, a new user will be created. Example: APA91bEeiUeSukAAUdnw3O2RB45FWlSpgJ7Ji_... Limit of 2,000 entries per REST API call ")
-
-  public List<String> getIncludeAndroidRegIds() {
-    return includeAndroidRegIds;
-  }
-
-
-  public void setIncludeAndroidRegIds(List<String> includeAndroidRegIds) {
-    this.includeAndroidRegIds = includeAndroidRegIds;
-  }
-
-
-  public Notification id(String id) {
+  public BasicNotificationAllOf id(String id) {
     
     this.id = id;
     return this;
@@ -1258,7 +507,7 @@ public class Notification {
 
 
 
-  public Notification name(String name) {
+  public BasicNotificationAllOf name(String name) {
     
     this.name = name;
     return this;
@@ -1295,7 +544,7 @@ public class Notification {
 
 
 
-  public Notification isIos(Boolean isIos) {
+  public BasicNotificationAllOf isIos(Boolean isIos) {
     
     this.isIos = isIos;
     return this;
@@ -1318,7 +567,7 @@ public class Notification {
   }
 
 
-  public Notification isAndroid(Boolean isAndroid) {
+  public BasicNotificationAllOf isAndroid(Boolean isAndroid) {
     
     this.isAndroid = isAndroid;
     return this;
@@ -1341,7 +590,7 @@ public class Notification {
   }
 
 
-  public Notification isHuawei(Boolean isHuawei) {
+  public BasicNotificationAllOf isHuawei(Boolean isHuawei) {
     
     this.isHuawei = isHuawei;
     return this;
@@ -1364,7 +613,7 @@ public class Notification {
   }
 
 
-  public Notification isAnyWeb(Boolean isAnyWeb) {
+  public BasicNotificationAllOf isAnyWeb(Boolean isAnyWeb) {
     
     this.isAnyWeb = isAnyWeb;
     return this;
@@ -1387,7 +636,7 @@ public class Notification {
   }
 
 
-  public Notification isChromeWeb(Boolean isChromeWeb) {
+  public BasicNotificationAllOf isChromeWeb(Boolean isChromeWeb) {
     
     this.isChromeWeb = isChromeWeb;
     return this;
@@ -1410,7 +659,7 @@ public class Notification {
   }
 
 
-  public Notification isFirefox(Boolean isFirefox) {
+  public BasicNotificationAllOf isFirefox(Boolean isFirefox) {
     
     this.isFirefox = isFirefox;
     return this;
@@ -1433,7 +682,7 @@ public class Notification {
   }
 
 
-  public Notification isSafari(Boolean isSafari) {
+  public BasicNotificationAllOf isSafari(Boolean isSafari) {
     
     this.isSafari = isSafari;
     return this;
@@ -1456,7 +705,7 @@ public class Notification {
   }
 
 
-  public Notification isWPWNS(Boolean isWPWNS) {
+  public BasicNotificationAllOf isWPWNS(Boolean isWPWNS) {
     
     this.isWPWNS = isWPWNS;
     return this;
@@ -1479,7 +728,7 @@ public class Notification {
   }
 
 
-  public Notification isAdm(Boolean isAdm) {
+  public BasicNotificationAllOf isAdm(Boolean isAdm) {
     
     this.isAdm = isAdm;
     return this;
@@ -1502,7 +751,7 @@ public class Notification {
   }
 
 
-  public Notification isChrome(Boolean isChrome) {
+  public BasicNotificationAllOf isChrome(Boolean isChrome) {
     
     this.isChrome = isChrome;
     return this;
@@ -1525,7 +774,7 @@ public class Notification {
   }
 
 
-  public Notification channelForExternalUserIds(String channelForExternalUserIds) {
+  public BasicNotificationAllOf channelForExternalUserIds(String channelForExternalUserIds) {
     
     this.channelForExternalUserIds = channelForExternalUserIds;
     return this;
@@ -1548,7 +797,7 @@ public class Notification {
   }
 
 
-  public Notification appId(String appId) {
+  public BasicNotificationAllOf appId(String appId) {
     
     this.appId = appId;
     return this;
@@ -1558,8 +807,8 @@ public class Notification {
    * Required: Your OneSignal Application ID, which can be found in Keys &amp; IDs. It is a UUID and looks similar to 8250eaf6-1a58-489e-b136-7c74a864b434. 
    * @return appId
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Required: Your OneSignal Application ID, which can be found in Keys & IDs. It is a UUID and looks similar to 8250eaf6-1a58-489e-b136-7c74a864b434. ")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Required: Your OneSignal Application ID, which can be found in Keys & IDs. It is a UUID and looks similar to 8250eaf6-1a58-489e-b136-7c74a864b434. ")
 
   public String getAppId() {
     return appId;
@@ -1571,7 +820,7 @@ public class Notification {
   }
 
 
-  public Notification externalId(String externalId) {
+  public BasicNotificationAllOf externalId(String externalId) {
     
     this.externalId = externalId;
     return this;
@@ -1594,7 +843,7 @@ public class Notification {
   }
 
 
-  public Notification contents(StringMap contents) {
+  public BasicNotificationAllOf contents(StringMap contents) {
     
     this.contents = contents;
     return this;
@@ -1617,7 +866,7 @@ public class Notification {
   }
 
 
-  public Notification headings(StringMap headings) {
+  public BasicNotificationAllOf headings(StringMap headings) {
     
     this.headings = headings;
     return this;
@@ -1640,7 +889,7 @@ public class Notification {
   }
 
 
-  public Notification subtitle(StringMap subtitle) {
+  public BasicNotificationAllOf subtitle(StringMap subtitle) {
     
     this.subtitle = subtitle;
     return this;
@@ -1663,7 +912,7 @@ public class Notification {
   }
 
 
-  public Notification data(Object data) {
+  public BasicNotificationAllOf data(Object data) {
     
     this.data = data;
     return this;
@@ -1686,7 +935,7 @@ public class Notification {
   }
 
 
-  public Notification huaweiMsgType(String huaweiMsgType) {
+  public BasicNotificationAllOf huaweiMsgType(String huaweiMsgType) {
     
     this.huaweiMsgType = huaweiMsgType;
     return this;
@@ -1709,7 +958,7 @@ public class Notification {
   }
 
 
-  public Notification url(String url) {
+  public BasicNotificationAllOf url(String url) {
     
     this.url = url;
     return this;
@@ -1732,7 +981,7 @@ public class Notification {
   }
 
 
-  public Notification webUrl(String webUrl) {
+  public BasicNotificationAllOf webUrl(String webUrl) {
     
     this.webUrl = webUrl;
     return this;
@@ -1755,7 +1004,7 @@ public class Notification {
   }
 
 
-  public Notification appUrl(String appUrl) {
+  public BasicNotificationAllOf appUrl(String appUrl) {
     
     this.appUrl = appUrl;
     return this;
@@ -1778,7 +1027,7 @@ public class Notification {
   }
 
 
-  public Notification iosAttachments(Object iosAttachments) {
+  public BasicNotificationAllOf iosAttachments(Object iosAttachments) {
     
     this.iosAttachments = iosAttachments;
     return this;
@@ -1801,7 +1050,7 @@ public class Notification {
   }
 
 
-  public Notification templateId(String templateId) {
+  public BasicNotificationAllOf templateId(String templateId) {
     
     this.templateId = templateId;
     return this;
@@ -1824,7 +1073,7 @@ public class Notification {
   }
 
 
-  public Notification contentAvailable(Boolean contentAvailable) {
+  public BasicNotificationAllOf contentAvailable(Boolean contentAvailable) {
     
     this.contentAvailable = contentAvailable;
     return this;
@@ -1847,7 +1096,7 @@ public class Notification {
   }
 
 
-  public Notification mutableContent(Boolean mutableContent) {
+  public BasicNotificationAllOf mutableContent(Boolean mutableContent) {
     
     this.mutableContent = mutableContent;
     return this;
@@ -1870,7 +1119,7 @@ public class Notification {
   }
 
 
-  public Notification targetContentIdentifier(String targetContentIdentifier) {
+  public BasicNotificationAllOf targetContentIdentifier(String targetContentIdentifier) {
     
     this.targetContentIdentifier = targetContentIdentifier;
     return this;
@@ -1893,7 +1142,7 @@ public class Notification {
   }
 
 
-  public Notification bigPicture(String bigPicture) {
+  public BasicNotificationAllOf bigPicture(String bigPicture) {
     
     this.bigPicture = bigPicture;
     return this;
@@ -1916,7 +1165,7 @@ public class Notification {
   }
 
 
-  public Notification huaweiBigPicture(String huaweiBigPicture) {
+  public BasicNotificationAllOf huaweiBigPicture(String huaweiBigPicture) {
     
     this.huaweiBigPicture = huaweiBigPicture;
     return this;
@@ -1939,7 +1188,7 @@ public class Notification {
   }
 
 
-  public Notification admBigPicture(String admBigPicture) {
+  public BasicNotificationAllOf admBigPicture(String admBigPicture) {
     
     this.admBigPicture = admBigPicture;
     return this;
@@ -1962,7 +1211,7 @@ public class Notification {
   }
 
 
-  public Notification chromeBigPicture(String chromeBigPicture) {
+  public BasicNotificationAllOf chromeBigPicture(String chromeBigPicture) {
     
     this.chromeBigPicture = chromeBigPicture;
     return this;
@@ -1985,7 +1234,7 @@ public class Notification {
   }
 
 
-  public Notification chromeWebImage(String chromeWebImage) {
+  public BasicNotificationAllOf chromeWebImage(String chromeWebImage) {
     
     this.chromeWebImage = chromeWebImage;
     return this;
@@ -2008,13 +1257,13 @@ public class Notification {
   }
 
 
-  public Notification buttons(List<Button> buttons) {
+  public BasicNotificationAllOf buttons(List<Button> buttons) {
     
     this.buttons = buttons;
     return this;
   }
 
-  public Notification addButtonsItem(Button buttonsItem) {
+  public BasicNotificationAllOf addButtonsItem(Button buttonsItem) {
     if (this.buttons == null) {
       this.buttons = new ArrayList<>();
     }
@@ -2039,13 +1288,13 @@ public class Notification {
   }
 
 
-  public Notification webButtons(List<Button> webButtons) {
+  public BasicNotificationAllOf webButtons(List<Button> webButtons) {
     
     this.webButtons = webButtons;
     return this;
   }
 
-  public Notification addWebButtonsItem(Button webButtonsItem) {
+  public BasicNotificationAllOf addWebButtonsItem(Button webButtonsItem) {
     if (this.webButtons == null) {
       this.webButtons = new ArrayList<>();
     }
@@ -2070,7 +1319,7 @@ public class Notification {
   }
 
 
-  public Notification iosCategory(String iosCategory) {
+  public BasicNotificationAllOf iosCategory(String iosCategory) {
     
     this.iosCategory = iosCategory;
     return this;
@@ -2093,7 +1342,7 @@ public class Notification {
   }
 
 
-  public Notification androidChannelId(String androidChannelId) {
+  public BasicNotificationAllOf androidChannelId(String androidChannelId) {
     
     this.androidChannelId = androidChannelId;
     return this;
@@ -2116,7 +1365,7 @@ public class Notification {
   }
 
 
-  public Notification huaweiChannelId(String huaweiChannelId) {
+  public BasicNotificationAllOf huaweiChannelId(String huaweiChannelId) {
     
     this.huaweiChannelId = huaweiChannelId;
     return this;
@@ -2139,7 +1388,7 @@ public class Notification {
   }
 
 
-  public Notification existingAndroidChannelId(String existingAndroidChannelId) {
+  public BasicNotificationAllOf existingAndroidChannelId(String existingAndroidChannelId) {
     
     this.existingAndroidChannelId = existingAndroidChannelId;
     return this;
@@ -2162,7 +1411,7 @@ public class Notification {
   }
 
 
-  public Notification huaweiExistingChannelId(String huaweiExistingChannelId) {
+  public BasicNotificationAllOf huaweiExistingChannelId(String huaweiExistingChannelId) {
     
     this.huaweiExistingChannelId = huaweiExistingChannelId;
     return this;
@@ -2185,7 +1434,7 @@ public class Notification {
   }
 
 
-  public Notification androidBackgroundLayout(BasicNotificationAllOfAndroidBackgroundLayout androidBackgroundLayout) {
+  public BasicNotificationAllOf androidBackgroundLayout(BasicNotificationAllOfAndroidBackgroundLayout androidBackgroundLayout) {
     
     this.androidBackgroundLayout = androidBackgroundLayout;
     return this;
@@ -2208,7 +1457,7 @@ public class Notification {
   }
 
 
-  public Notification smallIcon(String smallIcon) {
+  public BasicNotificationAllOf smallIcon(String smallIcon) {
     
     this.smallIcon = smallIcon;
     return this;
@@ -2231,7 +1480,7 @@ public class Notification {
   }
 
 
-  public Notification huaweiSmallIcon(String huaweiSmallIcon) {
+  public BasicNotificationAllOf huaweiSmallIcon(String huaweiSmallIcon) {
     
     this.huaweiSmallIcon = huaweiSmallIcon;
     return this;
@@ -2254,7 +1503,7 @@ public class Notification {
   }
 
 
-  public Notification largeIcon(String largeIcon) {
+  public BasicNotificationAllOf largeIcon(String largeIcon) {
     
     this.largeIcon = largeIcon;
     return this;
@@ -2277,7 +1526,7 @@ public class Notification {
   }
 
 
-  public Notification huaweiLargeIcon(String huaweiLargeIcon) {
+  public BasicNotificationAllOf huaweiLargeIcon(String huaweiLargeIcon) {
     
     this.huaweiLargeIcon = huaweiLargeIcon;
     return this;
@@ -2300,7 +1549,7 @@ public class Notification {
   }
 
 
-  public Notification admSmallIcon(String admSmallIcon) {
+  public BasicNotificationAllOf admSmallIcon(String admSmallIcon) {
     
     this.admSmallIcon = admSmallIcon;
     return this;
@@ -2323,7 +1572,7 @@ public class Notification {
   }
 
 
-  public Notification admLargeIcon(String admLargeIcon) {
+  public BasicNotificationAllOf admLargeIcon(String admLargeIcon) {
     
     this.admLargeIcon = admLargeIcon;
     return this;
@@ -2346,7 +1595,7 @@ public class Notification {
   }
 
 
-  public Notification chromeWebIcon(String chromeWebIcon) {
+  public BasicNotificationAllOf chromeWebIcon(String chromeWebIcon) {
     
     this.chromeWebIcon = chromeWebIcon;
     return this;
@@ -2369,7 +1618,7 @@ public class Notification {
   }
 
 
-  public Notification chromeWebBadge(String chromeWebBadge) {
+  public BasicNotificationAllOf chromeWebBadge(String chromeWebBadge) {
     
     this.chromeWebBadge = chromeWebBadge;
     return this;
@@ -2392,7 +1641,7 @@ public class Notification {
   }
 
 
-  public Notification firefoxIcon(String firefoxIcon) {
+  public BasicNotificationAllOf firefoxIcon(String firefoxIcon) {
     
     this.firefoxIcon = firefoxIcon;
     return this;
@@ -2415,7 +1664,7 @@ public class Notification {
   }
 
 
-  public Notification chromeIcon(String chromeIcon) {
+  public BasicNotificationAllOf chromeIcon(String chromeIcon) {
     
     this.chromeIcon = chromeIcon;
     return this;
@@ -2438,7 +1687,7 @@ public class Notification {
   }
 
 
-  public Notification iosSound(String iosSound) {
+  public BasicNotificationAllOf iosSound(String iosSound) {
     
     this.iosSound = iosSound;
     return this;
@@ -2461,7 +1710,7 @@ public class Notification {
   }
 
 
-  public Notification androidSound(String androidSound) {
+  public BasicNotificationAllOf androidSound(String androidSound) {
     
     this.androidSound = androidSound;
     return this;
@@ -2484,7 +1733,7 @@ public class Notification {
   }
 
 
-  public Notification huaweiSound(String huaweiSound) {
+  public BasicNotificationAllOf huaweiSound(String huaweiSound) {
     
     this.huaweiSound = huaweiSound;
     return this;
@@ -2507,7 +1756,7 @@ public class Notification {
   }
 
 
-  public Notification admSound(String admSound) {
+  public BasicNotificationAllOf admSound(String admSound) {
     
     this.admSound = admSound;
     return this;
@@ -2530,7 +1779,7 @@ public class Notification {
   }
 
 
-  public Notification wpWnsSound(String wpWnsSound) {
+  public BasicNotificationAllOf wpWnsSound(String wpWnsSound) {
     
     this.wpWnsSound = wpWnsSound;
     return this;
@@ -2553,7 +1802,7 @@ public class Notification {
   }
 
 
-  public Notification androidLedColor(String androidLedColor) {
+  public BasicNotificationAllOf androidLedColor(String androidLedColor) {
     
     this.androidLedColor = androidLedColor;
     return this;
@@ -2576,7 +1825,7 @@ public class Notification {
   }
 
 
-  public Notification huaweiLedColor(String huaweiLedColor) {
+  public BasicNotificationAllOf huaweiLedColor(String huaweiLedColor) {
     
     this.huaweiLedColor = huaweiLedColor;
     return this;
@@ -2599,7 +1848,7 @@ public class Notification {
   }
 
 
-  public Notification androidAccentColor(String androidAccentColor) {
+  public BasicNotificationAllOf androidAccentColor(String androidAccentColor) {
     
     this.androidAccentColor = androidAccentColor;
     return this;
@@ -2622,7 +1871,7 @@ public class Notification {
   }
 
 
-  public Notification huaweiAccentColor(String huaweiAccentColor) {
+  public BasicNotificationAllOf huaweiAccentColor(String huaweiAccentColor) {
     
     this.huaweiAccentColor = huaweiAccentColor;
     return this;
@@ -2645,7 +1894,7 @@ public class Notification {
   }
 
 
-  public Notification androidVisibility(Integer androidVisibility) {
+  public BasicNotificationAllOf androidVisibility(Integer androidVisibility) {
     
     this.androidVisibility = androidVisibility;
     return this;
@@ -2668,7 +1917,7 @@ public class Notification {
   }
 
 
-  public Notification huaweiVisibility(Integer huaweiVisibility) {
+  public BasicNotificationAllOf huaweiVisibility(Integer huaweiVisibility) {
     
     this.huaweiVisibility = huaweiVisibility;
     return this;
@@ -2691,7 +1940,7 @@ public class Notification {
   }
 
 
-  public Notification iosBadgeType(String iosBadgeType) {
+  public BasicNotificationAllOf iosBadgeType(String iosBadgeType) {
     
     this.iosBadgeType = iosBadgeType;
     return this;
@@ -2714,7 +1963,7 @@ public class Notification {
   }
 
 
-  public Notification iosBadgeCount(Integer iosBadgeCount) {
+  public BasicNotificationAllOf iosBadgeCount(Integer iosBadgeCount) {
     
     this.iosBadgeCount = iosBadgeCount;
     return this;
@@ -2737,7 +1986,7 @@ public class Notification {
   }
 
 
-  public Notification collapseId(String collapseId) {
+  public BasicNotificationAllOf collapseId(String collapseId) {
     
     this.collapseId = collapseId;
     return this;
@@ -2760,7 +2009,7 @@ public class Notification {
   }
 
 
-  public Notification webPushTopic(String webPushTopic) {
+  public BasicNotificationAllOf webPushTopic(String webPushTopic) {
     
     this.webPushTopic = webPushTopic;
     return this;
@@ -2783,7 +2032,7 @@ public class Notification {
   }
 
 
-  public Notification apnsAlert(Object apnsAlert) {
+  public BasicNotificationAllOf apnsAlert(Object apnsAlert) {
     
     this.apnsAlert = apnsAlert;
     return this;
@@ -2806,7 +2055,7 @@ public class Notification {
   }
 
 
-  public Notification delayedOption(String delayedOption) {
+  public BasicNotificationAllOf delayedOption(String delayedOption) {
     
     this.delayedOption = delayedOption;
     return this;
@@ -2829,7 +2078,7 @@ public class Notification {
   }
 
 
-  public Notification deliveryTimeOfDay(String deliveryTimeOfDay) {
+  public BasicNotificationAllOf deliveryTimeOfDay(String deliveryTimeOfDay) {
     
     this.deliveryTimeOfDay = deliveryTimeOfDay;
     return this;
@@ -2852,7 +2101,7 @@ public class Notification {
   }
 
 
-  public Notification ttl(Integer ttl) {
+  public BasicNotificationAllOf ttl(Integer ttl) {
     
     this.ttl = ttl;
     return this;
@@ -2875,7 +2124,7 @@ public class Notification {
   }
 
 
-  public Notification priority(Integer priority) {
+  public BasicNotificationAllOf priority(Integer priority) {
     
     this.priority = priority;
     return this;
@@ -2898,7 +2147,7 @@ public class Notification {
   }
 
 
-  public Notification apnsPushTypeOverride(String apnsPushTypeOverride) {
+  public BasicNotificationAllOf apnsPushTypeOverride(String apnsPushTypeOverride) {
     
     this.apnsPushTypeOverride = apnsPushTypeOverride;
     return this;
@@ -2921,7 +2170,7 @@ public class Notification {
   }
 
 
-  public Notification throttleRatePerMinute(String throttleRatePerMinute) {
+  public BasicNotificationAllOf throttleRatePerMinute(String throttleRatePerMinute) {
     
     this.throttleRatePerMinute = throttleRatePerMinute;
     return this;
@@ -2944,7 +2193,7 @@ public class Notification {
   }
 
 
-  public Notification androidGroup(String androidGroup) {
+  public BasicNotificationAllOf androidGroup(String androidGroup) {
     
     this.androidGroup = androidGroup;
     return this;
@@ -2967,7 +2216,7 @@ public class Notification {
   }
 
 
-  public Notification androidGroupMessage(String androidGroupMessage) {
+  public BasicNotificationAllOf androidGroupMessage(String androidGroupMessage) {
     
     this.androidGroupMessage = androidGroupMessage;
     return this;
@@ -2990,7 +2239,7 @@ public class Notification {
   }
 
 
-  public Notification admGroup(String admGroup) {
+  public BasicNotificationAllOf admGroup(String admGroup) {
     
     this.admGroup = admGroup;
     return this;
@@ -3013,7 +2262,7 @@ public class Notification {
   }
 
 
-  public Notification admGroupMessage(Object admGroupMessage) {
+  public BasicNotificationAllOf admGroupMessage(Object admGroupMessage) {
     
     this.admGroupMessage = admGroupMessage;
     return this;
@@ -3036,7 +2285,7 @@ public class Notification {
   }
 
 
-  public Notification threadId(String threadId) {
+  public BasicNotificationAllOf threadId(String threadId) {
     
     this.threadId = threadId;
     return this;
@@ -3059,7 +2308,7 @@ public class Notification {
   }
 
 
-  public Notification summaryArg(String summaryArg) {
+  public BasicNotificationAllOf summaryArg(String summaryArg) {
     
     this.summaryArg = summaryArg;
     return this;
@@ -3082,7 +2331,7 @@ public class Notification {
   }
 
 
-  public Notification summaryArgCount(Integer summaryArgCount) {
+  public BasicNotificationAllOf summaryArgCount(Integer summaryArgCount) {
     
     this.summaryArgCount = summaryArgCount;
     return this;
@@ -3105,7 +2354,7 @@ public class Notification {
   }
 
 
-  public Notification emailSubject(String emailSubject) {
+  public BasicNotificationAllOf emailSubject(String emailSubject) {
     
     this.emailSubject = emailSubject;
     return this;
@@ -3128,7 +2377,7 @@ public class Notification {
   }
 
 
-  public Notification emailBody(String emailBody) {
+  public BasicNotificationAllOf emailBody(String emailBody) {
     
     this.emailBody = emailBody;
     return this;
@@ -3151,7 +2400,7 @@ public class Notification {
   }
 
 
-  public Notification emailFromName(String emailFromName) {
+  public BasicNotificationAllOf emailFromName(String emailFromName) {
     
     this.emailFromName = emailFromName;
     return this;
@@ -3174,7 +2423,7 @@ public class Notification {
   }
 
 
-  public Notification emailFromAddress(String emailFromAddress) {
+  public BasicNotificationAllOf emailFromAddress(String emailFromAddress) {
     
     this.emailFromAddress = emailFromAddress;
     return this;
@@ -3197,7 +2446,7 @@ public class Notification {
   }
 
 
-  public Notification smsFrom(String smsFrom) {
+  public BasicNotificationAllOf smsFrom(String smsFrom) {
     
     this.smsFrom = smsFrom;
     return this;
@@ -3220,13 +2469,13 @@ public class Notification {
   }
 
 
-  public Notification smsMediaUrls(List<String> smsMediaUrls) {
+  public BasicNotificationAllOf smsMediaUrls(List<String> smsMediaUrls) {
     
     this.smsMediaUrls = smsMediaUrls;
     return this;
   }
 
-  public Notification addSmsMediaUrlsItem(String smsMediaUrlsItem) {
+  public BasicNotificationAllOf addSmsMediaUrlsItem(String smsMediaUrlsItem) {
     if (this.smsMediaUrls == null) {
       this.smsMediaUrls = new ArrayList<>();
     }
@@ -3251,29 +2500,6 @@ public class Notification {
   }
 
 
-  public Notification sendAfter(OffsetDateTime sendAfter) {
-    
-    this.sendAfter = sendAfter;
-    return this;
-  }
-
-   /**
-   * Channel: All Schedule notification for future delivery. API defaults to UTC -1100 Examples: All examples are the exact same date &amp; time. \&quot;Thu Sep 24 2015 14:00:00 GMT-0700 (PDT)\&quot; \&quot;September 24th 2015, 2:00:00 pm UTC-07:00\&quot; \&quot;2015-09-24 14:00:00 GMT-0700\&quot; \&quot;Sept 24 2015 14:00:00 GMT-0700\&quot; \&quot;Thu Sep 24 2015 14:00:00 GMT-0700 (Pacific Daylight Time)\&quot; Note: SMS currently only supports send_after parameter. 
-   * @return sendAfter
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Channel: All Schedule notification for future delivery. API defaults to UTC -1100 Examples: All examples are the exact same date & time. \"Thu Sep 24 2015 14:00:00 GMT-0700 (PDT)\" \"September 24th 2015, 2:00:00 pm UTC-07:00\" \"2015-09-24 14:00:00 GMT-0700\" \"Sept 24 2015 14:00:00 GMT-0700\" \"Thu Sep 24 2015 14:00:00 GMT-0700 (Pacific Daylight Time)\" Note: SMS currently only supports send_after parameter. ")
-
-  public OffsetDateTime getSendAfter() {
-    return sendAfter;
-  }
-
-
-  public void setSendAfter(OffsetDateTime sendAfter) {
-    this.sendAfter = sendAfter;
-  }
-
-
 
   @Override
   public boolean equals(Object o) {
@@ -3283,120 +2509,95 @@ public class Notification {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Notification notification = (Notification) o;
-    return Objects.equals(this.includedSegments, notification.includedSegments) &&
-        Objects.equals(this.excludedSegments, notification.excludedSegments) &&
-        Objects.equals(this.lastSession, notification.lastSession) &&
-        Objects.equals(this.firstSession, notification.firstSession) &&
-        Objects.equals(this.sessionCount, notification.sessionCount) &&
-        Objects.equals(this.sessionTime, notification.sessionTime) &&
-        Objects.equals(this.amountSpent, notification.amountSpent) &&
-        Objects.equals(this.boughtSku, notification.boughtSku) &&
-        Objects.equals(this.tag, notification.tag) &&
-        Objects.equals(this.language, notification.language) &&
-        Objects.equals(this.appVersion, notification.appVersion) &&
-        Objects.equals(this.location, notification.location) &&
-        Objects.equals(this.email, notification.email) &&
-        Objects.equals(this.country, notification.country) &&
-        Objects.equals(this.includePlayerIds, notification.includePlayerIds) &&
-        Objects.equals(this.includeExternalUserIds, notification.includeExternalUserIds) &&
-        Objects.equals(this.includeEmailTokens, notification.includeEmailTokens) &&
-        Objects.equals(this.includePhoneNumbers, notification.includePhoneNumbers) &&
-        Objects.equals(this.includeIosTokens, notification.includeIosTokens) &&
-        Objects.equals(this.includeWpWnsUris, notification.includeWpWnsUris) &&
-        Objects.equals(this.includeAmazonRegIds, notification.includeAmazonRegIds) &&
-        Objects.equals(this.includeChromeRegIds, notification.includeChromeRegIds) &&
-        Objects.equals(this.includeChromeWebRegIds, notification.includeChromeWebRegIds) &&
-        Objects.equals(this.includeAndroidRegIds, notification.includeAndroidRegIds) &&
-        Objects.equals(this.id, notification.id) &&
-        Objects.equals(this.value, notification.value) &&
-        Objects.equals(this.name, notification.name) &&
-        Objects.equals(this.aggregation, notification.aggregation) &&
-        Objects.equals(this.isIos, notification.isIos) &&
-        Objects.equals(this.isAndroid, notification.isAndroid) &&
-        Objects.equals(this.isHuawei, notification.isHuawei) &&
-        Objects.equals(this.isAnyWeb, notification.isAnyWeb) &&
-        Objects.equals(this.isChromeWeb, notification.isChromeWeb) &&
-        Objects.equals(this.isFirefox, notification.isFirefox) &&
-        Objects.equals(this.isSafari, notification.isSafari) &&
-        Objects.equals(this.isWPWNS, notification.isWPWNS) &&
-        Objects.equals(this.isAdm, notification.isAdm) &&
-        Objects.equals(this.isChrome, notification.isChrome) &&
-        Objects.equals(this.channelForExternalUserIds, notification.channelForExternalUserIds) &&
-        Objects.equals(this.appId, notification.appId) &&
-        Objects.equals(this.externalId, notification.externalId) &&
-        Objects.equals(this.contents, notification.contents) &&
-        Objects.equals(this.headings, notification.headings) &&
-        Objects.equals(this.subtitle, notification.subtitle) &&
-        Objects.equals(this.data, notification.data) &&
-        Objects.equals(this.huaweiMsgType, notification.huaweiMsgType) &&
-        Objects.equals(this.url, notification.url) &&
-        Objects.equals(this.webUrl, notification.webUrl) &&
-        Objects.equals(this.appUrl, notification.appUrl) &&
-        Objects.equals(this.iosAttachments, notification.iosAttachments) &&
-        Objects.equals(this.templateId, notification.templateId) &&
-        Objects.equals(this.contentAvailable, notification.contentAvailable) &&
-        Objects.equals(this.mutableContent, notification.mutableContent) &&
-        Objects.equals(this.targetContentIdentifier, notification.targetContentIdentifier) &&
-        Objects.equals(this.bigPicture, notification.bigPicture) &&
-        Objects.equals(this.huaweiBigPicture, notification.huaweiBigPicture) &&
-        Objects.equals(this.admBigPicture, notification.admBigPicture) &&
-        Objects.equals(this.chromeBigPicture, notification.chromeBigPicture) &&
-        Objects.equals(this.chromeWebImage, notification.chromeWebImage) &&
-        Objects.equals(this.buttons, notification.buttons) &&
-        Objects.equals(this.webButtons, notification.webButtons) &&
-        Objects.equals(this.iosCategory, notification.iosCategory) &&
-        Objects.equals(this.androidChannelId, notification.androidChannelId) &&
-        Objects.equals(this.huaweiChannelId, notification.huaweiChannelId) &&
-        Objects.equals(this.existingAndroidChannelId, notification.existingAndroidChannelId) &&
-        Objects.equals(this.huaweiExistingChannelId, notification.huaweiExistingChannelId) &&
-        Objects.equals(this.androidBackgroundLayout, notification.androidBackgroundLayout) &&
-        Objects.equals(this.smallIcon, notification.smallIcon) &&
-        Objects.equals(this.huaweiSmallIcon, notification.huaweiSmallIcon) &&
-        Objects.equals(this.largeIcon, notification.largeIcon) &&
-        Objects.equals(this.huaweiLargeIcon, notification.huaweiLargeIcon) &&
-        Objects.equals(this.admSmallIcon, notification.admSmallIcon) &&
-        Objects.equals(this.admLargeIcon, notification.admLargeIcon) &&
-        Objects.equals(this.chromeWebIcon, notification.chromeWebIcon) &&
-        Objects.equals(this.chromeWebBadge, notification.chromeWebBadge) &&
-        Objects.equals(this.firefoxIcon, notification.firefoxIcon) &&
-        Objects.equals(this.chromeIcon, notification.chromeIcon) &&
-        Objects.equals(this.iosSound, notification.iosSound) &&
-        Objects.equals(this.androidSound, notification.androidSound) &&
-        Objects.equals(this.huaweiSound, notification.huaweiSound) &&
-        Objects.equals(this.admSound, notification.admSound) &&
-        Objects.equals(this.wpWnsSound, notification.wpWnsSound) &&
-        Objects.equals(this.androidLedColor, notification.androidLedColor) &&
-        Objects.equals(this.huaweiLedColor, notification.huaweiLedColor) &&
-        Objects.equals(this.androidAccentColor, notification.androidAccentColor) &&
-        Objects.equals(this.huaweiAccentColor, notification.huaweiAccentColor) &&
-        Objects.equals(this.androidVisibility, notification.androidVisibility) &&
-        Objects.equals(this.huaweiVisibility, notification.huaweiVisibility) &&
-        Objects.equals(this.iosBadgeType, notification.iosBadgeType) &&
-        Objects.equals(this.iosBadgeCount, notification.iosBadgeCount) &&
-        Objects.equals(this.collapseId, notification.collapseId) &&
-        Objects.equals(this.webPushTopic, notification.webPushTopic) &&
-        Objects.equals(this.apnsAlert, notification.apnsAlert) &&
-        Objects.equals(this.delayedOption, notification.delayedOption) &&
-        Objects.equals(this.deliveryTimeOfDay, notification.deliveryTimeOfDay) &&
-        Objects.equals(this.ttl, notification.ttl) &&
-        Objects.equals(this.priority, notification.priority) &&
-        Objects.equals(this.apnsPushTypeOverride, notification.apnsPushTypeOverride) &&
-        Objects.equals(this.throttleRatePerMinute, notification.throttleRatePerMinute) &&
-        Objects.equals(this.androidGroup, notification.androidGroup) &&
-        Objects.equals(this.androidGroupMessage, notification.androidGroupMessage) &&
-        Objects.equals(this.admGroup, notification.admGroup) &&
-        Objects.equals(this.admGroupMessage, notification.admGroupMessage) &&
-        Objects.equals(this.threadId, notification.threadId) &&
-        Objects.equals(this.summaryArg, notification.summaryArg) &&
-        Objects.equals(this.summaryArgCount, notification.summaryArgCount) &&
-        Objects.equals(this.emailSubject, notification.emailSubject) &&
-        Objects.equals(this.emailBody, notification.emailBody) &&
-        Objects.equals(this.emailFromName, notification.emailFromName) &&
-        Objects.equals(this.emailFromAddress, notification.emailFromAddress) &&
-        Objects.equals(this.smsFrom, notification.smsFrom) &&
-        Objects.equals(this.smsMediaUrls, notification.smsMediaUrls) &&
-        Objects.equals(this.sendAfter, notification.sendAfter);
+    BasicNotificationAllOf basicNotificationAllOf = (BasicNotificationAllOf) o;
+    return Objects.equals(this.id, basicNotificationAllOf.id) &&
+        Objects.equals(this.value, basicNotificationAllOf.value) &&
+        Objects.equals(this.name, basicNotificationAllOf.name) &&
+        Objects.equals(this.aggregation, basicNotificationAllOf.aggregation) &&
+        Objects.equals(this.isIos, basicNotificationAllOf.isIos) &&
+        Objects.equals(this.isAndroid, basicNotificationAllOf.isAndroid) &&
+        Objects.equals(this.isHuawei, basicNotificationAllOf.isHuawei) &&
+        Objects.equals(this.isAnyWeb, basicNotificationAllOf.isAnyWeb) &&
+        Objects.equals(this.isChromeWeb, basicNotificationAllOf.isChromeWeb) &&
+        Objects.equals(this.isFirefox, basicNotificationAllOf.isFirefox) &&
+        Objects.equals(this.isSafari, basicNotificationAllOf.isSafari) &&
+        Objects.equals(this.isWPWNS, basicNotificationAllOf.isWPWNS) &&
+        Objects.equals(this.isAdm, basicNotificationAllOf.isAdm) &&
+        Objects.equals(this.isChrome, basicNotificationAllOf.isChrome) &&
+        Objects.equals(this.channelForExternalUserIds, basicNotificationAllOf.channelForExternalUserIds) &&
+        Objects.equals(this.appId, basicNotificationAllOf.appId) &&
+        Objects.equals(this.externalId, basicNotificationAllOf.externalId) &&
+        Objects.equals(this.contents, basicNotificationAllOf.contents) &&
+        Objects.equals(this.headings, basicNotificationAllOf.headings) &&
+        Objects.equals(this.subtitle, basicNotificationAllOf.subtitle) &&
+        Objects.equals(this.data, basicNotificationAllOf.data) &&
+        Objects.equals(this.huaweiMsgType, basicNotificationAllOf.huaweiMsgType) &&
+        Objects.equals(this.url, basicNotificationAllOf.url) &&
+        Objects.equals(this.webUrl, basicNotificationAllOf.webUrl) &&
+        Objects.equals(this.appUrl, basicNotificationAllOf.appUrl) &&
+        Objects.equals(this.iosAttachments, basicNotificationAllOf.iosAttachments) &&
+        Objects.equals(this.templateId, basicNotificationAllOf.templateId) &&
+        Objects.equals(this.contentAvailable, basicNotificationAllOf.contentAvailable) &&
+        Objects.equals(this.mutableContent, basicNotificationAllOf.mutableContent) &&
+        Objects.equals(this.targetContentIdentifier, basicNotificationAllOf.targetContentIdentifier) &&
+        Objects.equals(this.bigPicture, basicNotificationAllOf.bigPicture) &&
+        Objects.equals(this.huaweiBigPicture, basicNotificationAllOf.huaweiBigPicture) &&
+        Objects.equals(this.admBigPicture, basicNotificationAllOf.admBigPicture) &&
+        Objects.equals(this.chromeBigPicture, basicNotificationAllOf.chromeBigPicture) &&
+        Objects.equals(this.chromeWebImage, basicNotificationAllOf.chromeWebImage) &&
+        Objects.equals(this.buttons, basicNotificationAllOf.buttons) &&
+        Objects.equals(this.webButtons, basicNotificationAllOf.webButtons) &&
+        Objects.equals(this.iosCategory, basicNotificationAllOf.iosCategory) &&
+        Objects.equals(this.androidChannelId, basicNotificationAllOf.androidChannelId) &&
+        Objects.equals(this.huaweiChannelId, basicNotificationAllOf.huaweiChannelId) &&
+        Objects.equals(this.existingAndroidChannelId, basicNotificationAllOf.existingAndroidChannelId) &&
+        Objects.equals(this.huaweiExistingChannelId, basicNotificationAllOf.huaweiExistingChannelId) &&
+        Objects.equals(this.androidBackgroundLayout, basicNotificationAllOf.androidBackgroundLayout) &&
+        Objects.equals(this.smallIcon, basicNotificationAllOf.smallIcon) &&
+        Objects.equals(this.huaweiSmallIcon, basicNotificationAllOf.huaweiSmallIcon) &&
+        Objects.equals(this.largeIcon, basicNotificationAllOf.largeIcon) &&
+        Objects.equals(this.huaweiLargeIcon, basicNotificationAllOf.huaweiLargeIcon) &&
+        Objects.equals(this.admSmallIcon, basicNotificationAllOf.admSmallIcon) &&
+        Objects.equals(this.admLargeIcon, basicNotificationAllOf.admLargeIcon) &&
+        Objects.equals(this.chromeWebIcon, basicNotificationAllOf.chromeWebIcon) &&
+        Objects.equals(this.chromeWebBadge, basicNotificationAllOf.chromeWebBadge) &&
+        Objects.equals(this.firefoxIcon, basicNotificationAllOf.firefoxIcon) &&
+        Objects.equals(this.chromeIcon, basicNotificationAllOf.chromeIcon) &&
+        Objects.equals(this.iosSound, basicNotificationAllOf.iosSound) &&
+        Objects.equals(this.androidSound, basicNotificationAllOf.androidSound) &&
+        Objects.equals(this.huaweiSound, basicNotificationAllOf.huaweiSound) &&
+        Objects.equals(this.admSound, basicNotificationAllOf.admSound) &&
+        Objects.equals(this.wpWnsSound, basicNotificationAllOf.wpWnsSound) &&
+        Objects.equals(this.androidLedColor, basicNotificationAllOf.androidLedColor) &&
+        Objects.equals(this.huaweiLedColor, basicNotificationAllOf.huaweiLedColor) &&
+        Objects.equals(this.androidAccentColor, basicNotificationAllOf.androidAccentColor) &&
+        Objects.equals(this.huaweiAccentColor, basicNotificationAllOf.huaweiAccentColor) &&
+        Objects.equals(this.androidVisibility, basicNotificationAllOf.androidVisibility) &&
+        Objects.equals(this.huaweiVisibility, basicNotificationAllOf.huaweiVisibility) &&
+        Objects.equals(this.iosBadgeType, basicNotificationAllOf.iosBadgeType) &&
+        Objects.equals(this.iosBadgeCount, basicNotificationAllOf.iosBadgeCount) &&
+        Objects.equals(this.collapseId, basicNotificationAllOf.collapseId) &&
+        Objects.equals(this.webPushTopic, basicNotificationAllOf.webPushTopic) &&
+        Objects.equals(this.apnsAlert, basicNotificationAllOf.apnsAlert) &&
+        Objects.equals(this.delayedOption, basicNotificationAllOf.delayedOption) &&
+        Objects.equals(this.deliveryTimeOfDay, basicNotificationAllOf.deliveryTimeOfDay) &&
+        Objects.equals(this.ttl, basicNotificationAllOf.ttl) &&
+        Objects.equals(this.priority, basicNotificationAllOf.priority) &&
+        Objects.equals(this.apnsPushTypeOverride, basicNotificationAllOf.apnsPushTypeOverride) &&
+        Objects.equals(this.throttleRatePerMinute, basicNotificationAllOf.throttleRatePerMinute) &&
+        Objects.equals(this.androidGroup, basicNotificationAllOf.androidGroup) &&
+        Objects.equals(this.androidGroupMessage, basicNotificationAllOf.androidGroupMessage) &&
+        Objects.equals(this.admGroup, basicNotificationAllOf.admGroup) &&
+        Objects.equals(this.admGroupMessage, basicNotificationAllOf.admGroupMessage) &&
+        Objects.equals(this.threadId, basicNotificationAllOf.threadId) &&
+        Objects.equals(this.summaryArg, basicNotificationAllOf.summaryArg) &&
+        Objects.equals(this.summaryArgCount, basicNotificationAllOf.summaryArgCount) &&
+        Objects.equals(this.emailSubject, basicNotificationAllOf.emailSubject) &&
+        Objects.equals(this.emailBody, basicNotificationAllOf.emailBody) &&
+        Objects.equals(this.emailFromName, basicNotificationAllOf.emailFromName) &&
+        Objects.equals(this.emailFromAddress, basicNotificationAllOf.emailFromAddress) &&
+        Objects.equals(this.smsFrom, basicNotificationAllOf.smsFrom) &&
+        Objects.equals(this.smsMediaUrls, basicNotificationAllOf.smsMediaUrls);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -3405,7 +2606,7 @@ public class Notification {
 
   @Override
   public int hashCode() {
-    return Objects.hash(includedSegments, excludedSegments, lastSession, firstSession, sessionCount, sessionTime, amountSpent, boughtSku, tag, language, appVersion, location, email, country, includePlayerIds, includeExternalUserIds, includeEmailTokens, includePhoneNumbers, includeIosTokens, includeWpWnsUris, includeAmazonRegIds, includeChromeRegIds, includeChromeWebRegIds, includeAndroidRegIds, id, value, name, aggregation, isIos, isAndroid, isHuawei, isAnyWeb, isChromeWeb, isFirefox, isSafari, isWPWNS, isAdm, isChrome, channelForExternalUserIds, appId, externalId, contents, headings, subtitle, data, huaweiMsgType, url, webUrl, appUrl, iosAttachments, templateId, contentAvailable, mutableContent, targetContentIdentifier, bigPicture, huaweiBigPicture, admBigPicture, chromeBigPicture, chromeWebImage, buttons, webButtons, iosCategory, androidChannelId, huaweiChannelId, existingAndroidChannelId, huaweiExistingChannelId, androidBackgroundLayout, smallIcon, huaweiSmallIcon, largeIcon, huaweiLargeIcon, admSmallIcon, admLargeIcon, chromeWebIcon, chromeWebBadge, firefoxIcon, chromeIcon, iosSound, androidSound, huaweiSound, admSound, wpWnsSound, androidLedColor, huaweiLedColor, androidAccentColor, huaweiAccentColor, androidVisibility, huaweiVisibility, iosBadgeType, iosBadgeCount, collapseId, webPushTopic, apnsAlert, delayedOption, deliveryTimeOfDay, ttl, priority, apnsPushTypeOverride, throttleRatePerMinute, androidGroup, androidGroupMessage, admGroup, admGroupMessage, threadId, summaryArg, summaryArgCount, emailSubject, emailBody, emailFromName, emailFromAddress, smsFrom, smsMediaUrls, sendAfter);
+    return Objects.hash(id, value, name, aggregation, isIos, isAndroid, isHuawei, isAnyWeb, isChromeWeb, isFirefox, isSafari, isWPWNS, isAdm, isChrome, channelForExternalUserIds, appId, externalId, contents, headings, subtitle, data, huaweiMsgType, url, webUrl, appUrl, iosAttachments, templateId, contentAvailable, mutableContent, targetContentIdentifier, bigPicture, huaweiBigPicture, admBigPicture, chromeBigPicture, chromeWebImage, buttons, webButtons, iosCategory, androidChannelId, huaweiChannelId, existingAndroidChannelId, huaweiExistingChannelId, androidBackgroundLayout, smallIcon, huaweiSmallIcon, largeIcon, huaweiLargeIcon, admSmallIcon, admLargeIcon, chromeWebIcon, chromeWebBadge, firefoxIcon, chromeIcon, iosSound, androidSound, huaweiSound, admSound, wpWnsSound, androidLedColor, huaweiLedColor, androidAccentColor, huaweiAccentColor, androidVisibility, huaweiVisibility, iosBadgeType, iosBadgeCount, collapseId, webPushTopic, apnsAlert, delayedOption, deliveryTimeOfDay, ttl, priority, apnsPushTypeOverride, throttleRatePerMinute, androidGroup, androidGroupMessage, admGroup, admGroupMessage, threadId, summaryArg, summaryArgCount, emailSubject, emailBody, emailFromName, emailFromAddress, smsFrom, smsMediaUrls);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -3418,31 +2619,7 @@ public class Notification {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Notification {\n");
-    sb.append("    includedSegments: ").append(toIndentedString(includedSegments)).append("\n");
-    sb.append("    excludedSegments: ").append(toIndentedString(excludedSegments)).append("\n");
-    sb.append("    lastSession: ").append(toIndentedString(lastSession)).append("\n");
-    sb.append("    firstSession: ").append(toIndentedString(firstSession)).append("\n");
-    sb.append("    sessionCount: ").append(toIndentedString(sessionCount)).append("\n");
-    sb.append("    sessionTime: ").append(toIndentedString(sessionTime)).append("\n");
-    sb.append("    amountSpent: ").append(toIndentedString(amountSpent)).append("\n");
-    sb.append("    boughtSku: ").append(toIndentedString(boughtSku)).append("\n");
-    sb.append("    tag: ").append(toIndentedString(tag)).append("\n");
-    sb.append("    language: ").append(toIndentedString(language)).append("\n");
-    sb.append("    appVersion: ").append(toIndentedString(appVersion)).append("\n");
-    sb.append("    location: ").append(toIndentedString(location)).append("\n");
-    sb.append("    email: ").append(toIndentedString(email)).append("\n");
-    sb.append("    country: ").append(toIndentedString(country)).append("\n");
-    sb.append("    includePlayerIds: ").append(toIndentedString(includePlayerIds)).append("\n");
-    sb.append("    includeExternalUserIds: ").append(toIndentedString(includeExternalUserIds)).append("\n");
-    sb.append("    includeEmailTokens: ").append(toIndentedString(includeEmailTokens)).append("\n");
-    sb.append("    includePhoneNumbers: ").append(toIndentedString(includePhoneNumbers)).append("\n");
-    sb.append("    includeIosTokens: ").append(toIndentedString(includeIosTokens)).append("\n");
-    sb.append("    includeWpWnsUris: ").append(toIndentedString(includeWpWnsUris)).append("\n");
-    sb.append("    includeAmazonRegIds: ").append(toIndentedString(includeAmazonRegIds)).append("\n");
-    sb.append("    includeChromeRegIds: ").append(toIndentedString(includeChromeRegIds)).append("\n");
-    sb.append("    includeChromeWebRegIds: ").append(toIndentedString(includeChromeWebRegIds)).append("\n");
-    sb.append("    includeAndroidRegIds: ").append(toIndentedString(includeAndroidRegIds)).append("\n");
+    sb.append("class BasicNotificationAllOf {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
@@ -3531,7 +2708,6 @@ public class Notification {
     sb.append("    emailFromAddress: ").append(toIndentedString(emailFromAddress)).append("\n");
     sb.append("    smsFrom: ").append(toIndentedString(smsFrom)).append("\n");
     sb.append("    smsMediaUrls: ").append(toIndentedString(smsMediaUrls)).append("\n");
-    sb.append("    sendAfter: ").append(toIndentedString(sendAfter)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -3554,30 +2730,6 @@ public class Notification {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("included_segments");
-    openapiFields.add("excluded_segments");
-    openapiFields.add("last_session");
-    openapiFields.add("first_session");
-    openapiFields.add("session_count");
-    openapiFields.add("session_time");
-    openapiFields.add("amount_spent");
-    openapiFields.add("bought_sku");
-    openapiFields.add("tag");
-    openapiFields.add("language");
-    openapiFields.add("app_version");
-    openapiFields.add("location");
-    openapiFields.add("email");
-    openapiFields.add("country");
-    openapiFields.add("include_player_ids");
-    openapiFields.add("include_external_user_ids");
-    openapiFields.add("include_email_tokens");
-    openapiFields.add("include_phone_numbers");
-    openapiFields.add("include_ios_tokens");
-    openapiFields.add("include_wp_wns_uris");
-    openapiFields.add("include_amazon_reg_ids");
-    openapiFields.add("include_chrome_reg_ids");
-    openapiFields.add("include_chrome_web_reg_ids");
-    openapiFields.add("include_android_reg_ids");
     openapiFields.add("id");
     openapiFields.add("value");
     openapiFields.add("name");
@@ -3666,33 +2818,31 @@ public class Notification {
     openapiFields.add("email_from_address");
     openapiFields.add("sms_from");
     openapiFields.add("sms_media_urls");
-    openapiFields.add("send_after");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("app_id");
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!Notification.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'Notification' and its subtypes
+       if (!BasicNotificationAllOf.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'BasicNotificationAllOf' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<Notification> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(Notification.class));
+       final TypeAdapter<BasicNotificationAllOf> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(BasicNotificationAllOf.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<Notification>() {
+       return (TypeAdapter<T>) new TypeAdapter<BasicNotificationAllOf>() {
            @Override
-           public void write(JsonWriter out, Notification value) throws IOException {
+           public void write(JsonWriter out, BasicNotificationAllOf value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public Notification read(JsonReader in) throws IOException {
+           public BasicNotificationAllOf read(JsonReader in) throws IOException {
              JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
 
              return thisAdapter.fromJsonTree(jsonObj);
@@ -3703,18 +2853,18 @@ public class Notification {
   }
 
  /**
-  * Create an instance of Notification given an JSON string
+  * Create an instance of BasicNotificationAllOf given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of Notification
-  * @throws IOException if the JSON string is invalid with respect to Notification
+  * @return An instance of BasicNotificationAllOf
+  * @throws IOException if the JSON string is invalid with respect to BasicNotificationAllOf
   */
-  public static Notification fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, Notification.class);
+  public static BasicNotificationAllOf fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, BasicNotificationAllOf.class);
   }
 
  /**
-  * Convert an instance of Notification to an JSON string
+  * Convert an instance of BasicNotificationAllOf to an JSON string
   *
   * @return JSON string
   */

@@ -14,6 +14,8 @@ Hash of delivery statistics broken out by target device platform.
 |**safariWebPush** | [**DeliveryData**](DeliveryData.md) |  |  [optional] |
 |**android** | [**DeliveryData**](DeliveryData.md) |  |  [optional] |
 |**ios** | [**DeliveryData**](DeliveryData.md) |  |  [optional] |
+|**sms** | [**DeliveryData**](DeliveryData.md) |  |  [optional] |
+|**email** | [**DeliveryData**](DeliveryData.md) |  |  [optional] |
 
 
 

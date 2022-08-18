@@ -1,6 +1,6 @@
 
 
-# NotificationAllOfAndroidBackgroundLayout
+# BasicNotificationAllOfAndroidBackgroundLayout
 
 Channel: Push Notifications Platform: Android Allowing setting a background image for the notification. This is a JSON object containing the following keys. See our Background Image documentation for image sizes. 
 

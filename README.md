@@ -2,7 +2,7 @@
 
 OneSignal
 - API version: 1.0.1
-  - Build date: 2022-07-13T21:20:07.400Z[Etc/UTC]
+  - Build date: 2022-08-18T22:09:10.481Z[Etc/UTC]
 
 A powerful way to send personalized messages at scale and build effective customer engagement strategies. Learn more at onesignal.com
 
@@ -158,6 +158,9 @@ Class | Method | HTTP request | Description
 ## Documentation for Models
 
  - [App](docs/App.md)
+ - [BasicNotification](docs/BasicNotification.md)
+ - [BasicNotificationAllOf](docs/BasicNotificationAllOf.md)
+ - [BasicNotificationAllOfAndroidBackgroundLayout](docs/BasicNotificationAllOfAndroidBackgroundLayout.md)
  - [Button](docs/Button.md)
  - [CancelNotificationSuccessResponse](docs/CancelNotificationSuccessResponse.md)
  - [CreateNotificationBadRequestResponse](docs/CreateNotificationBadRequestResponse.md)
@@ -183,7 +186,6 @@ Class | Method | HTTP request | Description
  - [Notification](docs/Notification.md)
  - [Notification200Errors](docs/Notification200Errors.md)
  - [NotificationAllOf](docs/NotificationAllOf.md)
- - [NotificationAllOfAndroidBackgroundLayout](docs/NotificationAllOfAndroidBackgroundLayout.md)
  - [NotificationHistoryBadRequestResponse](docs/NotificationHistoryBadRequestResponse.md)
  - [NotificationHistorySuccessResponse](docs/NotificationHistorySuccessResponse.md)
  - [NotificationSlice](docs/NotificationSlice.md)
@@ -194,6 +196,8 @@ Class | Method | HTTP request | Description
  - [OutcomeData](docs/OutcomeData.md)
  - [OutcomesData](docs/OutcomesData.md)
  - [PlatformDeliveryData](docs/PlatformDeliveryData.md)
+ - [PlatformDeliveryDataEmailAllOf](docs/PlatformDeliveryDataEmailAllOf.md)
+ - [PlatformDeliveryDataSmsAllOf](docs/PlatformDeliveryDataSmsAllOf.md)
  - [Player](docs/Player.md)
  - [PlayerNotificationTarget](docs/PlayerNotificationTarget.md)
  - [PlayerSlice](docs/PlayerSlice.md)

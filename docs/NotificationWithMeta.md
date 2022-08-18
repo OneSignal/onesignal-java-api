@@ -73,7 +73,7 @@
 |**huaweiChannelId** | **String** | Channel: Push Notifications Platform: Huawei The Android Oreo Notification Category to send the notification under. See the Category documentation on creating one and getting it&#39;s id.  |  [optional] |
 |**existingAndroidChannelId** | **String** | Channel: Push Notifications Platform: Android Use this if you have client side Android Oreo Channels you have already defined in your app with code.  |  [optional] |
 |**huaweiExistingChannelId** | **String** | Channel: Push Notifications Platform: Huawei Use this if you have client side Android Oreo Channels you have already defined in your app with code.  |  [optional] |
-|**androidBackgroundLayout** | [**NotificationAllOfAndroidBackgroundLayout**](NotificationAllOfAndroidBackgroundLayout.md) |  |  [optional] |
+|**androidBackgroundLayout** | [**BasicNotificationAllOfAndroidBackgroundLayout**](BasicNotificationAllOfAndroidBackgroundLayout.md) |  |  [optional] |
 |**smallIcon** | **String** | Channel: Push Notifications Platform: Android Icon shown in the status bar and on the top left of the notification. If not set a bell icon will be used or ic_stat_onesignal_default if you have set this resource name. See: How to create small icons  |  [optional] |
 |**huaweiSmallIcon** | **String** | Channel: Push Notifications Platform: Huawei Icon shown in the status bar and on the top left of the notification. Use an Android resource path (E.g. /drawable/small_icon). Defaults to your app icon if not set.  |  [optional] |
 |**largeIcon** | **String** | Channel: Push Notifications Platform: Android Can be a drawable resource name or a URL. See: How to create large icons  |  [optional] |
@@ -100,7 +100,6 @@
 |**collapseId** | **String** | Channel: Push Notifications Platform: iOS 10+, Android Only one notification with the same id will be shown on the device. Use the same id to update an existing notification instead of showing a new one. Limit of 64 characters.  |  [optional] |
 |**webPushTopic** | **String** | Channel: Push Notifications Platform: All Browsers Display multiple notifications at once with different topics.  |  [optional] |
 |**apnsAlert** | **Object** | Channel: Push Notifications Platform: iOS 10+ iOS can localize push notification messages on the client using special parameters such as loc-key. When using the Create Notification endpoint, you must include these parameters inside of a field called apns_alert. Please see Apple&#39;s guide on localizing push notifications to learn more.  |  [optional] |
-|**sendAfter** | **Long** | Unix timestamp indicating when notification delivery should begin. |  [optional] |
 |**delayedOption** | **String** | Channel: All Possible values are: timezone (Deliver at a specific time-of-day in each users own timezone) last-active Same as Intelligent Delivery . (Deliver at the same time of day as each user last used your app). If send_after is used, this takes effect after the send_after time has elapsed.  |  [optional] |
 |**deliveryTimeOfDay** | **String** | Channel: All Use with delayed_option&#x3D;timezone. Examples: \&quot;9:00AM\&quot; \&quot;21:45\&quot; \&quot;9:45:30\&quot;  |  [optional] |
 |**ttl** | **Integer** | Channel: Push Notifications Platform: iOS, Android, Chrome, Firefox, Safari, ChromeWeb Time To Live - In seconds. The notification will be expired if the device does not come back online within this time. The default is 259,200 seconds (3 days). Max value to set is 2419200 seconds (28 days).  |  [optional] |
@@ -128,6 +127,7 @@
 |**outcomes** | [**List&lt;OutcomeData&gt;**](OutcomeData.md) |  |  [optional] |
 |**remaining** | **Integer** | Number of notifications that have not been sent out yet. This can mean either our system is still processing the notification or you have delayed options set. |  [optional] |
 |**queuedAt** | **Long** | Unix timestamp indicating when the notification was created. |  [optional] |
+|**sendAfter** | **Long** | Unix timestamp indicating when notification delivery should begin. |  [optional] |
 |**completedAt** | **Long** | Unix timestamp indicating when notification delivery completed. The delivery duration from start to finish can be calculated with completed_at - send_after. |  [optional] |
 |**platformDeliveryStats** | [**PlatformDeliveryData**](PlatformDeliveryData.md) |  |  [optional] |
 

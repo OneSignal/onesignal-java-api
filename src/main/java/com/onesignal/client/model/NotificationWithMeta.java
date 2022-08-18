@@ -20,10 +20,10 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.onesignal.client.model.BasicNotification;
+import com.onesignal.client.model.BasicNotificationAllOfAndroidBackgroundLayout;
 import com.onesignal.client.model.Button;
 import com.onesignal.client.model.DeliveryData;
-import com.onesignal.client.model.Notification;
-import com.onesignal.client.model.NotificationAllOfAndroidBackgroundLayout;
 import com.onesignal.client.model.NotificationWithMetaAllOf;
 import com.onesignal.client.model.OutcomeData;
 import com.onesignal.client.model.OutcomesData;
@@ -60,7 +60,7 @@ import com.onesignal.client.JSON;
 /**
  * NotificationWithMeta
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-07-13T21:20:07.400Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-18T22:09:10.481Z[Etc/UTC]")
 public class NotificationWithMeta {
   private static final long serialVersionUID = 1L;
 
@@ -225,7 +225,7 @@ public class NotificationWithMeta {
 
   public static final String SERIALIZED_NAME_IS_IOS = "isIos";
   @SerializedName(SERIALIZED_NAME_IS_IOS)
-  private Boolean isIos = true;
+  private Boolean isIos;
 
   public static final String SERIALIZED_NAME_IS_ANDROID = "isAndroid";
   @SerializedName(SERIALIZED_NAME_IS_ANDROID)
@@ -377,7 +377,7 @@ public class NotificationWithMeta {
 
   public static final String SERIALIZED_NAME_ANDROID_BACKGROUND_LAYOUT = "android_background_layout";
   @SerializedName(SERIALIZED_NAME_ANDROID_BACKGROUND_LAYOUT)
-  private NotificationAllOfAndroidBackgroundLayout androidBackgroundLayout;
+  private BasicNotificationAllOfAndroidBackgroundLayout androidBackgroundLayout;
 
   public static final String SERIALIZED_NAME_SMALL_ICON = "small_icon";
   @SerializedName(SERIALIZED_NAME_SMALL_ICON)
@@ -482,10 +482,6 @@ public class NotificationWithMeta {
   public static final String SERIALIZED_NAME_APNS_ALERT = "apns_alert";
   @SerializedName(SERIALIZED_NAME_APNS_ALERT)
   private Object apnsAlert;
-
-  public static final String SERIALIZED_NAME_SEND_AFTER = "send_after";
-  @SerializedName(SERIALIZED_NAME_SEND_AFTER)
-  private Long sendAfter;
 
   public static final String SERIALIZED_NAME_DELAYED_OPTION = "delayed_option";
   @SerializedName(SERIALIZED_NAME_DELAYED_OPTION)
@@ -594,6 +590,10 @@ public class NotificationWithMeta {
   public static final String SERIALIZED_NAME_QUEUED_AT = "queued_at";
   @SerializedName(SERIALIZED_NAME_QUEUED_AT)
   private Long queuedAt;
+
+  public static final String SERIALIZED_NAME_SEND_AFTER = "send_after";
+  @SerializedName(SERIALIZED_NAME_SEND_AFTER)
+  private Long sendAfter;
 
   public static final String SERIALIZED_NAME_COMPLETED_AT = "completed_at";
   @SerializedName(SERIALIZED_NAME_COMPLETED_AT)
@@ -2228,7 +2228,7 @@ public class NotificationWithMeta {
   }
 
 
-  public NotificationWithMeta androidBackgroundLayout(NotificationAllOfAndroidBackgroundLayout androidBackgroundLayout) {
+  public NotificationWithMeta androidBackgroundLayout(BasicNotificationAllOfAndroidBackgroundLayout androidBackgroundLayout) {
     
     this.androidBackgroundLayout = androidBackgroundLayout;
     return this;
@@ -2241,12 +2241,12 @@ public class NotificationWithMeta {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public NotificationAllOfAndroidBackgroundLayout getAndroidBackgroundLayout() {
+  public BasicNotificationAllOfAndroidBackgroundLayout getAndroidBackgroundLayout() {
     return androidBackgroundLayout;
   }
 
 
-  public void setAndroidBackgroundLayout(NotificationAllOfAndroidBackgroundLayout androidBackgroundLayout) {
+  public void setAndroidBackgroundLayout(BasicNotificationAllOfAndroidBackgroundLayout androidBackgroundLayout) {
     this.androidBackgroundLayout = androidBackgroundLayout;
   }
 
@@ -2846,29 +2846,6 @@ public class NotificationWithMeta {
 
   public void setApnsAlert(Object apnsAlert) {
     this.apnsAlert = apnsAlert;
-  }
-
-
-  public NotificationWithMeta sendAfter(Long sendAfter) {
-    
-    this.sendAfter = sendAfter;
-    return this;
-  }
-
-   /**
-   * Unix timestamp indicating when notification delivery should begin.
-   * @return sendAfter
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Unix timestamp indicating when notification delivery should begin.")
-
-  public Long getSendAfter() {
-    return sendAfter;
-  }
-
-
-  public void setSendAfter(Long sendAfter) {
-    this.sendAfter = sendAfter;
   }
 
 
@@ -3509,6 +3486,29 @@ public class NotificationWithMeta {
   }
 
 
+  public NotificationWithMeta sendAfter(Long sendAfter) {
+    
+    this.sendAfter = sendAfter;
+    return this;
+  }
+
+   /**
+   * Unix timestamp indicating when notification delivery should begin.
+   * @return sendAfter
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Unix timestamp indicating when notification delivery should begin.")
+
+  public Long getSendAfter() {
+    return sendAfter;
+  }
+
+
+  public void setSendAfter(Long sendAfter) {
+    this.sendAfter = sendAfter;
+  }
+
+
   public NotificationWithMeta completedAt(Long completedAt) {
     
     this.completedAt = completedAt;
@@ -3658,7 +3658,6 @@ public class NotificationWithMeta {
         Objects.equals(this.collapseId, notificationWithMeta.collapseId) &&
         Objects.equals(this.webPushTopic, notificationWithMeta.webPushTopic) &&
         Objects.equals(this.apnsAlert, notificationWithMeta.apnsAlert) &&
-        Objects.equals(this.sendAfter, notificationWithMeta.sendAfter) &&
         Objects.equals(this.delayedOption, notificationWithMeta.delayedOption) &&
         Objects.equals(this.deliveryTimeOfDay, notificationWithMeta.deliveryTimeOfDay) &&
         Objects.equals(this.ttl, notificationWithMeta.ttl) &&
@@ -3686,6 +3685,7 @@ public class NotificationWithMeta {
         Objects.equals(this.outcomes, notificationWithMeta.outcomes) &&
         Objects.equals(this.remaining, notificationWithMeta.remaining) &&
         Objects.equals(this.queuedAt, notificationWithMeta.queuedAt) &&
+        Objects.equals(this.sendAfter, notificationWithMeta.sendAfter) &&
         Objects.equals(this.completedAt, notificationWithMeta.completedAt) &&
         Objects.equals(this.platformDeliveryStats, notificationWithMeta.platformDeliveryStats);
   }
@@ -3696,7 +3696,7 @@ public class NotificationWithMeta {
 
   @Override
   public int hashCode() {
-    return Objects.hash(includedSegments, excludedSegments, lastSession, firstSession, sessionCount, sessionTime, amountSpent, boughtSku, tag, language, appVersion, location, email, country, includePlayerIds, includeExternalUserIds, includeEmailTokens, includePhoneNumbers, includeIosTokens, includeWpWnsUris, includeAmazonRegIds, includeChromeRegIds, includeChromeWebRegIds, includeAndroidRegIds, id, value, name, aggregation, isIos, isAndroid, isHuawei, isAnyWeb, isChromeWeb, isFirefox, isSafari, isWPWNS, isAdm, isChrome, channelForExternalUserIds, appId, externalId, contents, headings, subtitle, data, huaweiMsgType, url, webUrl, appUrl, iosAttachments, templateId, contentAvailable, mutableContent, targetContentIdentifier, bigPicture, huaweiBigPicture, admBigPicture, chromeBigPicture, chromeWebImage, buttons, webButtons, iosCategory, androidChannelId, huaweiChannelId, existingAndroidChannelId, huaweiExistingChannelId, androidBackgroundLayout, smallIcon, huaweiSmallIcon, largeIcon, huaweiLargeIcon, admSmallIcon, admLargeIcon, chromeWebIcon, chromeWebBadge, firefoxIcon, chromeIcon, iosSound, androidSound, huaweiSound, admSound, wpWnsSound, androidLedColor, huaweiLedColor, androidAccentColor, huaweiAccentColor, androidVisibility, huaweiVisibility, iosBadgeType, iosBadgeCount, collapseId, webPushTopic, apnsAlert, sendAfter, delayedOption, deliveryTimeOfDay, ttl, priority, apnsPushTypeOverride, throttleRatePerMinute, androidGroup, androidGroupMessage, admGroup, admGroupMessage, threadId, summaryArg, summaryArgCount, emailSubject, emailBody, emailFromName, emailFromAddress, smsFrom, smsMediaUrls, successful, failed, errored, converted, received, outcomes, remaining, queuedAt, completedAt, platformDeliveryStats);
+    return Objects.hash(includedSegments, excludedSegments, lastSession, firstSession, sessionCount, sessionTime, amountSpent, boughtSku, tag, language, appVersion, location, email, country, includePlayerIds, includeExternalUserIds, includeEmailTokens, includePhoneNumbers, includeIosTokens, includeWpWnsUris, includeAmazonRegIds, includeChromeRegIds, includeChromeWebRegIds, includeAndroidRegIds, id, value, name, aggregation, isIos, isAndroid, isHuawei, isAnyWeb, isChromeWeb, isFirefox, isSafari, isWPWNS, isAdm, isChrome, channelForExternalUserIds, appId, externalId, contents, headings, subtitle, data, huaweiMsgType, url, webUrl, appUrl, iosAttachments, templateId, contentAvailable, mutableContent, targetContentIdentifier, bigPicture, huaweiBigPicture, admBigPicture, chromeBigPicture, chromeWebImage, buttons, webButtons, iosCategory, androidChannelId, huaweiChannelId, existingAndroidChannelId, huaweiExistingChannelId, androidBackgroundLayout, smallIcon, huaweiSmallIcon, largeIcon, huaweiLargeIcon, admSmallIcon, admLargeIcon, chromeWebIcon, chromeWebBadge, firefoxIcon, chromeIcon, iosSound, androidSound, huaweiSound, admSound, wpWnsSound, androidLedColor, huaweiLedColor, androidAccentColor, huaweiAccentColor, androidVisibility, huaweiVisibility, iosBadgeType, iosBadgeCount, collapseId, webPushTopic, apnsAlert, delayedOption, deliveryTimeOfDay, ttl, priority, apnsPushTypeOverride, throttleRatePerMinute, androidGroup, androidGroupMessage, admGroup, admGroupMessage, threadId, summaryArg, summaryArgCount, emailSubject, emailBody, emailFromName, emailFromAddress, smsFrom, smsMediaUrls, successful, failed, errored, converted, received, outcomes, remaining, queuedAt, sendAfter, completedAt, platformDeliveryStats);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -3803,7 +3803,6 @@ public class NotificationWithMeta {
     sb.append("    collapseId: ").append(toIndentedString(collapseId)).append("\n");
     sb.append("    webPushTopic: ").append(toIndentedString(webPushTopic)).append("\n");
     sb.append("    apnsAlert: ").append(toIndentedString(apnsAlert)).append("\n");
-    sb.append("    sendAfter: ").append(toIndentedString(sendAfter)).append("\n");
     sb.append("    delayedOption: ").append(toIndentedString(delayedOption)).append("\n");
     sb.append("    deliveryTimeOfDay: ").append(toIndentedString(deliveryTimeOfDay)).append("\n");
     sb.append("    ttl: ").append(toIndentedString(ttl)).append("\n");
@@ -3831,6 +3830,7 @@ public class NotificationWithMeta {
     sb.append("    outcomes: ").append(toIndentedString(outcomes)).append("\n");
     sb.append("    remaining: ").append(toIndentedString(remaining)).append("\n");
     sb.append("    queuedAt: ").append(toIndentedString(queuedAt)).append("\n");
+    sb.append("    sendAfter: ").append(toIndentedString(sendAfter)).append("\n");
     sb.append("    completedAt: ").append(toIndentedString(completedAt)).append("\n");
     sb.append("    platformDeliveryStats: ").append(toIndentedString(platformDeliveryStats)).append("\n");
     sb.append("}");
@@ -3948,7 +3948,6 @@ public class NotificationWithMeta {
     openapiFields.add("collapse_id");
     openapiFields.add("web_push_topic");
     openapiFields.add("apns_alert");
-    openapiFields.add("send_after");
     openapiFields.add("delayed_option");
     openapiFields.add("delivery_time_of_day");
     openapiFields.add("ttl");
@@ -3976,6 +3975,7 @@ public class NotificationWithMeta {
     openapiFields.add("outcomes");
     openapiFields.add("remaining");
     openapiFields.add("queued_at");
+    openapiFields.add("send_after");
     openapiFields.add("completed_at");
     openapiFields.add("platform_delivery_stats");
 

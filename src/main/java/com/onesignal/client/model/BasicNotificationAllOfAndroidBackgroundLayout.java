@@ -49,8 +49,8 @@ import com.onesignal.client.JSON;
  * Channel: Push Notifications Platform: Android Allowing setting a background image for the notification. This is a JSON object containing the following keys. See our Background Image documentation for image sizes. 
  */
 @ApiModel(description = "Channel: Push Notifications Platform: Android Allowing setting a background image for the notification. This is a JSON object containing the following keys. See our Background Image documentation for image sizes. ")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-07-13T21:20:07.400Z[Etc/UTC]")
-public class NotificationAllOfAndroidBackgroundLayout {
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-18T22:09:10.481Z[Etc/UTC]")
+public class BasicNotificationAllOfAndroidBackgroundLayout {
   private static final long serialVersionUID = 1L;
 
   public static final String SERIALIZED_NAME_IMAGE = "image";
@@ -65,10 +65,10 @@ public class NotificationAllOfAndroidBackgroundLayout {
   @SerializedName(SERIALIZED_NAME_CONTENTS_COLOR)
   private String contentsColor;
 
-  public NotificationAllOfAndroidBackgroundLayout() { 
+  public BasicNotificationAllOfAndroidBackgroundLayout() { 
   }
 
-  public NotificationAllOfAndroidBackgroundLayout image(String image) {
+  public BasicNotificationAllOfAndroidBackgroundLayout image(String image) {
     
     this.image = image;
     return this;
@@ -91,7 +91,7 @@ public class NotificationAllOfAndroidBackgroundLayout {
   }
 
 
-  public NotificationAllOfAndroidBackgroundLayout headingsColor(String headingsColor) {
+  public BasicNotificationAllOfAndroidBackgroundLayout headingsColor(String headingsColor) {
     
     this.headingsColor = headingsColor;
     return this;
@@ -114,7 +114,7 @@ public class NotificationAllOfAndroidBackgroundLayout {
   }
 
 
-  public NotificationAllOfAndroidBackgroundLayout contentsColor(String contentsColor) {
+  public BasicNotificationAllOfAndroidBackgroundLayout contentsColor(String contentsColor) {
     
     this.contentsColor = contentsColor;
     return this;
@@ -146,10 +146,10 @@ public class NotificationAllOfAndroidBackgroundLayout {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    NotificationAllOfAndroidBackgroundLayout notificationAllOfAndroidBackgroundLayout = (NotificationAllOfAndroidBackgroundLayout) o;
-    return Objects.equals(this.image, notificationAllOfAndroidBackgroundLayout.image) &&
-        Objects.equals(this.headingsColor, notificationAllOfAndroidBackgroundLayout.headingsColor) &&
-        Objects.equals(this.contentsColor, notificationAllOfAndroidBackgroundLayout.contentsColor);
+    BasicNotificationAllOfAndroidBackgroundLayout basicNotificationAllOfAndroidBackgroundLayout = (BasicNotificationAllOfAndroidBackgroundLayout) o;
+    return Objects.equals(this.image, basicNotificationAllOfAndroidBackgroundLayout.image) &&
+        Objects.equals(this.headingsColor, basicNotificationAllOfAndroidBackgroundLayout.headingsColor) &&
+        Objects.equals(this.contentsColor, basicNotificationAllOfAndroidBackgroundLayout.contentsColor);
   }
 
   @Override
@@ -160,7 +160,7 @@ public class NotificationAllOfAndroidBackgroundLayout {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class NotificationAllOfAndroidBackgroundLayout {\n");
+    sb.append("class BasicNotificationAllOfAndroidBackgroundLayout {\n");
     sb.append("    image: ").append(toIndentedString(image)).append("\n");
     sb.append("    headingsColor: ").append(toIndentedString(headingsColor)).append("\n");
     sb.append("    contentsColor: ").append(toIndentedString(contentsColor)).append("\n");
@@ -198,22 +198,22 @@ public class NotificationAllOfAndroidBackgroundLayout {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!NotificationAllOfAndroidBackgroundLayout.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'NotificationAllOfAndroidBackgroundLayout' and its subtypes
+       if (!BasicNotificationAllOfAndroidBackgroundLayout.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'BasicNotificationAllOfAndroidBackgroundLayout' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<NotificationAllOfAndroidBackgroundLayout> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(NotificationAllOfAndroidBackgroundLayout.class));
+       final TypeAdapter<BasicNotificationAllOfAndroidBackgroundLayout> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(BasicNotificationAllOfAndroidBackgroundLayout.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<NotificationAllOfAndroidBackgroundLayout>() {
+       return (TypeAdapter<T>) new TypeAdapter<BasicNotificationAllOfAndroidBackgroundLayout>() {
            @Override
-           public void write(JsonWriter out, NotificationAllOfAndroidBackgroundLayout value) throws IOException {
+           public void write(JsonWriter out, BasicNotificationAllOfAndroidBackgroundLayout value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public NotificationAllOfAndroidBackgroundLayout read(JsonReader in) throws IOException {
+           public BasicNotificationAllOfAndroidBackgroundLayout read(JsonReader in) throws IOException {
              JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
 
              return thisAdapter.fromJsonTree(jsonObj);
@@ -224,18 +224,18 @@ public class NotificationAllOfAndroidBackgroundLayout {
   }
 
  /**
-  * Create an instance of NotificationAllOfAndroidBackgroundLayout given an JSON string
+  * Create an instance of BasicNotificationAllOfAndroidBackgroundLayout given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of NotificationAllOfAndroidBackgroundLayout
-  * @throws IOException if the JSON string is invalid with respect to NotificationAllOfAndroidBackgroundLayout
+  * @return An instance of BasicNotificationAllOfAndroidBackgroundLayout
+  * @throws IOException if the JSON string is invalid with respect to BasicNotificationAllOfAndroidBackgroundLayout
   */
-  public static NotificationAllOfAndroidBackgroundLayout fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, NotificationAllOfAndroidBackgroundLayout.class);
+  public static BasicNotificationAllOfAndroidBackgroundLayout fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, BasicNotificationAllOfAndroidBackgroundLayout.class);
   }
 
  /**
-  * Convert an instance of NotificationAllOfAndroidBackgroundLayout to an JSON string
+  * Convert an instance of BasicNotificationAllOfAndroidBackgroundLayout to an JSON string
   *
   * @return JSON string
   */

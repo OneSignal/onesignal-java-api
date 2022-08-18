@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**erorrs** | **List&lt;String&gt;** |  |  [optional] |
+|**erorrs** | **List&lt;Boolean&gt;** |  |  [optional] |
 
 
 

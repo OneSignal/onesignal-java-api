@@ -20,15 +20,14 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.onesignal.client.model.BasicNotification;
+import com.onesignal.client.model.BasicNotificationAllOf;
 import com.onesignal.client.model.BasicNotificationAllOfAndroidBackgroundLayout;
 import com.onesignal.client.model.Button;
-import com.onesignal.client.model.NotificationAllOf;
+import com.onesignal.client.model.NotificationTarget;
 import com.onesignal.client.model.StringMap;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -55,10 +54,10 @@ import java.util.Set;
 import com.onesignal.client.JSON;
 
 /**
- * Notification
+ * BasicNotification
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-18T22:09:10.481Z[Etc/UTC]")
-public class Notification {
+public class BasicNotification {
   private static final long serialVersionUID = 1L;
 
   public static final String SERIALIZED_NAME_INCLUDED_SEGMENTS = "included_segments";
@@ -556,15 +555,11 @@ public class Notification {
   @SerializedName(SERIALIZED_NAME_SMS_MEDIA_URLS)
   private List<String> smsMediaUrls = null;
 
-  public static final String SERIALIZED_NAME_SEND_AFTER = "send_after";
-  @SerializedName(SERIALIZED_NAME_SEND_AFTER)
-  private OffsetDateTime sendAfter;
-
-  public Notification() { 
+  public BasicNotification() { 
   }
 
   
-  public Notification(
+  public BasicNotification(
      Integer value, 
      AggregationEnum aggregation
   ) {
@@ -573,13 +568,13 @@ public class Notification {
     this.aggregation = aggregation;
   }
 
-  public Notification includedSegments(List<String> includedSegments) {
+  public BasicNotification includedSegments(List<String> includedSegments) {
     
     this.includedSegments = includedSegments;
     return this;
   }
 
-  public Notification addIncludedSegmentsItem(String includedSegmentsItem) {
+  public BasicNotification addIncludedSegmentsItem(String includedSegmentsItem) {
     if (this.includedSegments == null) {
       this.includedSegments = new ArrayList<>();
     }
@@ -604,13 +599,13 @@ public class Notification {
   }
 
 
-  public Notification excludedSegments(List<String> excludedSegments) {
+  public BasicNotification excludedSegments(List<String> excludedSegments) {
     
     this.excludedSegments = excludedSegments;
     return this;
   }
 
-  public Notification addExcludedSegmentsItem(String excludedSegmentsItem) {
+  public BasicNotification addExcludedSegmentsItem(String excludedSegmentsItem) {
     if (this.excludedSegments == null) {
       this.excludedSegments = new ArrayList<>();
     }
@@ -635,7 +630,7 @@ public class Notification {
   }
 
 
-  public Notification lastSession(String lastSession) {
+  public BasicNotification lastSession(String lastSession) {
     
     this.lastSession = lastSession;
     return this;
@@ -658,7 +653,7 @@ public class Notification {
   }
 
 
-  public Notification firstSession(String firstSession) {
+  public BasicNotification firstSession(String firstSession) {
     
     this.firstSession = firstSession;
     return this;
@@ -681,7 +676,7 @@ public class Notification {
   }
 
 
-  public Notification sessionCount(String sessionCount) {
+  public BasicNotification sessionCount(String sessionCount) {
     
     this.sessionCount = sessionCount;
     return this;
@@ -704,7 +699,7 @@ public class Notification {
   }
 
 
-  public Notification sessionTime(String sessionTime) {
+  public BasicNotification sessionTime(String sessionTime) {
     
     this.sessionTime = sessionTime;
     return this;
@@ -727,7 +722,7 @@ public class Notification {
   }
 
 
-  public Notification amountSpent(String amountSpent) {
+  public BasicNotification amountSpent(String amountSpent) {
     
     this.amountSpent = amountSpent;
     return this;
@@ -750,7 +745,7 @@ public class Notification {
   }
 
 
-  public Notification boughtSku(String boughtSku) {
+  public BasicNotification boughtSku(String boughtSku) {
     
     this.boughtSku = boughtSku;
     return this;
@@ -773,7 +768,7 @@ public class Notification {
   }
 
 
-  public Notification tag(String tag) {
+  public BasicNotification tag(String tag) {
     
     this.tag = tag;
     return this;
@@ -796,7 +791,7 @@ public class Notification {
   }
 
 
-  public Notification language(String language) {
+  public BasicNotification language(String language) {
     
     this.language = language;
     return this;
@@ -819,7 +814,7 @@ public class Notification {
   }
 
 
-  public Notification appVersion(String appVersion) {
+  public BasicNotification appVersion(String appVersion) {
     
     this.appVersion = appVersion;
     return this;
@@ -842,7 +837,7 @@ public class Notification {
   }
 
 
-  public Notification location(String location) {
+  public BasicNotification location(String location) {
     
     this.location = location;
     return this;
@@ -865,7 +860,7 @@ public class Notification {
   }
 
 
-  public Notification email(String email) {
+  public BasicNotification email(String email) {
     
     this.email = email;
     return this;
@@ -888,7 +883,7 @@ public class Notification {
   }
 
 
-  public Notification country(String country) {
+  public BasicNotification country(String country) {
     
     this.country = country;
     return this;
@@ -911,13 +906,13 @@ public class Notification {
   }
 
 
-  public Notification includePlayerIds(List<String> includePlayerIds) {
+  public BasicNotification includePlayerIds(List<String> includePlayerIds) {
     
     this.includePlayerIds = includePlayerIds;
     return this;
   }
 
-  public Notification addIncludePlayerIdsItem(String includePlayerIdsItem) {
+  public BasicNotification addIncludePlayerIdsItem(String includePlayerIdsItem) {
     if (this.includePlayerIds == null) {
       this.includePlayerIds = new ArrayList<>();
     }
@@ -942,13 +937,13 @@ public class Notification {
   }
 
 
-  public Notification includeExternalUserIds(List<String> includeExternalUserIds) {
+  public BasicNotification includeExternalUserIds(List<String> includeExternalUserIds) {
     
     this.includeExternalUserIds = includeExternalUserIds;
     return this;
   }
 
-  public Notification addIncludeExternalUserIdsItem(String includeExternalUserIdsItem) {
+  public BasicNotification addIncludeExternalUserIdsItem(String includeExternalUserIdsItem) {
     if (this.includeExternalUserIds == null) {
       this.includeExternalUserIds = new ArrayList<>();
     }
@@ -973,13 +968,13 @@ public class Notification {
   }
 
 
-  public Notification includeEmailTokens(List<String> includeEmailTokens) {
+  public BasicNotification includeEmailTokens(List<String> includeEmailTokens) {
     
     this.includeEmailTokens = includeEmailTokens;
     return this;
   }
 
-  public Notification addIncludeEmailTokensItem(String includeEmailTokensItem) {
+  public BasicNotification addIncludeEmailTokensItem(String includeEmailTokensItem) {
     if (this.includeEmailTokens == null) {
       this.includeEmailTokens = new ArrayList<>();
     }
@@ -1004,13 +999,13 @@ public class Notification {
   }
 
 
-  public Notification includePhoneNumbers(List<String> includePhoneNumbers) {
+  public BasicNotification includePhoneNumbers(List<String> includePhoneNumbers) {
     
     this.includePhoneNumbers = includePhoneNumbers;
     return this;
   }
 
-  public Notification addIncludePhoneNumbersItem(String includePhoneNumbersItem) {
+  public BasicNotification addIncludePhoneNumbersItem(String includePhoneNumbersItem) {
     if (this.includePhoneNumbers == null) {
       this.includePhoneNumbers = new ArrayList<>();
     }
@@ -1035,13 +1030,13 @@ public class Notification {
   }
 
 
-  public Notification includeIosTokens(List<String> includeIosTokens) {
+  public BasicNotification includeIosTokens(List<String> includeIosTokens) {
     
     this.includeIosTokens = includeIosTokens;
     return this;
   }
 
-  public Notification addIncludeIosTokensItem(String includeIosTokensItem) {
+  public BasicNotification addIncludeIosTokensItem(String includeIosTokensItem) {
     if (this.includeIosTokens == null) {
       this.includeIosTokens = new ArrayList<>();
     }
@@ -1066,13 +1061,13 @@ public class Notification {
   }
 
 
-  public Notification includeWpWnsUris(List<String> includeWpWnsUris) {
+  public BasicNotification includeWpWnsUris(List<String> includeWpWnsUris) {
     
     this.includeWpWnsUris = includeWpWnsUris;
     return this;
   }
 
-  public Notification addIncludeWpWnsUrisItem(String includeWpWnsUrisItem) {
+  public BasicNotification addIncludeWpWnsUrisItem(String includeWpWnsUrisItem) {
     if (this.includeWpWnsUris == null) {
       this.includeWpWnsUris = new ArrayList<>();
     }
@@ -1097,13 +1092,13 @@ public class Notification {
   }
 
 
-  public Notification includeAmazonRegIds(List<String> includeAmazonRegIds) {
+  public BasicNotification includeAmazonRegIds(List<String> includeAmazonRegIds) {
     
     this.includeAmazonRegIds = includeAmazonRegIds;
     return this;
   }
 
-  public Notification addIncludeAmazonRegIdsItem(String includeAmazonRegIdsItem) {
+  public BasicNotification addIncludeAmazonRegIdsItem(String includeAmazonRegIdsItem) {
     if (this.includeAmazonRegIds == null) {
       this.includeAmazonRegIds = new ArrayList<>();
     }
@@ -1128,13 +1123,13 @@ public class Notification {
   }
 
 
-  public Notification includeChromeRegIds(List<String> includeChromeRegIds) {
+  public BasicNotification includeChromeRegIds(List<String> includeChromeRegIds) {
     
     this.includeChromeRegIds = includeChromeRegIds;
     return this;
   }
 
-  public Notification addIncludeChromeRegIdsItem(String includeChromeRegIdsItem) {
+  public BasicNotification addIncludeChromeRegIdsItem(String includeChromeRegIdsItem) {
     if (this.includeChromeRegIds == null) {
       this.includeChromeRegIds = new ArrayList<>();
     }
@@ -1159,13 +1154,13 @@ public class Notification {
   }
 
 
-  public Notification includeChromeWebRegIds(List<String> includeChromeWebRegIds) {
+  public BasicNotification includeChromeWebRegIds(List<String> includeChromeWebRegIds) {
     
     this.includeChromeWebRegIds = includeChromeWebRegIds;
     return this;
   }
 
-  public Notification addIncludeChromeWebRegIdsItem(String includeChromeWebRegIdsItem) {
+  public BasicNotification addIncludeChromeWebRegIdsItem(String includeChromeWebRegIdsItem) {
     if (this.includeChromeWebRegIds == null) {
       this.includeChromeWebRegIds = new ArrayList<>();
     }
@@ -1190,13 +1185,13 @@ public class Notification {
   }
 
 
-  public Notification includeAndroidRegIds(List<String> includeAndroidRegIds) {
+  public BasicNotification includeAndroidRegIds(List<String> includeAndroidRegIds) {
     
     this.includeAndroidRegIds = includeAndroidRegIds;
     return this;
   }
 
-  public Notification addIncludeAndroidRegIdsItem(String includeAndroidRegIdsItem) {
+  public BasicNotification addIncludeAndroidRegIdsItem(String includeAndroidRegIdsItem) {
     if (this.includeAndroidRegIds == null) {
       this.includeAndroidRegIds = new ArrayList<>();
     }
@@ -1221,7 +1216,7 @@ public class Notification {
   }
 
 
-  public Notification id(String id) {
+  public BasicNotification id(String id) {
     
     this.id = id;
     return this;
@@ -1258,7 +1253,7 @@ public class Notification {
 
 
 
-  public Notification name(String name) {
+  public BasicNotification name(String name) {
     
     this.name = name;
     return this;
@@ -1295,7 +1290,7 @@ public class Notification {
 
 
 
-  public Notification isIos(Boolean isIos) {
+  public BasicNotification isIos(Boolean isIos) {
     
     this.isIos = isIos;
     return this;
@@ -1318,7 +1313,7 @@ public class Notification {
   }
 
 
-  public Notification isAndroid(Boolean isAndroid) {
+  public BasicNotification isAndroid(Boolean isAndroid) {
     
     this.isAndroid = isAndroid;
     return this;
@@ -1341,7 +1336,7 @@ public class Notification {
   }
 
 
-  public Notification isHuawei(Boolean isHuawei) {
+  public BasicNotification isHuawei(Boolean isHuawei) {
     
     this.isHuawei = isHuawei;
     return this;
@@ -1364,7 +1359,7 @@ public class Notification {
   }
 
 
-  public Notification isAnyWeb(Boolean isAnyWeb) {
+  public BasicNotification isAnyWeb(Boolean isAnyWeb) {
     
     this.isAnyWeb = isAnyWeb;
     return this;
@@ -1387,7 +1382,7 @@ public class Notification {
   }
 
 
-  public Notification isChromeWeb(Boolean isChromeWeb) {
+  public BasicNotification isChromeWeb(Boolean isChromeWeb) {
     
     this.isChromeWeb = isChromeWeb;
     return this;
@@ -1410,7 +1405,7 @@ public class Notification {
   }
 
 
-  public Notification isFirefox(Boolean isFirefox) {
+  public BasicNotification isFirefox(Boolean isFirefox) {
     
     this.isFirefox = isFirefox;
     return this;
@@ -1433,7 +1428,7 @@ public class Notification {
   }
 
 
-  public Notification isSafari(Boolean isSafari) {
+  public BasicNotification isSafari(Boolean isSafari) {
     
     this.isSafari = isSafari;
     return this;
@@ -1456,7 +1451,7 @@ public class Notification {
   }
 
 
-  public Notification isWPWNS(Boolean isWPWNS) {
+  public BasicNotification isWPWNS(Boolean isWPWNS) {
     
     this.isWPWNS = isWPWNS;
     return this;
@@ -1479,7 +1474,7 @@ public class Notification {
   }
 
 
-  public Notification isAdm(Boolean isAdm) {
+  public BasicNotification isAdm(Boolean isAdm) {
     
     this.isAdm = isAdm;
     return this;
@@ -1502,7 +1497,7 @@ public class Notification {
   }
 
 
-  public Notification isChrome(Boolean isChrome) {
+  public BasicNotification isChrome(Boolean isChrome) {
     
     this.isChrome = isChrome;
     return this;
@@ -1525,7 +1520,7 @@ public class Notification {
   }
 
 
-  public Notification channelForExternalUserIds(String channelForExternalUserIds) {
+  public BasicNotification channelForExternalUserIds(String channelForExternalUserIds) {
     
     this.channelForExternalUserIds = channelForExternalUserIds;
     return this;
@@ -1548,7 +1543,7 @@ public class Notification {
   }
 
 
-  public Notification appId(String appId) {
+  public BasicNotification appId(String appId) {
     
     this.appId = appId;
     return this;
@@ -1571,7 +1566,7 @@ public class Notification {
   }
 
 
-  public Notification externalId(String externalId) {
+  public BasicNotification externalId(String externalId) {
     
     this.externalId = externalId;
     return this;
@@ -1594,7 +1589,7 @@ public class Notification {
   }
 
 
-  public Notification contents(StringMap contents) {
+  public BasicNotification contents(StringMap contents) {
     
     this.contents = contents;
     return this;
@@ -1617,7 +1612,7 @@ public class Notification {
   }
 
 
-  public Notification headings(StringMap headings) {
+  public BasicNotification headings(StringMap headings) {
     
     this.headings = headings;
     return this;
@@ -1640,7 +1635,7 @@ public class Notification {
   }
 
 
-  public Notification subtitle(StringMap subtitle) {
+  public BasicNotification subtitle(StringMap subtitle) {
     
     this.subtitle = subtitle;
     return this;
@@ -1663,7 +1658,7 @@ public class Notification {
   }
 
 
-  public Notification data(Object data) {
+  public BasicNotification data(Object data) {
     
     this.data = data;
     return this;
@@ -1686,7 +1681,7 @@ public class Notification {
   }
 
 
-  public Notification huaweiMsgType(String huaweiMsgType) {
+  public BasicNotification huaweiMsgType(String huaweiMsgType) {
     
     this.huaweiMsgType = huaweiMsgType;
     return this;
@@ -1709,7 +1704,7 @@ public class Notification {
   }
 
 
-  public Notification url(String url) {
+  public BasicNotification url(String url) {
     
     this.url = url;
     return this;
@@ -1732,7 +1727,7 @@ public class Notification {
   }
 
 
-  public Notification webUrl(String webUrl) {
+  public BasicNotification webUrl(String webUrl) {
     
     this.webUrl = webUrl;
     return this;
@@ -1755,7 +1750,7 @@ public class Notification {
   }
 
 
-  public Notification appUrl(String appUrl) {
+  public BasicNotification appUrl(String appUrl) {
     
     this.appUrl = appUrl;
     return this;
@@ -1778,7 +1773,7 @@ public class Notification {
   }
 
 
-  public Notification iosAttachments(Object iosAttachments) {
+  public BasicNotification iosAttachments(Object iosAttachments) {
     
     this.iosAttachments = iosAttachments;
     return this;
@@ -1801,7 +1796,7 @@ public class Notification {
   }
 
 
-  public Notification templateId(String templateId) {
+  public BasicNotification templateId(String templateId) {
     
     this.templateId = templateId;
     return this;
@@ -1824,7 +1819,7 @@ public class Notification {
   }
 
 
-  public Notification contentAvailable(Boolean contentAvailable) {
+  public BasicNotification contentAvailable(Boolean contentAvailable) {
     
     this.contentAvailable = contentAvailable;
     return this;
@@ -1847,7 +1842,7 @@ public class Notification {
   }
 
 
-  public Notification mutableContent(Boolean mutableContent) {
+  public BasicNotification mutableContent(Boolean mutableContent) {
     
     this.mutableContent = mutableContent;
     return this;
@@ -1870,7 +1865,7 @@ public class Notification {
   }
 
 
-  public Notification targetContentIdentifier(String targetContentIdentifier) {
+  public BasicNotification targetContentIdentifier(String targetContentIdentifier) {
     
     this.targetContentIdentifier = targetContentIdentifier;
     return this;
@@ -1893,7 +1888,7 @@ public class Notification {
   }
 
 
-  public Notification bigPicture(String bigPicture) {
+  public BasicNotification bigPicture(String bigPicture) {
     
     this.bigPicture = bigPicture;
     return this;
@@ -1916,7 +1911,7 @@ public class Notification {
   }
 
 
-  public Notification huaweiBigPicture(String huaweiBigPicture) {
+  public BasicNotification huaweiBigPicture(String huaweiBigPicture) {
     
     this.huaweiBigPicture = huaweiBigPicture;
     return this;
@@ -1939,7 +1934,7 @@ public class Notification {
   }
 
 
-  public Notification admBigPicture(String admBigPicture) {
+  public BasicNotification admBigPicture(String admBigPicture) {
     
     this.admBigPicture = admBigPicture;
     return this;
@@ -1962,7 +1957,7 @@ public class Notification {
   }
 
 
-  public Notification chromeBigPicture(String chromeBigPicture) {
+  public BasicNotification chromeBigPicture(String chromeBigPicture) {
     
     this.chromeBigPicture = chromeBigPicture;
     return this;
@@ -1985,7 +1980,7 @@ public class Notification {
   }
 
 
-  public Notification chromeWebImage(String chromeWebImage) {
+  public BasicNotification chromeWebImage(String chromeWebImage) {
     
     this.chromeWebImage = chromeWebImage;
     return this;
@@ -2008,13 +2003,13 @@ public class Notification {
   }
 
 
-  public Notification buttons(List<Button> buttons) {
+  public BasicNotification buttons(List<Button> buttons) {
     
     this.buttons = buttons;
     return this;
   }
 
-  public Notification addButtonsItem(Button buttonsItem) {
+  public BasicNotification addButtonsItem(Button buttonsItem) {
     if (this.buttons == null) {
       this.buttons = new ArrayList<>();
     }
@@ -2039,13 +2034,13 @@ public class Notification {
   }
 
 
-  public Notification webButtons(List<Button> webButtons) {
+  public BasicNotification webButtons(List<Button> webButtons) {
     
     this.webButtons = webButtons;
     return this;
   }
 
-  public Notification addWebButtonsItem(Button webButtonsItem) {
+  public BasicNotification addWebButtonsItem(Button webButtonsItem) {
     if (this.webButtons == null) {
       this.webButtons = new ArrayList<>();
     }
@@ -2070,7 +2065,7 @@ public class Notification {
   }
 
 
-  public Notification iosCategory(String iosCategory) {
+  public BasicNotification iosCategory(String iosCategory) {
     
     this.iosCategory = iosCategory;
     return this;
@@ -2093,7 +2088,7 @@ public class Notification {
   }
 
 
-  public Notification androidChannelId(String androidChannelId) {
+  public BasicNotification androidChannelId(String androidChannelId) {
     
     this.androidChannelId = androidChannelId;
     return this;
@@ -2116,7 +2111,7 @@ public class Notification {
   }
 
 
-  public Notification huaweiChannelId(String huaweiChannelId) {
+  public BasicNotification huaweiChannelId(String huaweiChannelId) {
     
     this.huaweiChannelId = huaweiChannelId;
     return this;
@@ -2139,7 +2134,7 @@ public class Notification {
   }
 
 
-  public Notification existingAndroidChannelId(String existingAndroidChannelId) {
+  public BasicNotification existingAndroidChannelId(String existingAndroidChannelId) {
     
     this.existingAndroidChannelId = existingAndroidChannelId;
     return this;
@@ -2162,7 +2157,7 @@ public class Notification {
   }
 
 
-  public Notification huaweiExistingChannelId(String huaweiExistingChannelId) {
+  public BasicNotification huaweiExistingChannelId(String huaweiExistingChannelId) {
     
     this.huaweiExistingChannelId = huaweiExistingChannelId;
     return this;
@@ -2185,7 +2180,7 @@ public class Notification {
   }
 
 
-  public Notification androidBackgroundLayout(BasicNotificationAllOfAndroidBackgroundLayout androidBackgroundLayout) {
+  public BasicNotification androidBackgroundLayout(BasicNotificationAllOfAndroidBackgroundLayout androidBackgroundLayout) {
     
     this.androidBackgroundLayout = androidBackgroundLayout;
     return this;
@@ -2208,7 +2203,7 @@ public class Notification {
   }
 
 
-  public Notification smallIcon(String smallIcon) {
+  public BasicNotification smallIcon(String smallIcon) {
     
     this.smallIcon = smallIcon;
     return this;
@@ -2231,7 +2226,7 @@ public class Notification {
   }
 
 
-  public Notification huaweiSmallIcon(String huaweiSmallIcon) {
+  public BasicNotification huaweiSmallIcon(String huaweiSmallIcon) {
     
     this.huaweiSmallIcon = huaweiSmallIcon;
     return this;
@@ -2254,7 +2249,7 @@ public class Notification {
   }
 
 
-  public Notification largeIcon(String largeIcon) {
+  public BasicNotification largeIcon(String largeIcon) {
     
     this.largeIcon = largeIcon;
     return this;
@@ -2277,7 +2272,7 @@ public class Notification {
   }
 
 
-  public Notification huaweiLargeIcon(String huaweiLargeIcon) {
+  public BasicNotification huaweiLargeIcon(String huaweiLargeIcon) {
     
     this.huaweiLargeIcon = huaweiLargeIcon;
     return this;
@@ -2300,7 +2295,7 @@ public class Notification {
   }
 
 
-  public Notification admSmallIcon(String admSmallIcon) {
+  public BasicNotification admSmallIcon(String admSmallIcon) {
     
     this.admSmallIcon = admSmallIcon;
     return this;
@@ -2323,7 +2318,7 @@ public class Notification {
   }
 
 
-  public Notification admLargeIcon(String admLargeIcon) {
+  public BasicNotification admLargeIcon(String admLargeIcon) {
     
     this.admLargeIcon = admLargeIcon;
     return this;
@@ -2346,7 +2341,7 @@ public class Notification {
   }
 
 
-  public Notification chromeWebIcon(String chromeWebIcon) {
+  public BasicNotification chromeWebIcon(String chromeWebIcon) {
     
     this.chromeWebIcon = chromeWebIcon;
     return this;
@@ -2369,7 +2364,7 @@ public class Notification {
   }
 
 
-  public Notification chromeWebBadge(String chromeWebBadge) {
+  public BasicNotification chromeWebBadge(String chromeWebBadge) {
     
     this.chromeWebBadge = chromeWebBadge;
     return this;
@@ -2392,7 +2387,7 @@ public class Notification {
   }
 
 
-  public Notification firefoxIcon(String firefoxIcon) {
+  public BasicNotification firefoxIcon(String firefoxIcon) {
     
     this.firefoxIcon = firefoxIcon;
     return this;
@@ -2415,7 +2410,7 @@ public class Notification {
   }
 
 
-  public Notification chromeIcon(String chromeIcon) {
+  public BasicNotification chromeIcon(String chromeIcon) {
     
     this.chromeIcon = chromeIcon;
     return this;
@@ -2438,7 +2433,7 @@ public class Notification {
   }
 
 
-  public Notification iosSound(String iosSound) {
+  public BasicNotification iosSound(String iosSound) {
     
     this.iosSound = iosSound;
     return this;
@@ -2461,7 +2456,7 @@ public class Notification {
   }
 
 
-  public Notification androidSound(String androidSound) {
+  public BasicNotification androidSound(String androidSound) {
     
     this.androidSound = androidSound;
     return this;
@@ -2484,7 +2479,7 @@ public class Notification {
   }
 
 
-  public Notification huaweiSound(String huaweiSound) {
+  public BasicNotification huaweiSound(String huaweiSound) {
     
     this.huaweiSound = huaweiSound;
     return this;
@@ -2507,7 +2502,7 @@ public class Notification {
   }
 
 
-  public Notification admSound(String admSound) {
+  public BasicNotification admSound(String admSound) {
     
     this.admSound = admSound;
     return this;
@@ -2530,7 +2525,7 @@ public class Notification {
   }
 
 
-  public Notification wpWnsSound(String wpWnsSound) {
+  public BasicNotification wpWnsSound(String wpWnsSound) {
     
     this.wpWnsSound = wpWnsSound;
     return this;
@@ -2553,7 +2548,7 @@ public class Notification {
   }
 
 
-  public Notification androidLedColor(String androidLedColor) {
+  public BasicNotification androidLedColor(String androidLedColor) {
     
     this.androidLedColor = androidLedColor;
     return this;
@@ -2576,7 +2571,7 @@ public class Notification {
   }
 
 
-  public Notification huaweiLedColor(String huaweiLedColor) {
+  public BasicNotification huaweiLedColor(String huaweiLedColor) {
     
     this.huaweiLedColor = huaweiLedColor;
     return this;
@@ -2599,7 +2594,7 @@ public class Notification {
   }
 
 
-  public Notification androidAccentColor(String androidAccentColor) {
+  public BasicNotification androidAccentColor(String androidAccentColor) {
     
     this.androidAccentColor = androidAccentColor;
     return this;
@@ -2622,7 +2617,7 @@ public class Notification {
   }
 
 
-  public Notification huaweiAccentColor(String huaweiAccentColor) {
+  public BasicNotification huaweiAccentColor(String huaweiAccentColor) {
     
     this.huaweiAccentColor = huaweiAccentColor;
     return this;
@@ -2645,7 +2640,7 @@ public class Notification {
   }
 
 
-  public Notification androidVisibility(Integer androidVisibility) {
+  public BasicNotification androidVisibility(Integer androidVisibility) {
     
     this.androidVisibility = androidVisibility;
     return this;
@@ -2668,7 +2663,7 @@ public class Notification {
   }
 
 
-  public Notification huaweiVisibility(Integer huaweiVisibility) {
+  public BasicNotification huaweiVisibility(Integer huaweiVisibility) {
     
     this.huaweiVisibility = huaweiVisibility;
     return this;
@@ -2691,7 +2686,7 @@ public class Notification {
   }
 
 
-  public Notification iosBadgeType(String iosBadgeType) {
+  public BasicNotification iosBadgeType(String iosBadgeType) {
     
     this.iosBadgeType = iosBadgeType;
     return this;
@@ -2714,7 +2709,7 @@ public class Notification {
   }
 
 
-  public Notification iosBadgeCount(Integer iosBadgeCount) {
+  public BasicNotification iosBadgeCount(Integer iosBadgeCount) {
     
     this.iosBadgeCount = iosBadgeCount;
     return this;
@@ -2737,7 +2732,7 @@ public class Notification {
   }
 
 
-  public Notification collapseId(String collapseId) {
+  public BasicNotification collapseId(String collapseId) {
     
     this.collapseId = collapseId;
     return this;
@@ -2760,7 +2755,7 @@ public class Notification {
   }
 
 
-  public Notification webPushTopic(String webPushTopic) {
+  public BasicNotification webPushTopic(String webPushTopic) {
     
     this.webPushTopic = webPushTopic;
     return this;
@@ -2783,7 +2778,7 @@ public class Notification {
   }
 
 
-  public Notification apnsAlert(Object apnsAlert) {
+  public BasicNotification apnsAlert(Object apnsAlert) {
     
     this.apnsAlert = apnsAlert;
     return this;
@@ -2806,7 +2801,7 @@ public class Notification {
   }
 
 
-  public Notification delayedOption(String delayedOption) {
+  public BasicNotification delayedOption(String delayedOption) {
     
     this.delayedOption = delayedOption;
     return this;
@@ -2829,7 +2824,7 @@ public class Notification {
   }
 
 
-  public Notification deliveryTimeOfDay(String deliveryTimeOfDay) {
+  public BasicNotification deliveryTimeOfDay(String deliveryTimeOfDay) {
     
     this.deliveryTimeOfDay = deliveryTimeOfDay;
     return this;
@@ -2852,7 +2847,7 @@ public class Notification {
   }
 
 
-  public Notification ttl(Integer ttl) {
+  public BasicNotification ttl(Integer ttl) {
     
     this.ttl = ttl;
     return this;
@@ -2875,7 +2870,7 @@ public class Notification {
   }
 
 
-  public Notification priority(Integer priority) {
+  public BasicNotification priority(Integer priority) {
     
     this.priority = priority;
     return this;
@@ -2898,7 +2893,7 @@ public class Notification {
   }
 
 
-  public Notification apnsPushTypeOverride(String apnsPushTypeOverride) {
+  public BasicNotification apnsPushTypeOverride(String apnsPushTypeOverride) {
     
     this.apnsPushTypeOverride = apnsPushTypeOverride;
     return this;
@@ -2921,7 +2916,7 @@ public class Notification {
   }
 
 
-  public Notification throttleRatePerMinute(String throttleRatePerMinute) {
+  public BasicNotification throttleRatePerMinute(String throttleRatePerMinute) {
     
     this.throttleRatePerMinute = throttleRatePerMinute;
     return this;
@@ -2944,7 +2939,7 @@ public class Notification {
   }
 
 
-  public Notification androidGroup(String androidGroup) {
+  public BasicNotification androidGroup(String androidGroup) {
     
     this.androidGroup = androidGroup;
     return this;
@@ -2967,7 +2962,7 @@ public class Notification {
   }
 
 
-  public Notification androidGroupMessage(String androidGroupMessage) {
+  public BasicNotification androidGroupMessage(String androidGroupMessage) {
     
     this.androidGroupMessage = androidGroupMessage;
     return this;
@@ -2990,7 +2985,7 @@ public class Notification {
   }
 
 
-  public Notification admGroup(String admGroup) {
+  public BasicNotification admGroup(String admGroup) {
     
     this.admGroup = admGroup;
     return this;
@@ -3013,7 +3008,7 @@ public class Notification {
   }
 
 
-  public Notification admGroupMessage(Object admGroupMessage) {
+  public BasicNotification admGroupMessage(Object admGroupMessage) {
     
     this.admGroupMessage = admGroupMessage;
     return this;
@@ -3036,7 +3031,7 @@ public class Notification {
   }
 
 
-  public Notification threadId(String threadId) {
+  public BasicNotification threadId(String threadId) {
     
     this.threadId = threadId;
     return this;
@@ -3059,7 +3054,7 @@ public class Notification {
   }
 
 
-  public Notification summaryArg(String summaryArg) {
+  public BasicNotification summaryArg(String summaryArg) {
     
     this.summaryArg = summaryArg;
     return this;
@@ -3082,7 +3077,7 @@ public class Notification {
   }
 
 
-  public Notification summaryArgCount(Integer summaryArgCount) {
+  public BasicNotification summaryArgCount(Integer summaryArgCount) {
     
     this.summaryArgCount = summaryArgCount;
     return this;
@@ -3105,7 +3100,7 @@ public class Notification {
   }
 
 
-  public Notification emailSubject(String emailSubject) {
+  public BasicNotification emailSubject(String emailSubject) {
     
     this.emailSubject = emailSubject;
     return this;
@@ -3128,7 +3123,7 @@ public class Notification {
   }
 
 
-  public Notification emailBody(String emailBody) {
+  public BasicNotification emailBody(String emailBody) {
     
     this.emailBody = emailBody;
     return this;
@@ -3151,7 +3146,7 @@ public class Notification {
   }
 
 
-  public Notification emailFromName(String emailFromName) {
+  public BasicNotification emailFromName(String emailFromName) {
     
     this.emailFromName = emailFromName;
     return this;
@@ -3174,7 +3169,7 @@ public class Notification {
   }
 
 
-  public Notification emailFromAddress(String emailFromAddress) {
+  public BasicNotification emailFromAddress(String emailFromAddress) {
     
     this.emailFromAddress = emailFromAddress;
     return this;
@@ -3197,7 +3192,7 @@ public class Notification {
   }
 
 
-  public Notification smsFrom(String smsFrom) {
+  public BasicNotification smsFrom(String smsFrom) {
     
     this.smsFrom = smsFrom;
     return this;
@@ -3220,13 +3215,13 @@ public class Notification {
   }
 
 
-  public Notification smsMediaUrls(List<String> smsMediaUrls) {
+  public BasicNotification smsMediaUrls(List<String> smsMediaUrls) {
     
     this.smsMediaUrls = smsMediaUrls;
     return this;
   }
 
-  public Notification addSmsMediaUrlsItem(String smsMediaUrlsItem) {
+  public BasicNotification addSmsMediaUrlsItem(String smsMediaUrlsItem) {
     if (this.smsMediaUrls == null) {
       this.smsMediaUrls = new ArrayList<>();
     }
@@ -3251,29 +3246,6 @@ public class Notification {
   }
 
 
-  public Notification sendAfter(OffsetDateTime sendAfter) {
-    
-    this.sendAfter = sendAfter;
-    return this;
-  }
-
-   /**
-   * Channel: All Schedule notification for future delivery. API defaults to UTC -1100 Examples: All examples are the exact same date &amp; time. \&quot;Thu Sep 24 2015 14:00:00 GMT-0700 (PDT)\&quot; \&quot;September 24th 2015, 2:00:00 pm UTC-07:00\&quot; \&quot;2015-09-24 14:00:00 GMT-0700\&quot; \&quot;Sept 24 2015 14:00:00 GMT-0700\&quot; \&quot;Thu Sep 24 2015 14:00:00 GMT-0700 (Pacific Daylight Time)\&quot; Note: SMS currently only supports send_after parameter. 
-   * @return sendAfter
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Channel: All Schedule notification for future delivery. API defaults to UTC -1100 Examples: All examples are the exact same date & time. \"Thu Sep 24 2015 14:00:00 GMT-0700 (PDT)\" \"September 24th 2015, 2:00:00 pm UTC-07:00\" \"2015-09-24 14:00:00 GMT-0700\" \"Sept 24 2015 14:00:00 GMT-0700\" \"Thu Sep 24 2015 14:00:00 GMT-0700 (Pacific Daylight Time)\" Note: SMS currently only supports send_after parameter. ")
-
-  public OffsetDateTime getSendAfter() {
-    return sendAfter;
-  }
-
-
-  public void setSendAfter(OffsetDateTime sendAfter) {
-    this.sendAfter = sendAfter;
-  }
-
-
 
   @Override
   public boolean equals(Object o) {
@@ -3283,120 +3255,119 @@ public class Notification {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Notification notification = (Notification) o;
-    return Objects.equals(this.includedSegments, notification.includedSegments) &&
-        Objects.equals(this.excludedSegments, notification.excludedSegments) &&
-        Objects.equals(this.lastSession, notification.lastSession) &&
-        Objects.equals(this.firstSession, notification.firstSession) &&
-        Objects.equals(this.sessionCount, notification.sessionCount) &&
-        Objects.equals(this.sessionTime, notification.sessionTime) &&
-        Objects.equals(this.amountSpent, notification.amountSpent) &&
-        Objects.equals(this.boughtSku, notification.boughtSku) &&
-        Objects.equals(this.tag, notification.tag) &&
-        Objects.equals(this.language, notification.language) &&
-        Objects.equals(this.appVersion, notification.appVersion) &&
-        Objects.equals(this.location, notification.location) &&
-        Objects.equals(this.email, notification.email) &&
-        Objects.equals(this.country, notification.country) &&
-        Objects.equals(this.includePlayerIds, notification.includePlayerIds) &&
-        Objects.equals(this.includeExternalUserIds, notification.includeExternalUserIds) &&
-        Objects.equals(this.includeEmailTokens, notification.includeEmailTokens) &&
-        Objects.equals(this.includePhoneNumbers, notification.includePhoneNumbers) &&
-        Objects.equals(this.includeIosTokens, notification.includeIosTokens) &&
-        Objects.equals(this.includeWpWnsUris, notification.includeWpWnsUris) &&
-        Objects.equals(this.includeAmazonRegIds, notification.includeAmazonRegIds) &&
-        Objects.equals(this.includeChromeRegIds, notification.includeChromeRegIds) &&
-        Objects.equals(this.includeChromeWebRegIds, notification.includeChromeWebRegIds) &&
-        Objects.equals(this.includeAndroidRegIds, notification.includeAndroidRegIds) &&
-        Objects.equals(this.id, notification.id) &&
-        Objects.equals(this.value, notification.value) &&
-        Objects.equals(this.name, notification.name) &&
-        Objects.equals(this.aggregation, notification.aggregation) &&
-        Objects.equals(this.isIos, notification.isIos) &&
-        Objects.equals(this.isAndroid, notification.isAndroid) &&
-        Objects.equals(this.isHuawei, notification.isHuawei) &&
-        Objects.equals(this.isAnyWeb, notification.isAnyWeb) &&
-        Objects.equals(this.isChromeWeb, notification.isChromeWeb) &&
-        Objects.equals(this.isFirefox, notification.isFirefox) &&
-        Objects.equals(this.isSafari, notification.isSafari) &&
-        Objects.equals(this.isWPWNS, notification.isWPWNS) &&
-        Objects.equals(this.isAdm, notification.isAdm) &&
-        Objects.equals(this.isChrome, notification.isChrome) &&
-        Objects.equals(this.channelForExternalUserIds, notification.channelForExternalUserIds) &&
-        Objects.equals(this.appId, notification.appId) &&
-        Objects.equals(this.externalId, notification.externalId) &&
-        Objects.equals(this.contents, notification.contents) &&
-        Objects.equals(this.headings, notification.headings) &&
-        Objects.equals(this.subtitle, notification.subtitle) &&
-        Objects.equals(this.data, notification.data) &&
-        Objects.equals(this.huaweiMsgType, notification.huaweiMsgType) &&
-        Objects.equals(this.url, notification.url) &&
-        Objects.equals(this.webUrl, notification.webUrl) &&
-        Objects.equals(this.appUrl, notification.appUrl) &&
-        Objects.equals(this.iosAttachments, notification.iosAttachments) &&
-        Objects.equals(this.templateId, notification.templateId) &&
-        Objects.equals(this.contentAvailable, notification.contentAvailable) &&
-        Objects.equals(this.mutableContent, notification.mutableContent) &&
-        Objects.equals(this.targetContentIdentifier, notification.targetContentIdentifier) &&
-        Objects.equals(this.bigPicture, notification.bigPicture) &&
-        Objects.equals(this.huaweiBigPicture, notification.huaweiBigPicture) &&
-        Objects.equals(this.admBigPicture, notification.admBigPicture) &&
-        Objects.equals(this.chromeBigPicture, notification.chromeBigPicture) &&
-        Objects.equals(this.chromeWebImage, notification.chromeWebImage) &&
-        Objects.equals(this.buttons, notification.buttons) &&
-        Objects.equals(this.webButtons, notification.webButtons) &&
-        Objects.equals(this.iosCategory, notification.iosCategory) &&
-        Objects.equals(this.androidChannelId, notification.androidChannelId) &&
-        Objects.equals(this.huaweiChannelId, notification.huaweiChannelId) &&
-        Objects.equals(this.existingAndroidChannelId, notification.existingAndroidChannelId) &&
-        Objects.equals(this.huaweiExistingChannelId, notification.huaweiExistingChannelId) &&
-        Objects.equals(this.androidBackgroundLayout, notification.androidBackgroundLayout) &&
-        Objects.equals(this.smallIcon, notification.smallIcon) &&
-        Objects.equals(this.huaweiSmallIcon, notification.huaweiSmallIcon) &&
-        Objects.equals(this.largeIcon, notification.largeIcon) &&
-        Objects.equals(this.huaweiLargeIcon, notification.huaweiLargeIcon) &&
-        Objects.equals(this.admSmallIcon, notification.admSmallIcon) &&
-        Objects.equals(this.admLargeIcon, notification.admLargeIcon) &&
-        Objects.equals(this.chromeWebIcon, notification.chromeWebIcon) &&
-        Objects.equals(this.chromeWebBadge, notification.chromeWebBadge) &&
-        Objects.equals(this.firefoxIcon, notification.firefoxIcon) &&
-        Objects.equals(this.chromeIcon, notification.chromeIcon) &&
-        Objects.equals(this.iosSound, notification.iosSound) &&
-        Objects.equals(this.androidSound, notification.androidSound) &&
-        Objects.equals(this.huaweiSound, notification.huaweiSound) &&
-        Objects.equals(this.admSound, notification.admSound) &&
-        Objects.equals(this.wpWnsSound, notification.wpWnsSound) &&
-        Objects.equals(this.androidLedColor, notification.androidLedColor) &&
-        Objects.equals(this.huaweiLedColor, notification.huaweiLedColor) &&
-        Objects.equals(this.androidAccentColor, notification.androidAccentColor) &&
-        Objects.equals(this.huaweiAccentColor, notification.huaweiAccentColor) &&
-        Objects.equals(this.androidVisibility, notification.androidVisibility) &&
-        Objects.equals(this.huaweiVisibility, notification.huaweiVisibility) &&
-        Objects.equals(this.iosBadgeType, notification.iosBadgeType) &&
-        Objects.equals(this.iosBadgeCount, notification.iosBadgeCount) &&
-        Objects.equals(this.collapseId, notification.collapseId) &&
-        Objects.equals(this.webPushTopic, notification.webPushTopic) &&
-        Objects.equals(this.apnsAlert, notification.apnsAlert) &&
-        Objects.equals(this.delayedOption, notification.delayedOption) &&
-        Objects.equals(this.deliveryTimeOfDay, notification.deliveryTimeOfDay) &&
-        Objects.equals(this.ttl, notification.ttl) &&
-        Objects.equals(this.priority, notification.priority) &&
-        Objects.equals(this.apnsPushTypeOverride, notification.apnsPushTypeOverride) &&
-        Objects.equals(this.throttleRatePerMinute, notification.throttleRatePerMinute) &&
-        Objects.equals(this.androidGroup, notification.androidGroup) &&
-        Objects.equals(this.androidGroupMessage, notification.androidGroupMessage) &&
-        Objects.equals(this.admGroup, notification.admGroup) &&
-        Objects.equals(this.admGroupMessage, notification.admGroupMessage) &&
-        Objects.equals(this.threadId, notification.threadId) &&
-        Objects.equals(this.summaryArg, notification.summaryArg) &&
-        Objects.equals(this.summaryArgCount, notification.summaryArgCount) &&
-        Objects.equals(this.emailSubject, notification.emailSubject) &&
-        Objects.equals(this.emailBody, notification.emailBody) &&
-        Objects.equals(this.emailFromName, notification.emailFromName) &&
-        Objects.equals(this.emailFromAddress, notification.emailFromAddress) &&
-        Objects.equals(this.smsFrom, notification.smsFrom) &&
-        Objects.equals(this.smsMediaUrls, notification.smsMediaUrls) &&
-        Objects.equals(this.sendAfter, notification.sendAfter);
+    BasicNotification basicNotification = (BasicNotification) o;
+    return Objects.equals(this.includedSegments, basicNotification.includedSegments) &&
+        Objects.equals(this.excludedSegments, basicNotification.excludedSegments) &&
+        Objects.equals(this.lastSession, basicNotification.lastSession) &&
+        Objects.equals(this.firstSession, basicNotification.firstSession) &&
+        Objects.equals(this.sessionCount, basicNotification.sessionCount) &&
+        Objects.equals(this.sessionTime, basicNotification.sessionTime) &&
+        Objects.equals(this.amountSpent, basicNotification.amountSpent) &&
+        Objects.equals(this.boughtSku, basicNotification.boughtSku) &&
+        Objects.equals(this.tag, basicNotification.tag) &&
+        Objects.equals(this.language, basicNotification.language) &&
+        Objects.equals(this.appVersion, basicNotification.appVersion) &&
+        Objects.equals(this.location, basicNotification.location) &&
+        Objects.equals(this.email, basicNotification.email) &&
+        Objects.equals(this.country, basicNotification.country) &&
+        Objects.equals(this.includePlayerIds, basicNotification.includePlayerIds) &&
+        Objects.equals(this.includeExternalUserIds, basicNotification.includeExternalUserIds) &&
+        Objects.equals(this.includeEmailTokens, basicNotification.includeEmailTokens) &&
+        Objects.equals(this.includePhoneNumbers, basicNotification.includePhoneNumbers) &&
+        Objects.equals(this.includeIosTokens, basicNotification.includeIosTokens) &&
+        Objects.equals(this.includeWpWnsUris, basicNotification.includeWpWnsUris) &&
+        Objects.equals(this.includeAmazonRegIds, basicNotification.includeAmazonRegIds) &&
+        Objects.equals(this.includeChromeRegIds, basicNotification.includeChromeRegIds) &&
+        Objects.equals(this.includeChromeWebRegIds, basicNotification.includeChromeWebRegIds) &&
+        Objects.equals(this.includeAndroidRegIds, basicNotification.includeAndroidRegIds) &&
+        Objects.equals(this.id, basicNotification.id) &&
+        Objects.equals(this.value, basicNotification.value) &&
+        Objects.equals(this.name, basicNotification.name) &&
+        Objects.equals(this.aggregation, basicNotification.aggregation) &&
+        Objects.equals(this.isIos, basicNotification.isIos) &&
+        Objects.equals(this.isAndroid, basicNotification.isAndroid) &&
+        Objects.equals(this.isHuawei, basicNotification.isHuawei) &&
+        Objects.equals(this.isAnyWeb, basicNotification.isAnyWeb) &&
+        Objects.equals(this.isChromeWeb, basicNotification.isChromeWeb) &&
+        Objects.equals(this.isFirefox, basicNotification.isFirefox) &&
+        Objects.equals(this.isSafari, basicNotification.isSafari) &&
+        Objects.equals(this.isWPWNS, basicNotification.isWPWNS) &&
+        Objects.equals(this.isAdm, basicNotification.isAdm) &&
+        Objects.equals(this.isChrome, basicNotification.isChrome) &&
+        Objects.equals(this.channelForExternalUserIds, basicNotification.channelForExternalUserIds) &&
+        Objects.equals(this.appId, basicNotification.appId) &&
+        Objects.equals(this.externalId, basicNotification.externalId) &&
+        Objects.equals(this.contents, basicNotification.contents) &&
+        Objects.equals(this.headings, basicNotification.headings) &&
+        Objects.equals(this.subtitle, basicNotification.subtitle) &&
+        Objects.equals(this.data, basicNotification.data) &&
+        Objects.equals(this.huaweiMsgType, basicNotification.huaweiMsgType) &&
+        Objects.equals(this.url, basicNotification.url) &&
+        Objects.equals(this.webUrl, basicNotification.webUrl) &&
+        Objects.equals(this.appUrl, basicNotification.appUrl) &&
+        Objects.equals(this.iosAttachments, basicNotification.iosAttachments) &&
+        Objects.equals(this.templateId, basicNotification.templateId) &&
+        Objects.equals(this.contentAvailable, basicNotification.contentAvailable) &&
+        Objects.equals(this.mutableContent, basicNotification.mutableContent) &&
+        Objects.equals(this.targetContentIdentifier, basicNotification.targetContentIdentifier) &&
+        Objects.equals(this.bigPicture, basicNotification.bigPicture) &&
+        Objects.equals(this.huaweiBigPicture, basicNotification.huaweiBigPicture) &&
+        Objects.equals(this.admBigPicture, basicNotification.admBigPicture) &&
+        Objects.equals(this.chromeBigPicture, basicNotification.chromeBigPicture) &&
+        Objects.equals(this.chromeWebImage, basicNotification.chromeWebImage) &&
+        Objects.equals(this.buttons, basicNotification.buttons) &&
+        Objects.equals(this.webButtons, basicNotification.webButtons) &&
+        Objects.equals(this.iosCategory, basicNotification.iosCategory) &&
+        Objects.equals(this.androidChannelId, basicNotification.androidChannelId) &&
+        Objects.equals(this.huaweiChannelId, basicNotification.huaweiChannelId) &&
+        Objects.equals(this.existingAndroidChannelId, basicNotification.existingAndroidChannelId) &&
+        Objects.equals(this.huaweiExistingChannelId, basicNotification.huaweiExistingChannelId) &&
+        Objects.equals(this.androidBackgroundLayout, basicNotification.androidBackgroundLayout) &&
+        Objects.equals(this.smallIcon, basicNotification.smallIcon) &&
+        Objects.equals(this.huaweiSmallIcon, basicNotification.huaweiSmallIcon) &&
+        Objects.equals(this.largeIcon, basicNotification.largeIcon) &&
+        Objects.equals(this.huaweiLargeIcon, basicNotification.huaweiLargeIcon) &&
+        Objects.equals(this.admSmallIcon, basicNotification.admSmallIcon) &&
+        Objects.equals(this.admLargeIcon, basicNotification.admLargeIcon) &&
+        Objects.equals(this.chromeWebIcon, basicNotification.chromeWebIcon) &&
+        Objects.equals(this.chromeWebBadge, basicNotification.chromeWebBadge) &&
+        Objects.equals(this.firefoxIcon, basicNotification.firefoxIcon) &&
+        Objects.equals(this.chromeIcon, basicNotification.chromeIcon) &&
+        Objects.equals(this.iosSound, basicNotification.iosSound) &&
+        Objects.equals(this.androidSound, basicNotification.androidSound) &&
+        Objects.equals(this.huaweiSound, basicNotification.huaweiSound) &&
+        Objects.equals(this.admSound, basicNotification.admSound) &&
+        Objects.equals(this.wpWnsSound, basicNotification.wpWnsSound) &&
+        Objects.equals(this.androidLedColor, basicNotification.androidLedColor) &&
+        Objects.equals(this.huaweiLedColor, basicNotification.huaweiLedColor) &&
+        Objects.equals(this.androidAccentColor, basicNotification.androidAccentColor) &&
+        Objects.equals(this.huaweiAccentColor, basicNotification.huaweiAccentColor) &&
+        Objects.equals(this.androidVisibility, basicNotification.androidVisibility) &&
+        Objects.equals(this.huaweiVisibility, basicNotification.huaweiVisibility) &&
+        Objects.equals(this.iosBadgeType, basicNotification.iosBadgeType) &&
+        Objects.equals(this.iosBadgeCount, basicNotification.iosBadgeCount) &&
+        Objects.equals(this.collapseId, basicNotification.collapseId) &&
+        Objects.equals(this.webPushTopic, basicNotification.webPushTopic) &&
+        Objects.equals(this.apnsAlert, basicNotification.apnsAlert) &&
+        Objects.equals(this.delayedOption, basicNotification.delayedOption) &&
+        Objects.equals(this.deliveryTimeOfDay, basicNotification.deliveryTimeOfDay) &&
+        Objects.equals(this.ttl, basicNotification.ttl) &&
+        Objects.equals(this.priority, basicNotification.priority) &&
+        Objects.equals(this.apnsPushTypeOverride, basicNotification.apnsPushTypeOverride) &&
+        Objects.equals(this.throttleRatePerMinute, basicNotification.throttleRatePerMinute) &&
+        Objects.equals(this.androidGroup, basicNotification.androidGroup) &&
+        Objects.equals(this.androidGroupMessage, basicNotification.androidGroupMessage) &&
+        Objects.equals(this.admGroup, basicNotification.admGroup) &&
+        Objects.equals(this.admGroupMessage, basicNotification.admGroupMessage) &&
+        Objects.equals(this.threadId, basicNotification.threadId) &&
+        Objects.equals(this.summaryArg, basicNotification.summaryArg) &&
+        Objects.equals(this.summaryArgCount, basicNotification.summaryArgCount) &&
+        Objects.equals(this.emailSubject, basicNotification.emailSubject) &&
+        Objects.equals(this.emailBody, basicNotification.emailBody) &&
+        Objects.equals(this.emailFromName, basicNotification.emailFromName) &&
+        Objects.equals(this.emailFromAddress, basicNotification.emailFromAddress) &&
+        Objects.equals(this.smsFrom, basicNotification.smsFrom) &&
+        Objects.equals(this.smsMediaUrls, basicNotification.smsMediaUrls);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -3405,7 +3376,7 @@ public class Notification {
 
   @Override
   public int hashCode() {
-    return Objects.hash(includedSegments, excludedSegments, lastSession, firstSession, sessionCount, sessionTime, amountSpent, boughtSku, tag, language, appVersion, location, email, country, includePlayerIds, includeExternalUserIds, includeEmailTokens, includePhoneNumbers, includeIosTokens, includeWpWnsUris, includeAmazonRegIds, includeChromeRegIds, includeChromeWebRegIds, includeAndroidRegIds, id, value, name, aggregation, isIos, isAndroid, isHuawei, isAnyWeb, isChromeWeb, isFirefox, isSafari, isWPWNS, isAdm, isChrome, channelForExternalUserIds, appId, externalId, contents, headings, subtitle, data, huaweiMsgType, url, webUrl, appUrl, iosAttachments, templateId, contentAvailable, mutableContent, targetContentIdentifier, bigPicture, huaweiBigPicture, admBigPicture, chromeBigPicture, chromeWebImage, buttons, webButtons, iosCategory, androidChannelId, huaweiChannelId, existingAndroidChannelId, huaweiExistingChannelId, androidBackgroundLayout, smallIcon, huaweiSmallIcon, largeIcon, huaweiLargeIcon, admSmallIcon, admLargeIcon, chromeWebIcon, chromeWebBadge, firefoxIcon, chromeIcon, iosSound, androidSound, huaweiSound, admSound, wpWnsSound, androidLedColor, huaweiLedColor, androidAccentColor, huaweiAccentColor, androidVisibility, huaweiVisibility, iosBadgeType, iosBadgeCount, collapseId, webPushTopic, apnsAlert, delayedOption, deliveryTimeOfDay, ttl, priority, apnsPushTypeOverride, throttleRatePerMinute, androidGroup, androidGroupMessage, admGroup, admGroupMessage, threadId, summaryArg, summaryArgCount, emailSubject, emailBody, emailFromName, emailFromAddress, smsFrom, smsMediaUrls, sendAfter);
+    return Objects.hash(includedSegments, excludedSegments, lastSession, firstSession, sessionCount, sessionTime, amountSpent, boughtSku, tag, language, appVersion, location, email, country, includePlayerIds, includeExternalUserIds, includeEmailTokens, includePhoneNumbers, includeIosTokens, includeWpWnsUris, includeAmazonRegIds, includeChromeRegIds, includeChromeWebRegIds, includeAndroidRegIds, id, value, name, aggregation, isIos, isAndroid, isHuawei, isAnyWeb, isChromeWeb, isFirefox, isSafari, isWPWNS, isAdm, isChrome, channelForExternalUserIds, appId, externalId, contents, headings, subtitle, data, huaweiMsgType, url, webUrl, appUrl, iosAttachments, templateId, contentAvailable, mutableContent, targetContentIdentifier, bigPicture, huaweiBigPicture, admBigPicture, chromeBigPicture, chromeWebImage, buttons, webButtons, iosCategory, androidChannelId, huaweiChannelId, existingAndroidChannelId, huaweiExistingChannelId, androidBackgroundLayout, smallIcon, huaweiSmallIcon, largeIcon, huaweiLargeIcon, admSmallIcon, admLargeIcon, chromeWebIcon, chromeWebBadge, firefoxIcon, chromeIcon, iosSound, androidSound, huaweiSound, admSound, wpWnsSound, androidLedColor, huaweiLedColor, androidAccentColor, huaweiAccentColor, androidVisibility, huaweiVisibility, iosBadgeType, iosBadgeCount, collapseId, webPushTopic, apnsAlert, delayedOption, deliveryTimeOfDay, ttl, priority, apnsPushTypeOverride, throttleRatePerMinute, androidGroup, androidGroupMessage, admGroup, admGroupMessage, threadId, summaryArg, summaryArgCount, emailSubject, emailBody, emailFromName, emailFromAddress, smsFrom, smsMediaUrls);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -3418,7 +3389,7 @@ public class Notification {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Notification {\n");
+    sb.append("class BasicNotification {\n");
     sb.append("    includedSegments: ").append(toIndentedString(includedSegments)).append("\n");
     sb.append("    excludedSegments: ").append(toIndentedString(excludedSegments)).append("\n");
     sb.append("    lastSession: ").append(toIndentedString(lastSession)).append("\n");
@@ -3531,7 +3502,6 @@ public class Notification {
     sb.append("    emailFromAddress: ").append(toIndentedString(emailFromAddress)).append("\n");
     sb.append("    smsFrom: ").append(toIndentedString(smsFrom)).append("\n");
     sb.append("    smsMediaUrls: ").append(toIndentedString(smsMediaUrls)).append("\n");
-    sb.append("    sendAfter: ").append(toIndentedString(sendAfter)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -3666,7 +3636,6 @@ public class Notification {
     openapiFields.add("email_from_address");
     openapiFields.add("sms_from");
     openapiFields.add("sms_media_urls");
-    openapiFields.add("send_after");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -3677,22 +3646,22 @@ public class Notification {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!Notification.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'Notification' and its subtypes
+       if (!BasicNotification.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'BasicNotification' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<Notification> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(Notification.class));
+       final TypeAdapter<BasicNotification> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(BasicNotification.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<Notification>() {
+       return (TypeAdapter<T>) new TypeAdapter<BasicNotification>() {
            @Override
-           public void write(JsonWriter out, Notification value) throws IOException {
+           public void write(JsonWriter out, BasicNotification value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public Notification read(JsonReader in) throws IOException {
+           public BasicNotification read(JsonReader in) throws IOException {
              JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
 
              return thisAdapter.fromJsonTree(jsonObj);
@@ -3703,18 +3672,18 @@ public class Notification {
   }
 
  /**
-  * Create an instance of Notification given an JSON string
+  * Create an instance of BasicNotification given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of Notification
-  * @throws IOException if the JSON string is invalid with respect to Notification
+  * @return An instance of BasicNotification
+  * @throws IOException if the JSON string is invalid with respect to BasicNotification
   */
-  public static Notification fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, Notification.class);
+  public static BasicNotification fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, BasicNotification.class);
   }
 
  /**
-  * Convert an instance of Notification to an JSON string
+  * Convert an instance of BasicNotification to an JSON string
   *
   * @return JSON string
   */
