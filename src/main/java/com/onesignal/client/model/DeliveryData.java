@@ -49,7 +49,7 @@ import com.onesignal.client.JSON;
 /**
  * DeliveryData
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-07-13T21:20:07.400Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-18T22:09:10.481Z[Etc/UTC]")
 public class DeliveryData {
   private static final long serialVersionUID = 1L;
 
@@ -83,11 +83,11 @@ public class DeliveryData {
   }
 
    /**
-   * Get successful
+   * Number of messages delivered to push servers, mobile carriers, or email service providers.
    * @return successful
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Number of messages delivered to push servers, mobile carriers, or email service providers.")
 
   public Integer getSuccessful() {
     return successful;
@@ -106,11 +106,11 @@ public class DeliveryData {
   }
 
    /**
-   * Get failed
+   * Number of messages sent to unsubscribed devices.
    * @return failed
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Number of messages sent to unsubscribed devices.")
 
   public Integer getFailed() {
     return failed;
@@ -129,11 +129,11 @@ public class DeliveryData {
   }
 
    /**
-   * Get errored
+   * Number of errors reported.
    * @return errored
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Number of errors reported.")
 
   public Integer getErrored() {
     return errored;
@@ -152,11 +152,11 @@ public class DeliveryData {
   }
 
    /**
-   * Get converted
+   * Number of messages that were clicked.
    * @return converted
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Number of messages that were clicked.")
 
   public Integer getConverted() {
     return converted;
@@ -175,11 +175,11 @@ public class DeliveryData {
   }
 
    /**
-   * Get received
+   * Number of devices that received the message.
    * @return received
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Number of devices that received the message.")
 
   public Integer getReceived() {
     return received;

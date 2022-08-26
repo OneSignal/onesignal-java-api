@@ -21,9 +21,12 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.onesignal.client.model.DeliveryData;
+import com.onesignal.client.model.PlatformDeliveryDataEmailAllOf;
+import com.onesignal.client.model.PlatformDeliveryDataSmsAllOf;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import org.openapitools.jackson.nullable.JsonNullable;
 import java.io.Serializable;
 
 import com.google.gson.Gson;
@@ -50,7 +53,7 @@ import com.onesignal.client.JSON;
  * Hash of delivery statistics broken out by target device platform.
  */
 @ApiModel(description = "Hash of delivery statistics broken out by target device platform.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-07-13T21:20:07.400Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-18T22:09:10.481Z[Etc/UTC]")
 public class PlatformDeliveryData {
   private static final long serialVersionUID = 1L;
 
@@ -77,6 +80,14 @@ public class PlatformDeliveryData {
   public static final String SERIALIZED_NAME_IOS = "ios";
   @SerializedName(SERIALIZED_NAME_IOS)
   private DeliveryData ios;
+
+  public static final String SERIALIZED_NAME_SMS = "sms";
+  @SerializedName(SERIALIZED_NAME_SMS)
+  private DeliveryData sms;
+
+  public static final String SERIALIZED_NAME_EMAIL = "email";
+  @SerializedName(SERIALIZED_NAME_EMAIL)
+  private DeliveryData email;
 
   public PlatformDeliveryData() { 
   }
@@ -219,6 +230,52 @@ public class PlatformDeliveryData {
   }
 
 
+  public PlatformDeliveryData sms(DeliveryData sms) {
+    
+    this.sms = sms;
+    return this;
+  }
+
+   /**
+   * Get sms
+   * @return sms
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public DeliveryData getSms() {
+    return sms;
+  }
+
+
+  public void setSms(DeliveryData sms) {
+    this.sms = sms;
+  }
+
+
+  public PlatformDeliveryData email(DeliveryData email) {
+    
+    this.email = email;
+    return this;
+  }
+
+   /**
+   * Get email
+   * @return email
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public DeliveryData getEmail() {
+    return email;
+  }
+
+
+  public void setEmail(DeliveryData email) {
+    this.email = email;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -234,12 +291,25 @@ public class PlatformDeliveryData {
         Objects.equals(this.firefoxWebPush, platformDeliveryData.firefoxWebPush) &&
         Objects.equals(this.safariWebPush, platformDeliveryData.safariWebPush) &&
         Objects.equals(this.android, platformDeliveryData.android) &&
-        Objects.equals(this.ios, platformDeliveryData.ios);
+        Objects.equals(this.ios, platformDeliveryData.ios) &&
+        Objects.equals(this.sms, platformDeliveryData.sms) &&
+        Objects.equals(this.email, platformDeliveryData.email);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(edgeWebPush, chromeWebPush, firefoxWebPush, safariWebPush, android, ios);
+    return Objects.hash(edgeWebPush, chromeWebPush, firefoxWebPush, safariWebPush, android, ios, sms, email);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override
@@ -252,6 +322,8 @@ public class PlatformDeliveryData {
     sb.append("    safariWebPush: ").append(toIndentedString(safariWebPush)).append("\n");
     sb.append("    android: ").append(toIndentedString(android)).append("\n");
     sb.append("    ios: ").append(toIndentedString(ios)).append("\n");
+    sb.append("    sms: ").append(toIndentedString(sms)).append("\n");
+    sb.append("    email: ").append(toIndentedString(email)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -280,6 +352,8 @@ public class PlatformDeliveryData {
     openapiFields.add("safari_web_push");
     openapiFields.add("android");
     openapiFields.add("ios");
+    openapiFields.add("sms");
+    openapiFields.add("email");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

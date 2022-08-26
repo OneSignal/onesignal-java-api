@@ -24,6 +24,7 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.time.OffsetDateTime;
+import org.openapitools.jackson.nullable.JsonNullable;
 import java.io.Serializable;
 
 import com.google.gson.Gson;
@@ -49,7 +50,7 @@ import com.onesignal.client.JSON;
 /**
  * App
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-07-13T21:20:07.400Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-18T22:09:10.481Z[Etc/UTC]")
 public class App {
   private static final long serialVersionUID = 1L;
 
@@ -131,7 +132,7 @@ public class App {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      return null;
     }
 
     public static class Adapter extends TypeAdapter<ApnsEnvEnum> {
@@ -870,9 +871,20 @@ public class App {
         Objects.equals(this.additionalDataIsRootPayload, app.additionalDataIsRootPayload);
   }
 
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+  }
+
   @Override
   public int hashCode() {
     return Objects.hash(id, name, players, messageablePlayers, updatedAt, createdAt, androidGcmSenderId, gcmKey, chromeWebOrigin, chromeKey, chromeWebDefaultNotificationIcon, chromeWebSubDomain, apnsEnv, apnsP12, apnsP12Password, apnsCertificates, safariApnsCertificates, safariApnsP12, safariApnsP12Password, safariSiteOrigin, safariPushId, safariIcon1616, safariIcon3232, safariIcon6464, safariIcon128128, safariIcon256256, siteName, basicAuthKey, organizationId, additionalDataIsRootPayload);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override

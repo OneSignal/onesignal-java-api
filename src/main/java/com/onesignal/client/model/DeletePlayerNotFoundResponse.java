@@ -48,18 +48,18 @@ import com.onesignal.client.JSON;
 /**
  * DeletePlayerNotFoundResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-07-13T21:20:07.400Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-18T22:09:10.481Z[Etc/UTC]")
 public class DeletePlayerNotFoundResponse {
   private static final long serialVersionUID = 1L;
 
   public static final String SERIALIZED_NAME_SUCCESS = "success";
   @SerializedName(SERIALIZED_NAME_SUCCESS)
-  private String success;
+  private Boolean success;
 
   public DeletePlayerNotFoundResponse() { 
   }
 
-  public DeletePlayerNotFoundResponse success(String success) {
+  public DeletePlayerNotFoundResponse success(Boolean success) {
     
     this.success = success;
     return this;
@@ -72,12 +72,12 @@ public class DeletePlayerNotFoundResponse {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public String getSuccess() {
+  public Boolean getSuccess() {
     return success;
   }
 
 
-  public void setSuccess(String success) {
+  public void setSuccess(Boolean success) {
     this.success = success;
   }
 

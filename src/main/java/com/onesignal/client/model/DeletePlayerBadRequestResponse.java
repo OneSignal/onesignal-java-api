@@ -50,24 +50,24 @@ import com.onesignal.client.JSON;
 /**
  * DeletePlayerBadRequestResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-07-13T21:20:07.400Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-18T22:09:10.481Z[Etc/UTC]")
 public class DeletePlayerBadRequestResponse {
   private static final long serialVersionUID = 1L;
 
   public static final String SERIALIZED_NAME_ERORRS = "erorrs";
   @SerializedName(SERIALIZED_NAME_ERORRS)
-  private List<String> erorrs = null;
+  private List<Boolean> erorrs = null;
 
   public DeletePlayerBadRequestResponse() { 
   }
 
-  public DeletePlayerBadRequestResponse erorrs(List<String> erorrs) {
+  public DeletePlayerBadRequestResponse erorrs(List<Boolean> erorrs) {
     
     this.erorrs = erorrs;
     return this;
   }
 
-  public DeletePlayerBadRequestResponse addErorrsItem(String erorrsItem) {
+  public DeletePlayerBadRequestResponse addErorrsItem(Boolean erorrsItem) {
     if (this.erorrs == null) {
       this.erorrs = new ArrayList<>();
     }
@@ -82,12 +82,12 @@ public class DeletePlayerBadRequestResponse {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public List<String> getErorrs() {
+  public List<Boolean> getErorrs() {
     return erorrs;
   }
 
 
-  public void setErorrs(List<String> erorrs) {
+  public void setErorrs(List<Boolean> erorrs) {
     this.erorrs = erorrs;
   }
 
