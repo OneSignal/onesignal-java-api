@@ -50,7 +50,7 @@ import com.onesignal.client.JSON;
 /**
  * Player
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-09-23T18:25:18.425Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-03T18:39:49.442Z[Etc/UTC]")
 public class Player {
   private static final long serialVersionUID = 1L;
 
@@ -179,8 +179,8 @@ public class Player {
    * The device&#39;s OneSignal ID
    * @return id
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The device's OneSignal ID")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The device's OneSignal ID")
 
   public String getId() {
     return id;
@@ -916,7 +916,6 @@ public class Player {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("id");
     openapiRequiredFields.add("device_type");
   }
 
