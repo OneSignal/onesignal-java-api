@@ -50,7 +50,7 @@ import com.onesignal.client.JSON;
 /**
  * ExportPlayersRequestBody
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-09-23T18:25:18.425Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-03T18:39:49.442Z[Etc/UTC]")
 public class ExportPlayersRequestBody {
   private static final long serialVersionUID = 1L;
 
@@ -130,11 +130,11 @@ public class ExportPlayersRequestBody {
   }
 
    /**
-   * Export al ldevices belonging to the segment.
+   * Export all devices belonging to the segment.
    * @return segmentName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Export al ldevices belonging to the segment.")
+  @ApiModelProperty(value = "Export all devices belonging to the segment.")
 
   public String getSegmentName() {
     return segmentName;
