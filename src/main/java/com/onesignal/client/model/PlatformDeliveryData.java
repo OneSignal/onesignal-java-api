@@ -53,7 +53,7 @@ import com.onesignal.client.JSON;
  * Hash of delivery statistics broken out by target device platform.
  */
 @ApiModel(description = "Hash of delivery statistics broken out by target device platform.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-03T18:39:49.442Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-10T01:03:22.700Z[Etc/UTC]")
 public class PlatformDeliveryData {
   private static final long serialVersionUID = 1L;
 

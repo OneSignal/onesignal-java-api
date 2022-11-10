@@ -13,7 +13,7 @@
 
 package com.onesignal.client;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-03T18:39:49.442Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-10T01:03:22.700Z[Etc/UTC]")
 public class Pair {
     private String name = "";
     private String value = "";

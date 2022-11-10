@@ -20,7 +20,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.onesignal.client.model.FilterNotificationTarget;
 import com.onesignal.client.model.PlayerNotificationTarget;
 import com.onesignal.client.model.SegmentNotificationTarget;
 import io.swagger.annotations.ApiModel;
@@ -64,7 +63,7 @@ import com.google.gson.JsonParseException;
 
 import com.onesignal.client.JSON;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-03T18:39:49.442Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-10T01:03:22.700Z[Etc/UTC]")
 public class NotificationTarget extends AbstractOpenApiSchema {
     private static final Logger log = Logger.getLogger(NotificationTarget.class.getName());
 
@@ -76,7 +75,6 @@ public class NotificationTarget extends AbstractOpenApiSchema {
                 return null; // this class only serializes 'NotificationTarget' and its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<FilterNotificationTarget> adapterFilterNotificationTarget = gson.getDelegateAdapter(this, TypeToken.get(FilterNotificationTarget.class));
             final TypeAdapter<PlayerNotificationTarget> adapterPlayerNotificationTarget = gson.getDelegateAdapter(this, TypeToken.get(PlayerNotificationTarget.class));
             final TypeAdapter<SegmentNotificationTarget> adapterSegmentNotificationTarget = gson.getDelegateAdapter(this, TypeToken.get(SegmentNotificationTarget.class));
 
@@ -85,13 +83,6 @@ public class NotificationTarget extends AbstractOpenApiSchema {
                 public void write(JsonWriter out, NotificationTarget value) throws IOException {
                     if (value == null || value.getActualInstance() == null) {
                         elementAdapter.write(out, null);
-                        return;
-                    }
-
-                    // check if the actual instance is of the type `FilterNotificationTarget`
-                    if (value.getActualInstance() instanceof FilterNotificationTarget) {
-                        JsonObject obj = adapterFilterNotificationTarget.toJsonTree((FilterNotificationTarget)value.getActualInstance()).getAsJsonObject();
-                        elementAdapter.write(out, obj);
                         return;
                     }
 
@@ -109,25 +100,13 @@ public class NotificationTarget extends AbstractOpenApiSchema {
                         return;
                     }
 
-                    throw new IOException("Failed to serialize as the type doesn't match anyOf schemas: FilterNotificationTarget, PlayerNotificationTarget, SegmentNotificationTarget");
+                    throw new IOException("Failed to serialize as the type doesn't match anyOf schemas: PlayerNotificationTarget, SegmentNotificationTarget");
                 }
 
                 @Override
                 public NotificationTarget read(JsonReader in) throws IOException {
                     Object deserialized = null;
                     JsonObject jsonObject = elementAdapter.read(in).getAsJsonObject();
-
-                    // deserialize FilterNotificationTarget
-                    try {
-                        // validate the JSON object to see if any exception is thrown
-                        log.log(Level.FINER, "Input data matches schema 'FilterNotificationTarget'");
-                        NotificationTarget ret = new NotificationTarget();
-                        ret.setActualInstance(adapterFilterNotificationTarget.fromJsonTree(jsonObject));
-                        return ret;
-                    } catch (Exception e) {
-                        // deserialization failed, continue
-                        log.log(Level.FINER, "Input data does not match schema 'FilterNotificationTarget'", e);
-                    }
 
                     // deserialize PlayerNotificationTarget
                     try {
@@ -167,11 +146,6 @@ public class NotificationTarget extends AbstractOpenApiSchema {
         super("anyOf", Boolean.FALSE);
     }
 
-    public NotificationTarget(FilterNotificationTarget o) {
-        super("anyOf", Boolean.FALSE);
-        setActualInstance(o);
-    }
-
     public NotificationTarget(PlayerNotificationTarget o) {
         super("anyOf", Boolean.FALSE);
         setActualInstance(o);
@@ -183,8 +157,6 @@ public class NotificationTarget extends AbstractOpenApiSchema {
     }
 
     static {
-        schemas.put("FilterNotificationTarget", new GenericType<FilterNotificationTarget>() {
-        });
         schemas.put("PlayerNotificationTarget", new GenericType<PlayerNotificationTarget>() {
         });
         schemas.put("SegmentNotificationTarget", new GenericType<SegmentNotificationTarget>() {
@@ -199,18 +171,13 @@ public class NotificationTarget extends AbstractOpenApiSchema {
     /**
      * Set the instance that matches the anyOf child schema, check
      * the instance parameter is valid against the anyOf child schemas:
-     * FilterNotificationTarget, PlayerNotificationTarget, SegmentNotificationTarget
+     * PlayerNotificationTarget, SegmentNotificationTarget
      *
      * It could be an instance of the 'anyOf' schemas.
      * The anyOf child schemas may themselves be a composed schema (allOf, anyOf, anyOf).
      */
     @Override
     public void setActualInstance(Object instance) {
-        if (instance instanceof FilterNotificationTarget) {
-            super.setActualInstance(instance);
-            return;
-        }
-
         if (instance instanceof PlayerNotificationTarget) {
             super.setActualInstance(instance);
             return;
@@ -221,29 +188,18 @@ public class NotificationTarget extends AbstractOpenApiSchema {
             return;
         }
 
-        throw new RuntimeException("Invalid instance type. Must be FilterNotificationTarget, PlayerNotificationTarget, SegmentNotificationTarget");
+        throw new RuntimeException("Invalid instance type. Must be PlayerNotificationTarget, SegmentNotificationTarget");
     }
 
     /**
      * Get the actual instance, which can be the following:
-     * FilterNotificationTarget, PlayerNotificationTarget, SegmentNotificationTarget
+     * PlayerNotificationTarget, SegmentNotificationTarget
      *
-     * @return The actual instance (FilterNotificationTarget, PlayerNotificationTarget, SegmentNotificationTarget)
+     * @return The actual instance (PlayerNotificationTarget, SegmentNotificationTarget)
      */
     @Override
     public Object getActualInstance() {
         return super.getActualInstance();
-    }
-
-    /**
-     * Get the actual instance of `FilterNotificationTarget`. If the actual instance is not `FilterNotificationTarget`,
-     * the ClassCastException will be thrown.
-     *
-     * @return The actual instance of `FilterNotificationTarget`
-     * @throws ClassCastException if the instance is not `FilterNotificationTarget`
-     */
-    public FilterNotificationTarget getFilterNotificationTarget() throws ClassCastException {
-        return (FilterNotificationTarget)super.getActualInstance();
     }
 
     /**
