@@ -116,7 +116,6 @@ public class JSON {
             .registerTypeAdapterFactory(new com.onesignal.client.model.ExportPlayersSuccessResponse.CustomTypeAdapterFactory())
             .registerTypeAdapterFactory(new com.onesignal.client.model.Filter.CustomTypeAdapterFactory())
             .registerTypeAdapterFactory(new com.onesignal.client.model.FilterExpressions.CustomTypeAdapterFactory())
-            .registerTypeAdapterFactory(new com.onesignal.client.model.FilterNotificationTarget.CustomTypeAdapterFactory())
             .registerTypeAdapterFactory(new com.onesignal.client.model.GetNotificationRequestBody.CustomTypeAdapterFactory())
             .registerTypeAdapterFactory(new com.onesignal.client.model.InvalidIdentifierError.CustomTypeAdapterFactory())
             .registerTypeAdapterFactory(new com.onesignal.client.model.Notification.CustomTypeAdapterFactory())

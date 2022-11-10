@@ -22,6 +22,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.onesignal.client.model.BasicNotificationAllOfAndroidBackgroundLayout;
 import com.onesignal.client.model.Button;
+import com.onesignal.client.model.Filter;
 import com.onesignal.client.model.StringMap;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -54,7 +55,7 @@ import com.onesignal.client.JSON;
 /**
  * BasicNotificationAllOf
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-03T18:39:49.442Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-10T01:03:22.700Z[Etc/UTC]")
 public class BasicNotificationAllOf {
   private static final long serialVersionUID = 1L;
 
@@ -456,6 +457,10 @@ public class BasicNotificationAllOf {
   public static final String SERIALIZED_NAME_SMS_MEDIA_URLS = "sms_media_urls";
   @SerializedName(SERIALIZED_NAME_SMS_MEDIA_URLS)
   private List<String> smsMediaUrls = null;
+
+  public static final String SERIALIZED_NAME_FILTERS = "filters";
+  @SerializedName(SERIALIZED_NAME_FILTERS)
+  private List<Filter> filters = null;
 
   public BasicNotificationAllOf() { 
   }
@@ -2500,6 +2505,37 @@ public class BasicNotificationAllOf {
   }
 
 
+  public BasicNotificationAllOf filters(List<Filter> filters) {
+    
+    this.filters = filters;
+    return this;
+  }
+
+  public BasicNotificationAllOf addFiltersItem(Filter filtersItem) {
+    if (this.filters == null) {
+      this.filters = new ArrayList<>();
+    }
+    this.filters.add(filtersItem);
+    return this;
+  }
+
+   /**
+   * Get filters
+   * @return filters
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public List<Filter> getFilters() {
+    return filters;
+  }
+
+
+  public void setFilters(List<Filter> filters) {
+    this.filters = filters;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -2597,7 +2633,8 @@ public class BasicNotificationAllOf {
         Objects.equals(this.emailFromName, basicNotificationAllOf.emailFromName) &&
         Objects.equals(this.emailFromAddress, basicNotificationAllOf.emailFromAddress) &&
         Objects.equals(this.smsFrom, basicNotificationAllOf.smsFrom) &&
-        Objects.equals(this.smsMediaUrls, basicNotificationAllOf.smsMediaUrls);
+        Objects.equals(this.smsMediaUrls, basicNotificationAllOf.smsMediaUrls) &&
+        Objects.equals(this.filters, basicNotificationAllOf.filters);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -2606,7 +2643,7 @@ public class BasicNotificationAllOf {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, value, name, aggregation, isIos, isAndroid, isHuawei, isAnyWeb, isChromeWeb, isFirefox, isSafari, isWPWNS, isAdm, isChrome, channelForExternalUserIds, appId, externalId, contents, headings, subtitle, data, huaweiMsgType, url, webUrl, appUrl, iosAttachments, templateId, contentAvailable, mutableContent, targetContentIdentifier, bigPicture, huaweiBigPicture, admBigPicture, chromeBigPicture, chromeWebImage, buttons, webButtons, iosCategory, androidChannelId, huaweiChannelId, existingAndroidChannelId, huaweiExistingChannelId, androidBackgroundLayout, smallIcon, huaweiSmallIcon, largeIcon, huaweiLargeIcon, admSmallIcon, admLargeIcon, chromeWebIcon, chromeWebBadge, firefoxIcon, chromeIcon, iosSound, androidSound, huaweiSound, admSound, wpWnsSound, androidLedColor, huaweiLedColor, androidAccentColor, huaweiAccentColor, androidVisibility, huaweiVisibility, iosBadgeType, iosBadgeCount, collapseId, webPushTopic, apnsAlert, delayedOption, deliveryTimeOfDay, ttl, priority, apnsPushTypeOverride, throttleRatePerMinute, androidGroup, androidGroupMessage, admGroup, admGroupMessage, threadId, summaryArg, summaryArgCount, emailSubject, emailBody, emailFromName, emailFromAddress, smsFrom, smsMediaUrls);
+    return Objects.hash(id, value, name, aggregation, isIos, isAndroid, isHuawei, isAnyWeb, isChromeWeb, isFirefox, isSafari, isWPWNS, isAdm, isChrome, channelForExternalUserIds, appId, externalId, contents, headings, subtitle, data, huaweiMsgType, url, webUrl, appUrl, iosAttachments, templateId, contentAvailable, mutableContent, targetContentIdentifier, bigPicture, huaweiBigPicture, admBigPicture, chromeBigPicture, chromeWebImage, buttons, webButtons, iosCategory, androidChannelId, huaweiChannelId, existingAndroidChannelId, huaweiExistingChannelId, androidBackgroundLayout, smallIcon, huaweiSmallIcon, largeIcon, huaweiLargeIcon, admSmallIcon, admLargeIcon, chromeWebIcon, chromeWebBadge, firefoxIcon, chromeIcon, iosSound, androidSound, huaweiSound, admSound, wpWnsSound, androidLedColor, huaweiLedColor, androidAccentColor, huaweiAccentColor, androidVisibility, huaweiVisibility, iosBadgeType, iosBadgeCount, collapseId, webPushTopic, apnsAlert, delayedOption, deliveryTimeOfDay, ttl, priority, apnsPushTypeOverride, throttleRatePerMinute, androidGroup, androidGroupMessage, admGroup, admGroupMessage, threadId, summaryArg, summaryArgCount, emailSubject, emailBody, emailFromName, emailFromAddress, smsFrom, smsMediaUrls, filters);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -2708,6 +2745,7 @@ public class BasicNotificationAllOf {
     sb.append("    emailFromAddress: ").append(toIndentedString(emailFromAddress)).append("\n");
     sb.append("    smsFrom: ").append(toIndentedString(smsFrom)).append("\n");
     sb.append("    smsMediaUrls: ").append(toIndentedString(smsMediaUrls)).append("\n");
+    sb.append("    filters: ").append(toIndentedString(filters)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -2818,6 +2856,7 @@ public class BasicNotificationAllOf {
     openapiFields.add("email_from_address");
     openapiFields.add("sms_from");
     openapiFields.add("sms_media_urls");
+    openapiFields.add("filters");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

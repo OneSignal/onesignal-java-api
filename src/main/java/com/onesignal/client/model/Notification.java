@@ -23,6 +23,7 @@ import com.google.gson.stream.JsonWriter;
 import com.onesignal.client.model.BasicNotification;
 import com.onesignal.client.model.BasicNotificationAllOfAndroidBackgroundLayout;
 import com.onesignal.client.model.Button;
+import com.onesignal.client.model.Filter;
 import com.onesignal.client.model.NotificationAllOf;
 import com.onesignal.client.model.StringMap;
 import io.swagger.annotations.ApiModel;
@@ -57,7 +58,7 @@ import com.onesignal.client.JSON;
 /**
  * Notification
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-03T18:39:49.442Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-10T01:03:22.700Z[Etc/UTC]")
 public class Notification {
   private static final long serialVersionUID = 1L;
 
@@ -68,54 +69,6 @@ public class Notification {
   public static final String SERIALIZED_NAME_EXCLUDED_SEGMENTS = "excluded_segments";
   @SerializedName(SERIALIZED_NAME_EXCLUDED_SEGMENTS)
   private List<String> excludedSegments = null;
-
-  public static final String SERIALIZED_NAME_LAST_SESSION = "last_session";
-  @SerializedName(SERIALIZED_NAME_LAST_SESSION)
-  private String lastSession;
-
-  public static final String SERIALIZED_NAME_FIRST_SESSION = "first_session";
-  @SerializedName(SERIALIZED_NAME_FIRST_SESSION)
-  private String firstSession;
-
-  public static final String SERIALIZED_NAME_SESSION_COUNT = "session_count";
-  @SerializedName(SERIALIZED_NAME_SESSION_COUNT)
-  private String sessionCount;
-
-  public static final String SERIALIZED_NAME_SESSION_TIME = "session_time";
-  @SerializedName(SERIALIZED_NAME_SESSION_TIME)
-  private String sessionTime;
-
-  public static final String SERIALIZED_NAME_AMOUNT_SPENT = "amount_spent";
-  @SerializedName(SERIALIZED_NAME_AMOUNT_SPENT)
-  private String amountSpent;
-
-  public static final String SERIALIZED_NAME_BOUGHT_SKU = "bought_sku";
-  @SerializedName(SERIALIZED_NAME_BOUGHT_SKU)
-  private String boughtSku;
-
-  public static final String SERIALIZED_NAME_TAG = "tag";
-  @SerializedName(SERIALIZED_NAME_TAG)
-  private String tag;
-
-  public static final String SERIALIZED_NAME_LANGUAGE = "language";
-  @SerializedName(SERIALIZED_NAME_LANGUAGE)
-  private String language;
-
-  public static final String SERIALIZED_NAME_APP_VERSION = "app_version";
-  @SerializedName(SERIALIZED_NAME_APP_VERSION)
-  private String appVersion;
-
-  public static final String SERIALIZED_NAME_LOCATION = "location";
-  @SerializedName(SERIALIZED_NAME_LOCATION)
-  private String location;
-
-  public static final String SERIALIZED_NAME_EMAIL = "email";
-  @SerializedName(SERIALIZED_NAME_EMAIL)
-  private String email;
-
-  public static final String SERIALIZED_NAME_COUNTRY = "country";
-  @SerializedName(SERIALIZED_NAME_COUNTRY)
-  private String country;
 
   public static final String SERIALIZED_NAME_INCLUDE_PLAYER_IDS = "include_player_ids";
   @SerializedName(SERIALIZED_NAME_INCLUDE_PLAYER_IDS)
@@ -556,6 +509,10 @@ public class Notification {
   @SerializedName(SERIALIZED_NAME_SMS_MEDIA_URLS)
   private List<String> smsMediaUrls = null;
 
+  public static final String SERIALIZED_NAME_FILTERS = "filters";
+  @SerializedName(SERIALIZED_NAME_FILTERS)
+  private List<Filter> filters = null;
+
   public static final String SERIALIZED_NAME_SEND_AFTER = "send_after";
   @SerializedName(SERIALIZED_NAME_SEND_AFTER)
   private OffsetDateTime sendAfter;
@@ -632,282 +589,6 @@ public class Notification {
 
   public void setExcludedSegments(List<String> excludedSegments) {
     this.excludedSegments = excludedSegments;
-  }
-
-
-  public Notification lastSession(String lastSession) {
-    
-    this.lastSession = lastSession;
-    return this;
-  }
-
-   /**
-   * relation &#x3D; \&quot;&gt;\&quot; or \&quot;&lt;\&quot; hours_ago &#x3D; number of hours before or after the users last session. Example: \&quot;1.1\&quot; 
-   * @return lastSession
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "relation = \">\" or \"<\" hours_ago = number of hours before or after the users last session. Example: \"1.1\" ")
-
-  public String getLastSession() {
-    return lastSession;
-  }
-
-
-  public void setLastSession(String lastSession) {
-    this.lastSession = lastSession;
-  }
-
-
-  public Notification firstSession(String firstSession) {
-    
-    this.firstSession = firstSession;
-    return this;
-  }
-
-   /**
-   * relation &#x3D; \&quot;&gt;\&quot; or \&quot;&lt;\&quot; hours_ago &#x3D; number of hours before or after the users first session. Example: \&quot;1.1\&quot; 
-   * @return firstSession
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "relation = \">\" or \"<\" hours_ago = number of hours before or after the users first session. Example: \"1.1\" ")
-
-  public String getFirstSession() {
-    return firstSession;
-  }
-
-
-  public void setFirstSession(String firstSession) {
-    this.firstSession = firstSession;
-  }
-
-
-  public Notification sessionCount(String sessionCount) {
-    
-    this.sessionCount = sessionCount;
-    return this;
-  }
-
-   /**
-   * relation &#x3D; \&quot;&gt;\&quot;, \&quot;&lt;\&quot;, \&quot;&#x3D;\&quot; or \&quot;!&#x3D;\&quot; value &#x3D; number sessions. Example: \&quot;1\&quot; 
-   * @return sessionCount
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "relation = \">\", \"<\", \"=\" or \"!=\" value = number sessions. Example: \"1\" ")
-
-  public String getSessionCount() {
-    return sessionCount;
-  }
-
-
-  public void setSessionCount(String sessionCount) {
-    this.sessionCount = sessionCount;
-  }
-
-
-  public Notification sessionTime(String sessionTime) {
-    
-    this.sessionTime = sessionTime;
-    return this;
-  }
-
-   /**
-   * relation &#x3D; \&quot;&gt;\&quot;, \&quot;&lt;\&quot;, \&quot;&#x3D;\&quot; or \&quot;!&#x3D;\&quot; value &#x3D; Time in seconds the user has been in your app. Example: \&quot;3600\&quot; 
-   * @return sessionTime
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "relation = \">\", \"<\", \"=\" or \"!=\" value = Time in seconds the user has been in your app. Example: \"3600\" ")
-
-  public String getSessionTime() {
-    return sessionTime;
-  }
-
-
-  public void setSessionTime(String sessionTime) {
-    this.sessionTime = sessionTime;
-  }
-
-
-  public Notification amountSpent(String amountSpent) {
-    
-    this.amountSpent = amountSpent;
-    return this;
-  }
-
-   /**
-   * relation &#x3D; \&quot;&gt;\&quot;, \&quot;&lt;\&quot;, or \&quot;&#x3D;\&quot; value &#x3D; Amount in USD a user has spent on IAP (In App Purchases). Example: \&quot;0.99\&quot; 
-   * @return amountSpent
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "relation = \">\", \"<\", or \"=\" value = Amount in USD a user has spent on IAP (In App Purchases). Example: \"0.99\" ")
-
-  public String getAmountSpent() {
-    return amountSpent;
-  }
-
-
-  public void setAmountSpent(String amountSpent) {
-    this.amountSpent = amountSpent;
-  }
-
-
-  public Notification boughtSku(String boughtSku) {
-    
-    this.boughtSku = boughtSku;
-    return this;
-  }
-
-   /**
-   * relation &#x3D; \&quot;&gt;\&quot;, \&quot;&lt;\&quot; or \&quot;&#x3D;\&quot; key &#x3D; SKU purchased in your app as an IAP (In App Purchases). Example: \&quot;com.domain.100coinpack\&quot; value &#x3D; value of SKU to compare to. Example: \&quot;0.99\&quot; 
-   * @return boughtSku
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "relation = \">\", \"<\" or \"=\" key = SKU purchased in your app as an IAP (In App Purchases). Example: \"com.domain.100coinpack\" value = value of SKU to compare to. Example: \"0.99\" ")
-
-  public String getBoughtSku() {
-    return boughtSku;
-  }
-
-
-  public void setBoughtSku(String boughtSku) {
-    this.boughtSku = boughtSku;
-  }
-
-
-  public Notification tag(String tag) {
-    
-    this.tag = tag;
-    return this;
-  }
-
-   /**
-   * relation &#x3D; \&quot;&gt;\&quot;, \&quot;&lt;\&quot;, \&quot;&#x3D;\&quot;, \&quot;!&#x3D;\&quot;, \&quot;exists\&quot;, \&quot;not_exists\&quot;, \&quot;time_elapsed_gt\&quot; (paid plan only) or \&quot;time_elapsed_lt\&quot; (paid plan only) See Time Operators key &#x3D; Tag key to compare. value &#x3D; Tag value to compare. Not required for \&quot;exists\&quot; or \&quot;not_exists\&quot;. Example: See Formatting Filters 
-   * @return tag
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "relation = \">\", \"<\", \"=\", \"!=\", \"exists\", \"not_exists\", \"time_elapsed_gt\" (paid plan only) or \"time_elapsed_lt\" (paid plan only) See Time Operators key = Tag key to compare. value = Tag value to compare. Not required for \"exists\" or \"not_exists\". Example: See Formatting Filters ")
-
-  public String getTag() {
-    return tag;
-  }
-
-
-  public void setTag(String tag) {
-    this.tag = tag;
-  }
-
-
-  public Notification language(String language) {
-    
-    this.language = language;
-    return this;
-  }
-
-   /**
-   * relation &#x3D; \&quot;&#x3D;\&quot; or \&quot;!&#x3D;\&quot; value &#x3D; 2 character language code. Example: \&quot;en\&quot;. For a list of all language codes see Language &amp; Localization. 
-   * @return language
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "relation = \"=\" or \"!=\" value = 2 character language code. Example: \"en\". For a list of all language codes see Language & Localization. ")
-
-  public String getLanguage() {
-    return language;
-  }
-
-
-  public void setLanguage(String language) {
-    this.language = language;
-  }
-
-
-  public Notification appVersion(String appVersion) {
-    
-    this.appVersion = appVersion;
-    return this;
-  }
-
-   /**
-   * relation &#x3D; \&quot;&gt;\&quot;, \&quot;&lt;\&quot;, \&quot;&#x3D;\&quot; or \&quot;!&#x3D;\&quot; value &#x3D; app version. Example: \&quot;1.0.0\&quot; 
-   * @return appVersion
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "relation = \">\", \"<\", \"=\" or \"!=\" value = app version. Example: \"1.0.0\" ")
-
-  public String getAppVersion() {
-    return appVersion;
-  }
-
-
-  public void setAppVersion(String appVersion) {
-    this.appVersion = appVersion;
-  }
-
-
-  public Notification location(String location) {
-    
-    this.location = location;
-    return this;
-  }
-
-   /**
-   * radius &#x3D; in meters lat &#x3D; latitude long &#x3D; longitude 
-   * @return location
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "radius = in meters lat = latitude long = longitude ")
-
-  public String getLocation() {
-    return location;
-  }
-
-
-  public void setLocation(String location) {
-    this.location = location;
-  }
-
-
-  public Notification email(String email) {
-    
-    this.email = email;
-    return this;
-  }
-
-   /**
-   * value &#x3D; email address Only for sending Push Notifications Use this for targeting push subscribers associated with an email set with all SDK setEmail methods To send emails to specific email addresses use include_email_tokens parameter 
-   * @return email
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "value = email address Only for sending Push Notifications Use this for targeting push subscribers associated with an email set with all SDK setEmail methods To send emails to specific email addresses use include_email_tokens parameter ")
-
-  public String getEmail() {
-    return email;
-  }
-
-
-  public void setEmail(String email) {
-    this.email = email;
-  }
-
-
-  public Notification country(String country) {
-    
-    this.country = country;
-    return this;
-  }
-
-   /**
-   * relation &#x3D; \&quot;&#x3D;\&quot; value &#x3D; 2-digit Country code Example: \&quot;field\&quot;: \&quot;country\&quot;, \&quot;relation\&quot;: \&quot;&#x3D;\&quot;, \&quot;value\&quot;, \&quot;US\&quot; 
-   * @return country
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "relation = \"=\" value = 2-digit Country code Example: \"field\": \"country\", \"relation\": \"=\", \"value\", \"US\" ")
-
-  public String getCountry() {
-    return country;
-  }
-
-
-  public void setCountry(String country) {
-    this.country = country;
   }
 
 
@@ -3251,6 +2932,37 @@ public class Notification {
   }
 
 
+  public Notification filters(List<Filter> filters) {
+    
+    this.filters = filters;
+    return this;
+  }
+
+  public Notification addFiltersItem(Filter filtersItem) {
+    if (this.filters == null) {
+      this.filters = new ArrayList<>();
+    }
+    this.filters.add(filtersItem);
+    return this;
+  }
+
+   /**
+   * Get filters
+   * @return filters
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public List<Filter> getFilters() {
+    return filters;
+  }
+
+
+  public void setFilters(List<Filter> filters) {
+    this.filters = filters;
+  }
+
+
   public Notification sendAfter(OffsetDateTime sendAfter) {
     
     this.sendAfter = sendAfter;
@@ -3286,18 +2998,6 @@ public class Notification {
     Notification notification = (Notification) o;
     return Objects.equals(this.includedSegments, notification.includedSegments) &&
         Objects.equals(this.excludedSegments, notification.excludedSegments) &&
-        Objects.equals(this.lastSession, notification.lastSession) &&
-        Objects.equals(this.firstSession, notification.firstSession) &&
-        Objects.equals(this.sessionCount, notification.sessionCount) &&
-        Objects.equals(this.sessionTime, notification.sessionTime) &&
-        Objects.equals(this.amountSpent, notification.amountSpent) &&
-        Objects.equals(this.boughtSku, notification.boughtSku) &&
-        Objects.equals(this.tag, notification.tag) &&
-        Objects.equals(this.language, notification.language) &&
-        Objects.equals(this.appVersion, notification.appVersion) &&
-        Objects.equals(this.location, notification.location) &&
-        Objects.equals(this.email, notification.email) &&
-        Objects.equals(this.country, notification.country) &&
         Objects.equals(this.includePlayerIds, notification.includePlayerIds) &&
         Objects.equals(this.includeExternalUserIds, notification.includeExternalUserIds) &&
         Objects.equals(this.includeEmailTokens, notification.includeEmailTokens) &&
@@ -3396,6 +3096,7 @@ public class Notification {
         Objects.equals(this.emailFromAddress, notification.emailFromAddress) &&
         Objects.equals(this.smsFrom, notification.smsFrom) &&
         Objects.equals(this.smsMediaUrls, notification.smsMediaUrls) &&
+        Objects.equals(this.filters, notification.filters) &&
         Objects.equals(this.sendAfter, notification.sendAfter);
   }
 
@@ -3405,7 +3106,7 @@ public class Notification {
 
   @Override
   public int hashCode() {
-    return Objects.hash(includedSegments, excludedSegments, lastSession, firstSession, sessionCount, sessionTime, amountSpent, boughtSku, tag, language, appVersion, location, email, country, includePlayerIds, includeExternalUserIds, includeEmailTokens, includePhoneNumbers, includeIosTokens, includeWpWnsUris, includeAmazonRegIds, includeChromeRegIds, includeChromeWebRegIds, includeAndroidRegIds, id, value, name, aggregation, isIos, isAndroid, isHuawei, isAnyWeb, isChromeWeb, isFirefox, isSafari, isWPWNS, isAdm, isChrome, channelForExternalUserIds, appId, externalId, contents, headings, subtitle, data, huaweiMsgType, url, webUrl, appUrl, iosAttachments, templateId, contentAvailable, mutableContent, targetContentIdentifier, bigPicture, huaweiBigPicture, admBigPicture, chromeBigPicture, chromeWebImage, buttons, webButtons, iosCategory, androidChannelId, huaweiChannelId, existingAndroidChannelId, huaweiExistingChannelId, androidBackgroundLayout, smallIcon, huaweiSmallIcon, largeIcon, huaweiLargeIcon, admSmallIcon, admLargeIcon, chromeWebIcon, chromeWebBadge, firefoxIcon, chromeIcon, iosSound, androidSound, huaweiSound, admSound, wpWnsSound, androidLedColor, huaweiLedColor, androidAccentColor, huaweiAccentColor, androidVisibility, huaweiVisibility, iosBadgeType, iosBadgeCount, collapseId, webPushTopic, apnsAlert, delayedOption, deliveryTimeOfDay, ttl, priority, apnsPushTypeOverride, throttleRatePerMinute, androidGroup, androidGroupMessage, admGroup, admGroupMessage, threadId, summaryArg, summaryArgCount, emailSubject, emailBody, emailFromName, emailFromAddress, smsFrom, smsMediaUrls, sendAfter);
+    return Objects.hash(includedSegments, excludedSegments, includePlayerIds, includeExternalUserIds, includeEmailTokens, includePhoneNumbers, includeIosTokens, includeWpWnsUris, includeAmazonRegIds, includeChromeRegIds, includeChromeWebRegIds, includeAndroidRegIds, id, value, name, aggregation, isIos, isAndroid, isHuawei, isAnyWeb, isChromeWeb, isFirefox, isSafari, isWPWNS, isAdm, isChrome, channelForExternalUserIds, appId, externalId, contents, headings, subtitle, data, huaweiMsgType, url, webUrl, appUrl, iosAttachments, templateId, contentAvailable, mutableContent, targetContentIdentifier, bigPicture, huaweiBigPicture, admBigPicture, chromeBigPicture, chromeWebImage, buttons, webButtons, iosCategory, androidChannelId, huaweiChannelId, existingAndroidChannelId, huaweiExistingChannelId, androidBackgroundLayout, smallIcon, huaweiSmallIcon, largeIcon, huaweiLargeIcon, admSmallIcon, admLargeIcon, chromeWebIcon, chromeWebBadge, firefoxIcon, chromeIcon, iosSound, androidSound, huaweiSound, admSound, wpWnsSound, androidLedColor, huaweiLedColor, androidAccentColor, huaweiAccentColor, androidVisibility, huaweiVisibility, iosBadgeType, iosBadgeCount, collapseId, webPushTopic, apnsAlert, delayedOption, deliveryTimeOfDay, ttl, priority, apnsPushTypeOverride, throttleRatePerMinute, androidGroup, androidGroupMessage, admGroup, admGroupMessage, threadId, summaryArg, summaryArgCount, emailSubject, emailBody, emailFromName, emailFromAddress, smsFrom, smsMediaUrls, filters, sendAfter);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -3421,18 +3122,6 @@ public class Notification {
     sb.append("class Notification {\n");
     sb.append("    includedSegments: ").append(toIndentedString(includedSegments)).append("\n");
     sb.append("    excludedSegments: ").append(toIndentedString(excludedSegments)).append("\n");
-    sb.append("    lastSession: ").append(toIndentedString(lastSession)).append("\n");
-    sb.append("    firstSession: ").append(toIndentedString(firstSession)).append("\n");
-    sb.append("    sessionCount: ").append(toIndentedString(sessionCount)).append("\n");
-    sb.append("    sessionTime: ").append(toIndentedString(sessionTime)).append("\n");
-    sb.append("    amountSpent: ").append(toIndentedString(amountSpent)).append("\n");
-    sb.append("    boughtSku: ").append(toIndentedString(boughtSku)).append("\n");
-    sb.append("    tag: ").append(toIndentedString(tag)).append("\n");
-    sb.append("    language: ").append(toIndentedString(language)).append("\n");
-    sb.append("    appVersion: ").append(toIndentedString(appVersion)).append("\n");
-    sb.append("    location: ").append(toIndentedString(location)).append("\n");
-    sb.append("    email: ").append(toIndentedString(email)).append("\n");
-    sb.append("    country: ").append(toIndentedString(country)).append("\n");
     sb.append("    includePlayerIds: ").append(toIndentedString(includePlayerIds)).append("\n");
     sb.append("    includeExternalUserIds: ").append(toIndentedString(includeExternalUserIds)).append("\n");
     sb.append("    includeEmailTokens: ").append(toIndentedString(includeEmailTokens)).append("\n");
@@ -3531,6 +3220,7 @@ public class Notification {
     sb.append("    emailFromAddress: ").append(toIndentedString(emailFromAddress)).append("\n");
     sb.append("    smsFrom: ").append(toIndentedString(smsFrom)).append("\n");
     sb.append("    smsMediaUrls: ").append(toIndentedString(smsMediaUrls)).append("\n");
+    sb.append("    filters: ").append(toIndentedString(filters)).append("\n");
     sb.append("    sendAfter: ").append(toIndentedString(sendAfter)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -3556,18 +3246,6 @@ public class Notification {
     openapiFields = new HashSet<String>();
     openapiFields.add("included_segments");
     openapiFields.add("excluded_segments");
-    openapiFields.add("last_session");
-    openapiFields.add("first_session");
-    openapiFields.add("session_count");
-    openapiFields.add("session_time");
-    openapiFields.add("amount_spent");
-    openapiFields.add("bought_sku");
-    openapiFields.add("tag");
-    openapiFields.add("language");
-    openapiFields.add("app_version");
-    openapiFields.add("location");
-    openapiFields.add("email");
-    openapiFields.add("country");
     openapiFields.add("include_player_ids");
     openapiFields.add("include_external_user_ids");
     openapiFields.add("include_email_tokens");
@@ -3666,6 +3344,7 @@ public class Notification {
     openapiFields.add("email_from_address");
     openapiFields.add("sms_from");
     openapiFields.add("sms_media_urls");
+    openapiFields.add("filters");
     openapiFields.add("send_after");
 
     // a set of required properties/fields (JSON key names)

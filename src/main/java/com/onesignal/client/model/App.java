@@ -50,7 +50,7 @@ import com.onesignal.client.JSON;
 /**
  * App
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-03T18:39:49.442Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-10T01:03:22.700Z[Etc/UTC]")
 public class App {
   private static final long serialVersionUID = 1L;
 
@@ -260,8 +260,8 @@ public class App {
    * Get id
    * @return id
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public String getId() {
     return id;
@@ -976,7 +976,6 @@ public class App {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("id");
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

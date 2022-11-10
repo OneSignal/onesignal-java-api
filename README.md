@@ -2,7 +2,7 @@
 
 OneSignal
 - API version: 1.0.1
-  - Build date: 2022-11-03T18:39:49.442Z[Etc/UTC]
+  - Build date: 2022-11-10T01:03:22.700Z[Etc/UTC]
 
 A powerful way to send personalized messages at scale and build effective customer engagement strategies. Learn more at onesignal.com
 
@@ -180,7 +180,6 @@ Class | Method | HTTP request | Description
  - [ExportPlayersSuccessResponse](docs/ExportPlayersSuccessResponse.md)
  - [Filter](docs/Filter.md)
  - [FilterExpressions](docs/FilterExpressions.md)
- - [FilterNotificationTarget](docs/FilterNotificationTarget.md)
  - [GetNotificationRequestBody](docs/GetNotificationRequestBody.md)
  - [InvalidIdentifierError](docs/InvalidIdentifierError.md)
  - [Notification](docs/Notification.md)
