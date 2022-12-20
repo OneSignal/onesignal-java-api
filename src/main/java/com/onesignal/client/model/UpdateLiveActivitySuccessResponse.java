@@ -20,6 +20,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.onesignal.client.model.Notification200Errors;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -46,66 +47,66 @@ import java.util.Set;
 import com.onesignal.client.JSON;
 
 /**
- * CreatePlayerSuccessResponse
+ * UpdateLiveActivitySuccessResponse
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-12-20T21:16:30.715Z[Etc/UTC]")
-public class CreatePlayerSuccessResponse {
+public class UpdateLiveActivitySuccessResponse {
   private static final long serialVersionUID = 1L;
 
-  public static final String SERIALIZED_NAME_SUCCESS = "success";
-  @SerializedName(SERIALIZED_NAME_SUCCESS)
-  private Boolean success;
+  public static final String SERIALIZED_NAME_NOTIFICATION_ID = "notification_id";
+  @SerializedName(SERIALIZED_NAME_NOTIFICATION_ID)
+  private String notificationId;
 
-  public static final String SERIALIZED_NAME_ID = "id";
-  @SerializedName(SERIALIZED_NAME_ID)
-  private String id;
+  public static final String SERIALIZED_NAME_ERRORS = "errors";
+  @SerializedName(SERIALIZED_NAME_ERRORS)
+  private Notification200Errors errors;
 
-  public CreatePlayerSuccessResponse() { 
+  public UpdateLiveActivitySuccessResponse() { 
   }
 
-  public CreatePlayerSuccessResponse success(Boolean success) {
+  public UpdateLiveActivitySuccessResponse notificationId(String notificationId) {
     
-    this.success = success;
+    this.notificationId = notificationId;
     return this;
   }
 
    /**
-   * Get success
-   * @return success
+   * Get notificationId
+   * @return notificationId
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public Boolean getSuccess() {
-    return success;
+  public String getNotificationId() {
+    return notificationId;
   }
 
 
-  public void setSuccess(Boolean success) {
-    this.success = success;
+  public void setNotificationId(String notificationId) {
+    this.notificationId = notificationId;
   }
 
 
-  public CreatePlayerSuccessResponse id(String id) {
+  public UpdateLiveActivitySuccessResponse errors(Notification200Errors errors) {
     
-    this.id = id;
+    this.errors = errors;
     return this;
   }
 
    /**
-   * Get id
-   * @return id
+   * Get errors
+   * @return errors
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public String getId() {
-    return id;
+  public Notification200Errors getErrors() {
+    return errors;
   }
 
 
-  public void setId(String id) {
-    this.id = id;
+  public void setErrors(Notification200Errors errors) {
+    this.errors = errors;
   }
 
 
@@ -118,22 +119,22 @@ public class CreatePlayerSuccessResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CreatePlayerSuccessResponse createPlayerSuccessResponse = (CreatePlayerSuccessResponse) o;
-    return Objects.equals(this.success, createPlayerSuccessResponse.success) &&
-        Objects.equals(this.id, createPlayerSuccessResponse.id);
+    UpdateLiveActivitySuccessResponse updateLiveActivitySuccessResponse = (UpdateLiveActivitySuccessResponse) o;
+    return Objects.equals(this.notificationId, updateLiveActivitySuccessResponse.notificationId) &&
+        Objects.equals(this.errors, updateLiveActivitySuccessResponse.errors);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(success, id);
+    return Objects.hash(notificationId, errors);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CreatePlayerSuccessResponse {\n");
-    sb.append("    success: ").append(toIndentedString(success)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("class UpdateLiveActivitySuccessResponse {\n");
+    sb.append("    notificationId: ").append(toIndentedString(notificationId)).append("\n");
+    sb.append("    errors: ").append(toIndentedString(errors)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -156,8 +157,8 @@ public class CreatePlayerSuccessResponse {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("success");
-    openapiFields.add("id");
+    openapiFields.add("notification_id");
+    openapiFields.add("errors");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -167,22 +168,22 @@ public class CreatePlayerSuccessResponse {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!CreatePlayerSuccessResponse.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'CreatePlayerSuccessResponse' and its subtypes
+       if (!UpdateLiveActivitySuccessResponse.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'UpdateLiveActivitySuccessResponse' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<CreatePlayerSuccessResponse> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(CreatePlayerSuccessResponse.class));
+       final TypeAdapter<UpdateLiveActivitySuccessResponse> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(UpdateLiveActivitySuccessResponse.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<CreatePlayerSuccessResponse>() {
+       return (TypeAdapter<T>) new TypeAdapter<UpdateLiveActivitySuccessResponse>() {
            @Override
-           public void write(JsonWriter out, CreatePlayerSuccessResponse value) throws IOException {
+           public void write(JsonWriter out, UpdateLiveActivitySuccessResponse value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public CreatePlayerSuccessResponse read(JsonReader in) throws IOException {
+           public UpdateLiveActivitySuccessResponse read(JsonReader in) throws IOException {
              JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
 
              return thisAdapter.fromJsonTree(jsonObj);
@@ -193,18 +194,18 @@ public class CreatePlayerSuccessResponse {
   }
 
  /**
-  * Create an instance of CreatePlayerSuccessResponse given an JSON string
+  * Create an instance of UpdateLiveActivitySuccessResponse given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of CreatePlayerSuccessResponse
-  * @throws IOException if the JSON string is invalid with respect to CreatePlayerSuccessResponse
+  * @return An instance of UpdateLiveActivitySuccessResponse
+  * @throws IOException if the JSON string is invalid with respect to UpdateLiveActivitySuccessResponse
   */
-  public static CreatePlayerSuccessResponse fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, CreatePlayerSuccessResponse.class);
+  public static UpdateLiveActivitySuccessResponse fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, UpdateLiveActivitySuccessResponse.class);
   }
 
  /**
-  * Convert an instance of CreatePlayerSuccessResponse to an JSON string
+  * Convert an instance of UpdateLiveActivitySuccessResponse to an JSON string
   *
   * @return JSON string
   */

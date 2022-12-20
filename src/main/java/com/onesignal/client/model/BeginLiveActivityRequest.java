@@ -46,66 +46,66 @@ import java.util.Set;
 import com.onesignal.client.JSON;
 
 /**
- * CreatePlayerSuccessResponse
+ * BeginLiveActivityRequest
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-12-20T21:16:30.715Z[Etc/UTC]")
-public class CreatePlayerSuccessResponse {
+public class BeginLiveActivityRequest {
   private static final long serialVersionUID = 1L;
 
-  public static final String SERIALIZED_NAME_SUCCESS = "success";
-  @SerializedName(SERIALIZED_NAME_SUCCESS)
-  private Boolean success;
+  public static final String SERIALIZED_NAME_PUSH_TOKEN = "push_token";
+  @SerializedName(SERIALIZED_NAME_PUSH_TOKEN)
+  private String pushToken;
 
-  public static final String SERIALIZED_NAME_ID = "id";
-  @SerializedName(SERIALIZED_NAME_ID)
-  private String id;
+  public static final String SERIALIZED_NAME_SUBSCRIPTION_ID = "subscription_id";
+  @SerializedName(SERIALIZED_NAME_SUBSCRIPTION_ID)
+  private String subscriptionId;
 
-  public CreatePlayerSuccessResponse() { 
+  public BeginLiveActivityRequest() { 
   }
 
-  public CreatePlayerSuccessResponse success(Boolean success) {
+  public BeginLiveActivityRequest pushToken(String pushToken) {
     
-    this.success = success;
+    this.pushToken = pushToken;
     return this;
   }
 
    /**
-   * Get success
-   * @return success
+   * Get pushToken
+   * @return pushToken
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "")
 
-  public Boolean getSuccess() {
-    return success;
+  public String getPushToken() {
+    return pushToken;
   }
 
 
-  public void setSuccess(Boolean success) {
-    this.success = success;
+  public void setPushToken(String pushToken) {
+    this.pushToken = pushToken;
   }
 
 
-  public CreatePlayerSuccessResponse id(String id) {
+  public BeginLiveActivityRequest subscriptionId(String subscriptionId) {
     
-    this.id = id;
+    this.subscriptionId = subscriptionId;
     return this;
   }
 
    /**
-   * Get id
-   * @return id
+   * Get subscriptionId
+   * @return subscriptionId
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "")
 
-  public String getId() {
-    return id;
+  public String getSubscriptionId() {
+    return subscriptionId;
   }
 
 
-  public void setId(String id) {
-    this.id = id;
+  public void setSubscriptionId(String subscriptionId) {
+    this.subscriptionId = subscriptionId;
   }
 
 
@@ -118,22 +118,22 @@ public class CreatePlayerSuccessResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CreatePlayerSuccessResponse createPlayerSuccessResponse = (CreatePlayerSuccessResponse) o;
-    return Objects.equals(this.success, createPlayerSuccessResponse.success) &&
-        Objects.equals(this.id, createPlayerSuccessResponse.id);
+    BeginLiveActivityRequest beginLiveActivityRequest = (BeginLiveActivityRequest) o;
+    return Objects.equals(this.pushToken, beginLiveActivityRequest.pushToken) &&
+        Objects.equals(this.subscriptionId, beginLiveActivityRequest.subscriptionId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(success, id);
+    return Objects.hash(pushToken, subscriptionId);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CreatePlayerSuccessResponse {\n");
-    sb.append("    success: ").append(toIndentedString(success)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("class BeginLiveActivityRequest {\n");
+    sb.append("    pushToken: ").append(toIndentedString(pushToken)).append("\n");
+    sb.append("    subscriptionId: ").append(toIndentedString(subscriptionId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -156,33 +156,35 @@ public class CreatePlayerSuccessResponse {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("success");
-    openapiFields.add("id");
+    openapiFields.add("push_token");
+    openapiFields.add("subscription_id");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("push_token");
+    openapiRequiredFields.add("subscription_id");
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!CreatePlayerSuccessResponse.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'CreatePlayerSuccessResponse' and its subtypes
+       if (!BeginLiveActivityRequest.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'BeginLiveActivityRequest' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<CreatePlayerSuccessResponse> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(CreatePlayerSuccessResponse.class));
+       final TypeAdapter<BeginLiveActivityRequest> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(BeginLiveActivityRequest.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<CreatePlayerSuccessResponse>() {
+       return (TypeAdapter<T>) new TypeAdapter<BeginLiveActivityRequest>() {
            @Override
-           public void write(JsonWriter out, CreatePlayerSuccessResponse value) throws IOException {
+           public void write(JsonWriter out, BeginLiveActivityRequest value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public CreatePlayerSuccessResponse read(JsonReader in) throws IOException {
+           public BeginLiveActivityRequest read(JsonReader in) throws IOException {
              JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
 
              return thisAdapter.fromJsonTree(jsonObj);
@@ -193,18 +195,18 @@ public class CreatePlayerSuccessResponse {
   }
 
  /**
-  * Create an instance of CreatePlayerSuccessResponse given an JSON string
+  * Create an instance of BeginLiveActivityRequest given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of CreatePlayerSuccessResponse
-  * @throws IOException if the JSON string is invalid with respect to CreatePlayerSuccessResponse
+  * @return An instance of BeginLiveActivityRequest
+  * @throws IOException if the JSON string is invalid with respect to BeginLiveActivityRequest
   */
-  public static CreatePlayerSuccessResponse fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, CreatePlayerSuccessResponse.class);
+  public static BeginLiveActivityRequest fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, BeginLiveActivityRequest.class);
   }
 
  /**
-  * Convert an instance of CreatePlayerSuccessResponse to an JSON string
+  * Convert an instance of BeginLiveActivityRequest to an JSON string
   *
   * @return JSON string
   */
