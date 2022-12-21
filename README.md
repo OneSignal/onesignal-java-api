@@ -1,8 +1,8 @@
 # onesignal-java-client
 
 OneSignal
-- API version: 1.0.1
-  - Build date: 2022-11-10T01:03:22.700Z[Etc/UTC]
+- API version: 1.0.2
+  - Build date: 2022-12-20T21:16:30.715Z[Etc/UTC]
 
 A powerful way to send personalized messages at scale and build effective customer engagement strategies. Learn more at onesignal.com
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>org.openapitools</groupId>
   <artifactId>onesignal-java-client</artifactId>
-  <version>1.0.1</version>
+  <version>1.0.2</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -57,7 +57,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "org.openapitools:onesignal-java-client:1.0.1"
+     implementation "org.openapitools:onesignal-java-client:1.0.2"
   }
 ```
 
@@ -71,7 +71,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/onesignal-java-client-1.0.1.jar`
+* `target/onesignal-java-client-1.0.2.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -134,6 +134,7 @@ All URIs are relative to *https://onesignal.com/api/v1*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*DefaultApi* | [**beginLiveActivity**](docs/DefaultApi.md#beginLiveActivity) | **POST** /apps/{app_id}/live_activities/{activity_id}/token | Start Live Activity
 *DefaultApi* | [**cancelNotification**](docs/DefaultApi.md#cancelNotification) | **DELETE** /notifications/{notification_id} | Stop a scheduled or currently outgoing notification
 *DefaultApi* | [**createApp**](docs/DefaultApi.md#createApp) | **POST** /apps | Create an app
 *DefaultApi* | [**createNotification**](docs/DefaultApi.md#createNotification) | **POST** /notifications | Create notification
@@ -141,6 +142,7 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**createSegments**](docs/DefaultApi.md#createSegments) | **POST** /apps/{app_id}/segments | Create Segments
 *DefaultApi* | [**deletePlayer**](docs/DefaultApi.md#deletePlayer) | **DELETE** /players/{player_id} | Delete a user record
 *DefaultApi* | [**deleteSegments**](docs/DefaultApi.md#deleteSegments) | **DELETE** /apps/{app_id}/segments/{segment_id} | Delete Segments
+*DefaultApi* | [**endLiveActivity**](docs/DefaultApi.md#endLiveActivity) | **DELETE** /apps/{app_id}/live_activities/{activity_id}/token/{subscription_id} | Stop Live Activity
 *DefaultApi* | [**exportPlayers**](docs/DefaultApi.md#exportPlayers) | **POST** /players/csv_export?app_id&#x3D;{app_id} | CSV export
 *DefaultApi* | [**getApp**](docs/DefaultApi.md#getApp) | **GET** /apps/{app_id} | View an app
 *DefaultApi* | [**getApps**](docs/DefaultApi.md#getApps) | **GET** /apps | View apps
@@ -151,6 +153,7 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**getPlayer**](docs/DefaultApi.md#getPlayer) | **GET** /players/{player_id} | View device
 *DefaultApi* | [**getPlayers**](docs/DefaultApi.md#getPlayers) | **GET** /players | View devices
 *DefaultApi* | [**updateApp**](docs/DefaultApi.md#updateApp) | **PUT** /apps/{app_id} | Update an app
+*DefaultApi* | [**updateLiveActivity**](docs/DefaultApi.md#updateLiveActivity) | **POST** /apps/{app_id}/live_activities/{activity_id}/notifications | Update a Live Activity via Push
 *DefaultApi* | [**updatePlayer**](docs/DefaultApi.md#updatePlayer) | **PUT** /players/{player_id} | Edit device
 *DefaultApi* | [**updatePlayerTags**](docs/DefaultApi.md#updatePlayerTags) | **PUT** /apps/{app_id}/users/{external_user_id} | Edit tags with external user id
 
@@ -158,21 +161,19 @@ Class | Method | HTTP request | Description
 ## Documentation for Models
 
  - [App](docs/App.md)
+ - [BadRequestError](docs/BadRequestError.md)
  - [BasicNotification](docs/BasicNotification.md)
  - [BasicNotificationAllOf](docs/BasicNotificationAllOf.md)
  - [BasicNotificationAllOfAndroidBackgroundLayout](docs/BasicNotificationAllOfAndroidBackgroundLayout.md)
+ - [BeginLiveActivityRequest](docs/BeginLiveActivityRequest.md)
  - [Button](docs/Button.md)
  - [CancelNotificationSuccessResponse](docs/CancelNotificationSuccessResponse.md)
- - [CreateNotificationBadRequestResponse](docs/CreateNotificationBadRequestResponse.md)
  - [CreateNotificationSuccessResponse](docs/CreateNotificationSuccessResponse.md)
  - [CreatePlayerSuccessResponse](docs/CreatePlayerSuccessResponse.md)
- - [CreateSegmentBadRequestResponse](docs/CreateSegmentBadRequestResponse.md)
  - [CreateSegmentConflictResponse](docs/CreateSegmentConflictResponse.md)
  - [CreateSegmentSuccessResponse](docs/CreateSegmentSuccessResponse.md)
- - [DeletePlayerBadRequestResponse](docs/DeletePlayerBadRequestResponse.md)
  - [DeletePlayerNotFoundResponse](docs/DeletePlayerNotFoundResponse.md)
  - [DeletePlayerSuccessResponse](docs/DeletePlayerSuccessResponse.md)
- - [DeleteSegmentBadRequestResponse](docs/DeleteSegmentBadRequestResponse.md)
  - [DeleteSegmentNotFoundResponse](docs/DeleteSegmentNotFoundResponse.md)
  - [DeleteSegmentSuccessResponse](docs/DeleteSegmentSuccessResponse.md)
  - [DeliveryData](docs/DeliveryData.md)
@@ -185,7 +186,6 @@ Class | Method | HTTP request | Description
  - [Notification](docs/Notification.md)
  - [Notification200Errors](docs/Notification200Errors.md)
  - [NotificationAllOf](docs/NotificationAllOf.md)
- - [NotificationHistoryBadRequestResponse](docs/NotificationHistoryBadRequestResponse.md)
  - [NotificationHistorySuccessResponse](docs/NotificationHistorySuccessResponse.md)
  - [NotificationSlice](docs/NotificationSlice.md)
  - [NotificationTarget](docs/NotificationTarget.md)
@@ -204,6 +204,8 @@ Class | Method | HTTP request | Description
  - [Segment](docs/Segment.md)
  - [SegmentNotificationTarget](docs/SegmentNotificationTarget.md)
  - [StringMap](docs/StringMap.md)
+ - [UpdateLiveActivityRequest](docs/UpdateLiveActivityRequest.md)
+ - [UpdateLiveActivitySuccessResponse](docs/UpdateLiveActivitySuccessResponse.md)
  - [UpdatePlayerSuccessResponse](docs/UpdatePlayerSuccessResponse.md)
  - [UpdatePlayerTagsRequestBody](docs/UpdatePlayerTagsRequestBody.md)
  - [UpdatePlayerTagsSuccessResponse](docs/UpdatePlayerTagsSuccessResponse.md)

@@ -4,6 +4,7 @@ All URIs are relative to *https://onesignal.com/api/v1*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
+| [**beginLiveActivity**](DefaultApi.md#beginLiveActivity) | **POST** /apps/{app_id}/live_activities/{activity_id}/token | Start Live Activity |
 | [**cancelNotification**](DefaultApi.md#cancelNotification) | **DELETE** /notifications/{notification_id} | Stop a scheduled or currently outgoing notification |
 | [**createApp**](DefaultApi.md#createApp) | **POST** /apps | Create an app |
 | [**createNotification**](DefaultApi.md#createNotification) | **POST** /notifications | Create notification |
@@ -11,6 +12,7 @@ All URIs are relative to *https://onesignal.com/api/v1*
 | [**createSegments**](DefaultApi.md#createSegments) | **POST** /apps/{app_id}/segments | Create Segments |
 | [**deletePlayer**](DefaultApi.md#deletePlayer) | **DELETE** /players/{player_id} | Delete a user record |
 | [**deleteSegments**](DefaultApi.md#deleteSegments) | **DELETE** /apps/{app_id}/segments/{segment_id} | Delete Segments |
+| [**endLiveActivity**](DefaultApi.md#endLiveActivity) | **DELETE** /apps/{app_id}/live_activities/{activity_id}/token/{subscription_id} | Stop Live Activity |
 | [**exportPlayers**](DefaultApi.md#exportPlayers) | **POST** /players/csv_export?app_id&#x3D;{app_id} | CSV export |
 | [**getApp**](DefaultApi.md#getApp) | **GET** /apps/{app_id} | View an app |
 | [**getApps**](DefaultApi.md#getApps) | **GET** /apps | View apps |
@@ -21,9 +23,81 @@ All URIs are relative to *https://onesignal.com/api/v1*
 | [**getPlayer**](DefaultApi.md#getPlayer) | **GET** /players/{player_id} | View device |
 | [**getPlayers**](DefaultApi.md#getPlayers) | **GET** /players | View devices |
 | [**updateApp**](DefaultApi.md#updateApp) | **PUT** /apps/{app_id} | Update an app |
+| [**updateLiveActivity**](DefaultApi.md#updateLiveActivity) | **POST** /apps/{app_id}/live_activities/{activity_id}/notifications | Update a Live Activity via Push |
 | [**updatePlayer**](DefaultApi.md#updatePlayer) | **PUT** /players/{player_id} | Edit device |
 | [**updatePlayerTags**](DefaultApi.md#updatePlayerTags) | **PUT** /apps/{app_id}/users/{external_user_id} | Edit tags with external user id |
 
+
+<a name="beginLiveActivity"></a>
+# **beginLiveActivity**
+> beginLiveActivity(appId, activityId, beginLiveActivityRequest)
+
+Start Live Activity
+
+Starts a Live Activity
+
+### Example
+```java
+// Import classes:
+import com.onesignal.client.ApiClient;
+import com.onesignal.client.ApiException;
+import com.onesignal.client.Configuration;
+import com.onesignal.client.auth.*;
+import com.onesignal.client.models.*;
+import com.onesignal.client.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://onesignal.com/api/v1");
+    
+    // Configure HTTP bearer authorization: app_key
+    HttpBearerAuth app_key = (HttpBearerAuth) defaultClient.getAuthentication("app_key");
+    app_key.setBearerToken("BEARER TOKEN");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String appId = "appId_example"; // String | The OneSignal App ID for your app.  Available in Keys & IDs.
+    String activityId = "activityId_example"; // String | Live Activity record ID
+    BeginLiveActivityRequest beginLiveActivityRequest = new BeginLiveActivityRequest(); // BeginLiveActivityRequest | 
+    try {
+      apiInstance.beginLiveActivity(appId, activityId, beginLiveActivityRequest);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#beginLiveActivity");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **appId** | **String**| The OneSignal App ID for your app.  Available in Keys &amp; IDs. | |
+| **activityId** | **String**| Live Activity record ID | |
+| **beginLiveActivityRequest** | [**BeginLiveActivityRequest**](BeginLiveActivityRequest.md)|  | |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[app_key](../README.md#app_key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **204** | OK |  -  |
+| **400** | Bad Request |  -  |
 
 <a name="cancelNotification"></a>
 # **cancelNotification**
@@ -93,6 +167,7 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
+| **400** | Bad Request |  -  |
 
 <a name="createApp"></a>
 # **createApp**
@@ -160,6 +235,7 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
+| **400** | Bad Request |  -  |
 
 <a name="createNotification"></a>
 # **createNotification**
@@ -295,6 +371,7 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
+| **400** | Bad Request |  -  |
 
 <a name="createSegments"></a>
 # **createSegments**
@@ -509,6 +586,77 @@ public class Example {
 | **400** | Bad Request |  -  |
 | **404** | Not Found |  -  |
 
+<a name="endLiveActivity"></a>
+# **endLiveActivity**
+> endLiveActivity(appId, activityId, subscriptionId)
+
+Stop Live Activity
+
+Stops a Live Activity
+
+### Example
+```java
+// Import classes:
+import com.onesignal.client.ApiClient;
+import com.onesignal.client.ApiException;
+import com.onesignal.client.Configuration;
+import com.onesignal.client.auth.*;
+import com.onesignal.client.models.*;
+import com.onesignal.client.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://onesignal.com/api/v1");
+    
+    // Configure HTTP bearer authorization: app_key
+    HttpBearerAuth app_key = (HttpBearerAuth) defaultClient.getAuthentication("app_key");
+    app_key.setBearerToken("BEARER TOKEN");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String appId = "appId_example"; // String | The OneSignal App ID for your app.  Available in Keys & IDs.
+    String activityId = "activityId_example"; // String | Live Activity record ID
+    String subscriptionId = "subscriptionId_example"; // String | Subscription ID
+    try {
+      apiInstance.endLiveActivity(appId, activityId, subscriptionId);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#endLiveActivity");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **appId** | **String**| The OneSignal App ID for your app.  Available in Keys &amp; IDs. | |
+| **activityId** | **String**| Live Activity record ID | |
+| **subscriptionId** | **String**| Subscription ID | |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[app_key](../README.md#app_key)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **204** | OK |  -  |
+| **400** | Bad Request |  -  |
+
 <a name="exportPlayers"></a>
 # **exportPlayers**
 > ExportPlayersSuccessResponse exportPlayers(appId, exportPlayersRequestBody)
@@ -645,6 +793,7 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
+| **400** | Bad Request |  -  |
 
 <a name="getApps"></a>
 # **getApps**
@@ -708,6 +857,7 @@ This endpoint does not need any parameter.
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
+| **400** | Bad Request |  -  |
 
 <a name="getNotification"></a>
 # **getNotification**
@@ -777,6 +927,7 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
+| **400** | Bad Request |  -  |
 
 <a name="getNotificationHistory"></a>
 # **getNotificationHistory**
@@ -920,6 +1071,7 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
+| **400** | Bad Request |  -  |
 
 <a name="getOutcomes"></a>
 # **getOutcomes**
@@ -997,6 +1149,7 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
+| **400** | Bad Request |  -  |
 
 <a name="getPlayer"></a>
 # **getPlayer**
@@ -1068,6 +1221,7 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
+| **400** | Bad Request |  -  |
 
 <a name="getPlayers"></a>
 # **getPlayers**
@@ -1139,6 +1293,7 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
+| **400** | Bad Request |  -  |
 
 <a name="updateApp"></a>
 # **updateApp**
@@ -1208,6 +1363,79 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+
+<a name="updateLiveActivity"></a>
+# **updateLiveActivity**
+> UpdateLiveActivitySuccessResponse updateLiveActivity(appId, activityId, updateLiveActivityRequest)
+
+Update a Live Activity via Push
+
+Updates a specified live activity.
+
+### Example
+```java
+// Import classes:
+import com.onesignal.client.ApiClient;
+import com.onesignal.client.ApiException;
+import com.onesignal.client.Configuration;
+import com.onesignal.client.auth.*;
+import com.onesignal.client.models.*;
+import com.onesignal.client.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://onesignal.com/api/v1");
+    
+    // Configure HTTP bearer authorization: app_key
+    HttpBearerAuth app_key = (HttpBearerAuth) defaultClient.getAuthentication("app_key");
+    app_key.setBearerToken("BEARER TOKEN");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String appId = "appId_example"; // String | The OneSignal App ID for your app.  Available in Keys & IDs.
+    String activityId = "activityId_example"; // String | Live Activity record ID
+    UpdateLiveActivityRequest updateLiveActivityRequest = new UpdateLiveActivityRequest(); // UpdateLiveActivityRequest | 
+    try {
+      UpdateLiveActivitySuccessResponse result = apiInstance.updateLiveActivity(appId, activityId, updateLiveActivityRequest);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#updateLiveActivity");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **appId** | **String**| The OneSignal App ID for your app.  Available in Keys &amp; IDs. | |
+| **activityId** | **String**| Live Activity record ID | |
+| **updateLiveActivityRequest** | [**UpdateLiveActivityRequest**](UpdateLiveActivityRequest.md)|  | |
+
+### Return type
+
+[**UpdateLiveActivitySuccessResponse**](UpdateLiveActivitySuccessResponse.md)
+
+### Authorization
+
+[app_key](../README.md#app_key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
 
 <a name="updatePlayer"></a>
 # **updatePlayer**
@@ -1277,6 +1505,7 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
+| **400** | Bad Request |  -  |
 
 <a name="updatePlayerTags"></a>
 # **updatePlayerTags**
@@ -1348,4 +1577,5 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
+| **400** | Bad Request |  -  |
 
