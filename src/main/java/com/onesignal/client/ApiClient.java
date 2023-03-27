@@ -1035,7 +1035,7 @@ public class ApiClient {
                     callback.onFailure(e, response.code(), response.headers().toMultimap());
                     return;
                 } catch (Exception e) {
-                    callback.onFailure(new ApiException(e), response.code(), response.headers().toMultimap());
+                    callback.onFailure(new ApiException(e.getMessage(), e, response.code(), response.headers().toMultimap(), response.message()), response.code(), response.headers().toMultimap());
                     return;
                 }
                 callback.onSuccess(result, response.code(), response.headers().toMultimap());
