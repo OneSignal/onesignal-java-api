@@ -10,22 +10,36 @@ All URIs are relative to *https://onesignal.com/api/v1*
 | [**createNotification**](DefaultApi.md#createNotification) | **POST** /notifications | Create notification |
 | [**createPlayer**](DefaultApi.md#createPlayer) | **POST** /players | Add a device |
 | [**createSegments**](DefaultApi.md#createSegments) | **POST** /apps/{app_id}/segments | Create Segments |
+| [**createSubscription**](DefaultApi.md#createSubscription) | **POST** /apps/{app_id}/users/by/{alias_label}/{alias_id}/subscriptions |  |
+| [**createUser**](DefaultApi.md#createUser) | **POST** /apps/{app_id}/users |  |
+| [**deleteAlias**](DefaultApi.md#deleteAlias) | **DELETE** /apps/{app_id}/users/by/{alias_label}/{alias_id}/identity/{alias_label_to_delete} |  |
 | [**deletePlayer**](DefaultApi.md#deletePlayer) | **DELETE** /players/{player_id} | Delete a user record |
 | [**deleteSegments**](DefaultApi.md#deleteSegments) | **DELETE** /apps/{app_id}/segments/{segment_id} | Delete Segments |
+| [**deleteSubscription**](DefaultApi.md#deleteSubscription) | **DELETE** /apps/{app_id}/subscriptions/{subscription_id} |  |
+| [**deleteUser**](DefaultApi.md#deleteUser) | **DELETE** /apps/{app_id}/users/by/{alias_label}/{alias_id} |  |
 | [**endLiveActivity**](DefaultApi.md#endLiveActivity) | **DELETE** /apps/{app_id}/live_activities/{activity_id}/token/{subscription_id} | Stop Live Activity |
 | [**exportPlayers**](DefaultApi.md#exportPlayers) | **POST** /players/csv_export?app_id&#x3D;{app_id} | CSV export |
+| [**fetchAliases**](DefaultApi.md#fetchAliases) | **GET** /apps/{app_id}/subscriptions/{subscription_id}/user/identity |  |
+| [**fetchUser**](DefaultApi.md#fetchUser) | **GET** /apps/{app_id}/users/by/{alias_label}/{alias_id} |  |
+| [**fetchUserIdentity**](DefaultApi.md#fetchUserIdentity) | **GET** /apps/{app_id}/users/by/{alias_label}/{alias_id}/identity |  |
 | [**getApp**](DefaultApi.md#getApp) | **GET** /apps/{app_id} | View an app |
 | [**getApps**](DefaultApi.md#getApps) | **GET** /apps | View apps |
+| [**getEligibleIams**](DefaultApi.md#getEligibleIams) | **GET** /apps/{app_id}/subscriptions/{subscription_id}/iams |  |
 | [**getNotification**](DefaultApi.md#getNotification) | **GET** /notifications/{notification_id} | View notification |
 | [**getNotificationHistory**](DefaultApi.md#getNotificationHistory) | **POST** /notifications/{notification_id}/history | Notification History |
 | [**getNotifications**](DefaultApi.md#getNotifications) | **GET** /notifications | View notifications |
 | [**getOutcomes**](DefaultApi.md#getOutcomes) | **GET** /apps/{app_id}/outcomes | View Outcomes |
 | [**getPlayer**](DefaultApi.md#getPlayer) | **GET** /players/{player_id} | View device |
 | [**getPlayers**](DefaultApi.md#getPlayers) | **GET** /players | View devices |
+| [**identifyUserByAlias**](DefaultApi.md#identifyUserByAlias) | **PATCH** /apps/{app_id}/users/by/{alias_label}/{alias_id}/identity |  |
+| [**identifyUserBySubscriptionId**](DefaultApi.md#identifyUserBySubscriptionId) | **PATCH** /apps/{app_id}/subscriptions/{subscription_id}/user/identity |  |
+| [**transferSubscription**](DefaultApi.md#transferSubscription) | **PATCH** /apps/{app_id}/subscriptions/{subscription_id}/owner |  |
 | [**updateApp**](DefaultApi.md#updateApp) | **PUT** /apps/{app_id} | Update an app |
 | [**updateLiveActivity**](DefaultApi.md#updateLiveActivity) | **POST** /apps/{app_id}/live_activities/{activity_id}/notifications | Update a Live Activity via Push |
 | [**updatePlayer**](DefaultApi.md#updatePlayer) | **PUT** /players/{player_id} | Edit device |
 | [**updatePlayerTags**](DefaultApi.md#updatePlayerTags) | **PUT** /apps/{app_id}/users/{external_user_id} | Edit tags with external user id |
+| [**updateSubscription**](DefaultApi.md#updateSubscription) | **PATCH** /apps/{app_id}/subscriptions/{subscription_id} |  |
+| [**updateUser**](DefaultApi.md#updateUser) | **PATCH** /apps/{app_id}/users/by/{alias_label}/{alias_id} |  |
 
 
 <a name="beginLiveActivity"></a>
@@ -444,6 +458,224 @@ public class Example {
 | **400** | Bad Request |  -  |
 | **409** | Conflict |  -  |
 
+<a name="createSubscription"></a>
+# **createSubscription**
+> InlineResponse201 createSubscription(appId, aliasLabel, aliasId, createSubscriptionRequestBody)
+
+
+
+Creates a new Subscription under the User provided. Useful to add email addresses and SMS numbers to the User.
+
+### Example
+```java
+// Import classes:
+import com.onesignal.client.ApiClient;
+import com.onesignal.client.ApiException;
+import com.onesignal.client.Configuration;
+import com.onesignal.client.auth.*;
+import com.onesignal.client.models.*;
+import com.onesignal.client.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://onesignal.com/api/v1");
+    
+    // Configure HTTP bearer authorization: app_key
+    HttpBearerAuth app_key = (HttpBearerAuth) defaultClient.getAuthentication("app_key");
+    app_key.setBearerToken("BEARER TOKEN");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String appId = "appId_example"; // String | 
+    String aliasLabel = "aliasLabel_example"; // String | 
+    String aliasId = "aliasId_example"; // String | 
+    CreateSubscriptionRequestBody createSubscriptionRequestBody = new CreateSubscriptionRequestBody(); // CreateSubscriptionRequestBody | 
+    try {
+      InlineResponse201 result = apiInstance.createSubscription(appId, aliasLabel, aliasId, createSubscriptionRequestBody);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#createSubscription");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **appId** | **String**|  | |
+| **aliasLabel** | **String**|  | |
+| **aliasId** | **String**|  | |
+| **createSubscriptionRequestBody** | [**CreateSubscriptionRequestBody**](CreateSubscriptionRequestBody.md)|  | |
+
+### Return type
+
+[**InlineResponse201**](InlineResponse201.md)
+
+### Authorization
+
+[app_key](../README.md#app_key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | CREATED |  -  |
+| **202** | ACCEPTED |  -  |
+
+<a name="createUser"></a>
+# **createUser**
+> User createUser(appId, user)
+
+
+
+Creates a User, optionally Subscriptions owned by the User as well as Aliases. Aliases provided in the payload will be used to look up an existing User.
+
+### Example
+```java
+// Import classes:
+import com.onesignal.client.ApiClient;
+import com.onesignal.client.ApiException;
+import com.onesignal.client.Configuration;
+import com.onesignal.client.auth.*;
+import com.onesignal.client.models.*;
+import com.onesignal.client.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://onesignal.com/api/v1");
+    
+    // Configure HTTP bearer authorization: app_key
+    HttpBearerAuth app_key = (HttpBearerAuth) defaultClient.getAuthentication("app_key");
+    app_key.setBearerToken("BEARER TOKEN");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String appId = "appId_example"; // String | 
+    User user = new User(); // User | 
+    try {
+      User result = apiInstance.createUser(appId, user);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#createUser");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **appId** | **String**|  | |
+| **user** | [**User**](User.md)|  | |
+
+### Return type
+
+[**User**](User.md)
+
+### Authorization
+
+[app_key](../README.md#app_key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | CREATED |  -  |
+| **202** | ACCEPTED |  -  |
+| **409** | Multiple User Identity Conflict |  -  |
+
+<a name="deleteAlias"></a>
+# **deleteAlias**
+> InlineResponse200 deleteAlias(appId, aliasLabel, aliasId, aliasLabelToDelete)
+
+
+
+Deletes an alias by alias label
+
+### Example
+```java
+// Import classes:
+import com.onesignal.client.ApiClient;
+import com.onesignal.client.ApiException;
+import com.onesignal.client.Configuration;
+import com.onesignal.client.auth.*;
+import com.onesignal.client.models.*;
+import com.onesignal.client.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://onesignal.com/api/v1");
+    
+    // Configure HTTP bearer authorization: app_key
+    HttpBearerAuth app_key = (HttpBearerAuth) defaultClient.getAuthentication("app_key");
+    app_key.setBearerToken("BEARER TOKEN");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String appId = "appId_example"; // String | 
+    String aliasLabel = "aliasLabel_example"; // String | 
+    String aliasId = "aliasId_example"; // String | 
+    String aliasLabelToDelete = "aliasLabelToDelete_example"; // String | 
+    try {
+      InlineResponse200 result = apiInstance.deleteAlias(appId, aliasLabel, aliasId, aliasLabelToDelete);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#deleteAlias");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **appId** | **String**|  | |
+| **aliasLabel** | **String**|  | |
+| **aliasId** | **String**|  | |
+| **aliasLabelToDelete** | **String**|  | |
+
+### Return type
+
+[**InlineResponse200**](InlineResponse200.md)
+
+### Authorization
+
+[app_key](../README.md#app_key)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+
 <a name="deletePlayer"></a>
 # **deletePlayer**
 > DeletePlayerSuccessResponse deletePlayer(appId, playerId)
@@ -586,6 +818,139 @@ public class Example {
 | **400** | Bad Request |  -  |
 | **404** | Not Found |  -  |
 
+<a name="deleteSubscription"></a>
+# **deleteSubscription**
+> deleteSubscription(appId, subscriptionId)
+
+
+
+Deletes the Subscription.
+
+### Example
+```java
+// Import classes:
+import com.onesignal.client.ApiClient;
+import com.onesignal.client.ApiException;
+import com.onesignal.client.Configuration;
+import com.onesignal.client.auth.*;
+import com.onesignal.client.models.*;
+import com.onesignal.client.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://onesignal.com/api/v1");
+    
+    // Configure HTTP bearer authorization: app_key
+    HttpBearerAuth app_key = (HttpBearerAuth) defaultClient.getAuthentication("app_key");
+    app_key.setBearerToken("BEARER TOKEN");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String appId = "appId_example"; // String | 
+    String subscriptionId = "subscriptionId_example"; // String | 
+    try {
+      apiInstance.deleteSubscription(appId, subscriptionId);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#deleteSubscription");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **appId** | **String**|  | |
+| **subscriptionId** | **String**|  | |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[app_key](../README.md#app_key)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **202** | ACCEPTED |  -  |
+
+<a name="deleteUser"></a>
+# **deleteUser**
+> deleteUser(appId, aliasLabel, aliasId)
+
+
+
+Removes the User identified by (:alias_label, :alias_id), and all Subscriptions and Aliases
+
+### Example
+```java
+// Import classes:
+import com.onesignal.client.ApiClient;
+import com.onesignal.client.ApiException;
+import com.onesignal.client.Configuration;
+import com.onesignal.client.models.*;
+import com.onesignal.client.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://onesignal.com/api/v1");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String appId = "appId_example"; // String | 
+    String aliasLabel = "aliasLabel_example"; // String | 
+    String aliasId = "aliasId_example"; // String | 
+    try {
+      apiInstance.deleteUser(appId, aliasLabel, aliasId);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#deleteUser");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **appId** | **String**|  | |
+| **aliasLabel** | **String**|  | |
+| **aliasId** | **String**|  | |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+
 <a name="endLiveActivity"></a>
 # **endLiveActivity**
 > endLiveActivity(appId, activityId, subscriptionId)
@@ -727,6 +1092,217 @@ public class Example {
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
 
+<a name="fetchAliases"></a>
+# **fetchAliases**
+> UserIdentityResponse fetchAliases(appId, subscriptionId)
+
+
+
+Lists all Aliases for the User identified by :subscription_id.
+
+### Example
+```java
+// Import classes:
+import com.onesignal.client.ApiClient;
+import com.onesignal.client.ApiException;
+import com.onesignal.client.Configuration;
+import com.onesignal.client.auth.*;
+import com.onesignal.client.models.*;
+import com.onesignal.client.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://onesignal.com/api/v1");
+    
+    // Configure HTTP bearer authorization: app_key
+    HttpBearerAuth app_key = (HttpBearerAuth) defaultClient.getAuthentication("app_key");
+    app_key.setBearerToken("BEARER TOKEN");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String appId = "appId_example"; // String | 
+    String subscriptionId = "subscriptionId_example"; // String | 
+    try {
+      UserIdentityResponse result = apiInstance.fetchAliases(appId, subscriptionId);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#fetchAliases");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **appId** | **String**|  | |
+| **subscriptionId** | **String**|  | |
+
+### Return type
+
+[**UserIdentityResponse**](UserIdentityResponse.md)
+
+### Authorization
+
+[app_key](../README.md#app_key)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+
+<a name="fetchUser"></a>
+# **fetchUser**
+> User fetchUser(appId, aliasLabel, aliasId)
+
+
+
+Returns the User’s properties, Aliases, and Subscriptions.
+
+### Example
+```java
+// Import classes:
+import com.onesignal.client.ApiClient;
+import com.onesignal.client.ApiException;
+import com.onesignal.client.Configuration;
+import com.onesignal.client.auth.*;
+import com.onesignal.client.models.*;
+import com.onesignal.client.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://onesignal.com/api/v1");
+    
+    // Configure HTTP bearer authorization: app_key
+    HttpBearerAuth app_key = (HttpBearerAuth) defaultClient.getAuthentication("app_key");
+    app_key.setBearerToken("BEARER TOKEN");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String appId = "appId_example"; // String | 
+    String aliasLabel = "aliasLabel_example"; // String | 
+    String aliasId = "aliasId_example"; // String | 
+    try {
+      User result = apiInstance.fetchUser(appId, aliasLabel, aliasId);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#fetchUser");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **appId** | **String**|  | |
+| **aliasLabel** | **String**|  | |
+| **aliasId** | **String**|  | |
+
+### Return type
+
+[**User**](User.md)
+
+### Authorization
+
+[app_key](../README.md#app_key)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+
+<a name="fetchUserIdentity"></a>
+# **fetchUserIdentity**
+> InlineResponse200 fetchUserIdentity(appId, aliasLabel, aliasId)
+
+
+
+Lists all Aliases for the User identified by (:alias_label, :alias_id).
+
+### Example
+```java
+// Import classes:
+import com.onesignal.client.ApiClient;
+import com.onesignal.client.ApiException;
+import com.onesignal.client.Configuration;
+import com.onesignal.client.auth.*;
+import com.onesignal.client.models.*;
+import com.onesignal.client.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://onesignal.com/api/v1");
+    
+    // Configure HTTP bearer authorization: app_key
+    HttpBearerAuth app_key = (HttpBearerAuth) defaultClient.getAuthentication("app_key");
+    app_key.setBearerToken("BEARER TOKEN");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String appId = "appId_example"; // String | 
+    String aliasLabel = "aliasLabel_example"; // String | 
+    String aliasId = "aliasId_example"; // String | 
+    try {
+      InlineResponse200 result = apiInstance.fetchUserIdentity(appId, aliasLabel, aliasId);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#fetchUserIdentity");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **appId** | **String**|  | |
+| **aliasLabel** | **String**|  | |
+| **aliasId** | **String**|  | |
+
+### Return type
+
+[**InlineResponse200**](InlineResponse200.md)
+
+### Authorization
+
+[app_key](../README.md#app_key)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+
 <a name="getApp"></a>
 # **getApp**
 > App getApp(appId)
@@ -858,6 +1434,75 @@ This endpoint does not need any parameter.
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
+
+<a name="getEligibleIams"></a>
+# **getEligibleIams**
+> InlineResponse2003 getEligibleIams(appId, subscriptionId)
+
+
+
+Manifest of In-App Messages the Subscription is eligible to display by the SDK.
+
+### Example
+```java
+// Import classes:
+import com.onesignal.client.ApiClient;
+import com.onesignal.client.ApiException;
+import com.onesignal.client.Configuration;
+import com.onesignal.client.auth.*;
+import com.onesignal.client.models.*;
+import com.onesignal.client.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://onesignal.com/api/v1");
+    
+    // Configure HTTP bearer authorization: app_key
+    HttpBearerAuth app_key = (HttpBearerAuth) defaultClient.getAuthentication("app_key");
+    app_key.setBearerToken("BEARER TOKEN");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String appId = "appId_example"; // String | 
+    String subscriptionId = "subscriptionId_example"; // String | 
+    try {
+      InlineResponse2003 result = apiInstance.getEligibleIams(appId, subscriptionId);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#getEligibleIams");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **appId** | **String**|  | |
+| **subscriptionId** | **String**|  | |
+
+### Return type
+
+[**InlineResponse2003**](InlineResponse2003.md)
+
+### Authorization
+
+[app_key](../README.md#app_key)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
 
 <a name="getNotification"></a>
 # **getNotification**
@@ -1295,6 +1940,223 @@ public class Example {
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
 
+<a name="identifyUserByAlias"></a>
+# **identifyUserByAlias**
+> InlineResponse200 identifyUserByAlias(appId, aliasLabel, aliasId, userIdentityRequestBody)
+
+
+
+Upserts one or more Aliases to an existing User identified by (:alias_label, :alias_id).
+
+### Example
+```java
+// Import classes:
+import com.onesignal.client.ApiClient;
+import com.onesignal.client.ApiException;
+import com.onesignal.client.Configuration;
+import com.onesignal.client.auth.*;
+import com.onesignal.client.models.*;
+import com.onesignal.client.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://onesignal.com/api/v1");
+    
+    // Configure HTTP bearer authorization: app_key
+    HttpBearerAuth app_key = (HttpBearerAuth) defaultClient.getAuthentication("app_key");
+    app_key.setBearerToken("BEARER TOKEN");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String appId = "appId_example"; // String | 
+    String aliasLabel = "aliasLabel_example"; // String | 
+    String aliasId = "aliasId_example"; // String | 
+    UserIdentityRequestBody userIdentityRequestBody = new UserIdentityRequestBody(); // UserIdentityRequestBody | 
+    try {
+      InlineResponse200 result = apiInstance.identifyUserByAlias(appId, aliasLabel, aliasId, userIdentityRequestBody);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#identifyUserByAlias");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **appId** | **String**|  | |
+| **aliasLabel** | **String**|  | |
+| **aliasId** | **String**|  | |
+| **userIdentityRequestBody** | [**UserIdentityRequestBody**](UserIdentityRequestBody.md)|  | |
+
+### Return type
+
+[**InlineResponse200**](InlineResponse200.md)
+
+### Authorization
+
+[app_key](../README.md#app_key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **409** | Conflict |  -  |
+
+<a name="identifyUserBySubscriptionId"></a>
+# **identifyUserBySubscriptionId**
+> UserIdentityResponse identifyUserBySubscriptionId(appId, subscriptionId, userIdentityRequestBody)
+
+
+
+Upserts one or more Aliases for the User identified by :subscription_id.
+
+### Example
+```java
+// Import classes:
+import com.onesignal.client.ApiClient;
+import com.onesignal.client.ApiException;
+import com.onesignal.client.Configuration;
+import com.onesignal.client.auth.*;
+import com.onesignal.client.models.*;
+import com.onesignal.client.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://onesignal.com/api/v1");
+    
+    // Configure HTTP bearer authorization: app_key
+    HttpBearerAuth app_key = (HttpBearerAuth) defaultClient.getAuthentication("app_key");
+    app_key.setBearerToken("BEARER TOKEN");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String appId = "appId_example"; // String | 
+    String subscriptionId = "subscriptionId_example"; // String | 
+    UserIdentityRequestBody userIdentityRequestBody = new UserIdentityRequestBody(); // UserIdentityRequestBody | 
+    try {
+      UserIdentityResponse result = apiInstance.identifyUserBySubscriptionId(appId, subscriptionId, userIdentityRequestBody);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#identifyUserBySubscriptionId");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **appId** | **String**|  | |
+| **subscriptionId** | **String**|  | |
+| **userIdentityRequestBody** | [**UserIdentityRequestBody**](UserIdentityRequestBody.md)|  | |
+
+### Return type
+
+[**UserIdentityResponse**](UserIdentityResponse.md)
+
+### Authorization
+
+[app_key](../README.md#app_key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **409** | Conflict |  -  |
+
+<a name="transferSubscription"></a>
+# **transferSubscription**
+> UserIdentityResponse transferSubscription(appId, subscriptionId, transferSubscriptionRequestBody)
+
+
+
+Transfers this Subscription to the User identified by the identity in the payload.
+
+### Example
+```java
+// Import classes:
+import com.onesignal.client.ApiClient;
+import com.onesignal.client.ApiException;
+import com.onesignal.client.Configuration;
+import com.onesignal.client.auth.*;
+import com.onesignal.client.models.*;
+import com.onesignal.client.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://onesignal.com/api/v1");
+    
+    // Configure HTTP bearer authorization: app_key
+    HttpBearerAuth app_key = (HttpBearerAuth) defaultClient.getAuthentication("app_key");
+    app_key.setBearerToken("BEARER TOKEN");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String appId = "appId_example"; // String | 
+    String subscriptionId = "subscriptionId_example"; // String | 
+    TransferSubscriptionRequestBody transferSubscriptionRequestBody = new TransferSubscriptionRequestBody(); // TransferSubscriptionRequestBody | 
+    try {
+      UserIdentityResponse result = apiInstance.transferSubscription(appId, subscriptionId, transferSubscriptionRequestBody);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#transferSubscription");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **appId** | **String**|  | |
+| **subscriptionId** | **String**|  | |
+| **transferSubscriptionRequestBody** | [**TransferSubscriptionRequestBody**](TransferSubscriptionRequestBody.md)|  | |
+
+### Return type
+
+[**UserIdentityResponse**](UserIdentityResponse.md)
+
+### Authorization
+
+[app_key](../README.md#app_key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+
 <a name="updateApp"></a>
 # **updateApp**
 > App updateApp(appId, app)
@@ -1577,5 +2439,147 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
-| **400** | Bad Request |  -  |
+
+<a name="updateSubscription"></a>
+# **updateSubscription**
+> updateSubscription(appId, subscriptionId, updateSubscriptionRequestBody)
+
+
+
+Updates an existing Subscription’s properties.
+
+### Example
+```java
+// Import classes:
+import com.onesignal.client.ApiClient;
+import com.onesignal.client.ApiException;
+import com.onesignal.client.Configuration;
+import com.onesignal.client.auth.*;
+import com.onesignal.client.models.*;
+import com.onesignal.client.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://onesignal.com/api/v1");
+    
+    // Configure HTTP bearer authorization: app_key
+    HttpBearerAuth app_key = (HttpBearerAuth) defaultClient.getAuthentication("app_key");
+    app_key.setBearerToken("BEARER TOKEN");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String appId = "appId_example"; // String | 
+    String subscriptionId = "subscriptionId_example"; // String | 
+    UpdateSubscriptionRequestBody updateSubscriptionRequestBody = new UpdateSubscriptionRequestBody(); // UpdateSubscriptionRequestBody | 
+    try {
+      apiInstance.updateSubscription(appId, subscriptionId, updateSubscriptionRequestBody);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#updateSubscription");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **appId** | **String**|  | |
+| **subscriptionId** | **String**|  | |
+| **updateSubscriptionRequestBody** | [**UpdateSubscriptionRequestBody**](UpdateSubscriptionRequestBody.md)|  | |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[app_key](../README.md#app_key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **202** | ACCEPTED |  -  |
+
+<a name="updateUser"></a>
+# **updateUser**
+> InlineResponse202 updateUser(appId, aliasLabel, aliasId, updateUserRequest)
+
+
+
+Updates an existing User’s properties.
+
+### Example
+```java
+// Import classes:
+import com.onesignal.client.ApiClient;
+import com.onesignal.client.ApiException;
+import com.onesignal.client.Configuration;
+import com.onesignal.client.auth.*;
+import com.onesignal.client.models.*;
+import com.onesignal.client.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://onesignal.com/api/v1");
+    
+    // Configure HTTP bearer authorization: app_key
+    HttpBearerAuth app_key = (HttpBearerAuth) defaultClient.getAuthentication("app_key");
+    app_key.setBearerToken("BEARER TOKEN");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String appId = "appId_example"; // String | 
+    String aliasLabel = "aliasLabel_example"; // String | 
+    String aliasId = "aliasId_example"; // String | 
+    UpdateUserRequest updateUserRequest = new UpdateUserRequest(); // UpdateUserRequest | 
+    try {
+      InlineResponse202 result = apiInstance.updateUser(appId, aliasLabel, aliasId, updateUserRequest);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#updateUser");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **appId** | **String**|  | |
+| **aliasLabel** | **String**|  | |
+| **aliasId** | **String**|  | |
+| **updateUserRequest** | [**UpdateUserRequest**](UpdateUserRequest.md)|  | |
+
+### Return type
+
+[**InlineResponse202**](InlineResponse202.md)
+
+### Authorization
+
+[app_key](../README.md#app_key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **202** | ACCEPTED |  -  |
 
