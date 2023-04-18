@@ -19,6 +19,8 @@
 |**includeChromeRegIds** | **List&lt;String&gt;** | Not Recommended: Please consider using include_player_ids or include_external_user_ids instead. Target using Chrome App registration IDs. If a token does not correspond to an existing user, a new user will be created. Example: APA91bEeiUeSukAAUdnw3O2RB45FWlSpgJ7Ji_... Limit of 2,000 entries per REST API call  |  [optional] |
 |**includeChromeWebRegIds** | **List&lt;String&gt;** | Not Recommended: Please consider using include_player_ids or include_external_user_ids instead. Target using Chrome Web Push registration IDs. If a token does not correspond to an existing user, a new user will be created. Example: APA91bEeiUeSukAAUdnw3O2RB45FWlSpgJ7Ji_... Limit of 2,000 entries per REST API call  |  [optional] |
 |**includeAndroidRegIds** | **List&lt;String&gt;** | Not Recommended: Please consider using include_player_ids or include_external_user_ids instead. Target using Android device registration IDs. If a token does not correspond to an existing user, a new user will be created. Example: APA91bEeiUeSukAAUdnw3O2RB45FWlSpgJ7Ji_... Limit of 2,000 entries per REST API call  |  [optional] |
+|**includeAliases** | [**PlayerNotificationTargetIncludeAliases**](PlayerNotificationTargetIncludeAliases.md) |  |  [optional] |
+|**targetChannel** | [**TargetChannelEnum**](#TargetChannelEnum) |  |  [optional] |
 |**id** | **String** |  |  [optional] |
 |**value** | **Integer** |  |  [optional] [readonly] |
 |**name** | **String** | Required for SMS Messages. An identifier for tracking message within the OneSignal dashboard or export analytics. Not shown to end user. |  [optional] |
@@ -108,6 +110,16 @@
 |**smsFrom** | **String** | Channel: SMS Phone Number used to send SMS. Should be a registered Twilio phone number in E.164 format.  |  [optional] |
 |**smsMediaUrls** | **List&lt;String&gt;** | Channel: SMS URLs for the media files to be attached to the SMS content. Limit: 10 media urls with a total max. size of 5MBs.  |  [optional] |
 |**filters** | [**List&lt;Filter&gt;**](Filter.md) |  |  [optional] |
+
+
+
+## Enum: TargetChannelEnum
+
+| Name | Value |
+|---- | -----|
+| PUSH | &quot;push&quot; |
+| EMAIL | &quot;email&quot; |
+| SMS | &quot;sms&quot; |
 
 
 

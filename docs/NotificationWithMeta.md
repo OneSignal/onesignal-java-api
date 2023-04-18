@@ -19,6 +19,8 @@
 |**includeChromeRegIds** | **List&lt;String&gt;** | Not Recommended: Please consider using include_player_ids or include_external_user_ids instead. Target using Chrome App registration IDs. If a token does not correspond to an existing user, a new user will be created. Example: APA91bEeiUeSukAAUdnw3O2RB45FWlSpgJ7Ji_... Limit of 2,000 entries per REST API call  |  [optional] |
 |**includeChromeWebRegIds** | **List&lt;String&gt;** | Not Recommended: Please consider using include_player_ids or include_external_user_ids instead. Target using Chrome Web Push registration IDs. If a token does not correspond to an existing user, a new user will be created. Example: APA91bEeiUeSukAAUdnw3O2RB45FWlSpgJ7Ji_... Limit of 2,000 entries per REST API call  |  [optional] |
 |**includeAndroidRegIds** | **List&lt;String&gt;** | Not Recommended: Please consider using include_player_ids or include_external_user_ids instead. Target using Android device registration IDs. If a token does not correspond to an existing user, a new user will be created. Example: APA91bEeiUeSukAAUdnw3O2RB45FWlSpgJ7Ji_... Limit of 2,000 entries per REST API call  |  [optional] |
+|**includeAliases** | [**PlayerNotificationTargetIncludeAliases**](PlayerNotificationTargetIncludeAliases.md) |  |  [optional] |
+|**targetChannel** | [**TargetChannelEnum**](#TargetChannelEnum) |  |  [optional] |
 |**id** | **String** |  |  [optional] |
 |**value** | **Integer** |  |  [optional] [readonly] |
 |**name** | **String** | Required for SMS Messages. An identifier for tracking message within the OneSignal dashboard or export analytics. Not shown to end user. |  [optional] |
@@ -119,6 +121,16 @@
 |**sendAfter** | **Long** | Unix timestamp indicating when notification delivery should begin. |  [optional] |
 |**completedAt** | **Long** | Unix timestamp indicating when notification delivery completed. The delivery duration from start to finish can be calculated with completed_at - send_after. |  [optional] |
 |**platformDeliveryStats** | [**PlatformDeliveryData**](PlatformDeliveryData.md) |  |  [optional] |
+
+
+
+## Enum: TargetChannelEnum
+
+| Name | Value |
+|---- | -----|
+| PUSH | &quot;push&quot; |
+| EMAIL | &quot;email&quot; |
+| SMS | &quot;sms&quot; |
 
 
 
