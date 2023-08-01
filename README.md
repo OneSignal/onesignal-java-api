@@ -1,8 +1,8 @@
 # onesignal-java-client
 
 OneSignal
-- API version: 1.2.1
-  - Build date: 2023-04-18T17:19:38.684Z[Etc/UTC]
+- API version: 1.2.2
+  - Build date: 2023-08-01T23:27:12.168Z[Etc/UTC]
 
 A powerful way to send personalized messages at scale and build effective customer engagement strategies. Learn more at onesignal.com
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>org.openapitools</groupId>
   <artifactId>onesignal-java-client</artifactId>
-  <version>1.2.1</version>
+  <version>1.2.2</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -57,7 +57,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "org.openapitools:onesignal-java-client:1.2.1"
+     implementation "org.openapitools:onesignal-java-client:1.2.2"
   }
 ```
 
@@ -71,7 +71,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/onesignal-java-client-1.2.1.jar`
+* `target/onesignal-java-client-1.2.2.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -148,7 +148,8 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**deleteSubscription**](docs/DefaultApi.md#deleteSubscription) | **DELETE** /apps/{app_id}/subscriptions/{subscription_id} | 
 *DefaultApi* | [**deleteUser**](docs/DefaultApi.md#deleteUser) | **DELETE** /apps/{app_id}/users/by/{alias_label}/{alias_id} | 
 *DefaultApi* | [**endLiveActivity**](docs/DefaultApi.md#endLiveActivity) | **DELETE** /apps/{app_id}/live_activities/{activity_id}/token/{subscription_id} | Stop Live Activity
-*DefaultApi* | [**exportPlayers**](docs/DefaultApi.md#exportPlayers) | **POST** /players/csv_export?app_id&#x3D;{app_id} | CSV export
+*DefaultApi* | [**exportEvents**](docs/DefaultApi.md#exportEvents) | **POST** /notifications/{notification_id}/export_events?app_id&#x3D;{app_id} | Export CSV of Events
+*DefaultApi* | [**exportPlayers**](docs/DefaultApi.md#exportPlayers) | **POST** /players/csv_export?app_id&#x3D;{app_id} | Export CSV of Players
 *DefaultApi* | [**fetchAliases**](docs/DefaultApi.md#fetchAliases) | **GET** /apps/{app_id}/subscriptions/{subscription_id}/user/identity | 
 *DefaultApi* | [**fetchUser**](docs/DefaultApi.md#fetchUser) | **GET** /apps/{app_id}/users/by/{alias_label}/{alias_id} | 
 *DefaultApi* | [**fetchUserIdentity**](docs/DefaultApi.md#fetchUserIdentity) | **GET** /apps/{app_id}/users/by/{alias_label}/{alias_id}/identity | 
@@ -175,7 +176,6 @@ Class | Method | HTTP request | Description
 ## Documentation for Models
 
  - [App](docs/App.md)
- - [BadRequestError](docs/BadRequestError.md)
  - [BasicNotification](docs/BasicNotification.md)
  - [BasicNotificationAllOf](docs/BasicNotificationAllOf.md)
  - [BasicNotificationAllOfAndroidBackgroundLayout](docs/BasicNotificationAllOfAndroidBackgroundLayout.md)
@@ -195,13 +195,14 @@ Class | Method | HTTP request | Description
  - [DeleteSegmentNotFoundResponse](docs/DeleteSegmentNotFoundResponse.md)
  - [DeleteSegmentSuccessResponse](docs/DeleteSegmentSuccessResponse.md)
  - [DeliveryData](docs/DeliveryData.md)
+ - [ExportEventsSuccessResponse](docs/ExportEventsSuccessResponse.md)
  - [ExportPlayersRequestBody](docs/ExportPlayersRequestBody.md)
  - [ExportPlayersSuccessResponse](docs/ExportPlayersSuccessResponse.md)
  - [Filter](docs/Filter.md)
  - [FilterExpressions](docs/FilterExpressions.md)
+ - [GenericError](docs/GenericError.md)
+ - [GenericErrorErrorsInner](docs/GenericErrorErrorsInner.md)
  - [GetNotificationRequestBody](docs/GetNotificationRequestBody.md)
- - [IdentifyUserConflictResponse](docs/IdentifyUserConflictResponse.md)
- - [IdentifyUserConflictResponseErrorsInner](docs/IdentifyUserConflictResponseErrorsInner.md)
  - [InlineResponse200](docs/InlineResponse200.md)
  - [InlineResponse2003](docs/InlineResponse2003.md)
  - [InlineResponse201](docs/InlineResponse201.md)
@@ -228,6 +229,7 @@ Class | Method | HTTP request | Description
  - [PropertiesDeltas](docs/PropertiesDeltas.md)
  - [PropertiesObject](docs/PropertiesObject.md)
  - [Purchase](docs/Purchase.md)
+ - [RateLimiterError](docs/RateLimiterError.md)
  - [Segment](docs/Segment.md)
  - [SegmentNotificationTarget](docs/SegmentNotificationTarget.md)
  - [StringMap](docs/StringMap.md)

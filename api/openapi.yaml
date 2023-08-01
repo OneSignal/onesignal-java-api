@@ -8,7 +8,7 @@ info:
     customer engagement strategies. Learn more at onesignal.com
   termsOfService: https://onesignal.com/tos
   title: OneSignal
-  version: 1.2.1
+  version: 1.2.2
 servers:
 - url: https://onesignal.com/api/v1
 paths:
@@ -71,8 +71,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/BadRequestError'
+                $ref: '#/components/schemas/GenericError'
           description: Bad Request
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RateLimiterError'
+          description: Rate Limit Exceeded
       security:
       - app_key: []
       summary: View notifications
@@ -105,8 +111,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/BadRequestError'
+                $ref: '#/components/schemas/GenericError'
           description: Bad Request
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RateLimiterError'
+          description: Rate Limit Exceeded
       security:
       - app_key: []
       summary: Create notification
@@ -142,8 +154,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/BadRequestError'
+                $ref: '#/components/schemas/GenericError'
           description: Bad Request
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RateLimiterError'
+          description: Rate Limit Exceeded
       security:
       - app_key: []
       summary: Stop a scheduled or currently outgoing notification
@@ -178,8 +196,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/BadRequestError'
+                $ref: '#/components/schemas/GenericError'
           description: Bad Request
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RateLimiterError'
+          description: Rate Limit Exceeded
       security:
       - app_key: []
       summary: View notification
@@ -247,8 +271,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/BadRequestError'
+                $ref: '#/components/schemas/GenericError'
           description: Bad Request
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RateLimiterError'
+          description: Rate Limit Exceeded
       security:
       - app_key: []
       summary: Notification History
@@ -269,8 +299,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/BadRequestError'
+                $ref: '#/components/schemas/GenericError'
           description: Bad Request
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RateLimiterError'
+          description: Rate Limit Exceeded
       security:
       - user_key: []
       summary: View apps
@@ -295,8 +331,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/BadRequestError'
+                $ref: '#/components/schemas/GenericError'
           description: Bad Request
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RateLimiterError'
+          description: Rate Limit Exceeded
       security:
       - user_key: []
       summary: Create an app
@@ -326,8 +368,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/BadRequestError'
+                $ref: '#/components/schemas/GenericError'
           description: Bad Request
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RateLimiterError'
+          description: Rate Limit Exceeded
       security:
       - user_key: []
       summary: View an app
@@ -362,8 +410,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/BadRequestError'
+                $ref: '#/components/schemas/GenericError'
           description: Bad Request
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RateLimiterError'
+          description: Rate Limit Exceeded
       security:
       - user_key: []
       summary: Update an app
@@ -406,7 +460,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/BadRequestError'
+                $ref: '#/components/schemas/GenericError'
           description: Bad Request
         "409":
           content:
@@ -414,6 +468,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/CreateSegmentConflictResponse'
           description: Conflict
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RateLimiterError'
+          description: Rate Limit Exceeded
       security:
       - app_key: []
       summary: Create Segments
@@ -456,7 +516,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/BadRequestError'
+                $ref: '#/components/schemas/GenericError'
           description: Bad Request
         "404":
           content:
@@ -464,6 +524,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/DeleteSegmentNotFoundResponse'
           description: Not Found
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RateLimiterError'
+          description: Rate Limit Exceeded
       security:
       - app_key: []
       summary: Delete Segments
@@ -550,8 +616,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/BadRequestError'
+                $ref: '#/components/schemas/GenericError'
           description: Bad Request
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RateLimiterError'
+          description: Rate Limit Exceeded
       security:
       - app_key: []
       summary: View Outcomes
@@ -594,8 +666,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/BadRequestError'
+                $ref: '#/components/schemas/GenericError'
           description: Bad Request
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RateLimiterError'
+          description: Rate Limit Exceeded
       security:
       - app_key: []
       summary: Update a Live Activity via Push
@@ -635,8 +713,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/BadRequestError'
+                $ref: '#/components/schemas/GenericError'
           description: Bad Request
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RateLimiterError'
+          description: Rate Limit Exceeded
       security:
       - app_key: []
       summary: Start Live Activity
@@ -678,8 +762,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/BadRequestError'
+                $ref: '#/components/schemas/GenericError'
           description: Bad Request
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RateLimiterError'
+          description: Rate Limit Exceeded
       security:
       - app_key: []
       summary: Stop Live Activity
@@ -705,6 +795,12 @@ paths:
               $ref: '#/components/schemas/User'
         required: true
       responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+          description: CREATED
         "201":
           content:
             application/json:
@@ -717,12 +813,24 @@ paths:
               schema:
                 $ref: '#/components/schemas/User'
           description: ACCEPTED
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenericError'
+          description: Bad Request
         "409":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/CreateUserConflictResponse'
           description: Multiple User Identity Conflict
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RateLimiterError'
+          description: Rate Limit Exceeded
       security:
       - app_key: []
       x-content-type: application/json
@@ -791,6 +899,24 @@ paths:
               schema:
                 $ref: '#/components/schemas/UpdatePlayerTagsSuccessResponse'
           description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenericError'
+          description: Bad Request
+        "409":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenericError'
+          description: Conflict
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RateLimiterError'
+          description: Rate Limit Exceeded
       security:
       - app_key: []
       summary: Edit tags with external user id
@@ -826,6 +952,24 @@ paths:
       responses:
         "200":
           description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenericError'
+          description: Bad Request
+        "409":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenericError'
+          description: Conflict
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RateLimiterError'
+          description: Rate Limit Exceeded
       x-accepts: application/json
     get:
       description: "Returns the User’s properties, Aliases, and Subscriptions."
@@ -859,6 +1003,18 @@ paths:
               schema:
                 $ref: '#/components/schemas/User'
           description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenericError'
+          description: Bad Request
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RateLimiterError'
+          description: Rate Limit Exceeded
       security:
       - app_key: []
       x-accepts: application/json
@@ -900,6 +1056,24 @@ paths:
               schema:
                 $ref: '#/components/schemas/inline_response_202'
           description: ACCEPTED
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenericError'
+          description: Bad Request
+        "409":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenericError'
+          description: Conflict
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RateLimiterError'
+          description: Rate Limit Exceeded
       security:
       - app_key: []
       x-content-type: application/json
@@ -937,6 +1111,18 @@ paths:
               schema:
                 $ref: '#/components/schemas/inline_response_200'
           description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenericError'
+          description: Bad Request
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RateLimiterError'
+          description: Rate Limit Exceeded
       security:
       - app_key: []
       x-accepts: application/json
@@ -979,12 +1165,24 @@ paths:
               schema:
                 $ref: '#/components/schemas/inline_response_200'
           description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenericError'
+          description: Bad Request
         "409":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/IdentifyUserConflictResponse'
+                $ref: '#/components/schemas/GenericError'
           description: Conflict
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RateLimiterError'
+          description: Rate Limit Exceeded
       security:
       - app_key: []
       x-content-type: application/json
@@ -1029,6 +1227,24 @@ paths:
               schema:
                 $ref: '#/components/schemas/inline_response_200'
           description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenericError'
+          description: Bad Request
+        "409":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenericError'
+          description: Conflict
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RateLimiterError'
+          description: Rate Limit Exceeded
       security:
       - app_key: []
       x-accepts: application/json
@@ -1078,6 +1294,25 @@ paths:
               schema:
                 $ref: '#/components/schemas/inline_response_201'
           description: ACCEPTED
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenericError'
+          description: Bad Request
+        "409":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenericError'
+          description: Operation is not permitted due to user having the maximum number
+            of subscriptions assigned
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RateLimiterError'
+          description: Rate Limit Exceeded
       security:
       - app_key: []
       x-content-type: application/json
@@ -1104,6 +1339,24 @@ paths:
       responses:
         "202":
           description: ACCEPTED
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenericError'
+          description: Bad Request
+        "409":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenericError'
+          description: Conflict
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RateLimiterError'
+          description: Rate Limit Exceeded
       security:
       - app_key: []
       x-accepts: application/json
@@ -1134,6 +1387,24 @@ paths:
       responses:
         "202":
           description: ACCEPTED
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenericError'
+          description: Bad Request
+        "409":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenericError'
+          description: Conflict
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RateLimiterError'
+          description: Rate Limit Exceeded
       security:
       - app_key: []
       x-content-type: application/json
@@ -1164,6 +1435,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/UserIdentityResponse'
           description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenericError'
+          description: Bad Request
       security:
       - app_key: []
       x-accepts: application/json
@@ -1198,12 +1475,24 @@ paths:
               schema:
                 $ref: '#/components/schemas/UserIdentityResponse'
           description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenericError'
+          description: Bad Request
         "409":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/IdentifyUserConflictResponse'
+                $ref: '#/components/schemas/GenericError'
           description: Conflict
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RateLimiterError'
+          description: Rate Limit Exceeded
       security:
       - app_key: []
       x-content-type: application/json
@@ -1241,6 +1530,24 @@ paths:
               schema:
                 $ref: '#/components/schemas/UserIdentityResponse'
           description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenericError'
+          description: Bad Request
+        "409":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenericError'
+          description: Conflict
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RateLimiterError'
+          description: Rate Limit Exceeded
       security:
       - app_key: []
       x-content-type: application/json
@@ -1272,6 +1579,18 @@ paths:
               schema:
                 $ref: '#/components/schemas/inline_response_200_3'
           description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenericError'
+          description: Bad Request
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RateLimiterError'
+          description: Rate Limit Exceeded
       security:
       - app_key: []
       x-accepts: application/json
@@ -1318,8 +1637,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/BadRequestError'
+                $ref: '#/components/schemas/GenericError'
           description: Bad Request
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RateLimiterError'
+          description: Rate Limit Exceeded
       security:
       - app_key: []
       summary: View devices
@@ -1357,8 +1682,20 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/BadRequestError'
+                $ref: '#/components/schemas/GenericError'
           description: Bad Request
+        "409":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenericError'
+          description: Conflict
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RateLimiterError'
+          description: Rate Limit Exceeded
       security:
       - app_key: []
       summary: Add a device
@@ -1397,7 +1734,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/BadRequestError'
+                $ref: '#/components/schemas/GenericError'
           description: Bad Request
         "404":
           content:
@@ -1405,6 +1742,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/DeletePlayerNotFoundResponse'
           description: Not Found
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RateLimiterError'
+          description: Rate Limit Exceeded
       security:
       - app_key: []
       summary: Delete a user record
@@ -1450,8 +1793,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/BadRequestError'
+                $ref: '#/components/schemas/GenericError'
           description: Bad Request
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RateLimiterError'
+          description: Rate Limit Exceeded
       security:
       - app_key: []
       summary: View device
@@ -1485,8 +1834,20 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/BadRequestError'
+                $ref: '#/components/schemas/GenericError'
           description: Bad Request
+        "409":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenericError'
+          description: Conflict
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RateLimiterError'
+          description: Rate Limit Exceeded
       security:
       - app_key: []
       summary: Edit device
@@ -1579,12 +1940,70 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/BadRequestError'
+                $ref: '#/components/schemas/GenericError'
           description: Bad Request
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RateLimiterError'
+          description: Rate Limit Exceeded
       security:
       - app_key: []
-      summary: CSV export
+      summary: Export CSV of Players
       x-content-type: application/json
+      x-accepts: application/json
+  /notifications/{notification_id}/export_events?app_id={app_id}:
+    post:
+      description: |-
+        Generate a compressed CSV report of all of the events data for a notification.
+        This will return a URL immediately upon success but it may take several minutes for the CSV to become available at that URL depending on the volume of data. Only one export can be in-progress per OneSignal account at any given time.
+      operationId: export_events
+      parameters:
+      - description: The ID of the notification to export events from.
+        explode: false
+        in: path
+        name: notification_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: The ID of the app that the notification belongs to.
+        explode: true
+        in: query
+        name: app_id
+        required: true
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExportEventsSuccessResponse'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenericError'
+          description: Bad Request
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenericError'
+          description: Not Found
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RateLimiterError'
+          description: Rate Limit Exceeded
+      security:
+      - app_key: []
+      summary: Export CSV of Events
       x-accepts: application/json
 components:
   requestBodies:
@@ -2559,13 +2978,6 @@ components:
       oneOf:
       - $ref: '#/components/schemas/InvalidIdentifierError'
       - $ref: '#/components/schemas/NoSubscribersError'
-    BadRequestError:
-      properties:
-        errors:
-          items:
-            type: string
-          type: array
-      type: object
     UpdateLiveActivityRequest:
       example:
         event_updates: "{}"
@@ -3000,11 +3412,18 @@ components:
             $ref: '#/components/schemas/CreateUserConflictResponse_errors_inner'
           type: array
       type: object
-    IdentifyUserConflictResponse:
+    GenericError:
       properties:
         errors:
           items:
-            $ref: '#/components/schemas/IdentifyUserConflictResponse_errors_inner'
+            $ref: '#/components/schemas/GenericError_errors_inner'
+          type: array
+      type: object
+    RateLimiterError:
+      properties:
+        errors:
+          items:
+            $ref: '#/components/schemas/GenericError_errors_inner'
           type: array
       type: object
     CreateSubscriptionRequestBody:
@@ -3084,6 +3503,13 @@ components:
         identity:
           additionalProperties: true
           type: object
+      type: object
+    ExportEventsSuccessResponse:
+      example:
+        csv_file_url: csv_file_url
+      properties:
+        csv_file_url:
+          type: string
       type: object
     get_notification_request_body:
       properties:
@@ -3912,6 +4338,23 @@ components:
           nullable: true
           type: string
           writeOnly: true
+        email_preheader:
+          description: "Channel: Email\nThe preheader text of the email.\nPreheader\
+            \ is the preview text displayed immediately after an email subject that\
+            \ provides additional context about the email content.\nIf not specified,\
+            \ will default to null.\n"
+          nullable: true
+          type: string
+          writeOnly: true
+        include_unsubscribed:
+          description: "Channel: Email\nDefault is `false`. This field is used to\
+            \ send transactional notifications. If set to `true`, this notification\
+            \ will also be sent to unsubscribed emails. If a `template_id` is provided,\
+            \ the `include_unsubscribed` value from the template will be inherited.\
+            \ If you are using a third-party ESP, this field requires the ESP's list\
+            \ of unsubscribed emails to be cleared."
+          type: boolean
+          writeOnly: true
         sms_from:
           description: "Channel: SMS\nPhone Number used to send SMS. Should be a registered\
             \ Twilio phone number in E.164 format.\n"
@@ -3931,6 +4374,15 @@ components:
             $ref: '#/components/schemas/Filter'
           nullable: true
           type: array
+        custom_data:
+          description: "Channel: All\nJSON object that can be used as a source of\
+            \ message personalization data for fields that support tag variable substitution.\n\
+            Push, SMS: Can accept up to 2048 bytes of valid JSON. Email: Can accept\
+            \ up to 10000 bytes of valid JSON.\nExample: {\"order_id\": 123, \"currency\"\
+            : \"USD\", \"amount\": 25}\n"
+          nullable: true
+          type: object
+          writeOnly: true
       type: object
     Notification_allOf:
       properties:
@@ -4071,7 +4523,7 @@ components:
         meta:
           $ref: '#/components/schemas/CreateUserConflictResponse_errorsItems_meta'
       type: object
-    IdentifyUserConflictResponse_errors_inner:
+    GenericError_errors_inner:
       properties:
         code:
           type: string
