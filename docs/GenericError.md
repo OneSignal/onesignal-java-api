@@ -1,13 +1,13 @@
 
 
-# DeleteSegmentBadRequestResponse
+# GenericError
 
 
 ## Properties
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**erorrs** | **List&lt;String&gt;** |  |  [optional] |
+|**errors** | [**List&lt;GenericErrorErrorsInner&gt;**](GenericErrorErrorsInner.md) |  |  [optional] |
 
 
 

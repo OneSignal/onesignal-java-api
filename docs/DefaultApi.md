@@ -18,7 +18,8 @@ All URIs are relative to *https://onesignal.com/api/v1*
 | [**deleteSubscription**](DefaultApi.md#deleteSubscription) | **DELETE** /apps/{app_id}/subscriptions/{subscription_id} |  |
 | [**deleteUser**](DefaultApi.md#deleteUser) | **DELETE** /apps/{app_id}/users/by/{alias_label}/{alias_id} |  |
 | [**endLiveActivity**](DefaultApi.md#endLiveActivity) | **DELETE** /apps/{app_id}/live_activities/{activity_id}/token/{subscription_id} | Stop Live Activity |
-| [**exportPlayers**](DefaultApi.md#exportPlayers) | **POST** /players/csv_export?app_id&#x3D;{app_id} | CSV export |
+| [**exportEvents**](DefaultApi.md#exportEvents) | **POST** /notifications/{notification_id}/export_events?app_id&#x3D;{app_id} | Export CSV of Events |
+| [**exportPlayers**](DefaultApi.md#exportPlayers) | **POST** /players/csv_export?app_id&#x3D;{app_id} | Export CSV of Players |
 | [**fetchAliases**](DefaultApi.md#fetchAliases) | **GET** /apps/{app_id}/subscriptions/{subscription_id}/user/identity |  |
 | [**fetchUser**](DefaultApi.md#fetchUser) | **GET** /apps/{app_id}/users/by/{alias_label}/{alias_id} |  |
 | [**fetchUserIdentity**](DefaultApi.md#fetchUserIdentity) | **GET** /apps/{app_id}/users/by/{alias_label}/{alias_id}/identity |  |
@@ -112,6 +113,7 @@ null (empty response body)
 |-------------|-------------|------------------|
 | **204** | OK |  -  |
 | **400** | Bad Request |  -  |
+| **429** | Rate Limit Exceeded |  -  |
 
 <a name="cancelNotification"></a>
 # **cancelNotification**
@@ -182,6 +184,7 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
+| **429** | Rate Limit Exceeded |  -  |
 
 <a name="createApp"></a>
 # **createApp**
@@ -250,6 +253,7 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
+| **429** | Rate Limit Exceeded |  -  |
 
 <a name="createNotification"></a>
 # **createNotification**
@@ -318,6 +322,7 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | OK, invalid_player_ids, invalid_external_user_ids or No Subscribed Players If a message was successfully created, you will get a 200 response and an id for the notification. If the 200 response contains \&quot;invalid_player_ids\&quot; or \&quot;invalid_external_user_ids\&quot; this will mark devices that exist in the provided app_id but are no longer subscribed. If no id is returned, then a message was not created and the targeted User IDs do not exist under the provided app_id. Any User IDs sent in the request that do not exist under the specified app_id will be ignored.  |  -  |
 | **400** | Bad Request |  -  |
+| **429** | Rate Limit Exceeded |  -  |
 
 <a name="createPlayer"></a>
 # **createPlayer**
@@ -386,6 +391,8 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
+| **409** | Conflict |  -  |
+| **429** | Rate Limit Exceeded |  -  |
 
 <a name="createSegments"></a>
 # **createSegments**
@@ -457,6 +464,7 @@ public class Example {
 | **201** | Created |  -  |
 | **400** | Bad Request |  -  |
 | **409** | Conflict |  -  |
+| **429** | Rate Limit Exceeded |  -  |
 
 <a name="createSubscription"></a>
 # **createSubscription**
@@ -531,6 +539,9 @@ public class Example {
 |-------------|-------------|------------------|
 | **201** | CREATED |  -  |
 | **202** | ACCEPTED |  -  |
+| **400** | Bad Request |  -  |
+| **409** | Operation is not permitted due to user having the maximum number of subscriptions assigned |  -  |
+| **429** | Rate Limit Exceeded |  -  |
 
 <a name="createUser"></a>
 # **createUser**
@@ -599,9 +610,12 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+| **200** | CREATED |  -  |
 | **201** | CREATED |  -  |
 | **202** | ACCEPTED |  -  |
+| **400** | Bad Request |  -  |
 | **409** | Multiple User Identity Conflict |  -  |
+| **429** | Rate Limit Exceeded |  -  |
 
 <a name="deleteAlias"></a>
 # **deleteAlias**
@@ -675,6 +689,9 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **409** | Conflict |  -  |
+| **429** | Rate Limit Exceeded |  -  |
 
 <a name="deletePlayer"></a>
 # **deletePlayer**
@@ -746,6 +763,7 @@ public class Example {
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
 | **404** | Not Found |  -  |
+| **429** | Rate Limit Exceeded |  -  |
 
 <a name="deleteSegments"></a>
 # **deleteSegments**
@@ -817,6 +835,7 @@ public class Example {
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
 | **404** | Not Found |  -  |
+| **429** | Rate Limit Exceeded |  -  |
 
 <a name="deleteSubscription"></a>
 # **deleteSubscription**
@@ -879,12 +898,15 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **202** | ACCEPTED |  -  |
+| **400** | Bad Request |  -  |
+| **409** | Conflict |  -  |
+| **429** | Rate Limit Exceeded |  -  |
 
 <a name="deleteUser"></a>
 # **deleteUser**
@@ -944,12 +966,15 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **409** | Conflict |  -  |
+| **429** | Rate Limit Exceeded |  -  |
 
 <a name="endLiveActivity"></a>
 # **endLiveActivity**
@@ -1021,12 +1046,85 @@ null (empty response body)
 |-------------|-------------|------------------|
 | **204** | OK |  -  |
 | **400** | Bad Request |  -  |
+| **429** | Rate Limit Exceeded |  -  |
+
+<a name="exportEvents"></a>
+# **exportEvents**
+> ExportEventsSuccessResponse exportEvents(notificationId, appId)
+
+Export CSV of Events
+
+Generate a compressed CSV report of all of the events data for a notification. This will return a URL immediately upon success but it may take several minutes for the CSV to become available at that URL depending on the volume of data. Only one export can be in-progress per OneSignal account at any given time.
+
+### Example
+```java
+// Import classes:
+import com.onesignal.client.ApiClient;
+import com.onesignal.client.ApiException;
+import com.onesignal.client.Configuration;
+import com.onesignal.client.auth.*;
+import com.onesignal.client.models.*;
+import com.onesignal.client.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://onesignal.com/api/v1");
+    
+    // Configure HTTP bearer authorization: app_key
+    HttpBearerAuth app_key = (HttpBearerAuth) defaultClient.getAuthentication("app_key");
+    app_key.setBearerToken("BEARER TOKEN");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String notificationId = "notificationId_example"; // String | The ID of the notification to export events from.
+    String appId = "appId_example"; // String | The ID of the app that the notification belongs to.
+    try {
+      ExportEventsSuccessResponse result = apiInstance.exportEvents(notificationId, appId);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#exportEvents");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **notificationId** | **String**| The ID of the notification to export events from. | |
+| **appId** | **String**| The ID of the app that the notification belongs to. | |
+
+### Return type
+
+[**ExportEventsSuccessResponse**](ExportEventsSuccessResponse.md)
+
+### Authorization
+
+[app_key](../README.md#app_key)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **404** | Not Found |  -  |
+| **429** | Rate Limit Exceeded |  -  |
 
 <a name="exportPlayers"></a>
 # **exportPlayers**
 > ExportPlayersSuccessResponse exportPlayers(appId, exportPlayersRequestBody)
 
-CSV export
+Export CSV of Players
 
 Generate a compressed CSV export of all of your current user data This method can be used to generate a compressed CSV export of all of your current user data. It is a much faster alternative than retrieving this data using the /players API endpoint. The file will be compressed using GZip. The file may take several minutes to generate depending on the number of users in your app. The URL generated will be available for 3 days and includes random v4 uuid as part of the resource name to be unguessable. &amp;#x1F6A7; 403 Error Responses          You can test if it is complete by making a GET request to the csv_file_url value. This file may take time to generate depending on how many device records are being pulled. If the file is not ready, a 403 error will be returned. Otherwise the file itself will be returned. &amp;#x1F6A7; Requires Authentication Key Requires your OneSignal App&#39;s REST API Key, available in Keys &amp; IDs. &amp;#x1F6A7; Concurrent Exports Only one concurrent export is allowed per OneSignal account. Please ensure you have successfully downloaded the .csv.gz file before exporting another app. CSV File Format: - Default Columns:   | Field | Details |   | --- | --- |   | id | OneSignal Player Id |   | identifier | Push Token |   | session_count | Number of times they visited the app or site   | language | Device language code |   | timezone | Number of seconds away from UTC. Example: -28800 |   | game_version | Version of your mobile app gathered from Android Studio versionCode in your App/build.gradle and iOS uses kCFBundleVersionKey in Xcode. |   | device_os | Device Operating System Version. Example: 80 &#x3D; Chrome 80, 9 &#x3D; Android 9 |   | device_type | Device Operating System Type |   | device_model | Device Hardware String Code. Example: Mobile Web Subscribers will have &#x60;Linux armv&#x60; |   | ad_id | Based on the Google Advertising Id for Android, identifierForVendor for iOS. OptedOut means user turned off Advertising tracking on the device. |   | tags | Current OneSignal Data Tags on the device. |   | last_active | Date and time the user last opened the mobile app or visited the site. |   | playtime | Total amount of time in seconds the user had the mobile app open. |   | amount_spent |  Mobile only - amount spent in USD on In-App Purchases. |    | created_at | Date and time the device record was created in OneSignal. Mobile - first time they opened the app with OneSignal SDK. Web - first time the user subscribed to the site. |   | invalid_identifier | t &#x3D; unsubscribed, f &#x3D; subscibed |   | badge_count | Current number of badges on the device | - Extra Columns:   | Field | Details |   | --- | --- |   | external_user_id | Your User Id set on the device |   | notification_types | Notification types |   | location | Location points (Latitude and Longitude) set on the device. |   | country | Country code |   | rooted | Android device rooted or not |   | ip | IP Address of the device if being tracked. See Handling Personal Data. |   | web_auth | Web Only authorization key. |   | web_p256 | Web Only p256 key. | 
 
@@ -1091,6 +1189,7 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
+| **429** | Rate Limit Exceeded |  -  |
 
 <a name="fetchAliases"></a>
 # **fetchAliases**
@@ -1160,6 +1259,7 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
+| **400** | Bad Request |  -  |
 
 <a name="fetchUser"></a>
 # **fetchUser**
@@ -1231,6 +1331,8 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **429** | Rate Limit Exceeded |  -  |
 
 <a name="fetchUserIdentity"></a>
 # **fetchUserIdentity**
@@ -1302,6 +1404,8 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **429** | Rate Limit Exceeded |  -  |
 
 <a name="getApp"></a>
 # **getApp**
@@ -1370,6 +1474,7 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
+| **429** | Rate Limit Exceeded |  -  |
 
 <a name="getApps"></a>
 # **getApps**
@@ -1434,6 +1539,7 @@ This endpoint does not need any parameter.
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
+| **429** | Rate Limit Exceeded |  -  |
 
 <a name="getEligibleIams"></a>
 # **getEligibleIams**
@@ -1503,6 +1609,8 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **429** | Rate Limit Exceeded |  -  |
 
 <a name="getNotification"></a>
 # **getNotification**
@@ -1573,6 +1681,7 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
+| **429** | Rate Limit Exceeded |  -  |
 
 <a name="getNotificationHistory"></a>
 # **getNotificationHistory**
@@ -1643,6 +1752,7 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
+| **429** | Rate Limit Exceeded |  -  |
 
 <a name="getNotifications"></a>
 # **getNotifications**
@@ -1717,6 +1827,7 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
+| **429** | Rate Limit Exceeded |  -  |
 
 <a name="getOutcomes"></a>
 # **getOutcomes**
@@ -1795,6 +1906,7 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
+| **429** | Rate Limit Exceeded |  -  |
 
 <a name="getPlayer"></a>
 # **getPlayer**
@@ -1867,6 +1979,7 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
+| **429** | Rate Limit Exceeded |  -  |
 
 <a name="getPlayers"></a>
 # **getPlayers**
@@ -1939,6 +2052,7 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
+| **429** | Rate Limit Exceeded |  -  |
 
 <a name="identifyUserByAlias"></a>
 # **identifyUserByAlias**
@@ -2012,7 +2126,9 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
+| **400** | Bad Request |  -  |
 | **409** | Conflict |  -  |
+| **429** | Rate Limit Exceeded |  -  |
 
 <a name="identifyUserBySubscriptionId"></a>
 # **identifyUserBySubscriptionId**
@@ -2084,7 +2200,9 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
+| **400** | Bad Request |  -  |
 | **409** | Conflict |  -  |
+| **429** | Rate Limit Exceeded |  -  |
 
 <a name="transferSubscription"></a>
 # **transferSubscription**
@@ -2156,6 +2274,9 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **409** | Conflict |  -  |
+| **429** | Rate Limit Exceeded |  -  |
 
 <a name="updateApp"></a>
 # **updateApp**
@@ -2226,6 +2347,7 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
+| **429** | Rate Limit Exceeded |  -  |
 
 <a name="updateLiveActivity"></a>
 # **updateLiveActivity**
@@ -2298,6 +2420,7 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
+| **429** | Rate Limit Exceeded |  -  |
 
 <a name="updatePlayer"></a>
 # **updatePlayer**
@@ -2368,6 +2491,8 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
+| **409** | Conflict |  -  |
+| **429** | Rate Limit Exceeded |  -  |
 
 <a name="updatePlayerTags"></a>
 # **updatePlayerTags**
@@ -2439,6 +2564,9 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **409** | Conflict |  -  |
+| **429** | Rate Limit Exceeded |  -  |
 
 <a name="updateSubscription"></a>
 # **updateSubscription**
@@ -2503,12 +2631,15 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **202** | ACCEPTED |  -  |
+| **400** | Bad Request |  -  |
+| **409** | Conflict |  -  |
+| **429** | Rate Limit Exceeded |  -  |
 
 <a name="updateUser"></a>
 # **updateUser**
@@ -2582,4 +2713,7 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **202** | ACCEPTED |  -  |
+| **400** | Bad Request |  -  |
+| **409** | Conflict |  -  |
+| **429** | Rate Limit Exceeded |  -  |
 

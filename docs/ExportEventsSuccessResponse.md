@@ -1,13 +1,13 @@
 
 
-# CreateNotificationBadRequestResponse
+# ExportEventsSuccessResponse
 
 
 ## Properties
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**errors** | **List&lt;String&gt;** |  |  [optional] |
+|**csvFileUrl** | **String** |  |  [optional] |
 
 
 

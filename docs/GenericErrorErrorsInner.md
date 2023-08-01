@@ -1,6 +1,6 @@
 
 
-# IdentifyUserConflictResponseErrorsInner
+# GenericErrorErrorsInner
 
 
 ## Properties
