@@ -884,12 +884,12 @@ public class ApiClient {
     public RequestBody serialize(Object obj, String contentType) throws ApiException {
         if (obj instanceof byte[]) {
             // Binary (byte array) body parameter support.
-            return RequestBody.create((byte[]) obj, MediaType.parse(contentType));
+            return RequestBody.create(MediaType.parse(contentType), (byte[]) obj);
         } else if (obj instanceof File) {
             // File body parameter support.
-            return RequestBody.create((File) obj, MediaType.parse(contentType));
+            return RequestBody.create(MediaType.parse(contentType), (File) obj);
         } else if ("text/plain".equals(contentType) && obj instanceof String) {
-            return RequestBody.create((String) obj, MediaType.parse(contentType));
+            return RequestBody.create(MediaType.parse(contentType), (String) obj);
         } else if (isJsonMime(contentType)) {
             String content;
             if (obj != null) {
@@ -897,7 +897,7 @@ public class ApiClient {
             } else {
                 content = null;
             }
-            return RequestBody.create(content, MediaType.parse(contentType));
+            return RequestBody.create(MediaType.parse(contentType),content);
         } else {
             throw new ApiException("Content type \"" + contentType + "\" is not supported");
         }
@@ -1145,7 +1145,7 @@ public class ApiClient {
                 reqBody = null;
             } else {
                 // use an empty request body (for POST, PUT and PATCH)
-                reqBody = RequestBody.create("", contentType == null ? null : MediaType.parse(contentType));
+                reqBody = RequestBody.create(contentType == null ? null : MediaType.parse(contentType),"");
             }
         } else {
             reqBody = serialize(body, contentType);
@@ -1321,7 +1321,7 @@ public class ApiClient {
                 }
             } else {
                 Headers partHeaders = Headers.of("Content-Disposition", "form-data; name=\"" + param.getKey() + "\"");
-                mpBuilder.addPart(partHeaders, RequestBody.create(parameterToString(param.getValue()), null));
+                mpBuilder.addPart(partHeaders, RequestBody.create(null,parameterToString(param.getValue())));
             }
         }
         return mpBuilder.build();
@@ -1352,7 +1352,7 @@ public class ApiClient {
     private void addPartToMultiPartBuilder(MultipartBody.Builder mpBuilder, String key, File file) {
         Headers partHeaders = Headers.of("Content-Disposition", "form-data; name=\"" + key + "\"; filename=\"" + file.getName() + "\"");
         MediaType mediaType = MediaType.parse(guessContentTypeFromFile(file));
-        mpBuilder.addPart(partHeaders, RequestBody.create(file, mediaType));
+        mpBuilder.addPart(partHeaders, RequestBody.create(mediaType,file));
     }
 
     /**
