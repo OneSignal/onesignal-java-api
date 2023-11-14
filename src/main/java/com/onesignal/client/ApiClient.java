@@ -1455,7 +1455,7 @@ public class ApiClient {
     /**
      * Convert the HTTP request body to a string.
      *
-     * @param request The HTTP request object
+     * @param requestBody The HTTP request object
      * @return The string representation of the HTTP request body
      * @throws com.onesignal.client.ApiException If fail to serialize the request body object into a string
      */

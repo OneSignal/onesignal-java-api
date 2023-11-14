@@ -81,6 +81,7 @@ if(hasProperty('target') && target == 'android') {
 } else {
 
     apply plugin: 'java'
+    apply plugin: 'groovy'
     apply plugin: 'maven-publish'
 
     sourceCompatibility = JavaVersion.VERSION_1_8
