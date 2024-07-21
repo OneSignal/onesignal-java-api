@@ -41,7 +41,7 @@ Refer to the [OSSRH Guide](http://central.sonatype.org/pages/ossrh-guide.html) f
 
 ### Maven users
 
-Add this dependency to your project's POM:
+After you build and install to your local Maven repo ou deploy to the project repository, add this dependency to your project's POM:
 
 ```xml
 <dependency>
