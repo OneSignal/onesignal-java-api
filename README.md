@@ -19,6 +19,12 @@ Building the API client library requires:
 
 ## Installation
 
+First, clone the repo, simply execute:
+
+```shell
+git clone https://github.com/OneSignal/onesignal-java-api.git
+```
+
 To install the API client library to your local Maven repository, simply execute:
 
 ```shell
