@@ -970,6 +970,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/RateLimiterError'
           description: Rate Limit Exceeded
+      security:
+        - app_key: [ ]
       x-accepts: application/json
     get:
       description: "Returns the User’s properties, Aliases, and Subscriptions."
