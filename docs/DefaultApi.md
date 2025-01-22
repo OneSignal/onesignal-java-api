@@ -1,6 +1,6 @@
 # DefaultApi
 
-All URIs are relative to *https://onesignal.com/api/v1*
+All URIs are relative to *https://api.onesignal.com*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
@@ -64,7 +64,7 @@ import com.onesignal.client.api.DefaultApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://onesignal.com/api/v1");
+    defaultClient.setBasePath("https://api.onesignal.com");
     
     // Configure HTTP bearer authorization: app_key
     HttpBearerAuth app_key = (HttpBearerAuth) defaultClient.getAuthentication("app_key");
@@ -136,7 +136,7 @@ import com.onesignal.client.api.DefaultApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://onesignal.com/api/v1");
+    defaultClient.setBasePath("https://api.onesignal.com");
     
     // Configure HTTP bearer authorization: app_key
     HttpBearerAuth app_key = (HttpBearerAuth) defaultClient.getAuthentication("app_key");
@@ -207,7 +207,7 @@ import com.onesignal.client.api.DefaultApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://onesignal.com/api/v1");
+    defaultClient.setBasePath("https://api.onesignal.com");
     
     // Configure HTTP bearer authorization: user_key
     HttpBearerAuth user_key = (HttpBearerAuth) defaultClient.getAuthentication("user_key");
@@ -276,7 +276,7 @@ import com.onesignal.client.api.DefaultApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://onesignal.com/api/v1");
+    defaultClient.setBasePath("https://api.onesignal.com");
     
     // Configure HTTP bearer authorization: app_key
     HttpBearerAuth app_key = (HttpBearerAuth) defaultClient.getAuthentication("app_key");
@@ -345,7 +345,7 @@ import com.onesignal.client.api.DefaultApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://onesignal.com/api/v1");
+    defaultClient.setBasePath("https://api.onesignal.com");
     
     // Configure HTTP bearer authorization: app_key
     HttpBearerAuth app_key = (HttpBearerAuth) defaultClient.getAuthentication("app_key");
@@ -415,7 +415,7 @@ import com.onesignal.client.api.DefaultApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://onesignal.com/api/v1");
+    defaultClient.setBasePath("https://api.onesignal.com");
     
     // Configure HTTP bearer authorization: app_key
     HttpBearerAuth app_key = (HttpBearerAuth) defaultClient.getAuthentication("app_key");
@@ -487,7 +487,7 @@ import com.onesignal.client.api.DefaultApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://onesignal.com/api/v1");
+    defaultClient.setBasePath("https://api.onesignal.com");
     
     // Configure HTTP bearer authorization: app_key
     HttpBearerAuth app_key = (HttpBearerAuth) defaultClient.getAuthentication("app_key");
@@ -564,7 +564,7 @@ import com.onesignal.client.api.DefaultApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://onesignal.com/api/v1");
+    defaultClient.setBasePath("https://api.onesignal.com");
     
     // Configure HTTP bearer authorization: app_key
     HttpBearerAuth app_key = (HttpBearerAuth) defaultClient.getAuthentication("app_key");
@@ -638,7 +638,7 @@ import com.onesignal.client.api.DefaultApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://onesignal.com/api/v1");
+    defaultClient.setBasePath("https://api.onesignal.com");
     
     // Configure HTTP bearer authorization: app_key
     HttpBearerAuth app_key = (HttpBearerAuth) defaultClient.getAuthentication("app_key");
@@ -714,7 +714,7 @@ import com.onesignal.client.api.DefaultApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://onesignal.com/api/v1");
+    defaultClient.setBasePath("https://api.onesignal.com");
     
     // Configure HTTP bearer authorization: app_key
     HttpBearerAuth app_key = (HttpBearerAuth) defaultClient.getAuthentication("app_key");
@@ -786,7 +786,7 @@ import com.onesignal.client.api.DefaultApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://onesignal.com/api/v1");
+    defaultClient.setBasePath("https://api.onesignal.com");
     
     // Configure HTTP bearer authorization: app_key
     HttpBearerAuth app_key = (HttpBearerAuth) defaultClient.getAuthentication("app_key");
@@ -858,7 +858,7 @@ import com.onesignal.client.api.DefaultApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://onesignal.com/api/v1");
+    defaultClient.setBasePath("https://api.onesignal.com");
     
     // Configure HTTP bearer authorization: app_key
     HttpBearerAuth app_key = (HttpBearerAuth) defaultClient.getAuthentication("app_key");
@@ -922,13 +922,18 @@ Removes the User identified by (:alias_label, :alias_id), and all Subscriptions 
 import com.onesignal.client.ApiClient;
 import com.onesignal.client.ApiException;
 import com.onesignal.client.Configuration;
+import com.onesignal.client.auth.*;
 import com.onesignal.client.models.*;
 import com.onesignal.client.api.DefaultApi;
 
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://onesignal.com/api/v1");
+    defaultClient.setBasePath("https://api.onesignal.com");
+    
+    // Configure HTTP bearer authorization: app_key
+    HttpBearerAuth app_key = (HttpBearerAuth) defaultClient.getAuthentication("app_key");
+    app_key.setBearerToken("BEARER TOKEN");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
     String appId = "appId_example"; // String | 
@@ -961,7 +966,7 @@ null (empty response body)
 
 ### Authorization
 
-No authorization required
+[app_key](../README.md#app_key)
 
 ### HTTP request headers
 
@@ -997,7 +1002,7 @@ import com.onesignal.client.api.DefaultApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://onesignal.com/api/v1");
+    defaultClient.setBasePath("https://api.onesignal.com");
     
     // Configure HTTP bearer authorization: app_key
     HttpBearerAuth app_key = (HttpBearerAuth) defaultClient.getAuthentication("app_key");
@@ -1069,7 +1074,7 @@ import com.onesignal.client.api.DefaultApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://onesignal.com/api/v1");
+    defaultClient.setBasePath("https://api.onesignal.com");
     
     // Configure HTTP bearer authorization: app_key
     HttpBearerAuth app_key = (HttpBearerAuth) defaultClient.getAuthentication("app_key");
@@ -1141,7 +1146,7 @@ import com.onesignal.client.api.DefaultApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://onesignal.com/api/v1");
+    defaultClient.setBasePath("https://api.onesignal.com");
     
     // Configure HTTP bearer authorization: app_key
     HttpBearerAuth app_key = (HttpBearerAuth) defaultClient.getAuthentication("app_key");
@@ -1212,7 +1217,7 @@ import com.onesignal.client.api.DefaultApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://onesignal.com/api/v1");
+    defaultClient.setBasePath("https://api.onesignal.com");
     
     // Configure HTTP bearer authorization: app_key
     HttpBearerAuth app_key = (HttpBearerAuth) defaultClient.getAuthentication("app_key");
@@ -1282,7 +1287,7 @@ import com.onesignal.client.api.DefaultApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://onesignal.com/api/v1");
+    defaultClient.setBasePath("https://api.onesignal.com");
     
     // Configure HTTP bearer authorization: app_key
     HttpBearerAuth app_key = (HttpBearerAuth) defaultClient.getAuthentication("app_key");
@@ -1355,7 +1360,7 @@ import com.onesignal.client.api.DefaultApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://onesignal.com/api/v1");
+    defaultClient.setBasePath("https://api.onesignal.com");
     
     // Configure HTTP bearer authorization: app_key
     HttpBearerAuth app_key = (HttpBearerAuth) defaultClient.getAuthentication("app_key");
@@ -1428,7 +1433,7 @@ import com.onesignal.client.api.DefaultApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://onesignal.com/api/v1");
+    defaultClient.setBasePath("https://api.onesignal.com");
     
     // Configure HTTP bearer authorization: user_key
     HttpBearerAuth user_key = (HttpBearerAuth) defaultClient.getAuthentication("user_key");
@@ -1497,7 +1502,7 @@ import com.onesignal.client.api.DefaultApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://onesignal.com/api/v1");
+    defaultClient.setBasePath("https://api.onesignal.com");
     
     // Configure HTTP bearer authorization: user_key
     HttpBearerAuth user_key = (HttpBearerAuth) defaultClient.getAuthentication("user_key");
@@ -1562,7 +1567,7 @@ import com.onesignal.client.api.DefaultApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://onesignal.com/api/v1");
+    defaultClient.setBasePath("https://api.onesignal.com");
     
     // Configure HTTP bearer authorization: app_key
     HttpBearerAuth app_key = (HttpBearerAuth) defaultClient.getAuthentication("app_key");
@@ -1633,7 +1638,7 @@ import com.onesignal.client.api.DefaultApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://onesignal.com/api/v1");
+    defaultClient.setBasePath("https://api.onesignal.com");
     
     // Configure HTTP bearer authorization: app_key
     HttpBearerAuth app_key = (HttpBearerAuth) defaultClient.getAuthentication("app_key");
@@ -1704,7 +1709,7 @@ import com.onesignal.client.api.DefaultApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://onesignal.com/api/v1");
+    defaultClient.setBasePath("https://api.onesignal.com");
     
     // Configure HTTP bearer authorization: app_key
     HttpBearerAuth app_key = (HttpBearerAuth) defaultClient.getAuthentication("app_key");
@@ -1775,7 +1780,7 @@ import com.onesignal.client.api.DefaultApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://onesignal.com/api/v1");
+    defaultClient.setBasePath("https://api.onesignal.com");
     
     // Configure HTTP bearer authorization: app_key
     HttpBearerAuth app_key = (HttpBearerAuth) defaultClient.getAuthentication("app_key");
@@ -1850,7 +1855,7 @@ import com.onesignal.client.api.DefaultApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://onesignal.com/api/v1");
+    defaultClient.setBasePath("https://api.onesignal.com");
     
     // Configure HTTP bearer authorization: app_key
     HttpBearerAuth app_key = (HttpBearerAuth) defaultClient.getAuthentication("app_key");
@@ -1929,7 +1934,7 @@ import com.onesignal.client.api.DefaultApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://onesignal.com/api/v1");
+    defaultClient.setBasePath("https://api.onesignal.com");
     
     // Configure HTTP bearer authorization: app_key
     HttpBearerAuth app_key = (HttpBearerAuth) defaultClient.getAuthentication("app_key");
@@ -2002,7 +2007,7 @@ import com.onesignal.client.api.DefaultApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://onesignal.com/api/v1");
+    defaultClient.setBasePath("https://api.onesignal.com");
     
     // Configure HTTP bearer authorization: app_key
     HttpBearerAuth app_key = (HttpBearerAuth) defaultClient.getAuthentication("app_key");
@@ -2075,7 +2080,7 @@ import com.onesignal.client.api.DefaultApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://onesignal.com/api/v1");
+    defaultClient.setBasePath("https://api.onesignal.com");
     
     // Configure HTTP bearer authorization: app_key
     HttpBearerAuth app_key = (HttpBearerAuth) defaultClient.getAuthentication("app_key");
@@ -2151,7 +2156,7 @@ import com.onesignal.client.api.DefaultApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://onesignal.com/api/v1");
+    defaultClient.setBasePath("https://api.onesignal.com");
     
     // Configure HTTP bearer authorization: app_key
     HttpBearerAuth app_key = (HttpBearerAuth) defaultClient.getAuthentication("app_key");
@@ -2225,7 +2230,7 @@ import com.onesignal.client.api.DefaultApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://onesignal.com/api/v1");
+    defaultClient.setBasePath("https://api.onesignal.com");
     
     // Configure HTTP bearer authorization: app_key
     HttpBearerAuth app_key = (HttpBearerAuth) defaultClient.getAuthentication("app_key");
@@ -2299,7 +2304,7 @@ import com.onesignal.client.api.DefaultApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://onesignal.com/api/v1");
+    defaultClient.setBasePath("https://api.onesignal.com");
     
     // Configure HTTP bearer authorization: user_key
     HttpBearerAuth user_key = (HttpBearerAuth) defaultClient.getAuthentication("user_key");
@@ -2370,7 +2375,7 @@ import com.onesignal.client.api.DefaultApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://onesignal.com/api/v1");
+    defaultClient.setBasePath("https://api.onesignal.com");
     
     // Configure HTTP bearer authorization: app_key
     HttpBearerAuth app_key = (HttpBearerAuth) defaultClient.getAuthentication("app_key");
@@ -2443,7 +2448,7 @@ import com.onesignal.client.api.DefaultApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://onesignal.com/api/v1");
+    defaultClient.setBasePath("https://api.onesignal.com");
     
     // Configure HTTP bearer authorization: app_key
     HttpBearerAuth app_key = (HttpBearerAuth) defaultClient.getAuthentication("app_key");
@@ -2515,7 +2520,7 @@ import com.onesignal.client.api.DefaultApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://onesignal.com/api/v1");
+    defaultClient.setBasePath("https://api.onesignal.com");
     
     // Configure HTTP bearer authorization: app_key
     HttpBearerAuth app_key = (HttpBearerAuth) defaultClient.getAuthentication("app_key");
@@ -2589,7 +2594,7 @@ import com.onesignal.client.api.DefaultApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://onesignal.com/api/v1");
+    defaultClient.setBasePath("https://api.onesignal.com");
     
     // Configure HTTP bearer authorization: app_key
     HttpBearerAuth app_key = (HttpBearerAuth) defaultClient.getAuthentication("app_key");
@@ -2662,7 +2667,7 @@ import com.onesignal.client.api.DefaultApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://onesignal.com/api/v1");
+    defaultClient.setBasePath("https://api.onesignal.com");
     
     // Configure HTTP bearer authorization: app_key
     HttpBearerAuth app_key = (HttpBearerAuth) defaultClient.getAuthentication("app_key");
