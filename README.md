@@ -61,6 +61,43 @@ Add this dependency to your project's build file:
   }
 ```
 
+### Using JitPack
+[JitPack](https://jitpack.io/) allows you to use a git repository as a source of dependencies in your build file.
+
+First add jitpack as a repository in your build file. Then import the dependency using the GitHub user and repository names.
+
+#### Maven
+```xml
+  <repositories>
+    <repository>
+        <id>jitpack.io</id>
+        <url>https://jitpack.io</url>
+    </repository>
+  </repositories>
+
+  <dependency>
+      <groupId>com.github.OneSignal</groupId>
+      <artifactId>onesignal-java-api</artifactId>
+      <version>main-SNAPSHOT</version>
+  </dependency>
+```
+
+#### Gradle
+```groovy
+	
+repositories {
+  // ...
+  maven { url 'https://jitpack.io' }
+}
+
+dependencies {
+  implementation 'com.github.OneSignal:onesignal-java-api:main-SNAPSHOT'
+}
+
+```
+
+You can replace `main-SNAPSHOT` with a specific commit's short hash to use that commit.
+
 ### Others
 
 At first generate the JAR by executing:
