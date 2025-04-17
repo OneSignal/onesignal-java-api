@@ -49,7 +49,7 @@ import com.onesignal.client.JSON;
  * Channel: Push Notifications Platform: Android Allowing setting a background image for the notification. This is a JSON object containing the following keys. See our Background Image documentation for image sizes. 
  */
 @ApiModel(description = "Channel: Push Notifications Platform: Android Allowing setting a background image for the notification. This is a JSON object containing the following keys. See our Background Image documentation for image sizes. ")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-20T21:54:45.185Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-04-17T00:56:27.940Z[Etc/UTC]")
 public class BasicNotificationAllOfAndroidBackgroundLayout {
   private static final long serialVersionUID = 1L;
 
