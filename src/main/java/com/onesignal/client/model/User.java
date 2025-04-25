@@ -55,7 +55,7 @@ import com.onesignal.client.JSON;
 /**
  * User
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-20T21:54:45.185Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-05T19:51:13.087Z[Etc/UTC]")
 public class User {
   private static final long serialVersionUID = 1L;
 
