@@ -48,7 +48,7 @@ import com.onesignal.client.JSON;
 /**
  * BeginLiveActivityRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-04-25T19:31:57.613Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-04-28T16:13:40.528Z[Etc/UTC]")
 public class BeginLiveActivityRequest {
   private static final long serialVersionUID = 1L;
 
