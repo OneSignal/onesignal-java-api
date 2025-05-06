@@ -2,7 +2,7 @@
 
 OneSignal
 - API version: 1.4.0
-  - Build date: 2025-02-20T21:54:45.185Z[Etc/UTC]
+  - Build date: 2025-05-05T19:51:13.087Z[Etc/UTC]
 
 A powerful way to send personalized messages at scale and build effective customer engagement strategies. Learn more at onesignal.com
 
@@ -90,8 +90,8 @@ import com.onesignal.client.api.DefaultApi;
 
 public class Example {
   private static final String appId = "YOUR_APP_ID";
-  private static final String appKeyToken = "YOUR_APP_KEY";
-  private static final String userKeyToken = "YOUR_USER_TOKEN";
+  private static final String restKeyToken = "YOUR_REST_API_KEY"; // App REST API key required for most endpoints
+  private static final String orgKeyToken = "YOUR_ORGANIZATION_API_KEY"; // Organization key is only required for creating new apps and other top-level endpoints
 
   private static Notification createNotification() {
     Notification notification = new Notification();
@@ -110,9 +110,9 @@ public class Example {
     // Setting up the client
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     HttpBearerAuth appKey = (HttpBearerAuth) defaultClient.getAuthentication("app_key");
-    appKey.setBearerToken(appKeyToken);
+    appKey.setBearerToken(restKeyToken);
     HttpBearerAuth userKey = (HttpBearerAuth) defaultClient.getAuthentication("user_key");
-    userKey.setBearerToken(userKeyToken);
+    userKey.setBearerToken(orgKeyToken);
     api = new DefaultApi(defaultClient);
 
     // Setting up the notification
