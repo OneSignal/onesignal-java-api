@@ -7,7 +7,9 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**errors** | [**List&lt;GenericErrorErrorsInner&gt;**](GenericErrorErrorsInner.md) |  |  [optional] |
+|**errors** | **Object** |  |  [optional] |
+|**success** | **Boolean** |  |  [optional] |
+|**reference** | **Object** |  |  [optional] |
 
 
 
