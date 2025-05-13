@@ -8,9 +8,8 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**id** | **String** |  |  [optional] |
-|**recipients** | **Integer** | Estimated number of subscribers targetted by notification. |  [optional] |
 |**externalId** | **String** |  |  [optional] |
-|**errors** | [**Notification200Errors**](Notification200Errors.md) |  |  [optional] |
+|**errors** | **Object** | Errors include the identifiers that are invalid, or that there are no subscribers. |  [optional] |
 
 
 

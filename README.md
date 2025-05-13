@@ -1,8 +1,8 @@
 # onesignal-java-client
 
 OneSignal
-- API version: 1.4.0
-  - Build date: 2025-04-25T19:31:57.613Z[Etc/UTC]
+- API version: 5.0.1
+  - Build date: 2025-05-13T23:45:41.211Z[Etc/UTC]
 
 A powerful way to send personalized messages at scale and build effective customer engagement strategies. Learn more at onesignal.com
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>org.openapitools</groupId>
   <artifactId>onesignal-java-client</artifactId>
-  <version>1.4.0</version>
+  <version>5.0.1</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -57,7 +57,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "org.openapitools:onesignal-java-client:1.4.0"
+     implementation "org.openapitools:onesignal-java-client:5.0.1"
   }
 ```
 
@@ -71,7 +71,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/onesignal-java-client-1.4.0.jar`
+* `target/onesignal-java-client-5.0.1.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -90,8 +90,8 @@ import com.onesignal.client.api.DefaultApi;
 
 public class Example {
   private static final String appId = "YOUR_APP_ID";
-  private static final String restKeyToken = "YOUR_REST_API_KEY"; // App REST API key required for most endpoints
-  private static final String orgKeyToken = "YOUR_ORGANIZATION_API_KEY"; // Organization key is only required for creating new apps and other top-level endpoints
+  private static final String appKeyToken = "YOUR_APP_KEY";
+  private static final String userKeyToken = "YOUR_USER_TOKEN";
 
   private static Notification createNotification() {
     Notification notification = new Notification();
@@ -110,9 +110,9 @@ public class Example {
     // Setting up the client
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     HttpBearerAuth appKey = (HttpBearerAuth) defaultClient.getAuthentication("app_key");
-    appKey.setBearerToken(restKeyToken);
+    appKey.setBearerToken(appKeyToken);
     HttpBearerAuth userKey = (HttpBearerAuth) defaultClient.getAuthentication("user_key");
-    userKey.setBearerToken(orgKeyToken);
+    userKey.setBearerToken(userKeyToken);
     api = new DefaultApi(defaultClient);
 
     // Setting up the notification
@@ -134,41 +134,34 @@ All URIs are relative to *https://api.onesignal.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*DefaultApi* | [**beginLiveActivity**](docs/DefaultApi.md#beginLiveActivity) | **POST** /apps/{app_id}/live_activities/{activity_id}/token | Start Live Activity
 *DefaultApi* | [**cancelNotification**](docs/DefaultApi.md#cancelNotification) | **DELETE** /notifications/{notification_id} | Stop a scheduled or currently outgoing notification
+*DefaultApi* | [**createAlias**](docs/DefaultApi.md#createAlias) | **PATCH** /apps/{app_id}/users/by/{alias_label}/{alias_id}/identity | 
+*DefaultApi* | [**createAliasBySubscription**](docs/DefaultApi.md#createAliasBySubscription) | **PATCH** /apps/{app_id}/subscriptions/{subscription_id}/user/identity | 
 *DefaultApi* | [**createApp**](docs/DefaultApi.md#createApp) | **POST** /apps | Create an app
 *DefaultApi* | [**createNotification**](docs/DefaultApi.md#createNotification) | **POST** /notifications | Create notification
-*DefaultApi* | [**createPlayer**](docs/DefaultApi.md#createPlayer) | **POST** /players | Add a device
-*DefaultApi* | [**createSegments**](docs/DefaultApi.md#createSegments) | **POST** /apps/{app_id}/segments | Create Segments
+*DefaultApi* | [**createSegment**](docs/DefaultApi.md#createSegment) | **POST** /apps/{app_id}/segments | Create Segment
 *DefaultApi* | [**createSubscription**](docs/DefaultApi.md#createSubscription) | **POST** /apps/{app_id}/users/by/{alias_label}/{alias_id}/subscriptions | 
 *DefaultApi* | [**createUser**](docs/DefaultApi.md#createUser) | **POST** /apps/{app_id}/users | 
 *DefaultApi* | [**deleteAlias**](docs/DefaultApi.md#deleteAlias) | **DELETE** /apps/{app_id}/users/by/{alias_label}/{alias_id}/identity/{alias_label_to_delete} | 
-*DefaultApi* | [**deletePlayer**](docs/DefaultApi.md#deletePlayer) | **DELETE** /players/{player_id} | Delete a user record
-*DefaultApi* | [**deleteSegments**](docs/DefaultApi.md#deleteSegments) | **DELETE** /apps/{app_id}/segments/{segment_id} | Delete Segments
+*DefaultApi* | [**deleteSegment**](docs/DefaultApi.md#deleteSegment) | **DELETE** /apps/{app_id}/segments/{segment_id} | Delete Segment
 *DefaultApi* | [**deleteSubscription**](docs/DefaultApi.md#deleteSubscription) | **DELETE** /apps/{app_id}/subscriptions/{subscription_id} | 
 *DefaultApi* | [**deleteUser**](docs/DefaultApi.md#deleteUser) | **DELETE** /apps/{app_id}/users/by/{alias_label}/{alias_id} | 
-*DefaultApi* | [**endLiveActivity**](docs/DefaultApi.md#endLiveActivity) | **DELETE** /apps/{app_id}/live_activities/{activity_id}/token/{subscription_id} | Stop Live Activity
 *DefaultApi* | [**exportEvents**](docs/DefaultApi.md#exportEvents) | **POST** /notifications/{notification_id}/export_events?app_id&#x3D;{app_id} | Export CSV of Events
-*DefaultApi* | [**exportPlayers**](docs/DefaultApi.md#exportPlayers) | **POST** /players/csv_export?app_id&#x3D;{app_id} | Export CSV of Players
-*DefaultApi* | [**fetchAliases**](docs/DefaultApi.md#fetchAliases) | **GET** /apps/{app_id}/subscriptions/{subscription_id}/user/identity | 
-*DefaultApi* | [**fetchUser**](docs/DefaultApi.md#fetchUser) | **GET** /apps/{app_id}/users/by/{alias_label}/{alias_id} | 
-*DefaultApi* | [**fetchUserIdentity**](docs/DefaultApi.md#fetchUserIdentity) | **GET** /apps/{app_id}/users/by/{alias_label}/{alias_id}/identity | 
+*DefaultApi* | [**exportSubscriptions**](docs/DefaultApi.md#exportSubscriptions) | **POST** /players/csv_export?app_id&#x3D;{app_id} | Export CSV of Subscriptions
+*DefaultApi* | [**getAliases**](docs/DefaultApi.md#getAliases) | **GET** /apps/{app_id}/users/by/{alias_label}/{alias_id}/identity | 
+*DefaultApi* | [**getAliasesBySubscription**](docs/DefaultApi.md#getAliasesBySubscription) | **GET** /apps/{app_id}/subscriptions/{subscription_id}/user/identity | 
 *DefaultApi* | [**getApp**](docs/DefaultApi.md#getApp) | **GET** /apps/{app_id} | View an app
 *DefaultApi* | [**getApps**](docs/DefaultApi.md#getApps) | **GET** /apps | View apps
-*DefaultApi* | [**getEligibleIams**](docs/DefaultApi.md#getEligibleIams) | **GET** /apps/{app_id}/subscriptions/{subscription_id}/iams | 
 *DefaultApi* | [**getNotification**](docs/DefaultApi.md#getNotification) | **GET** /notifications/{notification_id} | View notification
 *DefaultApi* | [**getNotificationHistory**](docs/DefaultApi.md#getNotificationHistory) | **POST** /notifications/{notification_id}/history | Notification History
 *DefaultApi* | [**getNotifications**](docs/DefaultApi.md#getNotifications) | **GET** /notifications | View notifications
 *DefaultApi* | [**getOutcomes**](docs/DefaultApi.md#getOutcomes) | **GET** /apps/{app_id}/outcomes | View Outcomes
-*DefaultApi* | [**getPlayer**](docs/DefaultApi.md#getPlayer) | **GET** /players/{player_id} | View device
-*DefaultApi* | [**getPlayers**](docs/DefaultApi.md#getPlayers) | **GET** /players | View devices
-*DefaultApi* | [**identifyUserByAlias**](docs/DefaultApi.md#identifyUserByAlias) | **PATCH** /apps/{app_id}/users/by/{alias_label}/{alias_id}/identity | 
-*DefaultApi* | [**identifyUserBySubscriptionId**](docs/DefaultApi.md#identifyUserBySubscriptionId) | **PATCH** /apps/{app_id}/subscriptions/{subscription_id}/user/identity | 
+*DefaultApi* | [**getSegments**](docs/DefaultApi.md#getSegments) | **GET** /apps/{app_id}/segments | Get Segments
+*DefaultApi* | [**getUser**](docs/DefaultApi.md#getUser) | **GET** /apps/{app_id}/users/by/{alias_label}/{alias_id} | 
 *DefaultApi* | [**transferSubscription**](docs/DefaultApi.md#transferSubscription) | **PATCH** /apps/{app_id}/subscriptions/{subscription_id}/owner | 
+*DefaultApi* | [**unsubscribeEmailWithToken**](docs/DefaultApi.md#unsubscribeEmailWithToken) | **POST** /apps/{app_id}/notifications/{notification_id}/unsubscribe | Unsubscribe with token
 *DefaultApi* | [**updateApp**](docs/DefaultApi.md#updateApp) | **PUT** /apps/{app_id} | Update an app
 *DefaultApi* | [**updateLiveActivity**](docs/DefaultApi.md#updateLiveActivity) | **POST** /apps/{app_id}/live_activities/{activity_id}/notifications | Update a Live Activity via Push
-*DefaultApi* | [**updatePlayer**](docs/DefaultApi.md#updatePlayer) | **PUT** /players/{player_id} | Edit device
-*DefaultApi* | [**updatePlayerTags**](docs/DefaultApi.md#updatePlayerTags) | **PUT** /apps/{app_id}/users/{external_user_id} | Edit tags with external user id
 *DefaultApi* | [**updateSubscription**](docs/DefaultApi.md#updateSubscription) | **PATCH** /apps/{app_id}/subscriptions/{subscription_id} | 
 *DefaultApi* | [**updateUser**](docs/DefaultApi.md#updateUser) | **PATCH** /apps/{app_id}/users/by/{alias_label}/{alias_id} | 
 
@@ -179,37 +172,25 @@ Class | Method | HTTP request | Description
  - [BasicNotification](docs/BasicNotification.md)
  - [BasicNotificationAllOf](docs/BasicNotificationAllOf.md)
  - [BasicNotificationAllOfAndroidBackgroundLayout](docs/BasicNotificationAllOfAndroidBackgroundLayout.md)
- - [BeginLiveActivityRequest](docs/BeginLiveActivityRequest.md)
  - [Button](docs/Button.md)
- - [CancelNotificationSuccessResponse](docs/CancelNotificationSuccessResponse.md)
  - [CreateNotificationSuccessResponse](docs/CreateNotificationSuccessResponse.md)
- - [CreatePlayerSuccessResponse](docs/CreatePlayerSuccessResponse.md)
  - [CreateSegmentConflictResponse](docs/CreateSegmentConflictResponse.md)
  - [CreateSegmentSuccessResponse](docs/CreateSegmentSuccessResponse.md)
- - [CreateSubscriptionRequestBody](docs/CreateSubscriptionRequestBody.md)
  - [CreateUserConflictResponse](docs/CreateUserConflictResponse.md)
  - [CreateUserConflictResponseErrorsInner](docs/CreateUserConflictResponseErrorsInner.md)
  - [CreateUserConflictResponseErrorsItemsMeta](docs/CreateUserConflictResponseErrorsItemsMeta.md)
- - [DeletePlayerNotFoundResponse](docs/DeletePlayerNotFoundResponse.md)
- - [DeletePlayerSuccessResponse](docs/DeletePlayerSuccessResponse.md)
- - [DeleteSegmentNotFoundResponse](docs/DeleteSegmentNotFoundResponse.md)
- - [DeleteSegmentSuccessResponse](docs/DeleteSegmentSuccessResponse.md)
  - [DeliveryData](docs/DeliveryData.md)
  - [ExportEventsSuccessResponse](docs/ExportEventsSuccessResponse.md)
- - [ExportPlayersRequestBody](docs/ExportPlayersRequestBody.md)
- - [ExportPlayersSuccessResponse](docs/ExportPlayersSuccessResponse.md)
+ - [ExportSubscriptionsRequestBody](docs/ExportSubscriptionsRequestBody.md)
+ - [ExportSubscriptionsSuccessResponse](docs/ExportSubscriptionsSuccessResponse.md)
  - [Filter](docs/Filter.md)
- - [FilterExpressions](docs/FilterExpressions.md)
+ - [FilterExpression](docs/FilterExpression.md)
  - [GenericError](docs/GenericError.md)
- - [GenericErrorErrorsInner](docs/GenericErrorErrorsInner.md)
- - [GetNotificationRequestBody](docs/GetNotificationRequestBody.md)
- - [InlineResponse200](docs/InlineResponse200.md)
- - [InlineResponse2003](docs/InlineResponse2003.md)
- - [InlineResponse201](docs/InlineResponse201.md)
- - [InlineResponse202](docs/InlineResponse202.md)
- - [InvalidIdentifierError](docs/InvalidIdentifierError.md)
+ - [GenericSuccessBoolResponse](docs/GenericSuccessBoolResponse.md)
+ - [GetNotificationHistoryRequestBody](docs/GetNotificationHistoryRequestBody.md)
+ - [GetSegmentsSuccessResponse](docs/GetSegmentsSuccessResponse.md)
+ - [LanguageStringMap](docs/LanguageStringMap.md)
  - [Notification](docs/Notification.md)
- - [Notification200Errors](docs/Notification200Errors.md)
  - [NotificationAllOf](docs/NotificationAllOf.md)
  - [NotificationHistorySuccessResponse](docs/NotificationHistorySuccessResponse.md)
  - [NotificationSlice](docs/NotificationSlice.md)
@@ -222,40 +203,34 @@ Class | Method | HTTP request | Description
  - [PlatformDeliveryData](docs/PlatformDeliveryData.md)
  - [PlatformDeliveryDataEmailAllOf](docs/PlatformDeliveryDataEmailAllOf.md)
  - [PlatformDeliveryDataSmsAllOf](docs/PlatformDeliveryDataSmsAllOf.md)
- - [Player](docs/Player.md)
- - [PlayerNotificationTarget](docs/PlayerNotificationTarget.md)
- - [PlayerNotificationTargetIncludeAliases](docs/PlayerNotificationTargetIncludeAliases.md)
- - [PlayerSlice](docs/PlayerSlice.md)
+ - [PropertiesBody](docs/PropertiesBody.md)
  - [PropertiesDeltas](docs/PropertiesDeltas.md)
  - [PropertiesObject](docs/PropertiesObject.md)
  - [Purchase](docs/Purchase.md)
- - [RateLimiterError](docs/RateLimiterError.md)
+ - [RateLimitError](docs/RateLimitError.md)
  - [Segment](docs/Segment.md)
+ - [SegmentData](docs/SegmentData.md)
  - [SegmentNotificationTarget](docs/SegmentNotificationTarget.md)
- - [StringMap](docs/StringMap.md)
- - [SubscriptionObject](docs/SubscriptionObject.md)
+ - [Subscription](docs/Subscription.md)
+ - [SubscriptionBody](docs/SubscriptionBody.md)
+ - [SubscriptionNotificationTarget](docs/SubscriptionNotificationTarget.md)
  - [TransferSubscriptionRequestBody](docs/TransferSubscriptionRequestBody.md)
  - [UpdateLiveActivityRequest](docs/UpdateLiveActivityRequest.md)
  - [UpdateLiveActivitySuccessResponse](docs/UpdateLiveActivitySuccessResponse.md)
- - [UpdatePlayerSuccessResponse](docs/UpdatePlayerSuccessResponse.md)
- - [UpdatePlayerTagsRequestBody](docs/UpdatePlayerTagsRequestBody.md)
- - [UpdatePlayerTagsSuccessResponse](docs/UpdatePlayerTagsSuccessResponse.md)
- - [UpdateSubscriptionRequestBody](docs/UpdateSubscriptionRequestBody.md)
  - [UpdateUserRequest](docs/UpdateUserRequest.md)
  - [User](docs/User.md)
- - [UserIdentityRequestBody](docs/UserIdentityRequestBody.md)
- - [UserIdentityResponse](docs/UserIdentityResponse.md)
- - [UserSubscriptionOptions](docs/UserSubscriptionOptions.md)
+ - [UserIdentityBody](docs/UserIdentityBody.md)
+ - [WebButton](docs/WebButton.md)
 
 
 ## Documentation for Authorization
 
 Authentication schemes defined for the API:
-### app_key
+### rest_api_key
 
 - **Type**: HTTP basic authentication
 
-### user_key
+### user_auth_key
 
 - **Type**: HTTP basic authentication
 

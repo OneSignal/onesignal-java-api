@@ -7,8 +7,8 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**sessionTime** | **BigDecimal** |  |  [optional] |
-|**sessionCount** | **BigDecimal** |  |  [optional] |
+|**sessionTime** | **Integer** |  |  [optional] |
+|**sessionCount** | **Integer** |  |  [optional] |
 |**purchases** | [**List&lt;Purchase&gt;**](Purchase.md) |  |  [optional] |
 
 
