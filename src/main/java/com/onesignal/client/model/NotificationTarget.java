@@ -65,7 +65,7 @@ import com.google.gson.JsonParseException;
 
 import com.onesignal.client.JSON;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-13T23:45:41.211Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-23T20:13:30.554Z[Etc/UTC]")
 public class NotificationTarget extends AbstractOpenApiSchema {
     private static final Logger log = Logger.getLogger(NotificationTarget.class.getName());
 
