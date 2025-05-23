@@ -13,8 +13,8 @@
 |**lat** | **BigDecimal** |  |  [optional] |
 |**_long** | **BigDecimal** |  |  [optional] |
 |**country** | **String** |  |  [optional] |
-|**firstActive** | **BigDecimal** |  |  [optional] |
-|**lastActive** | **BigDecimal** |  |  [optional] |
+|**firstActive** | **Integer** |  |  [optional] |
+|**lastActive** | **Integer** |  |  [optional] |
 |**amountSpent** | **BigDecimal** |  |  [optional] |
 |**purchases** | [**List&lt;Purchase&gt;**](Purchase.md) |  |  [optional] |
 |**ip** | **String** |  |  [optional] |

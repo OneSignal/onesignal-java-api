@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**identity** | **Map&lt;String, Object&gt;** |  |  [optional] |
+|**identity** | **Map&lt;String, String&gt;** |  |  [optional] |
 
 
 
