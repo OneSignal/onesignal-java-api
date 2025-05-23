@@ -65,7 +65,7 @@ import com.onesignal.client.JSON;
 /**
  * NotificationWithMeta
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-13T23:45:41.211Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-23T20:13:30.554Z[Etc/UTC]")
 public class NotificationWithMeta {
   private static final long serialVersionUID = 1L;
 
