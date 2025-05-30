@@ -11,7 +11,7 @@
 |**type** | [**TypeEnum**](#TypeEnum) |  |  [optional] |
 |**token** | **String** |  |  [optional] |
 |**enabled** | **Boolean** |  |  [optional] |
-|**notificationTypes** | **BigDecimal** |  |  [optional] |
+|**notificationTypes** | **Integer** |  |  [optional] |
 |**sessionTime** | **BigDecimal** |  |  [optional] |
 |**sessionCount** | **BigDecimal** |  |  [optional] |
 |**sdk** | **String** |  |  [optional] |
