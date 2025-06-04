@@ -5,7 +5,7 @@
     <artifactId>onesignal-java-client</artifactId>
     <packaging>jar</packaging>
     <name>onesignal-java-client</name>
-    <version>1.4.0</version>
+    <version>1.4.1</version>
     <url>https://github.com/openapitools/openapi-generator</url>
     <description>OpenAPI Java</description>
     <scm>
