@@ -283,9 +283,9 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://api.onesignal.com");
     
-    // Configure HTTP bearer authorization: user_auth_key
-    HttpBearerAuth user_auth_key = (HttpBearerAuth) defaultClient.getAuthentication("user_auth_key");
-    user_auth_key.setBearerToken("BEARER TOKEN");
+    // Configure HTTP bearer authorization: organization_api_key
+    HttpBearerAuth organization_api_key = (HttpBearerAuth) defaultClient.getAuthentication("organization_api_key");
+    organization_api_key.setBearerToken("BEARER TOKEN");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
     App app = new App(); // App | 
@@ -315,7 +315,7 @@ public class Example {
 
 ### Authorization
 
-[user_auth_key](../README.md#user_auth_key)
+[organization_api_key](../README.md#organization_api_key)
 
 ### HTTP request headers
 
@@ -1227,9 +1227,9 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://api.onesignal.com");
     
-    // Configure HTTP bearer authorization: user_auth_key
-    HttpBearerAuth user_auth_key = (HttpBearerAuth) defaultClient.getAuthentication("user_auth_key");
-    user_auth_key.setBearerToken("BEARER TOKEN");
+    // Configure HTTP bearer authorization: organization_api_key
+    HttpBearerAuth organization_api_key = (HttpBearerAuth) defaultClient.getAuthentication("organization_api_key");
+    organization_api_key.setBearerToken("BEARER TOKEN");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
     String appId = "appId_example"; // String | An app id
@@ -1259,7 +1259,7 @@ public class Example {
 
 ### Authorization
 
-[user_auth_key](../README.md#user_auth_key)
+[organization_api_key](../README.md#organization_api_key)
 
 ### HTTP request headers
 
@@ -1296,9 +1296,9 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://api.onesignal.com");
     
-    // Configure HTTP bearer authorization: user_auth_key
-    HttpBearerAuth user_auth_key = (HttpBearerAuth) defaultClient.getAuthentication("user_auth_key");
-    user_auth_key.setBearerToken("BEARER TOKEN");
+    // Configure HTTP bearer authorization: organization_api_key
+    HttpBearerAuth organization_api_key = (HttpBearerAuth) defaultClient.getAuthentication("organization_api_key");
+    organization_api_key.setBearerToken("BEARER TOKEN");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
     try {
@@ -1324,7 +1324,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[user_auth_key](../README.md#user_auth_key)
+[organization_api_key](../README.md#organization_api_key)
 
 ### HTTP request headers
 
@@ -1954,9 +1954,9 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://api.onesignal.com");
     
-    // Configure HTTP bearer authorization: user_auth_key
-    HttpBearerAuth user_auth_key = (HttpBearerAuth) defaultClient.getAuthentication("user_auth_key");
-    user_auth_key.setBearerToken("BEARER TOKEN");
+    // Configure HTTP bearer authorization: organization_api_key
+    HttpBearerAuth organization_api_key = (HttpBearerAuth) defaultClient.getAuthentication("organization_api_key");
+    organization_api_key.setBearerToken("BEARER TOKEN");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
     String appId = "appId_example"; // String | An app id
@@ -1988,7 +1988,7 @@ public class Example {
 
 ### Authorization
 
-[user_auth_key](../README.md#user_auth_key)
+[organization_api_key](../README.md#organization_api_key)
 
 ### HTTP request headers
 
