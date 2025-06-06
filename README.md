@@ -1,8 +1,8 @@
 # onesignal-java-client
 
 OneSignal
-- API version: 5.0.1
-  - Build date: 2025-05-13T23:45:41.211Z[Etc/UTC]
+- API version: 5.1.0
+  - Build date: 2025-06-05T20:14:26.949Z[Etc/UTC]
 
 A powerful way to send personalized messages at scale and build effective customer engagement strategies. Learn more at onesignal.com
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>org.openapitools</groupId>
   <artifactId>onesignal-java-client</artifactId>
-  <version>5.0.1</version>
+  <version>5.1.0</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -57,7 +57,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "org.openapitools:onesignal-java-client:5.0.1"
+     implementation "org.openapitools:onesignal-java-client:5.1.0"
   }
 ```
 
@@ -71,7 +71,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/onesignal-java-client-5.0.1.jar`
+* `target/onesignal-java-client-5.1.0.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -90,8 +90,8 @@ import com.onesignal.client.api.DefaultApi;
 
 public class Example {
   private static final String appId = "YOUR_APP_ID";
-  private static final String appKeyToken = "YOUR_APP_KEY";
-  private static final String userKeyToken = "YOUR_USER_TOKEN";
+  private static final String restApiKey = "YOUR_REST_API_KEY"; // App REST API key required for most endpoints
+  private static final String organizationApiKey = "YOUR_ORGANIZATION_API_KEY"; // Organization key is only required for creating new apps and other top-level endpoints
 
   private static Notification createNotification() {
     Notification notification = new Notification();
@@ -109,10 +109,10 @@ public class Example {
   public static void main(String[] args) {
     // Setting up the client
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    HttpBearerAuth appKey = (HttpBearerAuth) defaultClient.getAuthentication("app_key");
-    appKey.setBearerToken(appKeyToken);
-    HttpBearerAuth userKey = (HttpBearerAuth) defaultClient.getAuthentication("user_key");
-    userKey.setBearerToken(userKeyToken);
+    HttpBearerAuth restApiAuth = (HttpBearerAuth) defaultClient.getAuthentication("rest_api_key");
+    restApiAuth.setBearerToken(restApiKey);
+    HttpBearerAuth organizationApiAuth = (HttpBearerAuth) defaultClient.getAuthentication("organization_api_key");
+    organizationApiAuth.setBearerToken(organizationApiKey);
     api = new DefaultApi(defaultClient);
 
     // Setting up the notification
@@ -226,11 +226,11 @@ Class | Method | HTTP request | Description
 ## Documentation for Authorization
 
 Authentication schemes defined for the API:
-### rest_api_key
+### organization_api_key
 
 - **Type**: HTTP basic authentication
 
-### user_auth_key
+### rest_api_key
 
 - **Type**: HTTP basic authentication
 
