@@ -2,7 +2,7 @@
 
 OneSignal
 - API version: 5.1.0
-  - Build date: 2025-06-26T18:17:38.609Z[Etc/UTC]
+  - Build date: 2025-06-28T01:39:37.874Z[Etc/UTC]
 
 A powerful way to send personalized messages at scale and build effective customer engagement strategies. Learn more at onesignal.com
 
