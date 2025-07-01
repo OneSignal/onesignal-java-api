@@ -48,7 +48,7 @@ import com.onesignal.client.JSON;
 /**
  * DeletePlayerNotFoundResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-30T03:48:43.907Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class DeletePlayerNotFoundResponse {
   private static final long serialVersionUID = 1L;
 
