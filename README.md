@@ -1,8 +1,7 @@
 # onesignal-java-client
 
 OneSignal
-- API version: 5.1.0
-  - Build date: 2025-06-26T18:17:38.609Z[Etc/UTC]
+- API version: 5.2.0
 
 A powerful way to send personalized messages at scale and build effective customer engagement strategies. Learn more at onesignal.com
 
@@ -41,7 +40,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>org.openapitools</groupId>
   <artifactId>onesignal-java-client</artifactId>
-  <version>5.1.0</version>
+  <version>5.2.0</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -57,7 +56,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "org.openapitools:onesignal-java-client:5.1.0"
+     implementation "org.openapitools:onesignal-java-client:5.2.0"
   }
 ```
 
@@ -71,7 +70,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/onesignal-java-client-5.1.0.jar`
+* `target/onesignal-java-client-5.2.0.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
