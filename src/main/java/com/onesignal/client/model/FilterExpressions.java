@@ -60,7 +60,7 @@ import com.google.gson.JsonParseException;
 
 import com.onesignal.client.JSON;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-30T03:48:43.907Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class FilterExpressions extends AbstractOpenApiSchema {
     private static final Logger log = Logger.getLogger(FilterExpressions.class.getName());
 

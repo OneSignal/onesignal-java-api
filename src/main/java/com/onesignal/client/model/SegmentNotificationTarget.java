@@ -50,7 +50,7 @@ import com.onesignal.client.JSON;
 /**
  * SegmentNotificationTarget
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-30T03:48:43.907Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SegmentNotificationTarget {
   private static final long serialVersionUID = 1L;
 
