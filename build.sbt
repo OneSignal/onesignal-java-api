@@ -1,6 +1,6 @@
 lazy val root = (project in file(".")).
   settings(
-    organization := "org.openapitools",
+    organization := "com.onesignal",
     name := "onesignal-java-client",
     version := "5.2.0",
     scalaVersion := "2.11.4",

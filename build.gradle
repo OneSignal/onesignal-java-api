@@ -2,18 +2,21 @@ apply plugin: 'idea'
 apply plugin: 'eclipse'
 apply plugin: 'java'
 apply plugin: 'com.diffplug.spotless'
+apply plugin: 'com.vanniktech.maven.publish'
 
-group = 'org.openapitools'
+group = 'com.onesignal'
 version = '5.2.0'
 
 buildscript {
     repositories {
         mavenCentral()
+        gradlePluginPortal()
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:2.3.+'
         classpath 'com.github.dcendents:android-maven-gradle-plugin:2.1'
         classpath 'com.diffplug.spotless:spotless-plugin-gradle:6.3.0'
+        classpath 'com.vanniktech:gradle-maven-publish-plugin:0.25.3'
     }
 }
 
@@ -79,21 +82,12 @@ if(hasProperty('target') && target == 'android') {
     }
 
 } else {
-
     apply plugin: 'java'
     apply plugin: 'maven-publish'
+    apply from: 'maven-push.gradle'
 
     sourceCompatibility = JavaVersion.VERSION_1_8
     targetCompatibility = JavaVersion.VERSION_1_8
-
-    publishing {
-        publications {
-            maven(MavenPublication) {
-               artifactId = 'onesignal-java-client'
-               from components.java
-            }
-        }
-    }
 
     task execute(type:JavaExec) {
        main = System.getProperty('mainClass')

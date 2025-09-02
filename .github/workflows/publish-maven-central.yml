@@ -1,0 +1,66 @@
+name: Publish to Maven Central
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version to publish (leave empty to use current version)'
+        required: false
+        default: ''
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          java-version: '11'
+          distribution: 'temurin'
+
+      - name: Cache Gradle packages
+        uses: actions/cache@v3
+        with:
+          path: |
+            ~/.gradle/caches
+            ~/.gradle/wrapper
+          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+          restore-keys: |
+            ${{ runner.os }}-gradle-
+
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
+
+      - name: Set version from input
+        if: github.event.inputs.version != ''
+        run: |
+          echo "VERSION=${{ github.event.inputs.version }}" >> $GITHUB_ENV
+          sed -i "s/version = '[^']*'/version = '${{ github.event.inputs.version }}'/" build.gradle
+
+      - name: Build project
+        run: ./gradlew build
+
+      - name: Run tests
+        run: ./gradlew test
+
+      - name: Publish to Maven Central
+        run: |
+          ./gradlew publishToMavenCentral --no-configuration-cache \
+            -PmavenCentralUsername="${{ secrets.MAVEN_CENTRAL_USERNAME }}" \
+            -PmavenCentralPassword="${{ secrets.MAVEN_CENTRAL_PASSWORD }}" \
+            -Psigning.keyId="${{ secrets.SIGNING_KEY_ID }}" \
+            -Psigning.password="${{ secrets.SIGNING_PASSWORD }}" \
+            -Psigning.secretKeyRingFile="${{ secrets.SIGNING_SECRET_KEY_RING_FILE }}"
+
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: build-artifacts
+          path: build/libs/
