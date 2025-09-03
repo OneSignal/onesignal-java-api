@@ -1,17 +1,17 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>org.openapitools</groupId>
+    <groupId>com.onesignal</groupId>
     <artifactId>onesignal-java-client</artifactId>
     <packaging>jar</packaging>
     <name>onesignal-java-client</name>
     <version>5.2.0</version>
-    <url>https://github.com/openapitools/openapi-generator</url>
-    <description>OpenAPI Java</description>
+    <url>https://github.com/OneSignal/onesignal-java-api</url>
+    <description>OneSignal Java API Client</description>
     <scm>
-        <connection>scm:git:git@github.com:openapitools/openapi-generator.git</connection>
-        <developerConnection>scm:git:git@github.com:openapitools/openapi-generator.git</developerConnection>
-        <url>https://github.com/openapitools/openapi-generator</url>
+        <connection>scm:git:git://github.com/OneSignal/onesignal-java-api.git</connection>
+        <developerConnection>scm:git:ssh://git@github.com/OneSignal/onesignal-java-api.git</developerConnection>
+        <url>github.com/OneSignal/onesignal-java-api</url>
     </scm>
 
     <licenses>
@@ -25,7 +25,7 @@
     <developers>
         <developer>
             <name>OneSignal</name>
-            <email>team@openapitools.org</email>
+            <email>support@onesignal.com</email>
             <organization>OneSignal</organization>
             <organizationUrl>https://onesignal.com/</organizationUrl>
         </developer>

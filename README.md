@@ -18,46 +18,52 @@ Building the API client library requires:
 
 ## Installation
 
-To install the API client library to your local Maven repository, simply execute:
+### Maven Central (Recommended)
 
-```shell
-mvn clean install
-```
+The onesignal-java-client is available on Maven Central. Add the following dependency to your project:
 
-To deploy it to a remote Maven repository instead, configure the settings of the repository and execute:
-
-```shell
-mvn clean deploy
-```
-
-Refer to the [OSSRH Guide](http://central.sonatype.org/pages/ossrh-guide.html) for more information.
-
-### Maven users
+#### Maven users
 
 Add this dependency to your project's POM:
 
 ```xml
 <dependency>
-  <groupId>org.openapitools</groupId>
+  <groupId>com.onesignal</groupId>
   <artifactId>onesignal-java-client</artifactId>
   <version>5.2.0</version>
   <scope>compile</scope>
 </dependency>
 ```
 
-### Gradle users
+#### Gradle users
 
 Add this dependency to your project's build file:
 
 ```groovy
-  repositories {
+dependencies {
+    implementation "com.onesignal:onesignal-java-client:5.2.0"
+}
+```
+
+### Manual Installation
+
+To install the library to your local Maven repository, execute:
+
+```shell
+mvn clean install
+```
+
+#### Local Build Dependencies
+
+```groovy
+repositories {
     mavenCentral()     // Needed if the 'onesignal-java-client' jar has been published to maven central.
     mavenLocal()       // Needed if the 'onesignal-java-client' jar has been published to the local maven repo.
-  }
+}
 
-  dependencies {
-     implementation "org.openapitools:onesignal-java-client:5.2.0"
-  }
+dependencies {
+    implementation "com.onesignal:onesignal-java-client:5.2.0"
+}
 ```
 
 ### Others

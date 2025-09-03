@@ -1,0 +1,39 @@
+apply plugin: 'com.vanniktech.maven.publish'
+
+mavenPublishing {
+    publishToMavenCentral(com.vanniktech.maven.publish.SonatypeHost.CENTRAL_PORTAL)
+    signAllPublications()
+
+    coordinates("com.onesignal", "onesignal-java-client", project.version)
+
+    pom {
+        name = 'onesignal-java-client'
+        description = 'OneSignal'
+        inceptionYear = '2022'
+        url = 'https://github.com/OneSignal/onesignal-java-api'
+
+        licenses {
+            license {
+                name = 'MIT License'
+                url = 'https://opensource.org/licenses/MIT'
+                distribution = 'repo'
+            }
+        }
+
+        developers {
+            developer {
+                id = 'onesignal'
+                name = 'OneSignal'
+                email = 'support@onesignal.com'
+                organization = 'OneSignal'
+                organizationUrl = 'https://onesignal.com/'
+            }
+        }
+
+        scm {
+            url = 'https://github.com/OneSignal/onesignal-java-api'
+            connection = scm:git:git://github.com/OneSignal/onesignal-java-api.git
+            developerConnection = scm:git:ssh://git@github.com/OneSignal/onesignal-java-api.git
+        }
+    }
+}
