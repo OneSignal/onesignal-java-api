@@ -5,16 +5,22 @@ All URIs are relative to *https://api.onesignal.com*
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
 | [**cancelNotification**](DefaultApi.md#cancelNotification) | **DELETE** /notifications/{notification_id} | Stop a scheduled or currently outgoing notification |
+| [**copyTemplateToApp**](DefaultApi.md#copyTemplateToApp) | **POST** /templates/{template_id}/copy_to_app | Copy template to another app |
 | [**createAlias**](DefaultApi.md#createAlias) | **PATCH** /apps/{app_id}/users/by/{alias_label}/{alias_id}/identity |  |
 | [**createAliasBySubscription**](DefaultApi.md#createAliasBySubscription) | **PATCH** /apps/{app_id}/subscriptions/{subscription_id}/user/identity |  |
+| [**createApiKey**](DefaultApi.md#createApiKey) | **POST** /apps/{app_id}/auth/tokens | Create API key |
 | [**createApp**](DefaultApi.md#createApp) | **POST** /apps | Create an app |
+| [**createCustomEvents**](DefaultApi.md#createCustomEvents) | **POST** /apps/{app_id}/integrations/custom_events | Create custom events |
 | [**createNotification**](DefaultApi.md#createNotification) | **POST** /notifications | Create notification |
 | [**createSegment**](DefaultApi.md#createSegment) | **POST** /apps/{app_id}/segments | Create Segment |
 | [**createSubscription**](DefaultApi.md#createSubscription) | **POST** /apps/{app_id}/users/by/{alias_label}/{alias_id}/subscriptions |  |
+| [**createTemplate**](DefaultApi.md#createTemplate) | **POST** /templates | Create template |
 | [**createUser**](DefaultApi.md#createUser) | **POST** /apps/{app_id}/users |  |
 | [**deleteAlias**](DefaultApi.md#deleteAlias) | **DELETE** /apps/{app_id}/users/by/{alias_label}/{alias_id}/identity/{alias_label_to_delete} |  |
+| [**deleteApiKey**](DefaultApi.md#deleteApiKey) | **DELETE** /apps/{app_id}/auth/tokens/{token_id} | Delete API key |
 | [**deleteSegment**](DefaultApi.md#deleteSegment) | **DELETE** /apps/{app_id}/segments/{segment_id} | Delete Segment |
 | [**deleteSubscription**](DefaultApi.md#deleteSubscription) | **DELETE** /apps/{app_id}/subscriptions/{subscription_id} |  |
+| [**deleteTemplate**](DefaultApi.md#deleteTemplate) | **DELETE** /templates/{template_id} | Delete template |
 | [**deleteUser**](DefaultApi.md#deleteUser) | **DELETE** /apps/{app_id}/users/by/{alias_label}/{alias_id} |  |
 | [**exportEvents**](DefaultApi.md#exportEvents) | **POST** /notifications/{notification_id}/export_events?app_id&#x3D;{app_id} | Export CSV of Events |
 | [**exportSubscriptions**](DefaultApi.md#exportSubscriptions) | **POST** /players/csv_export?app_id&#x3D;{app_id} | Export CSV of Subscriptions |
@@ -28,12 +34,20 @@ All URIs are relative to *https://api.onesignal.com*
 | [**getOutcomes**](DefaultApi.md#getOutcomes) | **GET** /apps/{app_id}/outcomes | View Outcomes |
 | [**getSegments**](DefaultApi.md#getSegments) | **GET** /apps/{app_id}/segments | Get Segments |
 | [**getUser**](DefaultApi.md#getUser) | **GET** /apps/{app_id}/users/by/{alias_label}/{alias_id} |  |
+| [**rotateApiKey**](DefaultApi.md#rotateApiKey) | **POST** /apps/{app_id}/auth/tokens/{token_id}/rotate | Rotate API key |
+| [**startLiveActivity**](DefaultApi.md#startLiveActivity) | **POST** /apps/{app_id}/activities/activity/{activity_type} | Start Live Activity |
 | [**transferSubscription**](DefaultApi.md#transferSubscription) | **PATCH** /apps/{app_id}/subscriptions/{subscription_id}/owner |  |
 | [**unsubscribeEmailWithToken**](DefaultApi.md#unsubscribeEmailWithToken) | **POST** /apps/{app_id}/notifications/{notification_id}/unsubscribe | Unsubscribe with token |
+| [**updateApiKey**](DefaultApi.md#updateApiKey) | **PATCH** /apps/{app_id}/auth/tokens/{token_id} | Update API key |
 | [**updateApp**](DefaultApi.md#updateApp) | **PUT** /apps/{app_id} | Update an app |
 | [**updateLiveActivity**](DefaultApi.md#updateLiveActivity) | **POST** /apps/{app_id}/live_activities/{activity_id}/notifications | Update a Live Activity via Push |
 | [**updateSubscription**](DefaultApi.md#updateSubscription) | **PATCH** /apps/{app_id}/subscriptions/{subscription_id} |  |
+| [**updateSubscriptionByToken**](DefaultApi.md#updateSubscriptionByToken) | **PATCH** /apps/{app_id}/subscriptions_by_token/{token_type}/{token} | Update subscription by token |
+| [**updateTemplate**](DefaultApi.md#updateTemplate) | **PATCH** /templates/{template_id} | Update template |
 | [**updateUser**](DefaultApi.md#updateUser) | **PATCH** /apps/{app_id}/users/by/{alias_label}/{alias_id} |  |
+| [**viewApiKeys**](DefaultApi.md#viewApiKeys) | **GET** /apps/{app_id}/auth/tokens | View API keys |
+| [**viewTemplate**](DefaultApi.md#viewTemplate) | **GET** /templates/{template_id} | View template |
+| [**viewTemplates**](DefaultApi.md#viewTemplates) | **GET** /templates | View templates |
 
 
 <a name="cancelNotification"></a>
@@ -107,6 +121,78 @@ public class Example {
 | **400** | Bad Request |  -  |
 | **404** | Not Found |  -  |
 | **429** | Rate Limit Exceeded |  -  |
+
+<a name="copyTemplateToApp"></a>
+# **copyTemplateToApp**
+> TemplateResource copyTemplateToApp(templateId, appId, copyTemplateRequest)
+
+Copy template to another app
+
+Copy a template to a destination app.
+
+### Example
+```java
+// Import classes:
+import com.onesignal.client.ApiClient;
+import com.onesignal.client.ApiException;
+import com.onesignal.client.Configuration;
+import com.onesignal.client.auth.*;
+import com.onesignal.client.models.*;
+import com.onesignal.client.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.onesignal.com");
+    
+    // Configure HTTP bearer authorization: organization_api_key
+    HttpBearerAuth organization_api_key = (HttpBearerAuth) defaultClient.getAuthentication("organization_api_key");
+    organization_api_key.setBearerToken("BEARER TOKEN");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String templateId = "templateId_example"; // String | 
+    String appId = "appId_example"; // String | 
+    CopyTemplateRequest copyTemplateRequest = new CopyTemplateRequest(); // CopyTemplateRequest | 
+    try {
+      TemplateResource result = apiInstance.copyTemplateToApp(templateId, appId, copyTemplateRequest);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#copyTemplateToApp");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **templateId** | **String**|  | |
+| **appId** | **String**|  | |
+| **copyTemplateRequest** | [**CopyTemplateRequest**](CopyTemplateRequest.md)|  | |
+
+### Return type
+
+[**TemplateResource**](TemplateResource.md)
+
+### Authorization
+
+[organization_api_key](../README.md#organization_api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
 
 <a name="createAlias"></a>
 # **createAlias**
@@ -260,6 +346,76 @@ public class Example {
 | **409** | Conflict |  -  |
 | **429** | Rate Limit Exceeded |  -  |
 
+<a name="createApiKey"></a>
+# **createApiKey**
+> CreateApiKeyResponse createApiKey(appId, createApiKeyRequest)
+
+Create API key
+
+Use this API to create a new App API Key (also called a Rich Authentication Token) for a specific OneSignal app. These keys are used to authenticate API requests at the app level and offer enhanced security features, including optional IP allowlisting.
+
+### Example
+```java
+// Import classes:
+import com.onesignal.client.ApiClient;
+import com.onesignal.client.ApiException;
+import com.onesignal.client.Configuration;
+import com.onesignal.client.auth.*;
+import com.onesignal.client.models.*;
+import com.onesignal.client.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.onesignal.com");
+    
+    // Configure HTTP bearer authorization: organization_api_key
+    HttpBearerAuth organization_api_key = (HttpBearerAuth) defaultClient.getAuthentication("organization_api_key");
+    organization_api_key.setBearerToken("BEARER TOKEN");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String appId = "appId_example"; // String | 
+    CreateApiKeyRequest createApiKeyRequest = new CreateApiKeyRequest(); // CreateApiKeyRequest | 
+    try {
+      CreateApiKeyResponse result = apiInstance.createApiKey(appId, createApiKeyRequest);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#createApiKey");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **appId** | **String**|  | |
+| **createApiKeyRequest** | [**CreateApiKeyRequest**](CreateApiKeyRequest.md)|  | |
+
+### Return type
+
+[**CreateApiKeyResponse**](CreateApiKeyResponse.md)
+
+### Authorization
+
+[organization_api_key](../README.md#organization_api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+
 <a name="createApp"></a>
 # **createApp**
 > App createApp(app)
@@ -327,6 +483,78 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
+| **429** | Rate Limit Exceeded |  -  |
+
+<a name="createCustomEvents"></a>
+# **createCustomEvents**
+> Object createCustomEvents(appId, customEventsRequest)
+
+Create custom events
+
+The Custom Events API allows you to record user events. Custom events can represent any action users take in your application, such as completing a purchase, viewing content, or achieving milestones.
+
+### Example
+```java
+// Import classes:
+import com.onesignal.client.ApiClient;
+import com.onesignal.client.ApiException;
+import com.onesignal.client.Configuration;
+import com.onesignal.client.auth.*;
+import com.onesignal.client.models.*;
+import com.onesignal.client.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.onesignal.com");
+    
+    // Configure HTTP bearer authorization: rest_api_key
+    HttpBearerAuth rest_api_key = (HttpBearerAuth) defaultClient.getAuthentication("rest_api_key");
+    rest_api_key.setBearerToken("BEARER TOKEN");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String appId = "appId_example"; // String | Your OneSignal App ID in UUID v4 format.
+    CustomEventsRequest customEventsRequest = new CustomEventsRequest(); // CustomEventsRequest | 
+    try {
+      Object result = apiInstance.createCustomEvents(appId, customEventsRequest);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#createCustomEvents");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **appId** | **String**| Your OneSignal App ID in UUID v4 format. | |
+| **customEventsRequest** | [**CustomEventsRequest**](CustomEventsRequest.md)|  | |
+
+### Return type
+
+**Object**
+
+### Authorization
+
+[rest_api_key](../README.md#rest_api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
 | **429** | Rate Limit Exceeded |  -  |
 
 <a name="createNotification"></a>
@@ -548,6 +776,75 @@ public class Example {
 | **409** | Operation is not permitted due to user having the maximum number of subscriptions assigned |  -  |
 | **429** | Rate Limit Exceeded |  -  |
 
+<a name="createTemplate"></a>
+# **createTemplate**
+> TemplateResource createTemplate(createTemplateRequest)
+
+Create template
+
+Create reusable message templates for push, email, and SMS channels.
+
+### Example
+```java
+// Import classes:
+import com.onesignal.client.ApiClient;
+import com.onesignal.client.ApiException;
+import com.onesignal.client.Configuration;
+import com.onesignal.client.auth.*;
+import com.onesignal.client.models.*;
+import com.onesignal.client.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.onesignal.com");
+    
+    // Configure HTTP bearer authorization: rest_api_key
+    HttpBearerAuth rest_api_key = (HttpBearerAuth) defaultClient.getAuthentication("rest_api_key");
+    rest_api_key.setBearerToken("BEARER TOKEN");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    CreateTemplateRequest createTemplateRequest = new CreateTemplateRequest(); // CreateTemplateRequest | 
+    try {
+      TemplateResource result = apiInstance.createTemplate(createTemplateRequest);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#createTemplate");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **createTemplateRequest** | [**CreateTemplateRequest**](CreateTemplateRequest.md)|  | |
+
+### Return type
+
+[**TemplateResource**](TemplateResource.md)
+
+### Authorization
+
+[rest_api_key](../README.md#rest_api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **422** | Unprocessable Entity |  -  |
+
 <a name="createUser"></a>
 # **createUser**
 > User createUser(appId, user)
@@ -699,6 +996,76 @@ public class Example {
 | **409** | Conflict |  -  |
 | **429** | Rate Limit Exceeded |  -  |
 
+<a name="deleteApiKey"></a>
+# **deleteApiKey**
+> Object deleteApiKey(appId, tokenId)
+
+Delete API key
+
+Delete a specific Rich Authentication Token (App API Key) for a OneSignal app. Requires your Organization API Key and the token’s unique ID, not the token value itself.
+
+### Example
+```java
+// Import classes:
+import com.onesignal.client.ApiClient;
+import com.onesignal.client.ApiException;
+import com.onesignal.client.Configuration;
+import com.onesignal.client.auth.*;
+import com.onesignal.client.models.*;
+import com.onesignal.client.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.onesignal.com");
+    
+    // Configure HTTP bearer authorization: organization_api_key
+    HttpBearerAuth organization_api_key = (HttpBearerAuth) defaultClient.getAuthentication("organization_api_key");
+    organization_api_key.setBearerToken("BEARER TOKEN");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String appId = "appId_example"; // String | 
+    String tokenId = "tokenId_example"; // String | 
+    try {
+      Object result = apiInstance.deleteApiKey(appId, tokenId);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#deleteApiKey");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **appId** | **String**|  | |
+| **tokenId** | **String**|  | |
+
+### Return type
+
+**Object**
+
+### Authorization
+
+[organization_api_key](../README.md#organization_api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+
 <a name="deleteSegment"></a>
 # **deleteSegment**
 > GenericSuccessBoolResponse deleteSegment(appId, segmentId)
@@ -842,6 +1209,77 @@ null (empty response body)
 | **404** | Not Found |  -  |
 | **409** | Conflict |  -  |
 | **429** | Rate Limit Exceeded |  -  |
+
+<a name="deleteTemplate"></a>
+# **deleteTemplate**
+> GenericSuccessBoolResponse deleteTemplate(templateId, appId)
+
+Delete template
+
+Delete a template by id.
+
+### Example
+```java
+// Import classes:
+import com.onesignal.client.ApiClient;
+import com.onesignal.client.ApiException;
+import com.onesignal.client.Configuration;
+import com.onesignal.client.auth.*;
+import com.onesignal.client.models.*;
+import com.onesignal.client.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.onesignal.com");
+    
+    // Configure HTTP bearer authorization: rest_api_key
+    HttpBearerAuth rest_api_key = (HttpBearerAuth) defaultClient.getAuthentication("rest_api_key");
+    rest_api_key.setBearerToken("BEARER TOKEN");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String templateId = "templateId_example"; // String | 
+    String appId = "appId_example"; // String | 
+    try {
+      GenericSuccessBoolResponse result = apiInstance.deleteTemplate(templateId, appId);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#deleteTemplate");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **templateId** | **String**|  | |
+| **appId** | **String**|  | |
+
+### Return type
+
+[**GenericSuccessBoolResponse**](GenericSuccessBoolResponse.md)
+
+### Authorization
+
+[rest_api_key](../README.md#rest_api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **404** | Not Found |  -  |
 
 <a name="deleteUser"></a>
 # **deleteUser**
@@ -1783,6 +2221,149 @@ public class Example {
 | **404** | Not Found |  -  |
 | **429** | Rate Limit Exceeded |  -  |
 
+<a name="rotateApiKey"></a>
+# **rotateApiKey**
+> CreateApiKeyResponse rotateApiKey(appId, tokenId)
+
+Rotate API key
+
+Rotate a Rich Authentication Token (App API Key) for a OneSignal app. Rotating a key revokes the current token and generates a new one under the same configuration—ideal when a token is lost or compromised but you don’t want to recreate and reconfigure it from scratch.
+
+### Example
+```java
+// Import classes:
+import com.onesignal.client.ApiClient;
+import com.onesignal.client.ApiException;
+import com.onesignal.client.Configuration;
+import com.onesignal.client.auth.*;
+import com.onesignal.client.models.*;
+import com.onesignal.client.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.onesignal.com");
+    
+    // Configure HTTP bearer authorization: organization_api_key
+    HttpBearerAuth organization_api_key = (HttpBearerAuth) defaultClient.getAuthentication("organization_api_key");
+    organization_api_key.setBearerToken("BEARER TOKEN");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String appId = "appId_example"; // String | 
+    String tokenId = "tokenId_example"; // String | 
+    try {
+      CreateApiKeyResponse result = apiInstance.rotateApiKey(appId, tokenId);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#rotateApiKey");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **appId** | **String**|  | |
+| **tokenId** | **String**|  | |
+
+### Return type
+
+[**CreateApiKeyResponse**](CreateApiKeyResponse.md)
+
+### Authorization
+
+[organization_api_key](../README.md#organization_api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+
+<a name="startLiveActivity"></a>
+# **startLiveActivity**
+> StartLiveActivitySuccessResponse startLiveActivity(appId, activityType, startLiveActivityRequest)
+
+Start Live Activity
+
+Remotely start a Live Activity on iOS devices via OneSignal’s REST API.
+
+### Example
+```java
+// Import classes:
+import com.onesignal.client.ApiClient;
+import com.onesignal.client.ApiException;
+import com.onesignal.client.Configuration;
+import com.onesignal.client.auth.*;
+import com.onesignal.client.models.*;
+import com.onesignal.client.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.onesignal.com");
+    
+    // Configure HTTP bearer authorization: rest_api_key
+    HttpBearerAuth rest_api_key = (HttpBearerAuth) defaultClient.getAuthentication("rest_api_key");
+    rest_api_key.setBearerToken("BEARER TOKEN");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String appId = "appId_example"; // String | Your OneSignal App ID in UUID v4 format.
+    String activityType = "activityType_example"; // String | The name of the Live Activity defined in your app. This should match the attributes struct used in your app's Live Activity implementation.
+    StartLiveActivityRequest startLiveActivityRequest = new StartLiveActivityRequest(); // StartLiveActivityRequest | 
+    try {
+      StartLiveActivitySuccessResponse result = apiInstance.startLiveActivity(appId, activityType, startLiveActivityRequest);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#startLiveActivity");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **appId** | **String**| Your OneSignal App ID in UUID v4 format. | |
+| **activityType** | **String**| The name of the Live Activity defined in your app. This should match the attributes struct used in your app&#39;s Live Activity implementation. | |
+| **startLiveActivityRequest** | [**StartLiveActivityRequest**](StartLiveActivityRequest.md)|  | |
+
+### Return type
+
+[**StartLiveActivitySuccessResponse**](StartLiveActivitySuccessResponse.md)
+
+### Authorization
+
+[rest_api_key](../README.md#rest_api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | Created |  -  |
+| **400** | Bad Request |  -  |
+| **429** | Rate Limit Exceeded |  -  |
+
 <a name="transferSubscription"></a>
 # **transferSubscription**
 > UserIdentityBody transferSubscription(appId, subscriptionId, transferSubscriptionRequestBody)
@@ -1930,6 +2511,78 @@ public class Example {
 | **202** | OK |  -  |
 | **400** | Bad Request |  -  |
 | **429** | Rate Limit Exceeded |  -  |
+
+<a name="updateApiKey"></a>
+# **updateApiKey**
+> Object updateApiKey(appId, tokenId, updateApiKeyRequest)
+
+Update API key
+
+Update a Rich Authentication Token (App API Key) for a OneSignal app.
+
+### Example
+```java
+// Import classes:
+import com.onesignal.client.ApiClient;
+import com.onesignal.client.ApiException;
+import com.onesignal.client.Configuration;
+import com.onesignal.client.auth.*;
+import com.onesignal.client.models.*;
+import com.onesignal.client.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.onesignal.com");
+    
+    // Configure HTTP bearer authorization: organization_api_key
+    HttpBearerAuth organization_api_key = (HttpBearerAuth) defaultClient.getAuthentication("organization_api_key");
+    organization_api_key.setBearerToken("BEARER TOKEN");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String appId = "appId_example"; // String | 
+    String tokenId = "tokenId_example"; // String | 
+    UpdateApiKeyRequest updateApiKeyRequest = new UpdateApiKeyRequest(); // UpdateApiKeyRequest | 
+    try {
+      Object result = apiInstance.updateApiKey(appId, tokenId, updateApiKeyRequest);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#updateApiKey");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **appId** | **String**|  | |
+| **tokenId** | **String**|  | |
+| **updateApiKeyRequest** | [**UpdateApiKeyRequest**](UpdateApiKeyRequest.md)|  | |
+
+### Return type
+
+**Object**
+
+### Authorization
+
+[organization_api_key](../README.md#organization_api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
 
 <a name="updateApp"></a>
 # **updateApp**
@@ -2149,6 +2802,153 @@ null (empty response body)
 | **409** | Conflict |  -  |
 | **429** | Rate Limit Exceeded |  -  |
 
+<a name="updateSubscriptionByToken"></a>
+# **updateSubscriptionByToken**
+> Object updateSubscriptionByToken(appId, tokenType, token, subscriptionBody)
+
+Update subscription by token
+
+Update properties on an existing OneSignal subscription using its token.
+
+### Example
+```java
+// Import classes:
+import com.onesignal.client.ApiClient;
+import com.onesignal.client.ApiException;
+import com.onesignal.client.Configuration;
+import com.onesignal.client.auth.*;
+import com.onesignal.client.models.*;
+import com.onesignal.client.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.onesignal.com");
+    
+    // Configure HTTP bearer authorization: rest_api_key
+    HttpBearerAuth rest_api_key = (HttpBearerAuth) defaultClient.getAuthentication("rest_api_key");
+    rest_api_key.setBearerToken("BEARER TOKEN");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String appId = "appId_example"; // String | Your OneSignal App ID in UUID v4 format.
+    String tokenType = "tokenType_example"; // String | The type of token to use when looking up the subscription. See Subscription Types.
+    String token = "token_example"; // String | The value of the token to lookup by (e.g., email address, phone number).
+    SubscriptionBody subscriptionBody = new SubscriptionBody(); // SubscriptionBody | 
+    try {
+      Object result = apiInstance.updateSubscriptionByToken(appId, tokenType, token, subscriptionBody);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#updateSubscriptionByToken");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **appId** | **String**| Your OneSignal App ID in UUID v4 format. | |
+| **tokenType** | **String**| The type of token to use when looking up the subscription. See Subscription Types. | |
+| **token** | **String**| The value of the token to lookup by (e.g., email address, phone number). | |
+| **subscriptionBody** | [**SubscriptionBody**](SubscriptionBody.md)|  | |
+
+### Return type
+
+**Object**
+
+### Authorization
+
+[rest_api_key](../README.md#rest_api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **202** | ACCEPTED |  -  |
+| **400** | Bad Request |  -  |
+| **404** | Not Found |  -  |
+
+<a name="updateTemplate"></a>
+# **updateTemplate**
+> TemplateResource updateTemplate(templateId, appId, updateTemplateRequest)
+
+Update template
+
+Update an existing template.
+
+### Example
+```java
+// Import classes:
+import com.onesignal.client.ApiClient;
+import com.onesignal.client.ApiException;
+import com.onesignal.client.Configuration;
+import com.onesignal.client.auth.*;
+import com.onesignal.client.models.*;
+import com.onesignal.client.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.onesignal.com");
+    
+    // Configure HTTP bearer authorization: rest_api_key
+    HttpBearerAuth rest_api_key = (HttpBearerAuth) defaultClient.getAuthentication("rest_api_key");
+    rest_api_key.setBearerToken("BEARER TOKEN");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String templateId = "templateId_example"; // String | 
+    String appId = "appId_example"; // String | 
+    UpdateTemplateRequest updateTemplateRequest = new UpdateTemplateRequest(); // UpdateTemplateRequest | 
+    try {
+      TemplateResource result = apiInstance.updateTemplate(templateId, appId, updateTemplateRequest);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#updateTemplate");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **templateId** | **String**|  | |
+| **appId** | **String**|  | |
+| **updateTemplateRequest** | [**UpdateTemplateRequest**](UpdateTemplateRequest.md)|  | |
+
+### Return type
+
+[**TemplateResource**](TemplateResource.md)
+
+### Authorization
+
+[rest_api_key](../README.md#rest_api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+
 <a name="updateUser"></a>
 # **updateUser**
 > PropertiesBody updateUser(appId, aliasLabel, aliasId, updateUserRequest)
@@ -2223,5 +3023,219 @@ public class Example {
 | **202** | ACCEPTED |  -  |
 | **400** | Bad Request |  -  |
 | **409** | Conflict |  -  |
+| **429** | Rate Limit Exceeded |  -  |
+
+<a name="viewApiKeys"></a>
+# **viewApiKeys**
+> ApiKeyTokensListResponse viewApiKeys(appId)
+
+View API keys
+
+View the details of all of your current app API keys (Rich Authentication Token) for a single OneSignal app.
+
+### Example
+```java
+// Import classes:
+import com.onesignal.client.ApiClient;
+import com.onesignal.client.ApiException;
+import com.onesignal.client.Configuration;
+import com.onesignal.client.auth.*;
+import com.onesignal.client.models.*;
+import com.onesignal.client.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.onesignal.com");
+    
+    // Configure HTTP bearer authorization: organization_api_key
+    HttpBearerAuth organization_api_key = (HttpBearerAuth) defaultClient.getAuthentication("organization_api_key");
+    organization_api_key.setBearerToken("BEARER TOKEN");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String appId = "appId_example"; // String | 
+    try {
+      ApiKeyTokensListResponse result = apiInstance.viewApiKeys(appId);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#viewApiKeys");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **appId** | **String**|  | |
+
+### Return type
+
+[**ApiKeyTokensListResponse**](ApiKeyTokensListResponse.md)
+
+### Authorization
+
+[organization_api_key](../README.md#organization_api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+
+<a name="viewTemplate"></a>
+# **viewTemplate**
+> TemplateResource viewTemplate(templateId, appId)
+
+View template
+
+Fetch a single template by id.
+
+### Example
+```java
+// Import classes:
+import com.onesignal.client.ApiClient;
+import com.onesignal.client.ApiException;
+import com.onesignal.client.Configuration;
+import com.onesignal.client.auth.*;
+import com.onesignal.client.models.*;
+import com.onesignal.client.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.onesignal.com");
+    
+    // Configure HTTP bearer authorization: rest_api_key
+    HttpBearerAuth rest_api_key = (HttpBearerAuth) defaultClient.getAuthentication("rest_api_key");
+    rest_api_key.setBearerToken("BEARER TOKEN");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String templateId = "templateId_example"; // String | 
+    String appId = "appId_example"; // String | 
+    try {
+      TemplateResource result = apiInstance.viewTemplate(templateId, appId);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#viewTemplate");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **templateId** | **String**|  | |
+| **appId** | **String**|  | |
+
+### Return type
+
+[**TemplateResource**](TemplateResource.md)
+
+### Authorization
+
+[rest_api_key](../README.md#rest_api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **404** | Not Found |  -  |
+
+<a name="viewTemplates"></a>
+# **viewTemplates**
+> TemplatesListResponse viewTemplates(appId, limit, offset, channel)
+
+View templates
+
+List templates for an app.
+
+### Example
+```java
+// Import classes:
+import com.onesignal.client.ApiClient;
+import com.onesignal.client.ApiException;
+import com.onesignal.client.Configuration;
+import com.onesignal.client.auth.*;
+import com.onesignal.client.models.*;
+import com.onesignal.client.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.onesignal.com");
+    
+    // Configure HTTP bearer authorization: rest_api_key
+    HttpBearerAuth rest_api_key = (HttpBearerAuth) defaultClient.getAuthentication("rest_api_key");
+    rest_api_key.setBearerToken("BEARER TOKEN");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String appId = "appId_example"; // String | Your OneSignal App ID in UUID v4 format.
+    Integer limit = 50; // Integer | Maximum number of templates. Default and max is 50.
+    Integer offset = 0; // Integer | Pagination offset.
+    String channel = "push"; // String | Filter by delivery channel.
+    try {
+      TemplatesListResponse result = apiInstance.viewTemplates(appId, limit, offset, channel);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#viewTemplates");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **appId** | **String**| Your OneSignal App ID in UUID v4 format. | |
+| **limit** | **Integer**| Maximum number of templates. Default and max is 50. | [optional] [default to 50] |
+| **offset** | **Integer**| Pagination offset. | [optional] [default to 0] |
+| **channel** | **String**| Filter by delivery channel. | [optional] [enum: push, email, sms] |
+
+### Return type
+
+[**TemplatesListResponse**](TemplatesListResponse.md)
+
+### Authorization
+
+[rest_api_key](../README.md#rest_api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
 | **429** | Rate Limit Exceeded |  -  |
 
