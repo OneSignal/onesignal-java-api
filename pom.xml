@@ -5,7 +5,7 @@
     <artifactId>onesignal-java-client</artifactId>
     <packaging>jar</packaging>
     <name>onesignal-java-client</name>
-    <version>5.2.0</version>
+    <version>5.2.1</version>
     <url>https://github.com/OneSignal/onesignal-java-api</url>
     <description>OneSignal Java API Client</description>
     <scm>

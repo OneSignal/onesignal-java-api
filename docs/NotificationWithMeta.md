@@ -126,6 +126,7 @@
 |**sendAfter** | **Long** | Unix timestamp indicating when notification delivery should begin. |  [optional] |
 |**completedAt** | **Long** | Unix timestamp indicating when notification delivery completed. The delivery duration from start to finish can be calculated with completed_at - send_after. |  [optional] |
 |**platformDeliveryStats** | [**PlatformDeliveryData**](PlatformDeliveryData.md) |  |  [optional] |
+|**canceled** | **Boolean** | Indicates whether the notification was canceled before it could be sent. |  [optional] |
 
 
 
