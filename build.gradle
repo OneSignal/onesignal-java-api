@@ -5,7 +5,7 @@ apply plugin: 'com.diffplug.spotless'
 apply plugin: 'com.vanniktech.maven.publish'
 
 group = 'com.onesignal'
-version = '5.2.0'
+version = '5.2.1'
 
 buildscript {
     repositories {

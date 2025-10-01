@@ -1,7 +1,7 @@
 # onesignal-java-client
 
 OneSignal
-- API version: 5.2.0
+- API version: 5.2.1
 
 A powerful way to send personalized messages at scale and build effective customer engagement strategies. Learn more at onesignal.com
 
@@ -30,7 +30,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.onesignal</groupId>
   <artifactId>onesignal-java-client</artifactId>
-  <version>5.2.0</version>
+  <version>5.2.1</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -41,7 +41,7 @@ Add this dependency to your project's build file:
 
 ```groovy
 dependencies {
-    implementation "com.onesignal:onesignal-java-client:5.2.0"
+    implementation "com.onesignal:onesignal-java-client:5.2.1"
 }
 ```
 
@@ -62,7 +62,7 @@ repositories {
 }
 
 dependencies {
-    implementation "com.onesignal:onesignal-java-client:5.2.0"
+    implementation "com.onesignal:onesignal-java-client:5.2.1"
 }
 ```
 
@@ -76,7 +76,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/onesignal-java-client-5.2.0.jar`
+* `target/onesignal-java-client-5.2.1.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
