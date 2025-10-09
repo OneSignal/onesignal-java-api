@@ -24,11 +24,6 @@ jobs:
           java-version: '11'
           distribution: 'temurin'
 
-      - name: Setup Gradle
-        uses: gradle/actions/setup-gradle@v3
-        with:
-          gradle-version: '7.6'
-
       - name: Cache Gradle packages
         uses: actions/cache@v3
         with:
