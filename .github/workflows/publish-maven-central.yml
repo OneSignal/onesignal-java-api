@@ -15,6 +15,10 @@ jobs:
     runs-on: ubuntu-latest
     
     env:
+      MAVEN_CENTRAL_USERNAME: ${{ secrets.MAVEN_CENTRAL_USERNAME }}
+      MAVEN_CENTRAL_PASSWORD: ${{ secrets.MAVEN_CENTRAL_PASSWORD }}
+      SIGNING_KEY_ID: ${{ secrets.SIGNING_KEY_ID }}
+      SIGNING_PASSWORD: ${{ secrets.SIGNING_PASSWORD }}
       GPG_FILE_NAME: onesignal_sdk_gpg_subkeys.gpg
 
     steps:
@@ -65,10 +69,10 @@ jobs:
       - name: Publish to Maven Central
         run: |
           ./gradlew publishToMavenCentral --no-configuration-cache \
-            -PmavenCentralUsername="${{ secrets.MAVEN_CENTRAL_USERNAME }}" \
-            -PmavenCentralPassword="${{ secrets.MAVEN_CENTRAL_PASSWORD }}" \
-            -Psigning.keyId="${{ secrets.SIGNING_KEY_ID }}" \
-            -Psigning.password="${{ secrets.SIGNING_PASSWORD }}" \
+            -PmavenCentralUsername="$MAVEN_CENTRAL_USERNAME" \
+            -PmavenCentralPassword="$MAVEN_CENTRAL_PASSWORD" \
+            -Psigning.keyId="$SIGNING_KEY_ID" \
+            -Psigning.password="$SIGNING_PASSWORD" \
             -Psigning.secretKeyRingFile="$GPG_FILE_PATH"
 
       - name: Upload build artifacts
