@@ -68,7 +68,7 @@ jobs:
 
       - name: Publish to Maven Central
         run: |
-          ./gradlew publishToMavenCentral --no-configuration-cache \
+          ./gradlew publishAndReleaseToMavenCentral --no-configuration-cache \
             -PmavenCentralUsername="$MAVEN_CENTRAL_USERNAME" \
             -PmavenCentralPassword="$MAVEN_CENTRAL_PASSWORD" \
             -Psigning.keyId="$SIGNING_KEY_ID" \
