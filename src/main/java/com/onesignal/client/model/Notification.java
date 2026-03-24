@@ -566,6 +566,10 @@ public class Notification {
   @SerializedName(SERIALIZED_NAME_EMAIL_FROM_ADDRESS)
   private String emailFromAddress;
 
+  public static final String SERIALIZED_NAME_EMAIL_REPLY_TO_ADDRESS = "email_reply_to_address";
+  @SerializedName(SERIALIZED_NAME_EMAIL_REPLY_TO_ADDRESS)
+  private String emailReplyToAddress;
+
   public static final String SERIALIZED_NAME_EMAIL_PREHEADER = "email_preheader";
   @SerializedName(SERIALIZED_NAME_EMAIL_PREHEADER)
   private String emailPreheader;
@@ -593,6 +597,93 @@ public class Notification {
   public static final String SERIALIZED_NAME_CUSTOM_DATA = "custom_data";
   @SerializedName(SERIALIZED_NAME_CUSTOM_DATA)
   private Object customData;
+
+  public static final String SERIALIZED_NAME_HUAWEI_BADGE_CLASS = "huawei_badge_class";
+  @SerializedName(SERIALIZED_NAME_HUAWEI_BADGE_CLASS)
+  private String huaweiBadgeClass;
+
+  public static final String SERIALIZED_NAME_HUAWEI_BADGE_ADD_NUM = "huawei_badge_add_num";
+  @SerializedName(SERIALIZED_NAME_HUAWEI_BADGE_ADD_NUM)
+  private Integer huaweiBadgeAddNum;
+
+  public static final String SERIALIZED_NAME_HUAWEI_BADGE_SET_NUM = "huawei_badge_set_num";
+  @SerializedName(SERIALIZED_NAME_HUAWEI_BADGE_SET_NUM)
+  private Integer huaweiBadgeSetNum;
+
+  /**
+   * Channel: Push Notifications Platform: Huawei Category of the push notification for HMS classification.
+   */
+  @JsonAdapter(HuaweiCategoryEnum.Adapter.class)
+  public enum HuaweiCategoryEnum {
+    IM("IM"),
+    
+    VOIP("VOIP"),
+    
+    SUBSCRIPTION("SUBSCRIPTION"),
+    
+    TRAVEL("TRAVEL"),
+    
+    HEALTH("HEALTH"),
+    
+    WORK("WORK"),
+    
+    ACCOUNT("ACCOUNT"),
+    
+    EXPRESS("EXPRESS"),
+    
+    FINANCE("FINANCE"),
+    
+    DEVICE_REMINDER("DEVICE_REMINDER"),
+    
+    MAIL("MAIL"),
+    
+    MARKETING("MARKETING");
+
+    private String value;
+
+    HuaweiCategoryEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static HuaweiCategoryEnum fromValue(String value) {
+      for (HuaweiCategoryEnum b : HuaweiCategoryEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<HuaweiCategoryEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final HuaweiCategoryEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public HuaweiCategoryEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return HuaweiCategoryEnum.fromValue(value);
+      }
+    }
+  }
+
+  public static final String SERIALIZED_NAME_HUAWEI_CATEGORY = "huawei_category";
+  @SerializedName(SERIALIZED_NAME_HUAWEI_CATEGORY)
+  private HuaweiCategoryEnum huaweiCategory;
+
+  public static final String SERIALIZED_NAME_HUAWEI_BI_TAG = "huawei_bi_tag";
+  @SerializedName(SERIALIZED_NAME_HUAWEI_BI_TAG)
+  private String huaweiBiTag;
 
   public static final String SERIALIZED_NAME_SEND_AFTER = "send_after";
   @SerializedName(SERIALIZED_NAME_SEND_AFTER)
@@ -3030,6 +3121,29 @@ public class Notification {
   }
 
 
+  public Notification emailReplyToAddress(String emailReplyToAddress) {
+    
+    this.emailReplyToAddress = emailReplyToAddress;
+    return this;
+  }
+
+   /**
+   * Channel: Email The email address where replies should be sent. If not specified, replies will go to the from address. 
+   * @return emailReplyToAddress
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Channel: Email The email address where replies should be sent. If not specified, replies will go to the from address. ")
+
+  public String getEmailReplyToAddress() {
+    return emailReplyToAddress;
+  }
+
+
+  public void setEmailReplyToAddress(String emailReplyToAddress) {
+    this.emailReplyToAddress = emailReplyToAddress;
+  }
+
+
   public Notification emailPreheader(String emailPreheader) {
     
     this.emailPreheader = emailPreheader;
@@ -3207,6 +3321,121 @@ public class Notification {
   }
 
 
+  public Notification huaweiBadgeClass(String huaweiBadgeClass) {
+    
+    this.huaweiBadgeClass = huaweiBadgeClass;
+    return this;
+  }
+
+   /**
+   * Channel: Push Notifications Platform: Huawei Full path of the app entry activity class
+   * @return huaweiBadgeClass
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Channel: Push Notifications Platform: Huawei Full path of the app entry activity class")
+
+  public String getHuaweiBadgeClass() {
+    return huaweiBadgeClass;
+  }
+
+
+  public void setHuaweiBadgeClass(String huaweiBadgeClass) {
+    this.huaweiBadgeClass = huaweiBadgeClass;
+  }
+
+
+  public Notification huaweiBadgeAddNum(Integer huaweiBadgeAddNum) {
+    
+    this.huaweiBadgeAddNum = huaweiBadgeAddNum;
+    return this;
+  }
+
+   /**
+   * Channel: Push Notifications Platform: Huawei Accumulative badge number, which is an integer ranging from 1 to 99
+   * @return huaweiBadgeAddNum
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Channel: Push Notifications Platform: Huawei Accumulative badge number, which is an integer ranging from 1 to 99")
+
+  public Integer getHuaweiBadgeAddNum() {
+    return huaweiBadgeAddNum;
+  }
+
+
+  public void setHuaweiBadgeAddNum(Integer huaweiBadgeAddNum) {
+    this.huaweiBadgeAddNum = huaweiBadgeAddNum;
+  }
+
+
+  public Notification huaweiBadgeSetNum(Integer huaweiBadgeSetNum) {
+    
+    this.huaweiBadgeSetNum = huaweiBadgeSetNum;
+    return this;
+  }
+
+   /**
+   * Channel: Push Notifications Platform: Huawei Badge number, which is an integer ranging from 0 to 99
+   * @return huaweiBadgeSetNum
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Channel: Push Notifications Platform: Huawei Badge number, which is an integer ranging from 0 to 99")
+
+  public Integer getHuaweiBadgeSetNum() {
+    return huaweiBadgeSetNum;
+  }
+
+
+  public void setHuaweiBadgeSetNum(Integer huaweiBadgeSetNum) {
+    this.huaweiBadgeSetNum = huaweiBadgeSetNum;
+  }
+
+
+  public Notification huaweiCategory(HuaweiCategoryEnum huaweiCategory) {
+    
+    this.huaweiCategory = huaweiCategory;
+    return this;
+  }
+
+   /**
+   * Channel: Push Notifications Platform: Huawei Category of the push notification for HMS classification.
+   * @return huaweiCategory
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Channel: Push Notifications Platform: Huawei Category of the push notification for HMS classification.")
+
+  public HuaweiCategoryEnum getHuaweiCategory() {
+    return huaweiCategory;
+  }
+
+
+  public void setHuaweiCategory(HuaweiCategoryEnum huaweiCategory) {
+    this.huaweiCategory = huaweiCategory;
+  }
+
+
+  public Notification huaweiBiTag(String huaweiBiTag) {
+    
+    this.huaweiBiTag = huaweiBiTag;
+    return this;
+  }
+
+   /**
+   * Channel: Push Notifications Platform: Huawei A tag used for Huawei business intelligence and analytics.
+   * @return huaweiBiTag
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Channel: Push Notifications Platform: Huawei A tag used for Huawei business intelligence and analytics.")
+
+  public String getHuaweiBiTag() {
+    return huaweiBiTag;
+  }
+
+
+  public void setHuaweiBiTag(String huaweiBiTag) {
+    this.huaweiBiTag = huaweiBiTag;
+  }
+
+
   public Notification sendAfter(OffsetDateTime sendAfter) {
     
     this.sendAfter = sendAfter;
@@ -3341,6 +3570,7 @@ public class Notification {
         Objects.equals(this.emailBody, notification.emailBody) &&
         Objects.equals(this.emailFromName, notification.emailFromName) &&
         Objects.equals(this.emailFromAddress, notification.emailFromAddress) &&
+        Objects.equals(this.emailReplyToAddress, notification.emailReplyToAddress) &&
         Objects.equals(this.emailPreheader, notification.emailPreheader) &&
         Objects.equals(this.disableEmailClickTracking, notification.disableEmailClickTracking) &&
         Objects.equals(this.includeUnsubscribed, notification.includeUnsubscribed) &&
@@ -3348,6 +3578,11 @@ public class Notification {
         Objects.equals(this.smsMediaUrls, notification.smsMediaUrls) &&
         Objects.equals(this.filters, notification.filters) &&
         Objects.equals(this.customData, notification.customData) &&
+        Objects.equals(this.huaweiBadgeClass, notification.huaweiBadgeClass) &&
+        Objects.equals(this.huaweiBadgeAddNum, notification.huaweiBadgeAddNum) &&
+        Objects.equals(this.huaweiBadgeSetNum, notification.huaweiBadgeSetNum) &&
+        Objects.equals(this.huaweiCategory, notification.huaweiCategory) &&
+        Objects.equals(this.huaweiBiTag, notification.huaweiBiTag) &&
         Objects.equals(this.sendAfter, notification.sendAfter);
   }
 
@@ -3357,7 +3592,7 @@ public class Notification {
 
   @Override
   public int hashCode() {
-    return Objects.hash(includedSegments, excludedSegments, includeSubscriptionIds, includeEmailTokens, includePhoneNumbers, includeIosTokens, includeWpWnsUris, includeAmazonRegIds, includeChromeRegIds, includeChromeWebRegIds, includeAndroidRegIds, includeAliases, targetChannel, id, value, name, aggregation, isIos, isAndroid, isHuawei, isAnyWeb, isChromeWeb, isFirefox, isSafari, isWPWNS, isAdm, isChrome, appId, externalId, idempotencyKey, contents, headings, subtitle, data, huaweiMsgType, url, webUrl, appUrl, iosAttachments, templateId, contentAvailable, mutableContent, targetContentIdentifier, bigPicture, huaweiBigPicture, admBigPicture, chromeBigPicture, chromeWebImage, buttons, webButtons, iosCategory, androidChannelId, huaweiChannelId, existingAndroidChannelId, huaweiExistingChannelId, androidBackgroundLayout, smallIcon, huaweiSmallIcon, largeIcon, huaweiLargeIcon, admSmallIcon, admLargeIcon, chromeWebIcon, chromeWebBadge, firefoxIcon, chromeIcon, iosSound, androidSound, huaweiSound, admSound, wpWnsSound, androidLedColor, huaweiLedColor, androidAccentColor, huaweiAccentColor, androidVisibility, huaweiVisibility, iosBadgeType, iosBadgeCount, collapseId, webPushTopic, apnsAlert, delayedOption, deliveryTimeOfDay, ttl, priority, apnsPushTypeOverride, throttleRatePerMinute, androidGroup, androidGroupMessage, admGroup, admGroupMessage, threadId, summaryArg, summaryArgCount, iosRelevanceScore, iosInterruptionLevel, emailSubject, emailBody, emailFromName, emailFromAddress, emailPreheader, disableEmailClickTracking, includeUnsubscribed, smsFrom, smsMediaUrls, filters, customData, sendAfter);
+    return Objects.hash(includedSegments, excludedSegments, includeSubscriptionIds, includeEmailTokens, includePhoneNumbers, includeIosTokens, includeWpWnsUris, includeAmazonRegIds, includeChromeRegIds, includeChromeWebRegIds, includeAndroidRegIds, includeAliases, targetChannel, id, value, name, aggregation, isIos, isAndroid, isHuawei, isAnyWeb, isChromeWeb, isFirefox, isSafari, isWPWNS, isAdm, isChrome, appId, externalId, idempotencyKey, contents, headings, subtitle, data, huaweiMsgType, url, webUrl, appUrl, iosAttachments, templateId, contentAvailable, mutableContent, targetContentIdentifier, bigPicture, huaweiBigPicture, admBigPicture, chromeBigPicture, chromeWebImage, buttons, webButtons, iosCategory, androidChannelId, huaweiChannelId, existingAndroidChannelId, huaweiExistingChannelId, androidBackgroundLayout, smallIcon, huaweiSmallIcon, largeIcon, huaweiLargeIcon, admSmallIcon, admLargeIcon, chromeWebIcon, chromeWebBadge, firefoxIcon, chromeIcon, iosSound, androidSound, huaweiSound, admSound, wpWnsSound, androidLedColor, huaweiLedColor, androidAccentColor, huaweiAccentColor, androidVisibility, huaweiVisibility, iosBadgeType, iosBadgeCount, collapseId, webPushTopic, apnsAlert, delayedOption, deliveryTimeOfDay, ttl, priority, apnsPushTypeOverride, throttleRatePerMinute, androidGroup, androidGroupMessage, admGroup, admGroupMessage, threadId, summaryArg, summaryArgCount, iosRelevanceScore, iosInterruptionLevel, emailSubject, emailBody, emailFromName, emailFromAddress, emailReplyToAddress, emailPreheader, disableEmailClickTracking, includeUnsubscribed, smsFrom, smsMediaUrls, filters, customData, huaweiBadgeClass, huaweiBadgeAddNum, huaweiBadgeSetNum, huaweiCategory, huaweiBiTag, sendAfter);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -3472,6 +3707,7 @@ public class Notification {
     sb.append("    emailBody: ").append(toIndentedString(emailBody)).append("\n");
     sb.append("    emailFromName: ").append(toIndentedString(emailFromName)).append("\n");
     sb.append("    emailFromAddress: ").append(toIndentedString(emailFromAddress)).append("\n");
+    sb.append("    emailReplyToAddress: ").append(toIndentedString(emailReplyToAddress)).append("\n");
     sb.append("    emailPreheader: ").append(toIndentedString(emailPreheader)).append("\n");
     sb.append("    disableEmailClickTracking: ").append(toIndentedString(disableEmailClickTracking)).append("\n");
     sb.append("    includeUnsubscribed: ").append(toIndentedString(includeUnsubscribed)).append("\n");
@@ -3479,6 +3715,11 @@ public class Notification {
     sb.append("    smsMediaUrls: ").append(toIndentedString(smsMediaUrls)).append("\n");
     sb.append("    filters: ").append(toIndentedString(filters)).append("\n");
     sb.append("    customData: ").append(toIndentedString(customData)).append("\n");
+    sb.append("    huaweiBadgeClass: ").append(toIndentedString(huaweiBadgeClass)).append("\n");
+    sb.append("    huaweiBadgeAddNum: ").append(toIndentedString(huaweiBadgeAddNum)).append("\n");
+    sb.append("    huaweiBadgeSetNum: ").append(toIndentedString(huaweiBadgeSetNum)).append("\n");
+    sb.append("    huaweiCategory: ").append(toIndentedString(huaweiCategory)).append("\n");
+    sb.append("    huaweiBiTag: ").append(toIndentedString(huaweiBiTag)).append("\n");
     sb.append("    sendAfter: ").append(toIndentedString(sendAfter)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -3603,6 +3844,7 @@ public class Notification {
     openapiFields.add("email_body");
     openapiFields.add("email_from_name");
     openapiFields.add("email_from_address");
+    openapiFields.add("email_reply_to_address");
     openapiFields.add("email_preheader");
     openapiFields.add("disable_email_click_tracking");
     openapiFields.add("include_unsubscribed");
@@ -3610,6 +3852,11 @@ public class Notification {
     openapiFields.add("sms_media_urls");
     openapiFields.add("filters");
     openapiFields.add("custom_data");
+    openapiFields.add("huawei_badge_class");
+    openapiFields.add("huawei_badge_add_num");
+    openapiFields.add("huawei_badge_set_num");
+    openapiFields.add("huawei_category");
+    openapiFields.add("huawei_bi_tag");
     openapiFields.add("send_after");
 
     // a set of required properties/fields (JSON key names)
