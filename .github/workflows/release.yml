@@ -1,0 +1,119 @@
+name: Release
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version to publish (leave empty to use current version)'
+        required: false
+        default: ''
+
+jobs:
+  release:
+    name: Create GitHub Release
+    runs-on: ubuntu-latest
+    outputs:
+      new_release_published: ${{ steps.semantic.outputs.new_release_published }}
+    permissions:
+      contents: write
+      issues: write
+      pull-requests: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Create GitHub Release
+        id: semantic
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          output=$(npx -p semantic-release \
+              -p @semantic-release/changelog \
+              -p @semantic-release/git \
+              -p @semantic-release/github \
+              -p conventional-changelog-conventionalcommits \
+              semantic-release 2>&1) && exit_code=0 || exit_code=$?
+          echo "$output"
+          if echo "$output" | grep -q "Published release"; then
+            echo "new_release_published=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "new_release_published=false" >> "$GITHUB_OUTPUT"
+          fi
+          exit $exit_code
+
+  publish:
+    name: Publish to Maven Central
+    needs: release
+    if: needs.release.outputs.new_release_published == 'true'
+    runs-on: ubuntu-latest
+    env:
+      MAVEN_CENTRAL_USERNAME: ${{ secrets.MAVEN_CENTRAL_USERNAME }}
+      MAVEN_CENTRAL_PASSWORD: ${{ secrets.MAVEN_CENTRAL_PASSWORD }}
+      SIGNING_KEY_ID: ${{ secrets.SIGNING_KEY_ID }}
+      SIGNING_PASSWORD: ${{ secrets.SIGNING_PASSWORD }}
+      GPG_FILE_NAME: onesignal_sdk_gpg_subkeys.gpg
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          java-version: '11'
+          distribution: 'temurin'
+
+      - name: Cache Gradle packages
+        uses: actions/cache@v3
+        with:
+          path: |
+            ~/.gradle/caches
+            ~/.gradle/wrapper
+          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+          restore-keys: |
+            ${{ runner.os }}-gradle-
+
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
+
+      - name: Set version from input
+        if: github.event.inputs.version != ''
+        run: |
+          echo "VERSION=${{ github.event.inputs.version }}" >> $GITHUB_ENV
+          sed -i "s/version = '[^']*'/version = '${{ github.event.inputs.version }}'/" build.gradle
+
+      - name: Build project
+        run: ./gradlew build
+
+      - name: Run tests
+        run: ./gradlew test
+
+      - name: Decode GPG file from secret
+        run: |
+          echo "${{ secrets.SIGNING_SECRET_KEY_RING_FILE }}" | base64 -d > "$GPG_FILE_NAME"
+          echo "GPG_FILE_PATH=$(pwd)/$GPG_FILE_NAME" >> $GITHUB_ENV
+
+      - name: Verify GPG file
+        run: |
+          ls -lh "$GPG_FILE_PATH"
+          gpg --list-packets "$GPG_FILE_PATH" || echo "Invalid key file!"
+
+      - name: Publish to Maven Central
+        run: |
+          ./gradlew publishAndReleaseToMavenCentral --no-configuration-cache \
+            -PmavenCentralUsername="$MAVEN_CENTRAL_USERNAME" \
+            -PmavenCentralPassword="$MAVEN_CENTRAL_PASSWORD" \
+            -Psigning.keyId="$SIGNING_KEY_ID" \
+            -Psigning.password="$SIGNING_PASSWORD" \
+            -Psigning.secretKeyRingFile="$GPG_FILE_PATH"
+
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: build-artifacts
+          path: build/libs/

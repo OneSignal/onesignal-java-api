@@ -95,6 +95,7 @@
 |**emailBody** | **String** | Channel: Email Required unless template_id is set. HTML suported The body of the email you wish to send. Typically, customers include their own HTML templates here. Must include [unsubscribe_url] in an &lt;a&gt; tag somewhere in the email. Note: any malformed HTML content will be sent to users. Please double-check your HTML is valid.  |  [optional] |
 |**emailFromName** | **String** | Channel: Email The name the email is from. If not specified, will default to \&quot;from name\&quot; set in the OneSignal Dashboard Email Settings.  |  [optional] |
 |**emailFromAddress** | **String** | Channel: Email The email address the email is from. If not specified, will default to \&quot;from email\&quot; set in the OneSignal Dashboard Email Settings.  |  [optional] |
+|**emailReplyToAddress** | **String** | Channel: Email The email address where replies should be sent. If not specified, replies will go to the from address.  |  [optional] |
 |**emailPreheader** | **String** | Channel: Email The preheader text of the email. Preheader is the preview text displayed immediately after an email subject that provides additional context about the email content. If not specified, will default to null.  |  [optional] |
 |**disableEmailClickTracking** | **Boolean** | Channel: Email Default is &#x60;false&#x60;. If set to &#x60;true&#x60;, the URLs sent within the email will not include link tracking and will be the same as originally set; otherwise, all the URLs in the email will be tracked. |  [optional] |
 |**includeUnsubscribed** | **Boolean** | Channel: Email Default is &#x60;false&#x60;. This field is used to send transactional notifications. If set to &#x60;true&#x60;, this notification will also be sent to unsubscribed emails. If a &#x60;template_id&#x60; is provided, the &#x60;include_unsubscribed&#x60; value from the template will be inherited. If you are using a third-party ESP, this field requires the ESP&#39;s list of unsubscribed emails to be cleared. |  [optional] |
@@ -102,6 +103,11 @@
 |**smsMediaUrls** | **List&lt;String&gt;** | Channel: SMS URLs for the media files to be attached to the SMS content. Limit: 10 media urls with a total max. size of 5MBs.  |  [optional] |
 |**filters** | [**List&lt;FilterExpression&gt;**](FilterExpression.md) |  |  [optional] |
 |**customData** | **Object** | Channel: All JSON object that can be used as a source of message personalization data for fields that support tag variable substitution. Push, SMS: Can accept up to 2048 bytes of valid JSON. Email: Can accept up to 10000 bytes of valid JSON. Example: {\&quot;order_id\&quot;: 123, \&quot;currency\&quot;: \&quot;USD\&quot;, \&quot;amount\&quot;: 25}  |  [optional] |
+|**huaweiBadgeClass** | **String** | Channel: Push Notifications Platform: Huawei Full path of the app entry activity class |  [optional] |
+|**huaweiBadgeAddNum** | **Integer** | Channel: Push Notifications Platform: Huawei Accumulative badge number, which is an integer ranging from 1 to 99 |  [optional] |
+|**huaweiBadgeSetNum** | **Integer** | Channel: Push Notifications Platform: Huawei Badge number, which is an integer ranging from 0 to 99 |  [optional] |
+|**huaweiCategory** | [**HuaweiCategoryEnum**](#HuaweiCategoryEnum) | Channel: Push Notifications Platform: Huawei Category of the push notification for HMS classification. |  [optional] |
+|**huaweiBiTag** | **String** | Channel: Push Notifications Platform: Huawei A tag used for Huawei business intelligence and analytics. |  [optional] |
 
 
 
@@ -111,6 +117,25 @@
 |---- | -----|
 | SUM | &quot;sum&quot; |
 | COUNT | &quot;count&quot; |
+
+
+
+## Enum: HuaweiCategoryEnum
+
+| Name | Value |
+|---- | -----|
+| IM | &quot;IM&quot; |
+| VOIP | &quot;VOIP&quot; |
+| SUBSCRIPTION | &quot;SUBSCRIPTION&quot; |
+| TRAVEL | &quot;TRAVEL&quot; |
+| HEALTH | &quot;HEALTH&quot; |
+| WORK | &quot;WORK&quot; |
+| ACCOUNT | &quot;ACCOUNT&quot; |
+| EXPRESS | &quot;EXPRESS&quot; |
+| FINANCE | &quot;FINANCE&quot; |
+| DEVICE_REMINDER | &quot;DEVICE_REMINDER&quot; |
+| MAIL | &quot;MAIL&quot; |
+| MARKETING | &quot;MARKETING&quot; |
 
 
 
