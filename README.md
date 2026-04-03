@@ -103,11 +103,10 @@ public class Example {
     notification.setAppId(appId);
     notification.setIsChrome(true);
     notification.setIsAnyWeb(true);
-    notification.setIncludedSegments(Arrays.asList(new String[]{"Subscribed Users"}));
-    StringMap contentStringMap = new StringMap();
-    contentStringMap.en("Test");
+    notification.setIncludedSegments(List.of(new String[]{"Subscribed Users"}));
+    LanguageStringMap contentStringMap = new LanguageStringMap();
+    contentStringMap.en("Working example");
     notification.setContents(contentStringMap);
-
     return notification;
   }
 
@@ -118,7 +117,7 @@ public class Example {
     restApiAuth.setBearerToken(restApiKey);
     HttpBearerAuth organizationApiAuth = (HttpBearerAuth) defaultClient.getAuthentication("organization_api_key");
     organizationApiAuth.setBearerToken(organizationApiKey);
-    api = new DefaultApi(defaultClient);
+    DefaultApi api = new DefaultApi(defaultClient);
 
     // Setting up the notification
     Notification notification = createNotification();
