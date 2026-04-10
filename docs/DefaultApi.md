@@ -107,7 +107,7 @@ public class Example {
 
 ### Authorization
 
-[rest_api_key](../README.md#rest_api_key)
+[rest_api_key](https://github.com/OneSignal/onesignal-java-api#configuration)
 
 ### HTTP request headers
 
@@ -181,7 +181,7 @@ public class Example {
 
 ### Authorization
 
-[organization_api_key](../README.md#organization_api_key)
+[organization_api_key](https://github.com/OneSignal/onesignal-java-api#configuration)
 
 ### HTTP request headers
 
@@ -255,7 +255,7 @@ public class Example {
 
 ### Authorization
 
-[rest_api_key](../README.md#rest_api_key)
+[rest_api_key](https://github.com/OneSignal/onesignal-java-api#configuration)
 
 ### HTTP request headers
 
@@ -330,7 +330,7 @@ public class Example {
 
 ### Authorization
 
-[rest_api_key](../README.md#rest_api_key)
+[rest_api_key](https://github.com/OneSignal/onesignal-java-api#configuration)
 
 ### HTTP request headers
 
@@ -403,7 +403,7 @@ public class Example {
 
 ### Authorization
 
-[organization_api_key](../README.md#organization_api_key)
+[organization_api_key](https://github.com/OneSignal/onesignal-java-api#configuration)
 
 ### HTTP request headers
 
@@ -471,7 +471,7 @@ public class Example {
 
 ### Authorization
 
-[organization_api_key](../README.md#organization_api_key)
+[organization_api_key](https://github.com/OneSignal/onesignal-java-api#configuration)
 
 ### HTTP request headers
 
@@ -542,7 +542,7 @@ public class Example {
 
 ### Authorization
 
-[rest_api_key](../README.md#rest_api_key)
+[rest_api_key](https://github.com/OneSignal/onesignal-java-api#configuration)
 
 ### HTTP request headers
 
@@ -612,7 +612,7 @@ public class Example {
 
 ### Authorization
 
-[rest_api_key](../README.md#rest_api_key)
+[rest_api_key](https://github.com/OneSignal/onesignal-java-api#configuration)
 
 ### HTTP request headers
 
@@ -683,7 +683,7 @@ public class Example {
 
 ### Authorization
 
-[rest_api_key](../README.md#rest_api_key)
+[rest_api_key](https://github.com/OneSignal/onesignal-java-api#configuration)
 
 ### HTTP request headers
 
@@ -759,7 +759,7 @@ public class Example {
 
 ### Authorization
 
-[rest_api_key](../README.md#rest_api_key)
+[rest_api_key](https://github.com/OneSignal/onesignal-java-api#configuration)
 
 ### HTTP request headers
 
@@ -831,7 +831,7 @@ public class Example {
 
 ### Authorization
 
-[rest_api_key](../README.md#rest_api_key)
+[rest_api_key](https://github.com/OneSignal/onesignal-java-api#configuration)
 
 ### HTTP request headers
 
@@ -902,7 +902,7 @@ public class Example {
 
 ### Authorization
 
-[rest_api_key](../README.md#rest_api_key)
+[rest_api_key](https://github.com/OneSignal/onesignal-java-api#configuration)
 
 ### HTTP request headers
 
@@ -980,7 +980,7 @@ public class Example {
 
 ### Authorization
 
-[rest_api_key](../README.md#rest_api_key)
+[rest_api_key](https://github.com/OneSignal/onesignal-java-api#configuration)
 
 ### HTTP request headers
 
@@ -1053,7 +1053,7 @@ public class Example {
 
 ### Authorization
 
-[organization_api_key](../README.md#organization_api_key)
+[organization_api_key](https://github.com/OneSignal/onesignal-java-api#configuration)
 
 ### HTTP request headers
 
@@ -1123,7 +1123,7 @@ public class Example {
 
 ### Authorization
 
-[rest_api_key](../README.md#rest_api_key)
+[rest_api_key](https://github.com/OneSignal/onesignal-java-api#configuration)
 
 ### HTTP request headers
 
@@ -1194,7 +1194,7 @@ null (empty response body)
 
 ### Authorization
 
-[rest_api_key](../README.md#rest_api_key)
+[rest_api_key](https://github.com/OneSignal/onesignal-java-api#configuration)
 
 ### HTTP request headers
 
@@ -1267,7 +1267,7 @@ public class Example {
 
 ### Authorization
 
-[rest_api_key](../README.md#rest_api_key)
+[rest_api_key](https://github.com/OneSignal/onesignal-java-api#configuration)
 
 ### HTTP request headers
 
@@ -1339,7 +1339,7 @@ null (empty response body)
 
 ### Authorization
 
-[rest_api_key](../README.md#rest_api_key)
+[rest_api_key](https://github.com/OneSignal/onesignal-java-api#configuration)
 
 ### HTTP request headers
 
@@ -1411,7 +1411,7 @@ public class Example {
 
 ### Authorization
 
-[rest_api_key](../README.md#rest_api_key)
+[rest_api_key](https://github.com/OneSignal/onesignal-java-api#configuration)
 
 ### HTTP request headers
 
@@ -1483,7 +1483,7 @@ public class Example {
 
 ### Authorization
 
-[rest_api_key](../README.md#rest_api_key)
+[rest_api_key](https://github.com/OneSignal/onesignal-java-api#configuration)
 
 ### HTTP request headers
 
@@ -1556,7 +1556,7 @@ public class Example {
 
 ### Authorization
 
-[rest_api_key](../README.md#rest_api_key)
+[rest_api_key](https://github.com/OneSignal/onesignal-java-api#configuration)
 
 ### HTTP request headers
 
@@ -1628,7 +1628,7 @@ public class Example {
 
 ### Authorization
 
-[rest_api_key](../README.md#rest_api_key)
+[rest_api_key](https://github.com/OneSignal/onesignal-java-api#configuration)
 
 ### HTTP request headers
 
@@ -1697,7 +1697,7 @@ public class Example {
 
 ### Authorization
 
-[organization_api_key](../README.md#organization_api_key)
+[organization_api_key](https://github.com/OneSignal/onesignal-java-api#configuration)
 
 ### HTTP request headers
 
@@ -1762,7 +1762,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[organization_api_key](../README.md#organization_api_key)
+[organization_api_key](https://github.com/OneSignal/onesignal-java-api#configuration)
 
 ### HTTP request headers
 
@@ -1833,7 +1833,7 @@ public class Example {
 
 ### Authorization
 
-[rest_api_key](../README.md#rest_api_key)
+[rest_api_key](https://github.com/OneSignal/onesignal-java-api#configuration)
 
 ### HTTP request headers
 
@@ -1905,7 +1905,7 @@ public class Example {
 
 ### Authorization
 
-[rest_api_key](../README.md#rest_api_key)
+[rest_api_key](https://github.com/OneSignal/onesignal-java-api#configuration)
 
 ### HTTP request headers
 
@@ -1981,7 +1981,7 @@ public class Example {
 
 ### Authorization
 
-[rest_api_key](../README.md#rest_api_key)
+[rest_api_key](https://github.com/OneSignal/onesignal-java-api#configuration)
 
 ### HTTP request headers
 
@@ -2060,7 +2060,7 @@ public class Example {
 
 ### Authorization
 
-[rest_api_key](../README.md#rest_api_key)
+[rest_api_key](https://github.com/OneSignal/onesignal-java-api#configuration)
 
 ### HTTP request headers
 
@@ -2133,7 +2133,7 @@ public class Example {
 
 ### Authorization
 
-[rest_api_key](../README.md#rest_api_key)
+[rest_api_key](https://github.com/OneSignal/onesignal-java-api#configuration)
 
 ### HTTP request headers
 
@@ -2206,7 +2206,7 @@ public class Example {
 
 ### Authorization
 
-[rest_api_key](../README.md#rest_api_key)
+[rest_api_key](https://github.com/OneSignal/onesignal-java-api#configuration)
 
 ### HTTP request headers
 
@@ -2278,7 +2278,7 @@ public class Example {
 
 ### Authorization
 
-[organization_api_key](../README.md#organization_api_key)
+[organization_api_key](https://github.com/OneSignal/onesignal-java-api#configuration)
 
 ### HTTP request headers
 
@@ -2350,7 +2350,7 @@ public class Example {
 
 ### Authorization
 
-[rest_api_key](../README.md#rest_api_key)
+[rest_api_key](https://github.com/OneSignal/onesignal-java-api#configuration)
 
 ### HTTP request headers
 
@@ -2423,7 +2423,7 @@ public class Example {
 
 ### Authorization
 
-[rest_api_key](../README.md#rest_api_key)
+[rest_api_key](https://github.com/OneSignal/onesignal-java-api#configuration)
 
 ### HTTP request headers
 
@@ -2498,7 +2498,7 @@ public class Example {
 
 ### Authorization
 
-[rest_api_key](../README.md#rest_api_key)
+[rest_api_key](https://github.com/OneSignal/onesignal-java-api#configuration)
 
 ### HTTP request headers
 
@@ -2571,7 +2571,7 @@ public class Example {
 
 ### Authorization
 
-[organization_api_key](../README.md#organization_api_key)
+[organization_api_key](https://github.com/OneSignal/onesignal-java-api#configuration)
 
 ### HTTP request headers
 
@@ -2641,7 +2641,7 @@ public class Example {
 
 ### Authorization
 
-[organization_api_key](../README.md#organization_api_key)
+[organization_api_key](https://github.com/OneSignal/onesignal-java-api#configuration)
 
 ### HTTP request headers
 
@@ -2714,7 +2714,7 @@ public class Example {
 
 ### Authorization
 
-[rest_api_key](../README.md#rest_api_key)
+[rest_api_key](https://github.com/OneSignal/onesignal-java-api#configuration)
 
 ### HTTP request headers
 
@@ -2786,7 +2786,7 @@ null (empty response body)
 
 ### Authorization
 
-[rest_api_key](../README.md#rest_api_key)
+[rest_api_key](https://github.com/OneSignal/onesignal-java-api#configuration)
 
 ### HTTP request headers
 
@@ -2863,7 +2863,7 @@ public class Example {
 
 ### Authorization
 
-[rest_api_key](../README.md#rest_api_key)
+[rest_api_key](https://github.com/OneSignal/onesignal-java-api#configuration)
 
 ### HTTP request headers
 
@@ -2936,7 +2936,7 @@ public class Example {
 
 ### Authorization
 
-[rest_api_key](../README.md#rest_api_key)
+[rest_api_key](https://github.com/OneSignal/onesignal-java-api#configuration)
 
 ### HTTP request headers
 
@@ -3010,7 +3010,7 @@ public class Example {
 
 ### Authorization
 
-[rest_api_key](../README.md#rest_api_key)
+[rest_api_key](https://github.com/OneSignal/onesignal-java-api#configuration)
 
 ### HTTP request headers
 
@@ -3080,7 +3080,7 @@ public class Example {
 
 ### Authorization
 
-[organization_api_key](../README.md#organization_api_key)
+[organization_api_key](https://github.com/OneSignal/onesignal-java-api#configuration)
 
 ### HTTP request headers
 
@@ -3150,7 +3150,7 @@ public class Example {
 
 ### Authorization
 
-[rest_api_key](../README.md#rest_api_key)
+[rest_api_key](https://github.com/OneSignal/onesignal-java-api#configuration)
 
 ### HTTP request headers
 
@@ -3225,7 +3225,7 @@ public class Example {
 
 ### Authorization
 
-[rest_api_key](../README.md#rest_api_key)
+[rest_api_key](https://github.com/OneSignal/onesignal-java-api#configuration)
 
 ### HTTP request headers
 
