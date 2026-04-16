@@ -62,6 +62,14 @@ public class UpdateTemplateRequest {
   @SerializedName(SERIALIZED_NAME_CONTENTS)
   private LanguageStringMap contents;
 
+  public static final String SERIALIZED_NAME_HEADINGS = "headings";
+  @SerializedName(SERIALIZED_NAME_HEADINGS)
+  private LanguageStringMap headings;
+
+  public static final String SERIALIZED_NAME_SUBTITLE = "subtitle";
+  @SerializedName(SERIALIZED_NAME_SUBTITLE)
+  private LanguageStringMap subtitle;
+
   public static final String SERIALIZED_NAME_IS_EMAIL = "isEmail";
   @SerializedName(SERIALIZED_NAME_IS_EMAIL)
   private Boolean isEmail;
@@ -128,6 +136,52 @@ public class UpdateTemplateRequest {
 
   public void setContents(LanguageStringMap contents) {
     this.contents = contents;
+  }
+
+
+  public UpdateTemplateRequest headings(LanguageStringMap headings) {
+    
+    this.headings = headings;
+    return this;
+  }
+
+   /**
+   * Get headings
+   * @return headings
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public LanguageStringMap getHeadings() {
+    return headings;
+  }
+
+
+  public void setHeadings(LanguageStringMap headings) {
+    this.headings = headings;
+  }
+
+
+  public UpdateTemplateRequest subtitle(LanguageStringMap subtitle) {
+    
+    this.subtitle = subtitle;
+    return this;
+  }
+
+   /**
+   * Get subtitle
+   * @return subtitle
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public LanguageStringMap getSubtitle() {
+    return subtitle;
+  }
+
+
+  public void setSubtitle(LanguageStringMap subtitle) {
+    this.subtitle = subtitle;
   }
 
 
@@ -258,6 +312,8 @@ public class UpdateTemplateRequest {
     UpdateTemplateRequest updateTemplateRequest = (UpdateTemplateRequest) o;
     return Objects.equals(this.name, updateTemplateRequest.name) &&
         Objects.equals(this.contents, updateTemplateRequest.contents) &&
+        Objects.equals(this.headings, updateTemplateRequest.headings) &&
+        Objects.equals(this.subtitle, updateTemplateRequest.subtitle) &&
         Objects.equals(this.isEmail, updateTemplateRequest.isEmail) &&
         Objects.equals(this.emailSubject, updateTemplateRequest.emailSubject) &&
         Objects.equals(this.emailBody, updateTemplateRequest.emailBody) &&
@@ -271,7 +327,7 @@ public class UpdateTemplateRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, contents, isEmail, emailSubject, emailBody, isSMS, dynamicContent);
+    return Objects.hash(name, contents, headings, subtitle, isEmail, emailSubject, emailBody, isSMS, dynamicContent);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -287,6 +343,8 @@ public class UpdateTemplateRequest {
     sb.append("class UpdateTemplateRequest {\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    contents: ").append(toIndentedString(contents)).append("\n");
+    sb.append("    headings: ").append(toIndentedString(headings)).append("\n");
+    sb.append("    subtitle: ").append(toIndentedString(subtitle)).append("\n");
     sb.append("    isEmail: ").append(toIndentedString(isEmail)).append("\n");
     sb.append("    emailSubject: ").append(toIndentedString(emailSubject)).append("\n");
     sb.append("    emailBody: ").append(toIndentedString(emailBody)).append("\n");
@@ -316,6 +374,8 @@ public class UpdateTemplateRequest {
     openapiFields = new HashSet<String>();
     openapiFields.add("name");
     openapiFields.add("contents");
+    openapiFields.add("headings");
+    openapiFields.add("subtitle");
     openapiFields.add("isEmail");
     openapiFields.add("email_subject");
     openapiFields.add("email_body");
