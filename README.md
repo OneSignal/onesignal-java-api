@@ -1,7 +1,7 @@
 # onesignal-java-client
 
 OneSignal
-- API version: 5.3.0
+- API version: 5.4.0
 
 A powerful way to send personalized messages at scale and build effective customer engagement strategies. Learn more at onesignal.com
 
@@ -19,14 +19,14 @@ Building the API client library requires:
 <dependency>
   <groupId>com.onesignal</groupId>
   <artifactId>onesignal-java-client</artifactId>
-  <version>5.3.0</version>
+  <version>5.4.0</version>
 </dependency>
 ```
 
 ### Gradle
 
 ```groovy
-implementation "com.onesignal:onesignal-java-client:5.3.0"
+implementation "com.onesignal:onesignal-java-client:5.4.0"
 ```
 
 ## Configuration
