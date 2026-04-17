@@ -1,5 +1,11 @@
 # Changelog
 
+## [5.4.0](https://github.com/OneSignal/onesignal-java-api/compare/v5.3.0...v5.4.0) (2026-04-17)
+
+### Features
+
+* add v5.4.0 package updates ([#79](https://github.com/OneSignal/onesignal-java-api/issues/79)) ([4943d9b](https://github.com/OneSignal/onesignal-java-api/commit/4943d9bbf7f80e46fc0803a851a8d18e6e72e715))
+
 ## [5.3.0](https://github.com/OneSignal/onesignal-java-api/compare/v5.2.0...v5.3.0) (2026-03-24)
 
 ### Features
