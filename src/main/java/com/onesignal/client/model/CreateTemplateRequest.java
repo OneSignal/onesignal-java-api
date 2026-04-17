@@ -66,6 +66,14 @@ public class CreateTemplateRequest {
   @SerializedName(SERIALIZED_NAME_CONTENTS)
   private LanguageStringMap contents;
 
+  public static final String SERIALIZED_NAME_HEADINGS = "headings";
+  @SerializedName(SERIALIZED_NAME_HEADINGS)
+  private LanguageStringMap headings;
+
+  public static final String SERIALIZED_NAME_SUBTITLE = "subtitle";
+  @SerializedName(SERIALIZED_NAME_SUBTITLE)
+  private LanguageStringMap subtitle;
+
   public static final String SERIALIZED_NAME_IS_EMAIL = "isEmail";
   @SerializedName(SERIALIZED_NAME_IS_EMAIL)
   private Boolean isEmail;
@@ -155,6 +163,52 @@ public class CreateTemplateRequest {
 
   public void setContents(LanguageStringMap contents) {
     this.contents = contents;
+  }
+
+
+  public CreateTemplateRequest headings(LanguageStringMap headings) {
+    
+    this.headings = headings;
+    return this;
+  }
+
+   /**
+   * Get headings
+   * @return headings
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public LanguageStringMap getHeadings() {
+    return headings;
+  }
+
+
+  public void setHeadings(LanguageStringMap headings) {
+    this.headings = headings;
+  }
+
+
+  public CreateTemplateRequest subtitle(LanguageStringMap subtitle) {
+    
+    this.subtitle = subtitle;
+    return this;
+  }
+
+   /**
+   * Get subtitle
+   * @return subtitle
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public LanguageStringMap getSubtitle() {
+    return subtitle;
+  }
+
+
+  public void setSubtitle(LanguageStringMap subtitle) {
+    this.subtitle = subtitle;
   }
 
 
@@ -286,6 +340,8 @@ public class CreateTemplateRequest {
     return Objects.equals(this.appId, createTemplateRequest.appId) &&
         Objects.equals(this.name, createTemplateRequest.name) &&
         Objects.equals(this.contents, createTemplateRequest.contents) &&
+        Objects.equals(this.headings, createTemplateRequest.headings) &&
+        Objects.equals(this.subtitle, createTemplateRequest.subtitle) &&
         Objects.equals(this.isEmail, createTemplateRequest.isEmail) &&
         Objects.equals(this.emailSubject, createTemplateRequest.emailSubject) &&
         Objects.equals(this.emailBody, createTemplateRequest.emailBody) &&
@@ -299,7 +355,7 @@ public class CreateTemplateRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(appId, name, contents, isEmail, emailSubject, emailBody, isSMS, dynamicContent);
+    return Objects.hash(appId, name, contents, headings, subtitle, isEmail, emailSubject, emailBody, isSMS, dynamicContent);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -316,6 +372,8 @@ public class CreateTemplateRequest {
     sb.append("    appId: ").append(toIndentedString(appId)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    contents: ").append(toIndentedString(contents)).append("\n");
+    sb.append("    headings: ").append(toIndentedString(headings)).append("\n");
+    sb.append("    subtitle: ").append(toIndentedString(subtitle)).append("\n");
     sb.append("    isEmail: ").append(toIndentedString(isEmail)).append("\n");
     sb.append("    emailSubject: ").append(toIndentedString(emailSubject)).append("\n");
     sb.append("    emailBody: ").append(toIndentedString(emailBody)).append("\n");
@@ -346,6 +404,8 @@ public class CreateTemplateRequest {
     openapiFields.add("app_id");
     openapiFields.add("name");
     openapiFields.add("contents");
+    openapiFields.add("headings");
+    openapiFields.add("subtitle");
     openapiFields.add("isEmail");
     openapiFields.add("email_subject");
     openapiFields.add("email_body");

@@ -9,6 +9,8 @@
 |------------ | ------------- | ------------- | -------------|
 |**name** | **String** | Updated name of the template. |  [optional] |
 |**contents** | [**LanguageStringMap**](LanguageStringMap.md) |  |  [optional] |
+|**headings** | [**LanguageStringMap**](LanguageStringMap.md) |  |  [optional] |
+|**subtitle** | [**LanguageStringMap**](LanguageStringMap.md) |  |  [optional] |
 |**isEmail** | **Boolean** | Set true for an Email template. |  [optional] |
 |**emailSubject** | **String** | Subject of the email. |  [optional] |
 |**emailBody** | **String** | Body of the email (HTML supported). |  [optional] |
