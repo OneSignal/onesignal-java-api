@@ -122,6 +122,7 @@ paths:
       security:
       - rest_api_key: []
       summary: Create notification
+      x-onesignal-flat-notification-example: true
       x-content-type: application/json
       x-accepts: application/json
   /notifications/{notification_id}:

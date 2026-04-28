@@ -65,7 +65,7 @@ import com.onesignal.client.ApiClient;
 import com.onesignal.client.ApiException;
 import com.onesignal.client.Configuration;
 import com.onesignal.client.auth.*;
-import com.onesignal.client.models.*;
+import com.onesignal.client.model.*;
 import com.onesignal.client.api.DefaultApi;
 
 public class Example {
@@ -137,7 +137,7 @@ import com.onesignal.client.ApiClient;
 import com.onesignal.client.ApiException;
 import com.onesignal.client.Configuration;
 import com.onesignal.client.auth.*;
-import com.onesignal.client.models.*;
+import com.onesignal.client.model.*;
 import com.onesignal.client.api.DefaultApi;
 
 public class Example {
@@ -209,7 +209,7 @@ import com.onesignal.client.ApiClient;
 import com.onesignal.client.ApiException;
 import com.onesignal.client.Configuration;
 import com.onesignal.client.auth.*;
-import com.onesignal.client.models.*;
+import com.onesignal.client.model.*;
 import com.onesignal.client.api.DefaultApi;
 
 public class Example {
@@ -286,7 +286,7 @@ import com.onesignal.client.ApiClient;
 import com.onesignal.client.ApiException;
 import com.onesignal.client.Configuration;
 import com.onesignal.client.auth.*;
-import com.onesignal.client.models.*;
+import com.onesignal.client.model.*;
 import com.onesignal.client.api.DefaultApi;
 
 public class Example {
@@ -361,7 +361,7 @@ import com.onesignal.client.ApiClient;
 import com.onesignal.client.ApiException;
 import com.onesignal.client.Configuration;
 import com.onesignal.client.auth.*;
-import com.onesignal.client.models.*;
+import com.onesignal.client.model.*;
 import com.onesignal.client.api.DefaultApi;
 
 public class Example {
@@ -431,7 +431,7 @@ import com.onesignal.client.ApiClient;
 import com.onesignal.client.ApiException;
 import com.onesignal.client.Configuration;
 import com.onesignal.client.auth.*;
-import com.onesignal.client.models.*;
+import com.onesignal.client.model.*;
 import com.onesignal.client.api.DefaultApi;
 
 public class Example {
@@ -500,7 +500,7 @@ import com.onesignal.client.ApiClient;
 import com.onesignal.client.ApiException;
 import com.onesignal.client.Configuration;
 import com.onesignal.client.auth.*;
-import com.onesignal.client.models.*;
+import com.onesignal.client.model.*;
 import com.onesignal.client.api.DefaultApi;
 
 public class Example {
@@ -568,24 +568,37 @@ Sends notifications to your users
 ### Example
 ```java
 // Import classes:
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import com.onesignal.client.ApiClient;
 import com.onesignal.client.ApiException;
 import com.onesignal.client.Configuration;
 import com.onesignal.client.auth.*;
-import com.onesignal.client.models.*;
+import com.onesignal.client.model.*;
 import com.onesignal.client.api.DefaultApi;
 
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://api.onesignal.com");
-    
-    // Configure HTTP bearer authorization: rest_api_key
+
     HttpBearerAuth rest_api_key = (HttpBearerAuth) defaultClient.getAuthentication("rest_api_key");
     rest_api_key.setBearerToken("BEARER TOKEN");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
-    Notification notification = new Notification(); // Notification | 
+    Notification notification = new Notification();
+    notification.setAppId("YOUR_APP_ID");
+    LanguageStringMap contents = new LanguageStringMap();
+    contents.setEn("Hello from OneSignal!");
+    notification.setContents(contents);
+    Map<String, List<String>> aliases = new HashMap<>();
+    aliases.put("external_id", Arrays.asList("YOUR_USER_EXTERNAL_ID"));
+    notification.setIncludeAliases(aliases);
+    notification.setTargetChannel(Notification.TargetChannelEnum.PUSH);
+
     try {
       CreateNotificationSuccessResponse result = apiInstance.createNotification(notification);
       System.out.println(result);
@@ -641,7 +654,7 @@ import com.onesignal.client.ApiClient;
 import com.onesignal.client.ApiException;
 import com.onesignal.client.Configuration;
 import com.onesignal.client.auth.*;
-import com.onesignal.client.models.*;
+import com.onesignal.client.model.*;
 import com.onesignal.client.api.DefaultApi;
 
 public class Example {
@@ -713,7 +726,7 @@ import com.onesignal.client.ApiClient;
 import com.onesignal.client.ApiException;
 import com.onesignal.client.Configuration;
 import com.onesignal.client.auth.*;
-import com.onesignal.client.models.*;
+import com.onesignal.client.model.*;
 import com.onesignal.client.api.DefaultApi;
 
 public class Example {
@@ -791,7 +804,7 @@ import com.onesignal.client.ApiClient;
 import com.onesignal.client.ApiException;
 import com.onesignal.client.Configuration;
 import com.onesignal.client.auth.*;
-import com.onesignal.client.models.*;
+import com.onesignal.client.model.*;
 import com.onesignal.client.api.DefaultApi;
 
 public class Example {
@@ -860,7 +873,7 @@ import com.onesignal.client.ApiClient;
 import com.onesignal.client.ApiException;
 import com.onesignal.client.Configuration;
 import com.onesignal.client.auth.*;
-import com.onesignal.client.models.*;
+import com.onesignal.client.model.*;
 import com.onesignal.client.api.DefaultApi;
 
 public class Example {
@@ -934,7 +947,7 @@ import com.onesignal.client.ApiClient;
 import com.onesignal.client.ApiException;
 import com.onesignal.client.Configuration;
 import com.onesignal.client.auth.*;
-import com.onesignal.client.models.*;
+import com.onesignal.client.model.*;
 import com.onesignal.client.api.DefaultApi;
 
 public class Example {
@@ -1011,7 +1024,7 @@ import com.onesignal.client.ApiClient;
 import com.onesignal.client.ApiException;
 import com.onesignal.client.Configuration;
 import com.onesignal.client.auth.*;
-import com.onesignal.client.models.*;
+import com.onesignal.client.model.*;
 import com.onesignal.client.api.DefaultApi;
 
 public class Example {
@@ -1081,7 +1094,7 @@ import com.onesignal.client.ApiClient;
 import com.onesignal.client.ApiException;
 import com.onesignal.client.Configuration;
 import com.onesignal.client.auth.*;
-import com.onesignal.client.models.*;
+import com.onesignal.client.model.*;
 import com.onesignal.client.api.DefaultApi;
 
 public class Example {
@@ -1153,7 +1166,7 @@ import com.onesignal.client.ApiClient;
 import com.onesignal.client.ApiException;
 import com.onesignal.client.Configuration;
 import com.onesignal.client.auth.*;
-import com.onesignal.client.models.*;
+import com.onesignal.client.model.*;
 import com.onesignal.client.api.DefaultApi;
 
 public class Example {
@@ -1225,7 +1238,7 @@ import com.onesignal.client.ApiClient;
 import com.onesignal.client.ApiException;
 import com.onesignal.client.Configuration;
 import com.onesignal.client.auth.*;
-import com.onesignal.client.models.*;
+import com.onesignal.client.model.*;
 import com.onesignal.client.api.DefaultApi;
 
 public class Example {
@@ -1296,7 +1309,7 @@ import com.onesignal.client.ApiClient;
 import com.onesignal.client.ApiException;
 import com.onesignal.client.Configuration;
 import com.onesignal.client.auth.*;
-import com.onesignal.client.models.*;
+import com.onesignal.client.model.*;
 import com.onesignal.client.api.DefaultApi;
 
 public class Example {
@@ -1369,7 +1382,7 @@ import com.onesignal.client.ApiClient;
 import com.onesignal.client.ApiException;
 import com.onesignal.client.Configuration;
 import com.onesignal.client.auth.*;
-import com.onesignal.client.models.*;
+import com.onesignal.client.model.*;
 import com.onesignal.client.api.DefaultApi;
 
 public class Example {
@@ -1441,7 +1454,7 @@ import com.onesignal.client.ApiClient;
 import com.onesignal.client.ApiException;
 import com.onesignal.client.Configuration;
 import com.onesignal.client.auth.*;
-import com.onesignal.client.models.*;
+import com.onesignal.client.model.*;
 import com.onesignal.client.api.DefaultApi;
 
 public class Example {
@@ -1512,7 +1525,7 @@ import com.onesignal.client.ApiClient;
 import com.onesignal.client.ApiException;
 import com.onesignal.client.Configuration;
 import com.onesignal.client.auth.*;
-import com.onesignal.client.models.*;
+import com.onesignal.client.model.*;
 import com.onesignal.client.api.DefaultApi;
 
 public class Example {
@@ -1586,7 +1599,7 @@ import com.onesignal.client.ApiClient;
 import com.onesignal.client.ApiException;
 import com.onesignal.client.Configuration;
 import com.onesignal.client.auth.*;
-import com.onesignal.client.models.*;
+import com.onesignal.client.model.*;
 import com.onesignal.client.api.DefaultApi;
 
 public class Example {
@@ -1657,7 +1670,7 @@ import com.onesignal.client.ApiClient;
 import com.onesignal.client.ApiException;
 import com.onesignal.client.Configuration;
 import com.onesignal.client.auth.*;
-import com.onesignal.client.models.*;
+import com.onesignal.client.model.*;
 import com.onesignal.client.api.DefaultApi;
 
 public class Example {
@@ -1726,7 +1739,7 @@ import com.onesignal.client.ApiClient;
 import com.onesignal.client.ApiException;
 import com.onesignal.client.Configuration;
 import com.onesignal.client.auth.*;
-import com.onesignal.client.models.*;
+import com.onesignal.client.model.*;
 import com.onesignal.client.api.DefaultApi;
 
 public class Example {
@@ -1791,7 +1804,7 @@ import com.onesignal.client.ApiClient;
 import com.onesignal.client.ApiException;
 import com.onesignal.client.Configuration;
 import com.onesignal.client.auth.*;
-import com.onesignal.client.models.*;
+import com.onesignal.client.model.*;
 import com.onesignal.client.api.DefaultApi;
 
 public class Example {
@@ -1863,7 +1876,7 @@ import com.onesignal.client.ApiClient;
 import com.onesignal.client.ApiException;
 import com.onesignal.client.Configuration;
 import com.onesignal.client.auth.*;
-import com.onesignal.client.models.*;
+import com.onesignal.client.model.*;
 import com.onesignal.client.api.DefaultApi;
 
 public class Example {
@@ -1935,7 +1948,7 @@ import com.onesignal.client.ApiClient;
 import com.onesignal.client.ApiException;
 import com.onesignal.client.Configuration;
 import com.onesignal.client.auth.*;
-import com.onesignal.client.models.*;
+import com.onesignal.client.model.*;
 import com.onesignal.client.api.DefaultApi;
 
 public class Example {
@@ -2010,7 +2023,7 @@ import com.onesignal.client.ApiClient;
 import com.onesignal.client.ApiException;
 import com.onesignal.client.Configuration;
 import com.onesignal.client.auth.*;
-import com.onesignal.client.models.*;
+import com.onesignal.client.model.*;
 import com.onesignal.client.api.DefaultApi;
 
 public class Example {
@@ -2089,7 +2102,7 @@ import com.onesignal.client.ApiClient;
 import com.onesignal.client.ApiException;
 import com.onesignal.client.Configuration;
 import com.onesignal.client.auth.*;
-import com.onesignal.client.models.*;
+import com.onesignal.client.model.*;
 import com.onesignal.client.api.DefaultApi;
 
 public class Example {
@@ -2162,7 +2175,7 @@ import com.onesignal.client.ApiClient;
 import com.onesignal.client.ApiException;
 import com.onesignal.client.Configuration;
 import com.onesignal.client.auth.*;
-import com.onesignal.client.models.*;
+import com.onesignal.client.model.*;
 import com.onesignal.client.api.DefaultApi;
 
 public class Example {
@@ -2236,7 +2249,7 @@ import com.onesignal.client.ApiClient;
 import com.onesignal.client.ApiException;
 import com.onesignal.client.Configuration;
 import com.onesignal.client.auth.*;
-import com.onesignal.client.models.*;
+import com.onesignal.client.model.*;
 import com.onesignal.client.api.DefaultApi;
 
 public class Example {
@@ -2306,7 +2319,7 @@ import com.onesignal.client.ApiClient;
 import com.onesignal.client.ApiException;
 import com.onesignal.client.Configuration;
 import com.onesignal.client.auth.*;
-import com.onesignal.client.models.*;
+import com.onesignal.client.model.*;
 import com.onesignal.client.api.DefaultApi;
 
 public class Example {
@@ -2379,7 +2392,7 @@ import com.onesignal.client.ApiClient;
 import com.onesignal.client.ApiException;
 import com.onesignal.client.Configuration;
 import com.onesignal.client.auth.*;
-import com.onesignal.client.models.*;
+import com.onesignal.client.model.*;
 import com.onesignal.client.api.DefaultApi;
 
 public class Example {
@@ -2454,7 +2467,7 @@ import com.onesignal.client.ApiClient;
 import com.onesignal.client.ApiException;
 import com.onesignal.client.Configuration;
 import com.onesignal.client.auth.*;
-import com.onesignal.client.models.*;
+import com.onesignal.client.model.*;
 import com.onesignal.client.api.DefaultApi;
 
 public class Example {
@@ -2527,7 +2540,7 @@ import com.onesignal.client.ApiClient;
 import com.onesignal.client.ApiException;
 import com.onesignal.client.Configuration;
 import com.onesignal.client.auth.*;
-import com.onesignal.client.models.*;
+import com.onesignal.client.model.*;
 import com.onesignal.client.api.DefaultApi;
 
 public class Example {
@@ -2599,7 +2612,7 @@ import com.onesignal.client.ApiClient;
 import com.onesignal.client.ApiException;
 import com.onesignal.client.Configuration;
 import com.onesignal.client.auth.*;
-import com.onesignal.client.models.*;
+import com.onesignal.client.model.*;
 import com.onesignal.client.api.DefaultApi;
 
 public class Example {
@@ -2670,7 +2683,7 @@ import com.onesignal.client.ApiClient;
 import com.onesignal.client.ApiException;
 import com.onesignal.client.Configuration;
 import com.onesignal.client.auth.*;
-import com.onesignal.client.models.*;
+import com.onesignal.client.model.*;
 import com.onesignal.client.api.DefaultApi;
 
 public class Example {
@@ -2743,7 +2756,7 @@ import com.onesignal.client.ApiClient;
 import com.onesignal.client.ApiException;
 import com.onesignal.client.Configuration;
 import com.onesignal.client.auth.*;
-import com.onesignal.client.models.*;
+import com.onesignal.client.model.*;
 import com.onesignal.client.api.DefaultApi;
 
 public class Example {
@@ -2817,7 +2830,7 @@ import com.onesignal.client.ApiClient;
 import com.onesignal.client.ApiException;
 import com.onesignal.client.Configuration;
 import com.onesignal.client.auth.*;
-import com.onesignal.client.models.*;
+import com.onesignal.client.model.*;
 import com.onesignal.client.api.DefaultApi;
 
 public class Example {
@@ -2892,7 +2905,7 @@ import com.onesignal.client.ApiClient;
 import com.onesignal.client.ApiException;
 import com.onesignal.client.Configuration;
 import com.onesignal.client.auth.*;
-import com.onesignal.client.models.*;
+import com.onesignal.client.model.*;
 import com.onesignal.client.api.DefaultApi;
 
 public class Example {
@@ -2964,7 +2977,7 @@ import com.onesignal.client.ApiClient;
 import com.onesignal.client.ApiException;
 import com.onesignal.client.Configuration;
 import com.onesignal.client.auth.*;
-import com.onesignal.client.models.*;
+import com.onesignal.client.model.*;
 import com.onesignal.client.api.DefaultApi;
 
 public class Example {
@@ -3040,7 +3053,7 @@ import com.onesignal.client.ApiClient;
 import com.onesignal.client.ApiException;
 import com.onesignal.client.Configuration;
 import com.onesignal.client.auth.*;
-import com.onesignal.client.models.*;
+import com.onesignal.client.model.*;
 import com.onesignal.client.api.DefaultApi;
 
 public class Example {
@@ -3108,7 +3121,7 @@ import com.onesignal.client.ApiClient;
 import com.onesignal.client.ApiException;
 import com.onesignal.client.Configuration;
 import com.onesignal.client.auth.*;
-import com.onesignal.client.models.*;
+import com.onesignal.client.model.*;
 import com.onesignal.client.api.DefaultApi;
 
 public class Example {
@@ -3179,7 +3192,7 @@ import com.onesignal.client.ApiClient;
 import com.onesignal.client.ApiException;
 import com.onesignal.client.Configuration;
 import com.onesignal.client.auth.*;
-import com.onesignal.client.models.*;
+import com.onesignal.client.model.*;
 import com.onesignal.client.api.DefaultApi;
 
 public class Example {
