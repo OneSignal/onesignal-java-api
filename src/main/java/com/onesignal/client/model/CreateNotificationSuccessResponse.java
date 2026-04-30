@@ -75,11 +75,11 @@ public class CreateNotificationSuccessResponse {
   }
 
    /**
-   * Get id
+   * Notification identifier when the request created a notification. An empty string means no notification was created; read &#x60;errors&#x60; for details (HTTP may still be 200).
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Notification identifier when the request created a notification. An empty string means no notification was created; read `errors` for details (HTTP may still be 200).")
 
   public String getId() {
     return id;
@@ -98,11 +98,11 @@ public class CreateNotificationSuccessResponse {
   }
 
    /**
-   * Get externalId
+   * Optional correlation / idempotency-related value from the API response. This is not the end-user External ID used for targeting recipients (that lives under &#x60;include_aliases.external_id&#x60;).
    * @return externalId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Optional correlation / idempotency-related value from the API response. This is not the end-user External ID used for targeting recipients (that lives under `include_aliases.external_id`).")
 
   public String getExternalId() {
     return externalId;
@@ -121,11 +121,11 @@ public class CreateNotificationSuccessResponse {
   }
 
    /**
-   * Errors include the identifiers that are invalid, or that there are no subscribers.
+   * Polymorphic field: may be an array of human-readable strings and/or an object (for example with &#x60;invalid_aliases&#x60;, &#x60;invalid_external_user_ids&#x60;, or &#x60;invalid_player_ids&#x60;) depending on the API response; HTTP may still be 200 with partial success. Typed SDKs model this loosely so both shapes deserialize.
    * @return errors
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Errors include the identifiers that are invalid, or that there are no subscribers.")
+  @ApiModelProperty(value = "Polymorphic field: may be an array of human-readable strings and/or an object (for example with `invalid_aliases`, `invalid_external_user_ids`, or `invalid_player_ids`) depending on the API response; HTTP may still be 200 with partial success. Typed SDKs model this loosely so both shapes deserialize.")
 
   public Object getErrors() {
     return errors;
