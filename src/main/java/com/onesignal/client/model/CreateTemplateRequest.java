@@ -24,6 +24,8 @@ import com.onesignal.client.model.LanguageStringMap;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.io.Serializable;
 
@@ -85,6 +87,10 @@ public class CreateTemplateRequest {
   public static final String SERIALIZED_NAME_EMAIL_BODY = "email_body";
   @SerializedName(SERIALIZED_NAME_EMAIL_BODY)
   private String emailBody;
+
+  public static final String SERIALIZED_NAME_EMAIL_BCC = "email_bcc";
+  @SerializedName(SERIALIZED_NAME_EMAIL_BCC)
+  private List<String> emailBcc = null;
 
   public static final String SERIALIZED_NAME_IS_S_M_S = "isSMS";
   @SerializedName(SERIALIZED_NAME_IS_S_M_S)
@@ -281,6 +287,37 @@ public class CreateTemplateRequest {
   }
 
 
+  public CreateTemplateRequest emailBcc(List<String> emailBcc) {
+    
+    this.emailBcc = emailBcc;
+    return this;
+  }
+
+  public CreateTemplateRequest addEmailBccItem(String emailBccItem) {
+    if (this.emailBcc == null) {
+      this.emailBcc = new ArrayList<>();
+    }
+    this.emailBcc.add(emailBccItem);
+    return this;
+  }
+
+   /**
+   * BCC recipients for the email template. Maximum 5 addresses. Only supported when the email service provider is OneSignal Email.
+   * @return emailBcc
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "BCC recipients for the email template. Maximum 5 addresses. Only supported when the email service provider is OneSignal Email.")
+
+  public List<String> getEmailBcc() {
+    return emailBcc;
+  }
+
+
+  public void setEmailBcc(List<String> emailBcc) {
+    this.emailBcc = emailBcc;
+  }
+
+
   public CreateTemplateRequest isSMS(Boolean isSMS) {
     
     this.isSMS = isSMS;
@@ -345,6 +382,7 @@ public class CreateTemplateRequest {
         Objects.equals(this.isEmail, createTemplateRequest.isEmail) &&
         Objects.equals(this.emailSubject, createTemplateRequest.emailSubject) &&
         Objects.equals(this.emailBody, createTemplateRequest.emailBody) &&
+        Objects.equals(this.emailBcc, createTemplateRequest.emailBcc) &&
         Objects.equals(this.isSMS, createTemplateRequest.isSMS) &&
         Objects.equals(this.dynamicContent, createTemplateRequest.dynamicContent);
   }
@@ -355,7 +393,7 @@ public class CreateTemplateRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(appId, name, contents, headings, subtitle, isEmail, emailSubject, emailBody, isSMS, dynamicContent);
+    return Objects.hash(appId, name, contents, headings, subtitle, isEmail, emailSubject, emailBody, emailBcc, isSMS, dynamicContent);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -377,6 +415,7 @@ public class CreateTemplateRequest {
     sb.append("    isEmail: ").append(toIndentedString(isEmail)).append("\n");
     sb.append("    emailSubject: ").append(toIndentedString(emailSubject)).append("\n");
     sb.append("    emailBody: ").append(toIndentedString(emailBody)).append("\n");
+    sb.append("    emailBcc: ").append(toIndentedString(emailBcc)).append("\n");
     sb.append("    isSMS: ").append(toIndentedString(isSMS)).append("\n");
     sb.append("    dynamicContent: ").append(toIndentedString(dynamicContent)).append("\n");
     sb.append("}");
@@ -409,6 +448,7 @@ public class CreateTemplateRequest {
     openapiFields.add("isEmail");
     openapiFields.add("email_subject");
     openapiFields.add("email_body");
+    openapiFields.add("email_bcc");
     openapiFields.add("isSMS");
     openapiFields.add("dynamic_content");
 

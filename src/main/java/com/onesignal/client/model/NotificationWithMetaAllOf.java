@@ -24,6 +24,8 @@ import com.onesignal.client.model.PlatformDeliveryData;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.io.Serializable;
 
@@ -101,6 +103,14 @@ public class NotificationWithMetaAllOf {
   public static final String SERIALIZED_NAME_CANCELED = "canceled";
   @SerializedName(SERIALIZED_NAME_CANCELED)
   private Boolean canceled;
+
+  public static final String SERIALIZED_NAME_EMAIL_BCC = "email_bcc";
+  @SerializedName(SERIALIZED_NAME_EMAIL_BCC)
+  private List<String> emailBcc = null;
+
+  public static final String SERIALIZED_NAME_BCC_SENT = "bcc_sent";
+  @SerializedName(SERIALIZED_NAME_BCC_SENT)
+  private Integer bccSent;
 
   public NotificationWithMetaAllOf() { 
   }
@@ -381,6 +391,60 @@ public class NotificationWithMetaAllOf {
   }
 
 
+  public NotificationWithMetaAllOf emailBcc(List<String> emailBcc) {
+    
+    this.emailBcc = emailBcc;
+    return this;
+  }
+
+  public NotificationWithMetaAllOf addEmailBccItem(String emailBccItem) {
+    if (this.emailBcc == null) {
+      this.emailBcc = new ArrayList<>();
+    }
+    this.emailBcc.add(emailBccItem);
+    return this;
+  }
+
+   /**
+   * BCC recipients that were set on this email notification.
+   * @return emailBcc
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "BCC recipients that were set on this email notification.")
+
+  public List<String> getEmailBcc() {
+    return emailBcc;
+  }
+
+
+  public void setEmailBcc(List<String> emailBcc) {
+    this.emailBcc = emailBcc;
+  }
+
+
+  public NotificationWithMetaAllOf bccSent(Integer bccSent) {
+    
+    this.bccSent = bccSent;
+    return this;
+  }
+
+   /**
+   * Number of BCC copies successfully sent for this notification.
+   * @return bccSent
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Number of BCC copies successfully sent for this notification.")
+
+  public Integer getBccSent() {
+    return bccSent;
+  }
+
+
+  public void setBccSent(Integer bccSent) {
+    this.bccSent = bccSent;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -402,7 +466,9 @@ public class NotificationWithMetaAllOf {
         Objects.equals(this.platformDeliveryStats, notificationWithMetaAllOf.platformDeliveryStats) &&
         Objects.equals(this.received, notificationWithMetaAllOf.received) &&
         Objects.equals(this.throttleRatePerMinute, notificationWithMetaAllOf.throttleRatePerMinute) &&
-        Objects.equals(this.canceled, notificationWithMetaAllOf.canceled);
+        Objects.equals(this.canceled, notificationWithMetaAllOf.canceled) &&
+        Objects.equals(this.emailBcc, notificationWithMetaAllOf.emailBcc) &&
+        Objects.equals(this.bccSent, notificationWithMetaAllOf.bccSent);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -411,7 +477,7 @@ public class NotificationWithMetaAllOf {
 
   @Override
   public int hashCode() {
-    return Objects.hash(remaining, successful, failed, errored, converted, queuedAt, sendAfter, completedAt, platformDeliveryStats, received, throttleRatePerMinute, canceled);
+    return Objects.hash(remaining, successful, failed, errored, converted, queuedAt, sendAfter, completedAt, platformDeliveryStats, received, throttleRatePerMinute, canceled, emailBcc, bccSent);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -437,6 +503,8 @@ public class NotificationWithMetaAllOf {
     sb.append("    received: ").append(toIndentedString(received)).append("\n");
     sb.append("    throttleRatePerMinute: ").append(toIndentedString(throttleRatePerMinute)).append("\n");
     sb.append("    canceled: ").append(toIndentedString(canceled)).append("\n");
+    sb.append("    emailBcc: ").append(toIndentedString(emailBcc)).append("\n");
+    sb.append("    bccSent: ").append(toIndentedString(bccSent)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -471,6 +539,8 @@ public class NotificationWithMetaAllOf {
     openapiFields.add("received");
     openapiFields.add("throttle_rate_per_minute");
     openapiFields.add("canceled");
+    openapiFields.add("email_bcc");
+    openapiFields.add("bcc_sent");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
