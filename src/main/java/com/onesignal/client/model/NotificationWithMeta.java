@@ -585,6 +585,10 @@ public class NotificationWithMeta {
   @SerializedName(SERIALIZED_NAME_INCLUDE_UNSUBSCRIBED)
   private Boolean includeUnsubscribed;
 
+  public static final String SERIALIZED_NAME_EMAIL_BCC = "email_bcc";
+  @SerializedName(SERIALIZED_NAME_EMAIL_BCC)
+  private List<String> emailBcc = null;
+
   public static final String SERIALIZED_NAME_SMS_FROM = "sms_from";
   @SerializedName(SERIALIZED_NAME_SMS_FROM)
   private String smsFrom;
@@ -735,6 +739,10 @@ public class NotificationWithMeta {
   public static final String SERIALIZED_NAME_CANCELED = "canceled";
   @SerializedName(SERIALIZED_NAME_CANCELED)
   private Boolean canceled;
+
+  public static final String SERIALIZED_NAME_BCC_SENT = "bcc_sent";
+  @SerializedName(SERIALIZED_NAME_BCC_SENT)
+  private Integer bccSent;
 
   public NotificationWithMeta() { 
   }
@@ -3260,6 +3268,37 @@ public class NotificationWithMeta {
   }
 
 
+  public NotificationWithMeta emailBcc(List<String> emailBcc) {
+    
+    this.emailBcc = emailBcc;
+    return this;
+  }
+
+  public NotificationWithMeta addEmailBccItem(String emailBccItem) {
+    if (this.emailBcc == null) {
+      this.emailBcc = new ArrayList<>();
+    }
+    this.emailBcc.add(emailBccItem);
+    return this;
+  }
+
+   /**
+   * BCC recipients that were set on this email notification.
+   * @return emailBcc
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "BCC recipients that were set on this email notification.")
+
+  public List<String> getEmailBcc() {
+    return emailBcc;
+  }
+
+
+  public void setEmailBcc(List<String> emailBcc) {
+    this.emailBcc = emailBcc;
+  }
+
+
   public NotificationWithMeta smsFrom(String smsFrom) {
     
     this.smsFrom = smsFrom;
@@ -3767,6 +3806,29 @@ public class NotificationWithMeta {
   }
 
 
+  public NotificationWithMeta bccSent(Integer bccSent) {
+    
+    this.bccSent = bccSent;
+    return this;
+  }
+
+   /**
+   * Number of BCC copies successfully sent for this notification.
+   * @return bccSent
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Number of BCC copies successfully sent for this notification.")
+
+  public Integer getBccSent() {
+    return bccSent;
+  }
+
+
+  public void setBccSent(Integer bccSent) {
+    this.bccSent = bccSent;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -3882,6 +3944,7 @@ public class NotificationWithMeta {
         Objects.equals(this.emailPreheader, notificationWithMeta.emailPreheader) &&
         Objects.equals(this.disableEmailClickTracking, notificationWithMeta.disableEmailClickTracking) &&
         Objects.equals(this.includeUnsubscribed, notificationWithMeta.includeUnsubscribed) &&
+        Objects.equals(this.emailBcc, notificationWithMeta.emailBcc) &&
         Objects.equals(this.smsFrom, notificationWithMeta.smsFrom) &&
         Objects.equals(this.smsMediaUrls, notificationWithMeta.smsMediaUrls) &&
         Objects.equals(this.filters, notificationWithMeta.filters) &&
@@ -3902,7 +3965,8 @@ public class NotificationWithMeta {
         Objects.equals(this.sendAfter, notificationWithMeta.sendAfter) &&
         Objects.equals(this.completedAt, notificationWithMeta.completedAt) &&
         Objects.equals(this.platformDeliveryStats, notificationWithMeta.platformDeliveryStats) &&
-        Objects.equals(this.canceled, notificationWithMeta.canceled);
+        Objects.equals(this.canceled, notificationWithMeta.canceled) &&
+        Objects.equals(this.bccSent, notificationWithMeta.bccSent);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -3911,7 +3975,7 @@ public class NotificationWithMeta {
 
   @Override
   public int hashCode() {
-    return Objects.hash(includedSegments, excludedSegments, includeSubscriptionIds, includeEmailTokens, includePhoneNumbers, includeIosTokens, includeWpWnsUris, includeAmazonRegIds, includeChromeRegIds, includeChromeWebRegIds, includeAndroidRegIds, includeAliases, targetChannel, id, value, name, aggregation, isIos, isAndroid, isHuawei, isAnyWeb, isChromeWeb, isFirefox, isSafari, isWPWNS, isAdm, isChrome, appId, externalId, idempotencyKey, contents, headings, subtitle, data, huaweiMsgType, url, webUrl, appUrl, iosAttachments, templateId, contentAvailable, mutableContent, targetContentIdentifier, bigPicture, huaweiBigPicture, admBigPicture, chromeBigPicture, chromeWebImage, buttons, webButtons, iosCategory, androidChannelId, huaweiChannelId, existingAndroidChannelId, huaweiExistingChannelId, androidBackgroundLayout, smallIcon, huaweiSmallIcon, largeIcon, huaweiLargeIcon, admSmallIcon, admLargeIcon, chromeWebIcon, chromeWebBadge, firefoxIcon, chromeIcon, iosSound, androidSound, huaweiSound, admSound, wpWnsSound, androidLedColor, huaweiLedColor, androidAccentColor, huaweiAccentColor, androidVisibility, huaweiVisibility, iosBadgeType, iosBadgeCount, collapseId, webPushTopic, apnsAlert, delayedOption, deliveryTimeOfDay, ttl, priority, apnsPushTypeOverride, throttleRatePerMinute, androidGroup, androidGroupMessage, admGroup, admGroupMessage, threadId, summaryArg, summaryArgCount, iosRelevanceScore, iosInterruptionLevel, emailSubject, emailBody, emailFromName, emailFromAddress, emailReplyToAddress, emailPreheader, disableEmailClickTracking, includeUnsubscribed, smsFrom, smsMediaUrls, filters, customData, huaweiBadgeClass, huaweiBadgeAddNum, huaweiBadgeSetNum, huaweiCategory, huaweiBiTag, successful, failed, errored, converted, received, outcomes, remaining, queuedAt, sendAfter, completedAt, platformDeliveryStats, canceled);
+    return Objects.hash(includedSegments, excludedSegments, includeSubscriptionIds, includeEmailTokens, includePhoneNumbers, includeIosTokens, includeWpWnsUris, includeAmazonRegIds, includeChromeRegIds, includeChromeWebRegIds, includeAndroidRegIds, includeAliases, targetChannel, id, value, name, aggregation, isIos, isAndroid, isHuawei, isAnyWeb, isChromeWeb, isFirefox, isSafari, isWPWNS, isAdm, isChrome, appId, externalId, idempotencyKey, contents, headings, subtitle, data, huaweiMsgType, url, webUrl, appUrl, iosAttachments, templateId, contentAvailable, mutableContent, targetContentIdentifier, bigPicture, huaweiBigPicture, admBigPicture, chromeBigPicture, chromeWebImage, buttons, webButtons, iosCategory, androidChannelId, huaweiChannelId, existingAndroidChannelId, huaweiExistingChannelId, androidBackgroundLayout, smallIcon, huaweiSmallIcon, largeIcon, huaweiLargeIcon, admSmallIcon, admLargeIcon, chromeWebIcon, chromeWebBadge, firefoxIcon, chromeIcon, iosSound, androidSound, huaweiSound, admSound, wpWnsSound, androidLedColor, huaweiLedColor, androidAccentColor, huaweiAccentColor, androidVisibility, huaweiVisibility, iosBadgeType, iosBadgeCount, collapseId, webPushTopic, apnsAlert, delayedOption, deliveryTimeOfDay, ttl, priority, apnsPushTypeOverride, throttleRatePerMinute, androidGroup, androidGroupMessage, admGroup, admGroupMessage, threadId, summaryArg, summaryArgCount, iosRelevanceScore, iosInterruptionLevel, emailSubject, emailBody, emailFromName, emailFromAddress, emailReplyToAddress, emailPreheader, disableEmailClickTracking, includeUnsubscribed, emailBcc, smsFrom, smsMediaUrls, filters, customData, huaweiBadgeClass, huaweiBadgeAddNum, huaweiBadgeSetNum, huaweiCategory, huaweiBiTag, successful, failed, errored, converted, received, outcomes, remaining, queuedAt, sendAfter, completedAt, platformDeliveryStats, canceled, bccSent);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -4030,6 +4094,7 @@ public class NotificationWithMeta {
     sb.append("    emailPreheader: ").append(toIndentedString(emailPreheader)).append("\n");
     sb.append("    disableEmailClickTracking: ").append(toIndentedString(disableEmailClickTracking)).append("\n");
     sb.append("    includeUnsubscribed: ").append(toIndentedString(includeUnsubscribed)).append("\n");
+    sb.append("    emailBcc: ").append(toIndentedString(emailBcc)).append("\n");
     sb.append("    smsFrom: ").append(toIndentedString(smsFrom)).append("\n");
     sb.append("    smsMediaUrls: ").append(toIndentedString(smsMediaUrls)).append("\n");
     sb.append("    filters: ").append(toIndentedString(filters)).append("\n");
@@ -4051,6 +4116,7 @@ public class NotificationWithMeta {
     sb.append("    completedAt: ").append(toIndentedString(completedAt)).append("\n");
     sb.append("    platformDeliveryStats: ").append(toIndentedString(platformDeliveryStats)).append("\n");
     sb.append("    canceled: ").append(toIndentedString(canceled)).append("\n");
+    sb.append("    bccSent: ").append(toIndentedString(bccSent)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -4178,6 +4244,7 @@ public class NotificationWithMeta {
     openapiFields.add("email_preheader");
     openapiFields.add("disable_email_click_tracking");
     openapiFields.add("include_unsubscribed");
+    openapiFields.add("email_bcc");
     openapiFields.add("sms_from");
     openapiFields.add("sms_media_urls");
     openapiFields.add("filters");
@@ -4199,6 +4266,7 @@ public class NotificationWithMeta {
     openapiFields.add("completed_at");
     openapiFields.add("platform_delivery_stats");
     openapiFields.add("canceled");
+    openapiFields.add("bcc_sent");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

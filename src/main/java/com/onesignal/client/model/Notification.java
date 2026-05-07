@@ -582,6 +582,10 @@ public class Notification {
   @SerializedName(SERIALIZED_NAME_INCLUDE_UNSUBSCRIBED)
   private Boolean includeUnsubscribed;
 
+  public static final String SERIALIZED_NAME_EMAIL_BCC = "email_bcc";
+  @SerializedName(SERIALIZED_NAME_EMAIL_BCC)
+  private List<String> emailBcc = null;
+
   public static final String SERIALIZED_NAME_SMS_FROM = "sms_from";
   @SerializedName(SERIALIZED_NAME_SMS_FROM)
   private String smsFrom;
@@ -3213,6 +3217,37 @@ public class Notification {
   }
 
 
+  public Notification emailBcc(List<String> emailBcc) {
+    
+    this.emailBcc = emailBcc;
+    return this;
+  }
+
+  public Notification addEmailBccItem(String emailBccItem) {
+    if (this.emailBcc == null) {
+      this.emailBcc = new ArrayList<>();
+    }
+    this.emailBcc.add(emailBccItem);
+    return this;
+  }
+
+   /**
+   * Channel: Email BCC recipients for the email. Maximum 5 addresses. Only supported when the email service provider is OneSignal Email. 
+   * @return emailBcc
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Channel: Email BCC recipients for the email. Maximum 5 addresses. Only supported when the email service provider is OneSignal Email. ")
+
+  public List<String> getEmailBcc() {
+    return emailBcc;
+  }
+
+
+  public void setEmailBcc(List<String> emailBcc) {
+    this.emailBcc = emailBcc;
+  }
+
+
   public Notification smsFrom(String smsFrom) {
     
     this.smsFrom = smsFrom;
@@ -3574,6 +3609,7 @@ public class Notification {
         Objects.equals(this.emailPreheader, notification.emailPreheader) &&
         Objects.equals(this.disableEmailClickTracking, notification.disableEmailClickTracking) &&
         Objects.equals(this.includeUnsubscribed, notification.includeUnsubscribed) &&
+        Objects.equals(this.emailBcc, notification.emailBcc) &&
         Objects.equals(this.smsFrom, notification.smsFrom) &&
         Objects.equals(this.smsMediaUrls, notification.smsMediaUrls) &&
         Objects.equals(this.filters, notification.filters) &&
@@ -3592,7 +3628,7 @@ public class Notification {
 
   @Override
   public int hashCode() {
-    return Objects.hash(includedSegments, excludedSegments, includeSubscriptionIds, includeEmailTokens, includePhoneNumbers, includeIosTokens, includeWpWnsUris, includeAmazonRegIds, includeChromeRegIds, includeChromeWebRegIds, includeAndroidRegIds, includeAliases, targetChannel, id, value, name, aggregation, isIos, isAndroid, isHuawei, isAnyWeb, isChromeWeb, isFirefox, isSafari, isWPWNS, isAdm, isChrome, appId, externalId, idempotencyKey, contents, headings, subtitle, data, huaweiMsgType, url, webUrl, appUrl, iosAttachments, templateId, contentAvailable, mutableContent, targetContentIdentifier, bigPicture, huaweiBigPicture, admBigPicture, chromeBigPicture, chromeWebImage, buttons, webButtons, iosCategory, androidChannelId, huaweiChannelId, existingAndroidChannelId, huaweiExistingChannelId, androidBackgroundLayout, smallIcon, huaweiSmallIcon, largeIcon, huaweiLargeIcon, admSmallIcon, admLargeIcon, chromeWebIcon, chromeWebBadge, firefoxIcon, chromeIcon, iosSound, androidSound, huaweiSound, admSound, wpWnsSound, androidLedColor, huaweiLedColor, androidAccentColor, huaweiAccentColor, androidVisibility, huaweiVisibility, iosBadgeType, iosBadgeCount, collapseId, webPushTopic, apnsAlert, delayedOption, deliveryTimeOfDay, ttl, priority, apnsPushTypeOverride, throttleRatePerMinute, androidGroup, androidGroupMessage, admGroup, admGroupMessage, threadId, summaryArg, summaryArgCount, iosRelevanceScore, iosInterruptionLevel, emailSubject, emailBody, emailFromName, emailFromAddress, emailReplyToAddress, emailPreheader, disableEmailClickTracking, includeUnsubscribed, smsFrom, smsMediaUrls, filters, customData, huaweiBadgeClass, huaweiBadgeAddNum, huaweiBadgeSetNum, huaweiCategory, huaweiBiTag, sendAfter);
+    return Objects.hash(includedSegments, excludedSegments, includeSubscriptionIds, includeEmailTokens, includePhoneNumbers, includeIosTokens, includeWpWnsUris, includeAmazonRegIds, includeChromeRegIds, includeChromeWebRegIds, includeAndroidRegIds, includeAliases, targetChannel, id, value, name, aggregation, isIos, isAndroid, isHuawei, isAnyWeb, isChromeWeb, isFirefox, isSafari, isWPWNS, isAdm, isChrome, appId, externalId, idempotencyKey, contents, headings, subtitle, data, huaweiMsgType, url, webUrl, appUrl, iosAttachments, templateId, contentAvailable, mutableContent, targetContentIdentifier, bigPicture, huaweiBigPicture, admBigPicture, chromeBigPicture, chromeWebImage, buttons, webButtons, iosCategory, androidChannelId, huaweiChannelId, existingAndroidChannelId, huaweiExistingChannelId, androidBackgroundLayout, smallIcon, huaweiSmallIcon, largeIcon, huaweiLargeIcon, admSmallIcon, admLargeIcon, chromeWebIcon, chromeWebBadge, firefoxIcon, chromeIcon, iosSound, androidSound, huaweiSound, admSound, wpWnsSound, androidLedColor, huaweiLedColor, androidAccentColor, huaweiAccentColor, androidVisibility, huaweiVisibility, iosBadgeType, iosBadgeCount, collapseId, webPushTopic, apnsAlert, delayedOption, deliveryTimeOfDay, ttl, priority, apnsPushTypeOverride, throttleRatePerMinute, androidGroup, androidGroupMessage, admGroup, admGroupMessage, threadId, summaryArg, summaryArgCount, iosRelevanceScore, iosInterruptionLevel, emailSubject, emailBody, emailFromName, emailFromAddress, emailReplyToAddress, emailPreheader, disableEmailClickTracking, includeUnsubscribed, emailBcc, smsFrom, smsMediaUrls, filters, customData, huaweiBadgeClass, huaweiBadgeAddNum, huaweiBadgeSetNum, huaweiCategory, huaweiBiTag, sendAfter);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -3711,6 +3747,7 @@ public class Notification {
     sb.append("    emailPreheader: ").append(toIndentedString(emailPreheader)).append("\n");
     sb.append("    disableEmailClickTracking: ").append(toIndentedString(disableEmailClickTracking)).append("\n");
     sb.append("    includeUnsubscribed: ").append(toIndentedString(includeUnsubscribed)).append("\n");
+    sb.append("    emailBcc: ").append(toIndentedString(emailBcc)).append("\n");
     sb.append("    smsFrom: ").append(toIndentedString(smsFrom)).append("\n");
     sb.append("    smsMediaUrls: ").append(toIndentedString(smsMediaUrls)).append("\n");
     sb.append("    filters: ").append(toIndentedString(filters)).append("\n");
@@ -3848,6 +3885,7 @@ public class Notification {
     openapiFields.add("email_preheader");
     openapiFields.add("disable_email_click_tracking");
     openapiFields.add("include_unsubscribed");
+    openapiFields.add("email_bcc");
     openapiFields.add("sms_from");
     openapiFields.add("sms_media_urls");
     openapiFields.add("filters");
