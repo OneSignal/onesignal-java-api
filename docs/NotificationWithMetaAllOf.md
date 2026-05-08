@@ -19,6 +19,8 @@
 |**received** | **Integer** | Confirmed Deliveries number of devices that received the push notification. Paid Feature Only. Free accounts will see 0. |  [optional] |
 |**throttleRatePerMinute** | **Integer** | number of push notifications sent per minute. Paid Feature Only. If throttling is not enabled for the app or the notification, and for free accounts, null is returned. Refer to Throttling for more details. |  [optional] |
 |**canceled** | **Boolean** | Indicates whether the notification was canceled before it could be sent. |  [optional] |
+|**emailBcc** | **List&lt;String&gt;** | BCC recipients that were set on this email notification. |  [optional] |
+|**bccSent** | **Integer** | Number of BCC copies successfully sent for this notification. |  [optional] |
 
 
 
