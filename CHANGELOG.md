@@ -1,5 +1,11 @@
 # Changelog
 
+## [5.5.0](https://github.com/OneSignal/onesignal-java-api/compare/v5.4.0...v5.5.0) (2026-05-08)
+
+### Features
+
+* add `email_bcc` and `bcc_sent` to Notification and Template models ([#85](https://github.com/OneSignal/onesignal-java-api/issues/85)) ([60b12c8](https://github.com/OneSignal/onesignal-java-api/commit/60b12c86b252fed014b0c6d3cf0f8baffb00a609))
+
 ## [5.4.0](https://github.com/OneSignal/onesignal-java-api/compare/v5.3.0...v5.4.0) (2026-04-17)
 
 ### Features
