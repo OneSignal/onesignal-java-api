@@ -65,6 +65,10 @@ public class SubscriptionNotificationTarget {
   @SerializedName(SERIALIZED_NAME_INCLUDE_EMAIL_TOKENS)
   private List<String> includeEmailTokens = null;
 
+  public static final String SERIALIZED_NAME_EMAIL_TO = "email_to";
+  @SerializedName(SERIALIZED_NAME_EMAIL_TO)
+  private List<String> emailTo = null;
+
   public static final String SERIALIZED_NAME_INCLUDE_PHONE_NUMBERS = "include_phone_numbers";
   @SerializedName(SERIALIZED_NAME_INCLUDE_PHONE_NUMBERS)
   private List<String> includePhoneNumbers = null;
@@ -199,11 +203,13 @@ public class SubscriptionNotificationTarget {
   }
 
    /**
-   * Recommended for Sending Emails - Target specific email addresses. If an email does not correspond to an existing user, a new user will be created. Example: nick@catfac.ts Limit of 2,000 entries per REST API call 
+   * Deprecated alias for &#x60;email_to&#x60;. Target specific email addresses. If an email does not correspond to an existing user, a new user will be created. Example: nick@catfac.ts. Limit of 2,000 entries per REST API call. Prefer &#x60;email_to&#x60; in new integrations. 
    * @return includeEmailTokens
+   * @deprecated
   **/
+  @Deprecated
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Recommended for Sending Emails - Target specific email addresses. If an email does not correspond to an existing user, a new user will be created. Example: nick@catfac.ts Limit of 2,000 entries per REST API call ")
+  @ApiModelProperty(value = "Deprecated alias for `email_to`. Target specific email addresses. If an email does not correspond to an existing user, a new user will be created. Example: nick@catfac.ts. Limit of 2,000 entries per REST API call. Prefer `email_to` in new integrations. ")
 
   public List<String> getIncludeEmailTokens() {
     return includeEmailTokens;
@@ -212,6 +218,37 @@ public class SubscriptionNotificationTarget {
 
   public void setIncludeEmailTokens(List<String> includeEmailTokens) {
     this.includeEmailTokens = includeEmailTokens;
+  }
+
+
+  public SubscriptionNotificationTarget emailTo(List<String> emailTo) {
+    
+    this.emailTo = emailTo;
+    return this;
+  }
+
+  public SubscriptionNotificationTarget addEmailToItem(String emailToItem) {
+    if (this.emailTo == null) {
+      this.emailTo = new ArrayList<>();
+    }
+    this.emailTo.add(emailToItem);
+    return this;
+  }
+
+   /**
+   * Recommended for Sending Emails - Target specific email addresses. If an email does not correspond to an existing user, a new user will be created. Example: nick@catfac.ts. Limit of 2,000 entries per REST API call. Supersedes the deprecated &#x60;include_email_tokens&#x60; field. 
+   * @return emailTo
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Recommended for Sending Emails - Target specific email addresses. If an email does not correspond to an existing user, a new user will be created. Example: nick@catfac.ts. Limit of 2,000 entries per REST API call. Supersedes the deprecated `include_email_tokens` field. ")
+
+  public List<String> getEmailTo() {
+    return emailTo;
+  }
+
+
+  public void setEmailTo(List<String> emailTo) {
+    this.emailTo = emailTo;
   }
 
 
@@ -498,6 +535,7 @@ public class SubscriptionNotificationTarget {
     SubscriptionNotificationTarget subscriptionNotificationTarget = (SubscriptionNotificationTarget) o;
     return Objects.equals(this.includeSubscriptionIds, subscriptionNotificationTarget.includeSubscriptionIds) &&
         Objects.equals(this.includeEmailTokens, subscriptionNotificationTarget.includeEmailTokens) &&
+        Objects.equals(this.emailTo, subscriptionNotificationTarget.emailTo) &&
         Objects.equals(this.includePhoneNumbers, subscriptionNotificationTarget.includePhoneNumbers) &&
         Objects.equals(this.includeIosTokens, subscriptionNotificationTarget.includeIosTokens) &&
         Objects.equals(this.includeWpWnsUris, subscriptionNotificationTarget.includeWpWnsUris) &&
@@ -515,7 +553,7 @@ public class SubscriptionNotificationTarget {
 
   @Override
   public int hashCode() {
-    return Objects.hash(includeSubscriptionIds, includeEmailTokens, includePhoneNumbers, includeIosTokens, includeWpWnsUris, includeAmazonRegIds, includeChromeRegIds, includeChromeWebRegIds, includeAndroidRegIds, includeAliases, targetChannel);
+    return Objects.hash(includeSubscriptionIds, includeEmailTokens, emailTo, includePhoneNumbers, includeIosTokens, includeWpWnsUris, includeAmazonRegIds, includeChromeRegIds, includeChromeWebRegIds, includeAndroidRegIds, includeAliases, targetChannel);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -531,6 +569,7 @@ public class SubscriptionNotificationTarget {
     sb.append("class SubscriptionNotificationTarget {\n");
     sb.append("    includeSubscriptionIds: ").append(toIndentedString(includeSubscriptionIds)).append("\n");
     sb.append("    includeEmailTokens: ").append(toIndentedString(includeEmailTokens)).append("\n");
+    sb.append("    emailTo: ").append(toIndentedString(emailTo)).append("\n");
     sb.append("    includePhoneNumbers: ").append(toIndentedString(includePhoneNumbers)).append("\n");
     sb.append("    includeIosTokens: ").append(toIndentedString(includeIosTokens)).append("\n");
     sb.append("    includeWpWnsUris: ").append(toIndentedString(includeWpWnsUris)).append("\n");
@@ -564,6 +603,7 @@ public class SubscriptionNotificationTarget {
     openapiFields = new HashSet<String>();
     openapiFields.add("include_subscription_ids");
     openapiFields.add("include_email_tokens");
+    openapiFields.add("email_to");
     openapiFields.add("include_phone_numbers");
     openapiFields.add("include_ios_tokens");
     openapiFields.add("include_wp_wns_uris");

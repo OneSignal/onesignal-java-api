@@ -81,6 +81,10 @@ public class BasicNotification {
   @SerializedName(SERIALIZED_NAME_INCLUDE_EMAIL_TOKENS)
   private List<String> includeEmailTokens = null;
 
+  public static final String SERIALIZED_NAME_EMAIL_TO = "email_to";
+  @SerializedName(SERIALIZED_NAME_EMAIL_TO)
+  private List<String> emailTo = null;
+
   public static final String SERIALIZED_NAME_INCLUDE_PHONE_NUMBERS = "include_phone_numbers";
   @SerializedName(SERIALIZED_NAME_INCLUDE_PHONE_NUMBERS)
   private List<String> includePhoneNumbers = null;
@@ -585,6 +589,10 @@ public class BasicNotification {
   @SerializedName(SERIALIZED_NAME_EMAIL_BCC)
   private List<String> emailBcc = null;
 
+  public static final String SERIALIZED_NAME_EMAIL_SENDER_DOMAIN = "email_sender_domain";
+  @SerializedName(SERIALIZED_NAME_EMAIL_SENDER_DOMAIN)
+  private String emailSenderDomain;
+
   public static final String SERIALIZED_NAME_SMS_FROM = "sms_from";
   @SerializedName(SERIALIZED_NAME_SMS_FROM)
   private String smsFrom;
@@ -809,11 +817,13 @@ public class BasicNotification {
   }
 
    /**
-   * Recommended for Sending Emails - Target specific email addresses. If an email does not correspond to an existing user, a new user will be created. Example: nick@catfac.ts Limit of 2,000 entries per REST API call 
+   * Deprecated alias for &#x60;email_to&#x60;. Target specific email addresses. If an email does not correspond to an existing user, a new user will be created. Example: nick@catfac.ts. Limit of 2,000 entries per REST API call. Prefer &#x60;email_to&#x60; in new integrations. 
    * @return includeEmailTokens
+   * @deprecated
   **/
+  @Deprecated
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Recommended for Sending Emails - Target specific email addresses. If an email does not correspond to an existing user, a new user will be created. Example: nick@catfac.ts Limit of 2,000 entries per REST API call ")
+  @ApiModelProperty(value = "Deprecated alias for `email_to`. Target specific email addresses. If an email does not correspond to an existing user, a new user will be created. Example: nick@catfac.ts. Limit of 2,000 entries per REST API call. Prefer `email_to` in new integrations. ")
 
   public List<String> getIncludeEmailTokens() {
     return includeEmailTokens;
@@ -822,6 +832,37 @@ public class BasicNotification {
 
   public void setIncludeEmailTokens(List<String> includeEmailTokens) {
     this.includeEmailTokens = includeEmailTokens;
+  }
+
+
+  public BasicNotification emailTo(List<String> emailTo) {
+    
+    this.emailTo = emailTo;
+    return this;
+  }
+
+  public BasicNotification addEmailToItem(String emailToItem) {
+    if (this.emailTo == null) {
+      this.emailTo = new ArrayList<>();
+    }
+    this.emailTo.add(emailToItem);
+    return this;
+  }
+
+   /**
+   * Recommended for Sending Emails - Target specific email addresses. If an email does not correspond to an existing user, a new user will be created. Example: nick@catfac.ts. Limit of 2,000 entries per REST API call. Supersedes the deprecated &#x60;include_email_tokens&#x60; field. 
+   * @return emailTo
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Recommended for Sending Emails - Target specific email addresses. If an email does not correspond to an existing user, a new user will be created. Example: nick@catfac.ts. Limit of 2,000 entries per REST API call. Supersedes the deprecated `include_email_tokens` field. ")
+
+  public List<String> getEmailTo() {
+    return emailTo;
+  }
+
+
+  public void setEmailTo(List<String> emailTo) {
+    this.emailTo = emailTo;
   }
 
 
@@ -3243,6 +3284,29 @@ public class BasicNotification {
   }
 
 
+  public BasicNotification emailSenderDomain(String emailSenderDomain) {
+    
+    this.emailSenderDomain = emailSenderDomain;
+    return this;
+  }
+
+   /**
+   * Channel: Email Sender domain to use for the email message. Overrides the default sender domain configured for the app. Only supported when the email service provider is OneSignal Email. 
+   * @return emailSenderDomain
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Channel: Email Sender domain to use for the email message. Overrides the default sender domain configured for the app. Only supported when the email service provider is OneSignal Email. ")
+
+  public String getEmailSenderDomain() {
+    return emailSenderDomain;
+  }
+
+
+  public void setEmailSenderDomain(String emailSenderDomain) {
+    this.emailSenderDomain = emailSenderDomain;
+  }
+
+
   public BasicNotification smsFrom(String smsFrom) {
     
     this.smsFrom = smsFrom;
@@ -3480,6 +3544,7 @@ public class BasicNotification {
         Objects.equals(this.excludedSegments, basicNotification.excludedSegments) &&
         Objects.equals(this.includeSubscriptionIds, basicNotification.includeSubscriptionIds) &&
         Objects.equals(this.includeEmailTokens, basicNotification.includeEmailTokens) &&
+        Objects.equals(this.emailTo, basicNotification.emailTo) &&
         Objects.equals(this.includePhoneNumbers, basicNotification.includePhoneNumbers) &&
         Objects.equals(this.includeIosTokens, basicNotification.includeIosTokens) &&
         Objects.equals(this.includeWpWnsUris, basicNotification.includeWpWnsUris) &&
@@ -3582,6 +3647,7 @@ public class BasicNotification {
         Objects.equals(this.disableEmailClickTracking, basicNotification.disableEmailClickTracking) &&
         Objects.equals(this.includeUnsubscribed, basicNotification.includeUnsubscribed) &&
         Objects.equals(this.emailBcc, basicNotification.emailBcc) &&
+        Objects.equals(this.emailSenderDomain, basicNotification.emailSenderDomain) &&
         Objects.equals(this.smsFrom, basicNotification.smsFrom) &&
         Objects.equals(this.smsMediaUrls, basicNotification.smsMediaUrls) &&
         Objects.equals(this.filters, basicNotification.filters) &&
@@ -3599,7 +3665,7 @@ public class BasicNotification {
 
   @Override
   public int hashCode() {
-    return Objects.hash(includedSegments, excludedSegments, includeSubscriptionIds, includeEmailTokens, includePhoneNumbers, includeIosTokens, includeWpWnsUris, includeAmazonRegIds, includeChromeRegIds, includeChromeWebRegIds, includeAndroidRegIds, includeAliases, targetChannel, id, value, name, aggregation, isIos, isAndroid, isHuawei, isAnyWeb, isChromeWeb, isFirefox, isSafari, isWPWNS, isAdm, isChrome, appId, externalId, idempotencyKey, contents, headings, subtitle, data, huaweiMsgType, url, webUrl, appUrl, iosAttachments, templateId, contentAvailable, mutableContent, targetContentIdentifier, bigPicture, huaweiBigPicture, admBigPicture, chromeBigPicture, chromeWebImage, buttons, webButtons, iosCategory, androidChannelId, huaweiChannelId, existingAndroidChannelId, huaweiExistingChannelId, androidBackgroundLayout, smallIcon, huaweiSmallIcon, largeIcon, huaweiLargeIcon, admSmallIcon, admLargeIcon, chromeWebIcon, chromeWebBadge, firefoxIcon, chromeIcon, iosSound, androidSound, huaweiSound, admSound, wpWnsSound, androidLedColor, huaweiLedColor, androidAccentColor, huaweiAccentColor, androidVisibility, huaweiVisibility, iosBadgeType, iosBadgeCount, collapseId, webPushTopic, apnsAlert, delayedOption, deliveryTimeOfDay, ttl, priority, apnsPushTypeOverride, throttleRatePerMinute, androidGroup, androidGroupMessage, admGroup, admGroupMessage, threadId, summaryArg, summaryArgCount, iosRelevanceScore, iosInterruptionLevel, emailSubject, emailBody, emailFromName, emailFromAddress, emailReplyToAddress, emailPreheader, disableEmailClickTracking, includeUnsubscribed, emailBcc, smsFrom, smsMediaUrls, filters, customData, huaweiBadgeClass, huaweiBadgeAddNum, huaweiBadgeSetNum, huaweiCategory, huaweiBiTag);
+    return Objects.hash(includedSegments, excludedSegments, includeSubscriptionIds, includeEmailTokens, emailTo, includePhoneNumbers, includeIosTokens, includeWpWnsUris, includeAmazonRegIds, includeChromeRegIds, includeChromeWebRegIds, includeAndroidRegIds, includeAliases, targetChannel, id, value, name, aggregation, isIos, isAndroid, isHuawei, isAnyWeb, isChromeWeb, isFirefox, isSafari, isWPWNS, isAdm, isChrome, appId, externalId, idempotencyKey, contents, headings, subtitle, data, huaweiMsgType, url, webUrl, appUrl, iosAttachments, templateId, contentAvailable, mutableContent, targetContentIdentifier, bigPicture, huaweiBigPicture, admBigPicture, chromeBigPicture, chromeWebImage, buttons, webButtons, iosCategory, androidChannelId, huaweiChannelId, existingAndroidChannelId, huaweiExistingChannelId, androidBackgroundLayout, smallIcon, huaweiSmallIcon, largeIcon, huaweiLargeIcon, admSmallIcon, admLargeIcon, chromeWebIcon, chromeWebBadge, firefoxIcon, chromeIcon, iosSound, androidSound, huaweiSound, admSound, wpWnsSound, androidLedColor, huaweiLedColor, androidAccentColor, huaweiAccentColor, androidVisibility, huaweiVisibility, iosBadgeType, iosBadgeCount, collapseId, webPushTopic, apnsAlert, delayedOption, deliveryTimeOfDay, ttl, priority, apnsPushTypeOverride, throttleRatePerMinute, androidGroup, androidGroupMessage, admGroup, admGroupMessage, threadId, summaryArg, summaryArgCount, iosRelevanceScore, iosInterruptionLevel, emailSubject, emailBody, emailFromName, emailFromAddress, emailReplyToAddress, emailPreheader, disableEmailClickTracking, includeUnsubscribed, emailBcc, emailSenderDomain, smsFrom, smsMediaUrls, filters, customData, huaweiBadgeClass, huaweiBadgeAddNum, huaweiBadgeSetNum, huaweiCategory, huaweiBiTag);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -3617,6 +3683,7 @@ public class BasicNotification {
     sb.append("    excludedSegments: ").append(toIndentedString(excludedSegments)).append("\n");
     sb.append("    includeSubscriptionIds: ").append(toIndentedString(includeSubscriptionIds)).append("\n");
     sb.append("    includeEmailTokens: ").append(toIndentedString(includeEmailTokens)).append("\n");
+    sb.append("    emailTo: ").append(toIndentedString(emailTo)).append("\n");
     sb.append("    includePhoneNumbers: ").append(toIndentedString(includePhoneNumbers)).append("\n");
     sb.append("    includeIosTokens: ").append(toIndentedString(includeIosTokens)).append("\n");
     sb.append("    includeWpWnsUris: ").append(toIndentedString(includeWpWnsUris)).append("\n");
@@ -3719,6 +3786,7 @@ public class BasicNotification {
     sb.append("    disableEmailClickTracking: ").append(toIndentedString(disableEmailClickTracking)).append("\n");
     sb.append("    includeUnsubscribed: ").append(toIndentedString(includeUnsubscribed)).append("\n");
     sb.append("    emailBcc: ").append(toIndentedString(emailBcc)).append("\n");
+    sb.append("    emailSenderDomain: ").append(toIndentedString(emailSenderDomain)).append("\n");
     sb.append("    smsFrom: ").append(toIndentedString(smsFrom)).append("\n");
     sb.append("    smsMediaUrls: ").append(toIndentedString(smsMediaUrls)).append("\n");
     sb.append("    filters: ").append(toIndentedString(filters)).append("\n");
@@ -3754,6 +3822,7 @@ public class BasicNotification {
     openapiFields.add("excluded_segments");
     openapiFields.add("include_subscription_ids");
     openapiFields.add("include_email_tokens");
+    openapiFields.add("email_to");
     openapiFields.add("include_phone_numbers");
     openapiFields.add("include_ios_tokens");
     openapiFields.add("include_wp_wns_uris");
@@ -3856,6 +3925,7 @@ public class BasicNotification {
     openapiFields.add("disable_email_click_tracking");
     openapiFields.add("include_unsubscribed");
     openapiFields.add("email_bcc");
+    openapiFields.add("email_sender_domain");
     openapiFields.add("sms_from");
     openapiFields.add("sms_media_urls");
     openapiFields.add("filters");
