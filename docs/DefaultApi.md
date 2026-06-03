@@ -78,8 +78,8 @@ public class Example {
     rest_api_key.setBearerToken("BEARER TOKEN");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String appId = "appId_example"; // String | 
-    String notificationId = "notificationId_example"; // String | 
+    String appId = "00000000-0000-0000-0000-000000000000"; // String | 
+    String notificationId = "b3a0c8bd-3a4c-4b22-9a73-3f1a8c2d1b88"; // String | 
     try {
       GenericSuccessBoolResponse result = apiInstance.cancelNotification(appId, notificationId);
       System.out.println(result);
@@ -150,8 +150,8 @@ public class Example {
     organization_api_key.setBearerToken("BEARER TOKEN");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String templateId = "templateId_example"; // String | 
-    String appId = "appId_example"; // String | 
+    String templateId = "e4d3c2b1-a09f-4f1e-8d7c-6b5a4f3e2d1c"; // String | 
+    String appId = "00000000-0000-0000-0000-000000000000"; // String | 
     CopyTemplateRequest copyTemplateRequest = new CopyTemplateRequest(); // CopyTemplateRequest | 
     try {
       TemplateResource result = apiInstance.copyTemplateToApp(templateId, appId, copyTemplateRequest);
@@ -222,9 +222,9 @@ public class Example {
     rest_api_key.setBearerToken("BEARER TOKEN");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String appId = "appId_example"; // String | 
-    String aliasLabel = "aliasLabel_example"; // String | 
-    String aliasId = "aliasId_example"; // String | 
+    String appId = "00000000-0000-0000-0000-000000000000"; // String | 
+    String aliasLabel = "external_id"; // String | 
+    String aliasId = "YOUR_USER_EXTERNAL_ID"; // String | 
     UserIdentityBody userIdentityBody = new UserIdentityBody(); // UserIdentityBody | 
     try {
       UserIdentityBody result = apiInstance.createAlias(appId, aliasLabel, aliasId, userIdentityBody);
@@ -299,8 +299,8 @@ public class Example {
     rest_api_key.setBearerToken("BEARER TOKEN");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String appId = "appId_example"; // String | 
-    String subscriptionId = "subscriptionId_example"; // String | 
+    String appId = "00000000-0000-0000-0000-000000000000"; // String | 
+    String subscriptionId = "7e4c5b9a-1f60-4d07-9b1a-2e8c8d2cae51"; // String | 
     UserIdentityBody userIdentityBody = new UserIdentityBody(); // UserIdentityBody | 
     try {
       UserIdentityBody result = apiInstance.createAliasBySubscription(appId, subscriptionId, userIdentityBody);
@@ -374,7 +374,7 @@ public class Example {
     organization_api_key.setBearerToken("BEARER TOKEN");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String appId = "appId_example"; // String | 
+    String appId = "00000000-0000-0000-0000-000000000000"; // String | 
     CreateApiKeyRequest createApiKeyRequest = new CreateApiKeyRequest(); // CreateApiKeyRequest | 
     try {
       CreateApiKeyResponse result = apiInstance.createApiKey(appId, createApiKeyRequest);
@@ -513,7 +513,7 @@ public class Example {
     rest_api_key.setBearerToken("BEARER TOKEN");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String appId = "appId_example"; // String | Your OneSignal App ID in UUID v4 format.
+    String appId = "00000000-0000-0000-0000-000000000000"; // String | Your OneSignal App ID in UUID v4 format.
     CustomEventsRequest customEventsRequest = new CustomEventsRequest(); // CustomEventsRequest | 
     try {
       Object result = apiInstance.createCustomEvents(appId, customEventsRequest);
@@ -572,6 +572,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
 import com.onesignal.client.ApiClient;
 import com.onesignal.client.ApiException;
@@ -598,10 +599,27 @@ public class Example {
     aliases.put("external_id", Arrays.asList("YOUR_USER_EXTERNAL_ID"));
     notification.setIncludeAliases(aliases);
     notification.setTargetChannel(Notification.TargetChannelEnum.PUSH);
+    // Idempotency key: a client-generated UUID that lets you safely retry on network failure.
+    // If two requests arrive with the same key inside the 30-day window, only the first is
+    // sent and the second returns the original response. Use UUID.randomUUID() — DO NOT
+    // reuse keys across logically distinct sends.
+    notification.setIdempotencyKey(UUID.randomUUID().toString());
 
     try {
       CreateNotificationSuccessResponse result = apiInstance.createNotification(notification);
-      System.out.println(result);
+      // `result.getId()` discriminates the two HTTP 200 shapes. An empty string means no
+      // notification was created (e.g. all targets were unreachable / not subscribed).
+      // `result.getErrors()` is polymorphic (declared as `Object`): a `List<String>` in the
+      // no-subscribers case, or a Map keyed by recipient-identifier type
+      // (`invalid_player_ids`, `invalid_external_user_ids`, `invalid_aliases`, ...) when
+      // the notification WAS created but some recipients were skipped.
+      if (result.getId() == null || result.getId().isEmpty()) {
+        System.out.println("Notification was not sent: " + result.getErrors());
+      } else if (result.getErrors() != null) {
+        System.out.println("Notification created: " + result.getId() + " (partial failures: " + result.getErrors() + ")");
+      } else {
+        System.out.println("Notification created: " + result.getId());
+      }
     } catch (ApiException e) {
       System.err.println("Exception when calling DefaultApi#createNotification");
       System.err.println("Status code: " + e.getCode());
@@ -667,7 +685,7 @@ public class Example {
     rest_api_key.setBearerToken("BEARER TOKEN");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String appId = "appId_example"; // String | The OneSignal App ID for your app.  Available in Keys & IDs.
+    String appId = "00000000-0000-0000-0000-000000000000"; // String | The OneSignal App ID for your app.  Available in Keys & IDs.
     Segment segment = new Segment(); // Segment | 
     try {
       CreateSegmentSuccessResponse result = apiInstance.createSegment(appId, segment);
@@ -739,9 +757,9 @@ public class Example {
     rest_api_key.setBearerToken("BEARER TOKEN");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String appId = "appId_example"; // String | 
-    String aliasLabel = "aliasLabel_example"; // String | 
-    String aliasId = "aliasId_example"; // String | 
+    String appId = "00000000-0000-0000-0000-000000000000"; // String | 
+    String aliasLabel = "external_id"; // String | 
+    String aliasId = "YOUR_USER_EXTERNAL_ID"; // String | 
     SubscriptionBody subscriptionBody = new SubscriptionBody(); // SubscriptionBody | 
     try {
       SubscriptionBody result = apiInstance.createSubscription(appId, aliasLabel, aliasId, subscriptionBody);
@@ -886,7 +904,7 @@ public class Example {
     rest_api_key.setBearerToken("BEARER TOKEN");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String appId = "appId_example"; // String | 
+    String appId = "00000000-0000-0000-0000-000000000000"; // String | 
     User user = new User(); // User | 
     try {
       User result = apiInstance.createUser(appId, user);
@@ -960,10 +978,10 @@ public class Example {
     rest_api_key.setBearerToken("BEARER TOKEN");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String appId = "appId_example"; // String | 
-    String aliasLabel = "aliasLabel_example"; // String | 
-    String aliasId = "aliasId_example"; // String | 
-    String aliasLabelToDelete = "aliasLabelToDelete_example"; // String | 
+    String appId = "00000000-0000-0000-0000-000000000000"; // String | 
+    String aliasLabel = "external_id"; // String | 
+    String aliasId = "YOUR_USER_EXTERNAL_ID"; // String | 
+    String aliasLabelToDelete = "external_id"; // String | 
     try {
       UserIdentityBody result = apiInstance.deleteAlias(appId, aliasLabel, aliasId, aliasLabelToDelete);
       System.out.println(result);
@@ -1037,8 +1055,8 @@ public class Example {
     organization_api_key.setBearerToken("BEARER TOKEN");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String appId = "appId_example"; // String | 
-    String tokenId = "tokenId_example"; // String | 
+    String appId = "00000000-0000-0000-0000-000000000000"; // String | 
+    String tokenId = "0aa1b2c3-d4e5-46f7-8899-aabbccddeeff"; // String | 
     try {
       Object result = apiInstance.deleteApiKey(appId, tokenId);
       System.out.println(result);
@@ -1107,8 +1125,8 @@ public class Example {
     rest_api_key.setBearerToken("BEARER TOKEN");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String appId = "appId_example"; // String | The OneSignal App ID for your app.  Available in Keys & IDs.
-    String segmentId = "segmentId_example"; // String | The segment_id can be found in the URL of the segment when viewing it in the dashboard.
+    String appId = "00000000-0000-0000-0000-000000000000"; // String | The OneSignal App ID for your app.  Available in Keys & IDs.
+    String segmentId = "d6c5a3e1-9f17-44a1-9d10-7c0e4a2b1c8e"; // String | The segment_id can be found in the URL of the segment when viewing it in the dashboard.
     try {
       GenericSuccessBoolResponse result = apiInstance.deleteSegment(appId, segmentId);
       System.out.println(result);
@@ -1179,8 +1197,8 @@ public class Example {
     rest_api_key.setBearerToken("BEARER TOKEN");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String appId = "appId_example"; // String | 
-    String subscriptionId = "subscriptionId_example"; // String | 
+    String appId = "00000000-0000-0000-0000-000000000000"; // String | 
+    String subscriptionId = "7e4c5b9a-1f60-4d07-9b1a-2e8c8d2cae51"; // String | 
     try {
       apiInstance.deleteSubscription(appId, subscriptionId);
     } catch (ApiException e) {
@@ -1251,8 +1269,8 @@ public class Example {
     rest_api_key.setBearerToken("BEARER TOKEN");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String templateId = "templateId_example"; // String | 
-    String appId = "appId_example"; // String | 
+    String templateId = "e4d3c2b1-a09f-4f1e-8d7c-6b5a4f3e2d1c"; // String | 
+    String appId = "00000000-0000-0000-0000-000000000000"; // String | 
     try {
       GenericSuccessBoolResponse result = apiInstance.deleteTemplate(templateId, appId);
       System.out.println(result);
@@ -1322,9 +1340,9 @@ public class Example {
     rest_api_key.setBearerToken("BEARER TOKEN");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String appId = "appId_example"; // String | 
-    String aliasLabel = "aliasLabel_example"; // String | 
-    String aliasId = "aliasId_example"; // String | 
+    String appId = "00000000-0000-0000-0000-000000000000"; // String | 
+    String aliasLabel = "external_id"; // String | 
+    String aliasId = "YOUR_USER_EXTERNAL_ID"; // String | 
     try {
       apiInstance.deleteUser(appId, aliasLabel, aliasId);
     } catch (ApiException e) {
@@ -1395,8 +1413,8 @@ public class Example {
     rest_api_key.setBearerToken("BEARER TOKEN");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String notificationId = "notificationId_example"; // String | The ID of the notification to export events from.
-    String appId = "appId_example"; // String | The ID of the app that the notification belongs to.
+    String notificationId = "b3a0c8bd-3a4c-4b22-9a73-3f1a8c2d1b88"; // String | The ID of the notification to export events from.
+    String appId = "00000000-0000-0000-0000-000000000000"; // String | The ID of the app that the notification belongs to.
     try {
       ExportEventsSuccessResponse result = apiInstance.exportEvents(notificationId, appId);
       System.out.println(result);
@@ -1467,7 +1485,7 @@ public class Example {
     rest_api_key.setBearerToken("BEARER TOKEN");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String appId = "appId_example"; // String | The app ID that you want to export devices from
+    String appId = "00000000-0000-0000-0000-000000000000"; // String | The app ID that you want to export devices from
     ExportSubscriptionsRequestBody exportSubscriptionsRequestBody = new ExportSubscriptionsRequestBody(); // ExportSubscriptionsRequestBody | 
     try {
       ExportSubscriptionsSuccessResponse result = apiInstance.exportSubscriptions(appId, exportSubscriptionsRequestBody);
@@ -1538,9 +1556,9 @@ public class Example {
     rest_api_key.setBearerToken("BEARER TOKEN");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String appId = "appId_example"; // String | 
-    String aliasLabel = "aliasLabel_example"; // String | 
-    String aliasId = "aliasId_example"; // String | 
+    String appId = "00000000-0000-0000-0000-000000000000"; // String | 
+    String aliasLabel = "external_id"; // String | 
+    String aliasId = "YOUR_USER_EXTERNAL_ID"; // String | 
     try {
       UserIdentityBody result = apiInstance.getAliases(appId, aliasLabel, aliasId);
       System.out.println(result);
@@ -1612,8 +1630,8 @@ public class Example {
     rest_api_key.setBearerToken("BEARER TOKEN");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String appId = "appId_example"; // String | 
-    String subscriptionId = "subscriptionId_example"; // String | 
+    String appId = "00000000-0000-0000-0000-000000000000"; // String | 
+    String subscriptionId = "7e4c5b9a-1f60-4d07-9b1a-2e8c8d2cae51"; // String | 
     try {
       UserIdentityBody result = apiInstance.getAliasesBySubscription(appId, subscriptionId);
       System.out.println(result);
@@ -1683,7 +1701,7 @@ public class Example {
     organization_api_key.setBearerToken("BEARER TOKEN");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String appId = "appId_example"; // String | An app id
+    String appId = "00000000-0000-0000-0000-000000000000"; // String | An app id
     try {
       App result = apiInstance.getApp(appId);
       System.out.println(result);
@@ -1817,8 +1835,8 @@ public class Example {
     rest_api_key.setBearerToken("BEARER TOKEN");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String appId = "appId_example"; // String | 
-    String notificationId = "notificationId_example"; // String | 
+    String appId = "00000000-0000-0000-0000-000000000000"; // String | 
+    String notificationId = "b3a0c8bd-3a4c-4b22-9a73-3f1a8c2d1b88"; // String | 
     try {
       NotificationWithMeta result = apiInstance.getNotification(appId, notificationId);
       System.out.println(result);
@@ -1889,7 +1907,7 @@ public class Example {
     rest_api_key.setBearerToken("BEARER TOKEN");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String notificationId = "notificationId_example"; // String | The \"id\" of the message found in the Notification object
+    String notificationId = "b3a0c8bd-3a4c-4b22-9a73-3f1a8c2d1b88"; // String | The \"id\" of the message found in the Notification object
     GetNotificationHistoryRequestBody getNotificationHistoryRequestBody = new GetNotificationHistoryRequestBody(); // GetNotificationHistoryRequestBody | 
     try {
       NotificationHistorySuccessResponse result = apiInstance.getNotificationHistory(notificationId, getNotificationHistoryRequestBody);
@@ -1961,9 +1979,9 @@ public class Example {
     rest_api_key.setBearerToken("BEARER TOKEN");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String appId = "appId_example"; // String | The app ID that you want to view notifications from
-    Integer limit = 56; // Integer | How many notifications to return.  Max is 50.  Default is 50.
-    Integer offset = 56; // Integer | Page offset.  Default is 0.  Results are sorted by queued_at in descending order.  queued_at is a representation of the time that the notification was queued at.
+    String appId = "00000000-0000-0000-0000-000000000000"; // String | The app ID that you want to view notifications from
+    Integer limit = 10; // Integer | How many notifications to return.  Max is 50.  Default is 50.
+    Integer offset = 0; // Integer | Page offset.  Default is 0.  Results are sorted by queued_at in descending order.  queued_at is a representation of the time that the notification was queued at.
     Integer kind = 0; // Integer | Kind of notifications returned:   * unset - All notification types (default)   * `0` - Dashboard only   * `1` - API only   * `3` - Automated only 
     try {
       NotificationSlice result = apiInstance.getNotifications(appId, limit, offset, kind);
@@ -2036,12 +2054,12 @@ public class Example {
     rest_api_key.setBearerToken("BEARER TOKEN");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String appId = "appId_example"; // String | The OneSignal App ID for your app.  Available in Keys & IDs.
-    String outcomeNames = "outcomeNames_example"; // String | Required Comma-separated list of names and the value (sum/count) for the returned outcome data. Note: Clicks only support count aggregation. For out-of-the-box OneSignal outcomes such as click and session duration, please use the \"os\" prefix with two underscores. For other outcomes, please use the name specified by the user. Example:os__session_duration.count,os__click.count,CustomOutcomeName.sum 
-    String outcomeNames2 = "outcomeNames_example"; // String | Optional If outcome names contain any commas, then please specify only one value at a time. Example: outcome_names[]=os__click.count&outcome_names[]=Sales, Purchase.count where \"Sales, Purchase\" is the custom outcomes with a comma in the name. 
-    String outcomeTimeRange = "outcomeTimeRange_example"; // String | Optional Time range for the returned data. The values can be 1h (for the last 1 hour data), 1d (for the last 1 day data), or 1mo (for the last 1 month data). Default is 1h if the parameter is omitted. 
-    String outcomePlatforms = "outcomePlatforms_example"; // String | Optional Platform id. Refer device's platform ids for values. Example: outcome_platform=0 for iOS outcome_platform=7,8 for Safari and Firefox Default is data from all platforms if the parameter is omitted. 
-    String outcomeAttribution = "outcomeAttribution_example"; // String | Optional Attribution type for the outcomes. The values can be direct or influenced or unattributed. Example: outcome_attribution=direct Default is total (returns direct+influenced+unattributed) if the parameter is omitted. 
+    String appId = "00000000-0000-0000-0000-000000000000"; // String | The OneSignal App ID for your app.  Available in Keys & IDs.
+    String outcomeNames = "os__session_duration.count,os__click.count"; // String | Required Comma-separated list of names and the value (sum/count) for the returned outcome data. Note: Clicks only support count aggregation. For out-of-the-box OneSignal outcomes such as click and session duration, please use the \"os\" prefix with two underscores. For other outcomes, please use the name specified by the user. Example:os__session_duration.count,os__click.count,CustomOutcomeName.sum 
+    String outcomeNames2 = "os__session_duration.count"; // String | Optional If outcome names contain any commas, then please specify only one value at a time. Example: outcome_names[]=os__click.count&outcome_names[]=Sales, Purchase.count where \"Sales, Purchase\" is the custom outcomes with a comma in the name. 
+    String outcomeTimeRange = "1d"; // String | Optional Time range for the returned data. The values can be 1h (for the last 1 hour data), 1d (for the last 1 day data), or 1mo (for the last 1 month data). Default is 1h if the parameter is omitted. 
+    String outcomePlatforms = "0,1"; // String | Optional Platform id. Refer device's platform ids for values. Example: outcome_platform=0 for iOS outcome_platform=7,8 for Safari and Firefox Default is data from all platforms if the parameter is omitted. 
+    String outcomeAttribution = "direct"; // String | Optional Attribution type for the outcomes. The values can be direct or influenced or unattributed. Example: outcome_attribution=direct Default is total (returns direct+influenced+unattributed) if the parameter is omitted. 
     try {
       OutcomesData result = apiInstance.getOutcomes(appId, outcomeNames, outcomeNames2, outcomeTimeRange, outcomePlatforms, outcomeAttribution);
       System.out.println(result);
@@ -2115,9 +2133,9 @@ public class Example {
     rest_api_key.setBearerToken("BEARER TOKEN");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String appId = "appId_example"; // String | The OneSignal App ID for your app.  Available in Keys & IDs.
-    Integer offset = 56; // Integer | Segments are listed in ascending order of created_at date. offset will omit that number of segments from the beginning of the list. Eg offset 5, will remove the 5 earliest created Segments.
-    Integer limit = 56; // Integer | The amount of Segments in the response. Maximum 300.
+    String appId = "00000000-0000-0000-0000-000000000000"; // String | The OneSignal App ID for your app.  Available in Keys & IDs.
+    Integer offset = 0; // Integer | Segments are listed in ascending order of created_at date. offset will omit that number of segments from the beginning of the list. Eg offset 5, will remove the 5 earliest created Segments.
+    Integer limit = 10; // Integer | The amount of Segments in the response. Maximum 300.
     try {
       GetSegmentsSuccessResponse result = apiInstance.getSegments(appId, offset, limit);
       System.out.println(result);
@@ -2188,9 +2206,9 @@ public class Example {
     rest_api_key.setBearerToken("BEARER TOKEN");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String appId = "appId_example"; // String | 
-    String aliasLabel = "aliasLabel_example"; // String | 
-    String aliasId = "aliasId_example"; // String | 
+    String appId = "00000000-0000-0000-0000-000000000000"; // String | 
+    String aliasLabel = "external_id"; // String | 
+    String aliasId = "YOUR_USER_EXTERNAL_ID"; // String | 
     try {
       User result = apiInstance.getUser(appId, aliasLabel, aliasId);
       System.out.println(result);
@@ -2262,8 +2280,8 @@ public class Example {
     organization_api_key.setBearerToken("BEARER TOKEN");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String appId = "appId_example"; // String | 
-    String tokenId = "tokenId_example"; // String | 
+    String appId = "00000000-0000-0000-0000-000000000000"; // String | 
+    String tokenId = "0aa1b2c3-d4e5-46f7-8899-aabbccddeeff"; // String | 
     try {
       CreateApiKeyResponse result = apiInstance.rotateApiKey(appId, tokenId);
       System.out.println(result);
@@ -2332,8 +2350,8 @@ public class Example {
     rest_api_key.setBearerToken("BEARER TOKEN");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String appId = "appId_example"; // String | Your OneSignal App ID in UUID v4 format.
-    String activityType = "activityType_example"; // String | The name of the Live Activity defined in your app. This should match the attributes struct used in your app's Live Activity implementation.
+    String appId = "00000000-0000-0000-0000-000000000000"; // String | Your OneSignal App ID in UUID v4 format.
+    String activityType = "order_status"; // String | The name of the Live Activity defined in your app. This should match the attributes struct used in your app's Live Activity implementation.
     StartLiveActivityRequest startLiveActivityRequest = new StartLiveActivityRequest(); // StartLiveActivityRequest | 
     try {
       StartLiveActivitySuccessResponse result = apiInstance.startLiveActivity(appId, activityType, startLiveActivityRequest);
@@ -2405,8 +2423,8 @@ public class Example {
     rest_api_key.setBearerToken("BEARER TOKEN");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String appId = "appId_example"; // String | 
-    String subscriptionId = "subscriptionId_example"; // String | 
+    String appId = "00000000-0000-0000-0000-000000000000"; // String | 
+    String subscriptionId = "7e4c5b9a-1f60-4d07-9b1a-2e8c8d2cae51"; // String | 
     TransferSubscriptionRequestBody transferSubscriptionRequestBody = new TransferSubscriptionRequestBody(); // TransferSubscriptionRequestBody | 
     try {
       UserIdentityBody result = apiInstance.transferSubscription(appId, subscriptionId, transferSubscriptionRequestBody);
@@ -2480,9 +2498,9 @@ public class Example {
     rest_api_key.setBearerToken("BEARER TOKEN");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String appId = "appId_example"; // String | The OneSignal App ID for your app.  Available in Keys & IDs.
-    String notificationId = "notificationId_example"; // String | The id of the message found in the creation notification POST response, View Notifications GET response, or URL within the Message Report.
-    String token = "token_example"; // String | The unsubscribe token that is generated via liquid syntax in {{subscription.unsubscribe_token}} when personalizing an email.
+    String appId = "00000000-0000-0000-0000-000000000000"; // String | The OneSignal App ID for your app.  Available in Keys & IDs.
+    String notificationId = "b3a0c8bd-3a4c-4b22-9a73-3f1a8c2d1b88"; // String | The id of the message found in the creation notification POST response, View Notifications GET response, or URL within the Message Report.
+    String token = "YOUR_TOKEN_ID"; // String | The unsubscribe token that is generated via liquid syntax in {{subscription.unsubscribe_token}} when personalizing an email.
     try {
       GenericSuccessBoolResponse result = apiInstance.unsubscribeEmailWithToken(appId, notificationId, token);
       System.out.println(result);
@@ -2553,8 +2571,8 @@ public class Example {
     organization_api_key.setBearerToken("BEARER TOKEN");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String appId = "appId_example"; // String | 
-    String tokenId = "tokenId_example"; // String | 
+    String appId = "00000000-0000-0000-0000-000000000000"; // String | 
+    String tokenId = "0aa1b2c3-d4e5-46f7-8899-aabbccddeeff"; // String | 
     UpdateApiKeyRequest updateApiKeyRequest = new UpdateApiKeyRequest(); // UpdateApiKeyRequest | 
     try {
       Object result = apiInstance.updateApiKey(appId, tokenId, updateApiKeyRequest);
@@ -2625,7 +2643,7 @@ public class Example {
     organization_api_key.setBearerToken("BEARER TOKEN");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String appId = "appId_example"; // String | An app id
+    String appId = "00000000-0000-0000-0000-000000000000"; // String | An app id
     App app = new App(); // App | 
     try {
       App result = apiInstance.updateApp(appId, app);
@@ -2696,8 +2714,8 @@ public class Example {
     rest_api_key.setBearerToken("BEARER TOKEN");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String appId = "appId_example"; // String | The OneSignal App ID for your app.  Available in Keys & IDs.
-    String activityId = "activityId_example"; // String | Live Activity record ID
+    String appId = "00000000-0000-0000-0000-000000000000"; // String | The OneSignal App ID for your app.  Available in Keys & IDs.
+    String activityId = "12345"; // String | Live Activity record ID
     UpdateLiveActivityRequest updateLiveActivityRequest = new UpdateLiveActivityRequest(); // UpdateLiveActivityRequest | 
     try {
       UpdateLiveActivitySuccessResponse result = apiInstance.updateLiveActivity(appId, activityId, updateLiveActivityRequest);
@@ -2769,8 +2787,8 @@ public class Example {
     rest_api_key.setBearerToken("BEARER TOKEN");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String appId = "appId_example"; // String | 
-    String subscriptionId = "subscriptionId_example"; // String | 
+    String appId = "00000000-0000-0000-0000-000000000000"; // String | 
+    String subscriptionId = "7e4c5b9a-1f60-4d07-9b1a-2e8c8d2cae51"; // String | 
     SubscriptionBody subscriptionBody = new SubscriptionBody(); // SubscriptionBody | 
     try {
       apiInstance.updateSubscription(appId, subscriptionId, subscriptionBody);
@@ -2843,9 +2861,9 @@ public class Example {
     rest_api_key.setBearerToken("BEARER TOKEN");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String appId = "appId_example"; // String | Your OneSignal App ID in UUID v4 format.
-    String tokenType = "tokenType_example"; // String | The type of token to use when looking up the subscription. See Subscription Types.
-    String token = "token_example"; // String | The value of the token to lookup by (e.g., email address, phone number).
+    String appId = "00000000-0000-0000-0000-000000000000"; // String | Your OneSignal App ID in UUID v4 format.
+    String tokenType = "Email"; // String | The type of token to use when looking up the subscription. See Subscription Types.
+    String token = "user@example.com"; // String | The value of the token to lookup by (e.g., email address, phone number).
     SubscriptionBody subscriptionBody = new SubscriptionBody(); // SubscriptionBody | 
     try {
       Object result = apiInstance.updateSubscriptionByToken(appId, tokenType, token, subscriptionBody);
@@ -2918,8 +2936,8 @@ public class Example {
     rest_api_key.setBearerToken("BEARER TOKEN");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String templateId = "templateId_example"; // String | 
-    String appId = "appId_example"; // String | 
+    String templateId = "e4d3c2b1-a09f-4f1e-8d7c-6b5a4f3e2d1c"; // String | 
+    String appId = "00000000-0000-0000-0000-000000000000"; // String | 
     UpdateTemplateRequest updateTemplateRequest = new UpdateTemplateRequest(); // UpdateTemplateRequest | 
     try {
       TemplateResource result = apiInstance.updateTemplate(templateId, appId, updateTemplateRequest);
@@ -2990,9 +3008,9 @@ public class Example {
     rest_api_key.setBearerToken("BEARER TOKEN");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String appId = "appId_example"; // String | 
-    String aliasLabel = "aliasLabel_example"; // String | 
-    String aliasId = "aliasId_example"; // String | 
+    String appId = "00000000-0000-0000-0000-000000000000"; // String | 
+    String aliasLabel = "external_id"; // String | 
+    String aliasId = "YOUR_USER_EXTERNAL_ID"; // String | 
     UpdateUserRequest updateUserRequest = new UpdateUserRequest(); // UpdateUserRequest | 
     try {
       PropertiesBody result = apiInstance.updateUser(appId, aliasLabel, aliasId, updateUserRequest);
@@ -3066,7 +3084,7 @@ public class Example {
     organization_api_key.setBearerToken("BEARER TOKEN");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String appId = "appId_example"; // String | 
+    String appId = "00000000-0000-0000-0000-000000000000"; // String | 
     try {
       ApiKeyTokensListResponse result = apiInstance.viewApiKeys(appId);
       System.out.println(result);
@@ -3134,8 +3152,8 @@ public class Example {
     rest_api_key.setBearerToken("BEARER TOKEN");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String templateId = "templateId_example"; // String | 
-    String appId = "appId_example"; // String | 
+    String templateId = "e4d3c2b1-a09f-4f1e-8d7c-6b5a4f3e2d1c"; // String | 
+    String appId = "00000000-0000-0000-0000-000000000000"; // String | 
     try {
       TemplateResource result = apiInstance.viewTemplate(templateId, appId);
       System.out.println(result);
@@ -3205,8 +3223,8 @@ public class Example {
     rest_api_key.setBearerToken("BEARER TOKEN");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String appId = "appId_example"; // String | Your OneSignal App ID in UUID v4 format.
-    Integer limit = 50; // Integer | Maximum number of templates. Default and max is 50.
+    String appId = "00000000-0000-0000-0000-000000000000"; // String | Your OneSignal App ID in UUID v4 format.
+    Integer limit = 10; // Integer | Maximum number of templates. Default and max is 50.
     Integer offset = 0; // Integer | Pagination offset.
     String channel = "push"; // String | Filter by delivery channel.
     try {
