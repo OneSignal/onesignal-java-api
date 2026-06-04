@@ -1,0 +1,25 @@
+# Changelog
+
+## [5.6.0](https://github.com/OneSignal/onesignal-java-api/compare/v5.5.0...v5.6.0) (2026-05-20)
+
+### Features
+
+* add v5.6.0 package updates ([#87](https://github.com/OneSignal/onesignal-java-api/issues/87)) ([a292219](https://github.com/OneSignal/onesignal-java-api/commit/a292219171e1e4d1df945808010d5f067cdc1b27))
+
+## [5.5.0](https://github.com/OneSignal/onesignal-java-api/compare/v5.4.0...v5.5.0) (2026-05-08)
+
+### Features
+
+* add `email_bcc` and `bcc_sent` to Notification and Template models ([#85](https://github.com/OneSignal/onesignal-java-api/issues/85)) ([60b12c8](https://github.com/OneSignal/onesignal-java-api/commit/60b12c86b252fed014b0c6d3cf0f8baffb00a609))
+
+## [5.4.0](https://github.com/OneSignal/onesignal-java-api/compare/v5.3.0...v5.4.0) (2026-04-17)
+
+### Features
+
+* add v5.4.0 package updates ([#79](https://github.com/OneSignal/onesignal-java-api/issues/79)) ([4943d9b](https://github.com/OneSignal/onesignal-java-api/commit/4943d9bbf7f80e46fc0803a851a8d18e6e72e715))
+
+## [5.3.0](https://github.com/OneSignal/onesignal-java-api/compare/v5.2.0...v5.3.0) (2026-03-24)
+
+### Features
+
+* add Huawei and email_reply_to_address parameters to Notification ([#73](https://github.com/OneSignal/onesignal-java-api/issues/73)) ([62dc9fc](https://github.com/OneSignal/onesignal-java-api/commit/62dc9fc5b96c9c2e0d51cf8a4b5e55c091d1eb1a))
