@@ -23,6 +23,7 @@ paths:
         name: app_id
         required: true
         schema:
+          example: 00000000-0000-0000-0000-000000000000
           type: string
         style: form
       - description: How many notifications to return.  Max is 50.  Default is 50.
@@ -31,6 +32,7 @@ paths:
         name: limit
         required: false
         schema:
+          example: 10
           type: integer
         style: form
       - description: Page offset.  Default is 0.  Results are sorted by queued_at
@@ -41,6 +43,7 @@ paths:
         name: offset
         required: false
         schema:
+          example: 0
           type: integer
         style: form
       - description: |
@@ -58,6 +61,7 @@ paths:
           - 0
           - 1
           - 3
+          example: 0
           type: integer
         style: form
       responses:
@@ -147,6 +151,7 @@ paths:
         name: app_id
         required: true
         schema:
+          example: 00000000-0000-0000-0000-000000000000
           type: string
         style: form
       - explode: false
@@ -154,6 +159,7 @@ paths:
         name: notification_id
         required: true
         schema:
+          example: b3a0c8bd-3a4c-4b22-9a73-3f1a8c2d1b88
           type: string
         style: simple
       responses:
@@ -195,6 +201,7 @@ paths:
         name: app_id
         required: true
         schema:
+          example: 00000000-0000-0000-0000-000000000000
           type: string
         style: form
       - explode: false
@@ -202,6 +209,7 @@ paths:
         name: notification_id
         required: true
         schema:
+          example: b3a0c8bd-3a4c-4b22-9a73-3f1a8c2d1b88
           type: string
         style: simple
       responses:
@@ -257,6 +265,7 @@ paths:
         name: notification_id
         required: true
         schema:
+          example: b3a0c8bd-3a4c-4b22-9a73-3f1a8c2d1b88
           type: string
         style: simple
       requestBody:
@@ -386,6 +395,7 @@ paths:
         name: app_id
         required: true
         schema:
+          example: 00000000-0000-0000-0000-000000000000
           type: string
         style: simple
       responses:
@@ -422,6 +432,7 @@ paths:
         name: app_id
         required: true
         schema:
+          example: 00000000-0000-0000-0000-000000000000
           type: string
         style: simple
       requestBody:
@@ -465,6 +476,7 @@ paths:
         name: app_id
         required: true
         schema:
+          example: 00000000-0000-0000-0000-000000000000
           type: string
         style: simple
       - description: "Segments are listed in ascending order of created_at date. offset\
@@ -475,6 +487,7 @@ paths:
         name: offset
         required: false
         schema:
+          example: 0
           type: integer
         style: form
       - description: The amount of Segments in the response. Maximum 300.
@@ -483,6 +496,7 @@ paths:
         name: limit
         required: false
         schema:
+          example: 10
           type: integer
         style: form
       responses:
@@ -525,6 +539,7 @@ paths:
         name: app_id
         required: true
         schema:
+          example: 00000000-0000-0000-0000-000000000000
           type: string
         style: simple
       requestBody:
@@ -578,6 +593,7 @@ paths:
         name: app_id
         required: true
         schema:
+          example: 00000000-0000-0000-0000-000000000000
           type: string
         style: simple
       - description: The segment_id can be found in the URL of the segment when viewing
@@ -587,6 +603,7 @@ paths:
         name: segment_id
         required: true
         schema:
+          example: d6c5a3e1-9f17-44a1-9d10-7c0e4a2b1c8e
           type: string
         style: simple
       responses:
@@ -633,6 +650,7 @@ paths:
         name: app_id
         required: true
         schema:
+          example: 00000000-0000-0000-0000-000000000000
           type: string
         style: simple
       - description: "Required\nComma-separated list of names and the value (sum/count)\
@@ -645,6 +663,7 @@ paths:
         name: outcome_names
         required: true
         schema:
+          example: "os__session_duration.count,os__click.count"
           type: string
         style: form
       - description: "Optional\nIf outcome names contain any commas, then please specify\
@@ -656,6 +675,7 @@ paths:
         name: "outcome_names[]"
         required: false
         schema:
+          example: os__session_duration.count
           type: string
         style: form
       - description: "Optional\nTime range for the returned data. The values can be\
@@ -666,6 +686,7 @@ paths:
         name: outcome_time_range
         required: false
         schema:
+          example: 1d
           type: string
         style: form
       - description: "Optional\nPlatform id. Refer device's platform ids for values.\n\
@@ -676,6 +697,7 @@ paths:
         name: outcome_platforms
         required: false
         schema:
+          example: "0,1"
           type: string
         style: form
       - description: "Optional\nAttribution type for the outcomes. The values can\
@@ -687,6 +709,7 @@ paths:
         name: outcome_attribution
         required: false
         schema:
+          example: direct
           type: string
         style: form
       responses:
@@ -724,6 +747,7 @@ paths:
         name: app_id
         required: true
         schema:
+          example: 00000000-0000-0000-0000-000000000000
           type: string
         style: simple
       - description: The name of the Live Activity defined in your app. This should
@@ -733,6 +757,7 @@ paths:
         name: activity_type
         required: true
         schema:
+          example: order_status
           type: string
         style: simple
       requestBody:
@@ -776,6 +801,7 @@ paths:
         name: app_id
         required: true
         schema:
+          example: 00000000-0000-0000-0000-000000000000
           type: string
         style: simple
       - description: Live Activity record ID
@@ -784,6 +810,7 @@ paths:
         name: activity_id
         required: true
         schema:
+          example: "12345"
           type: string
         style: simple
       requestBody:
@@ -828,6 +855,7 @@ paths:
         name: app_id
         required: true
         schema:
+          example: 00000000-0000-0000-0000-000000000000
           type: string
         style: simple
       requestBody:
@@ -888,6 +916,7 @@ paths:
         name: app_id
         required: true
         schema:
+          example: 00000000-0000-0000-0000-000000000000
           type: string
         style: simple
       - explode: false
@@ -895,6 +924,7 @@ paths:
         name: alias_label
         required: true
         schema:
+          example: external_id
           type: string
         style: simple
       - explode: false
@@ -902,6 +932,7 @@ paths:
         name: alias_id
         required: true
         schema:
+          example: YOUR_USER_EXTERNAL_ID
           type: string
         style: simple
       responses:
@@ -937,6 +968,7 @@ paths:
         name: app_id
         required: true
         schema:
+          example: 00000000-0000-0000-0000-000000000000
           type: string
         style: simple
       - explode: false
@@ -944,6 +976,7 @@ paths:
         name: alias_label
         required: true
         schema:
+          example: external_id
           type: string
         style: simple
       - explode: false
@@ -951,6 +984,7 @@ paths:
         name: alias_id
         required: true
         schema:
+          example: YOUR_USER_EXTERNAL_ID
           type: string
         style: simple
       responses:
@@ -990,6 +1024,7 @@ paths:
         name: app_id
         required: true
         schema:
+          example: 00000000-0000-0000-0000-000000000000
           type: string
         style: simple
       - explode: false
@@ -997,6 +1032,7 @@ paths:
         name: alias_label
         required: true
         schema:
+          example: external_id
           type: string
         style: simple
       - explode: false
@@ -1004,6 +1040,7 @@ paths:
         name: alias_id
         required: true
         schema:
+          example: YOUR_USER_EXTERNAL_ID
           type: string
         style: simple
       requestBody:
@@ -1051,6 +1088,7 @@ paths:
         name: app_id
         required: true
         schema:
+          example: 00000000-0000-0000-0000-000000000000
           type: string
         style: simple
       - explode: false
@@ -1058,6 +1096,7 @@ paths:
         name: alias_label
         required: true
         schema:
+          example: external_id
           type: string
         style: simple
       - explode: false
@@ -1065,6 +1104,7 @@ paths:
         name: alias_id
         required: true
         schema:
+          example: YOUR_USER_EXTERNAL_ID
           type: string
         style: simple
       responses:
@@ -1105,6 +1145,7 @@ paths:
         name: app_id
         required: true
         schema:
+          example: 00000000-0000-0000-0000-000000000000
           type: string
         style: simple
       - explode: false
@@ -1112,6 +1153,7 @@ paths:
         name: alias_label
         required: true
         schema:
+          example: external_id
           type: string
         style: simple
       - explode: false
@@ -1119,6 +1161,7 @@ paths:
         name: alias_id
         required: true
         schema:
+          example: YOUR_USER_EXTERNAL_ID
           type: string
         style: simple
       requestBody:
@@ -1172,6 +1215,7 @@ paths:
         name: app_id
         required: true
         schema:
+          example: 00000000-0000-0000-0000-000000000000
           type: string
         style: simple
       - explode: false
@@ -1179,6 +1223,7 @@ paths:
         name: alias_label
         required: true
         schema:
+          example: external_id
           type: string
         style: simple
       - explode: false
@@ -1186,6 +1231,7 @@ paths:
         name: alias_id
         required: true
         schema:
+          example: YOUR_USER_EXTERNAL_ID
           type: string
         style: simple
       - explode: false
@@ -1193,6 +1239,7 @@ paths:
         name: alias_label_to_delete
         required: true
         schema:
+          example: external_id
           type: string
         style: simple
       responses:
@@ -1240,6 +1287,7 @@ paths:
         name: app_id
         required: true
         schema:
+          example: 00000000-0000-0000-0000-000000000000
           type: string
         style: simple
       - explode: false
@@ -1247,6 +1295,7 @@ paths:
         name: alias_label
         required: true
         schema:
+          example: external_id
           type: string
         style: simple
       - explode: false
@@ -1254,6 +1303,7 @@ paths:
         name: alias_id
         required: true
         schema:
+          example: YOUR_USER_EXTERNAL_ID
           type: string
         style: simple
       requestBody:
@@ -1314,6 +1364,7 @@ paths:
         name: app_id
         required: true
         schema:
+          example: 00000000-0000-0000-0000-000000000000
           type: string
         style: simple
       - explode: false
@@ -1321,6 +1372,7 @@ paths:
         name: subscription_id
         required: true
         schema:
+          example: 7e4c5b9a-1f60-4d07-9b1a-2e8c8d2cae51
           type: string
         style: simple
       responses:
@@ -1362,6 +1414,7 @@ paths:
         name: app_id
         required: true
         schema:
+          example: 00000000-0000-0000-0000-000000000000
           type: string
         style: simple
       - explode: false
@@ -1369,6 +1422,7 @@ paths:
         name: subscription_id
         required: true
         schema:
+          example: 7e4c5b9a-1f60-4d07-9b1a-2e8c8d2cae51
           type: string
         style: simple
       requestBody:
@@ -1418,6 +1472,7 @@ paths:
         name: app_id
         required: true
         schema:
+          example: 00000000-0000-0000-0000-000000000000
           type: string
         style: simple
       - explode: false
@@ -1425,6 +1480,7 @@ paths:
         name: subscription_id
         required: true
         schema:
+          example: 7e4c5b9a-1f60-4d07-9b1a-2e8c8d2cae51
           type: string
         style: simple
       responses:
@@ -1458,6 +1514,7 @@ paths:
         name: app_id
         required: true
         schema:
+          example: 00000000-0000-0000-0000-000000000000
           type: string
         style: simple
       - explode: false
@@ -1465,6 +1522,7 @@ paths:
         name: subscription_id
         required: true
         schema:
+          example: 7e4c5b9a-1f60-4d07-9b1a-2e8c8d2cae51
           type: string
         style: simple
       requestBody:
@@ -1519,6 +1577,7 @@ paths:
         name: app_id
         required: true
         schema:
+          example: 00000000-0000-0000-0000-000000000000
           type: string
         style: simple
       - explode: false
@@ -1526,6 +1585,7 @@ paths:
         name: subscription_id
         required: true
         schema:
+          example: 7e4c5b9a-1f60-4d07-9b1a-2e8c8d2cae51
           type: string
         style: simple
       requestBody:
@@ -1581,6 +1641,7 @@ paths:
         name: app_id
         required: true
         schema:
+          example: 00000000-0000-0000-0000-000000000000
           type: string
         style: simple
       - description: The type of token to use when looking up the subscription. See
@@ -1590,6 +1651,7 @@ paths:
         name: token_type
         required: true
         schema:
+          example: Email
           type: string
         style: simple
       - description: "The value of the token to lookup by (e.g., email address, phone\
@@ -1599,6 +1661,7 @@ paths:
         name: token
         required: true
         schema:
+          example: user@example.com
           type: string
         style: simple
       requestBody:
@@ -1643,6 +1706,7 @@ paths:
         name: app_id
         required: true
         schema:
+          example: 00000000-0000-0000-0000-000000000000
           type: string
         style: simple
       - description: "The id of the message found in the creation notification POST\
@@ -1652,6 +1716,7 @@ paths:
         name: notification_id
         required: true
         schema:
+          example: b3a0c8bd-3a4c-4b22-9a73-3f1a8c2d1b88
           type: string
         style: simple
       - description: "The unsubscribe token that is generated via liquid syntax in\
@@ -1661,6 +1726,7 @@ paths:
         name: token
         required: true
         schema:
+          example: YOUR_TOKEN_ID
           type: string
         style: form
       responses:
@@ -1738,6 +1804,7 @@ paths:
         name: app_id
         required: true
         schema:
+          example: 00000000-0000-0000-0000-000000000000
           type: string
         style: simple
       requestBody:
@@ -1799,6 +1866,7 @@ paths:
         name: notification_id
         required: true
         schema:
+          example: b3a0c8bd-3a4c-4b22-9a73-3f1a8c2d1b88
           type: string
         style: simple
       - description: The ID of the app that the notification belongs to.
@@ -1807,6 +1875,7 @@ paths:
         name: app_id
         required: true
         schema:
+          example: 00000000-0000-0000-0000-000000000000
           type: string
         style: form
       responses:
@@ -1849,6 +1918,7 @@ paths:
         name: app_id
         required: true
         schema:
+          example: 00000000-0000-0000-0000-000000000000
           type: string
         style: form
       - description: Maximum number of templates. Default and max is 50.
@@ -1858,6 +1928,7 @@ paths:
         required: false
         schema:
           default: 50
+          example: 10
           type: integer
         style: form
       - description: Pagination offset.
@@ -1867,6 +1938,7 @@ paths:
         required: false
         schema:
           default: 0
+          example: 0
           type: integer
         style: form
       - description: Filter by delivery channel.
@@ -1879,6 +1951,7 @@ paths:
           - push
           - email
           - sms
+          example: push
           type: string
         style: form
       responses:
@@ -1947,6 +2020,7 @@ paths:
         name: template_id
         required: true
         schema:
+          example: e4d3c2b1-a09f-4f1e-8d7c-6b5a4f3e2d1c
           type: string
         style: simple
       - explode: true
@@ -1954,6 +2028,7 @@ paths:
         name: app_id
         required: true
         schema:
+          example: 00000000-0000-0000-0000-000000000000
           type: string
         style: form
       responses:
@@ -1988,6 +2063,7 @@ paths:
         name: template_id
         required: true
         schema:
+          example: e4d3c2b1-a09f-4f1e-8d7c-6b5a4f3e2d1c
           type: string
         style: simple
       - explode: true
@@ -1995,6 +2071,7 @@ paths:
         name: app_id
         required: true
         schema:
+          example: 00000000-0000-0000-0000-000000000000
           type: string
         style: form
       responses:
@@ -2029,6 +2106,7 @@ paths:
         name: template_id
         required: true
         schema:
+          example: e4d3c2b1-a09f-4f1e-8d7c-6b5a4f3e2d1c
           type: string
         style: simple
       - explode: true
@@ -2036,6 +2114,7 @@ paths:
         name: app_id
         required: true
         schema:
+          example: 00000000-0000-0000-0000-000000000000
           type: string
         style: form
       requestBody:
@@ -2072,6 +2151,7 @@ paths:
         name: template_id
         required: true
         schema:
+          example: e4d3c2b1-a09f-4f1e-8d7c-6b5a4f3e2d1c
           type: string
         style: simple
       - explode: true
@@ -2079,6 +2159,7 @@ paths:
         name: app_id
         required: true
         schema:
+          example: 00000000-0000-0000-0000-000000000000
           type: string
         style: form
       requestBody:
@@ -2116,6 +2197,7 @@ paths:
         name: app_id
         required: true
         schema:
+          example: 00000000-0000-0000-0000-000000000000
           type: string
         style: simple
       responses:
@@ -2147,6 +2229,7 @@ paths:
         name: app_id
         required: true
         schema:
+          example: 00000000-0000-0000-0000-000000000000
           type: string
         style: simple
       requestBody:
@@ -2185,6 +2268,7 @@ paths:
         name: app_id
         required: true
         schema:
+          example: 00000000-0000-0000-0000-000000000000
           type: string
         style: simple
       - explode: false
@@ -2192,6 +2276,7 @@ paths:
         name: token_id
         required: true
         schema:
+          example: 0aa1b2c3-d4e5-46f7-8899-aabbccddeeff
           type: string
         style: simple
       responses:
@@ -2221,6 +2306,7 @@ paths:
         name: app_id
         required: true
         schema:
+          example: 00000000-0000-0000-0000-000000000000
           type: string
         style: simple
       - explode: false
@@ -2228,6 +2314,7 @@ paths:
         name: token_id
         required: true
         schema:
+          example: 0aa1b2c3-d4e5-46f7-8899-aabbccddeeff
           type: string
         style: simple
       requestBody:
@@ -2267,6 +2354,7 @@ paths:
         name: app_id
         required: true
         schema:
+          example: 00000000-0000-0000-0000-000000000000
           type: string
         style: simple
       - explode: false
@@ -2274,6 +2362,7 @@ paths:
         name: token_id
         required: true
         schema:
+          example: 0aa1b2c3-d4e5-46f7-8899-aabbccddeeff
           type: string
         style: simple
       responses:
@@ -2306,6 +2395,7 @@ paths:
         name: app_id
         required: true
         schema:
+          example: 00000000-0000-0000-0000-000000000000
           type: string
         style: simple
       requestBody:
