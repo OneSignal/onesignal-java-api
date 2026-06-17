@@ -62,9 +62,17 @@ Every operation requires either a **REST API Key** (App-scoped, used by ~77% of 
 
 `POST /notifications` accepts a top-level `idempotency_key` (UUIDv4) that the server uses for request dedup within a **30-day window**. Pass a freshly-generated UUID per logical send so that network-level retries are safe. Never reuse a key across distinct sends — the server returns the original response instead of acting on the new payload. The hero `createNotification` example below demonstrates the call.
 
+Prefer the bundled `createNotificationWithRetry` helper over wiring this up by hand: it generates the key when absent (a caller-provided key is respected), retries 429 / 503 / IO errors with the **same** key (honoring `Retry-After`, exponential backoff otherwise; `maxRetries` / `baseDelayMillis` overloads available), fails fast on other errors, and reports via `getWasReplayed()` whether the server answered from a previously completed request (`Idempotent-Replayed` response header). It is available as a `DefaultApi` method so the call mirrors `createNotification`:
+
+```java
+NotificationHelpers.CreateNotificationWithRetryResult result =
+    api.createNotificationWithRetry(notification);
+System.out.println(result.getResponse().getId() + " replayed=" + result.getWasReplayed());
+```
+
 ### Error handling
 
-When a request fails, the SDK throws `com.onesignal.client.ApiException`. The HTTP status code is `e.getCode()` (int); the parsed error body is `e.getResponseBody()` (String — the raw JSON envelope). Response headers are available via `e.getResponseHeaders()`. Most envelopes match `{ "errors": ["..."] }` (an array of strings) but a few endpoints return `{ "errors": [{"code": ..., "title": ..., "meta": {...}}] }` (an array of structured error objects — used by `POST /apps/{app_id}/users` 409 conflict, see `CreateUserConflictResponse`), `{ "errors": "..." }` (string), or `{ "success": false }` (no `errors` field at all). Robust error-handling code should tolerate all four shapes.
+When a request fails, the SDK throws `com.onesignal.client.ApiException`. The HTTP status code is `e.getCode()` (int); the parsed error body is `e.getResponseBody()` (String — the raw JSON envelope). Response headers are available via `e.getResponseHeaders()`. Most envelopes match `{ "errors": ["..."] }` (an array of strings) but a few endpoints return `{ "errors": [{"code": ..., "title": ..., "meta": {...}}] }` (an array of structured error objects — used by `POST /apps/{app_id}/users` 409 conflict, see `CreateUserConflictResponse`), `{ "errors": "..." }` (string), or `{ "success": false }` (no `errors` field at all). Robust error-handling code should tolerate all four shapes. The `e.getErrorMessages()` method does this for you, normalizing every shape to a flat `List<String>` (empty when the body carries no `errors`). To branch on a specific error without hard-coding message strings, test membership against the generated [`OneSignalErrors`](https://github.com/OneSignal/onesignal-java-api/blob/main/src/main/java/com/onesignal/client/OneSignalErrors.java) catalog — e.g. `e.getErrorMessages().contains(com.onesignal.client.OneSignalErrors.NO_TARGETING_SPECIFIED)`.
 
 ### Polymorphic 200 from POST /notifications
 
@@ -114,6 +122,9 @@ public class Example {
     } catch (ApiException e) {
       System.err.println("Exception when calling DefaultApi#cancelNotification");
       System.err.println("Status code: " + e.getCode());
+      // getErrorMessages() flattens any error-envelope shape to a List<String>;
+      // the raw body remains on getResponseBody().
+      System.err.println("Error messages: " + e.getErrorMessages());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
       e.printStackTrace();
@@ -187,6 +198,9 @@ public class Example {
     } catch (ApiException e) {
       System.err.println("Exception when calling DefaultApi#copyTemplateToApp");
       System.err.println("Status code: " + e.getCode());
+      // getErrorMessages() flattens any error-envelope shape to a List<String>;
+      // the raw body remains on getResponseBody().
+      System.err.println("Error messages: " + e.getErrorMessages());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
       e.printStackTrace();
@@ -260,6 +274,9 @@ public class Example {
     } catch (ApiException e) {
       System.err.println("Exception when calling DefaultApi#createAlias");
       System.err.println("Status code: " + e.getCode());
+      // getErrorMessages() flattens any error-envelope shape to a List<String>;
+      // the raw body remains on getResponseBody().
+      System.err.println("Error messages: " + e.getErrorMessages());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
       e.printStackTrace();
@@ -336,6 +353,9 @@ public class Example {
     } catch (ApiException e) {
       System.err.println("Exception when calling DefaultApi#createAliasBySubscription");
       System.err.println("Status code: " + e.getCode());
+      // getErrorMessages() flattens any error-envelope shape to a List<String>;
+      // the raw body remains on getResponseBody().
+      System.err.println("Error messages: " + e.getErrorMessages());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
       e.printStackTrace();
@@ -410,6 +430,9 @@ public class Example {
     } catch (ApiException e) {
       System.err.println("Exception when calling DefaultApi#createApiKey");
       System.err.println("Status code: " + e.getCode());
+      // getErrorMessages() flattens any error-envelope shape to a List<String>;
+      // the raw body remains on getResponseBody().
+      System.err.println("Error messages: " + e.getErrorMessages());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
       e.printStackTrace();
@@ -479,6 +502,9 @@ public class Example {
     } catch (ApiException e) {
       System.err.println("Exception when calling DefaultApi#createApp");
       System.err.println("Status code: " + e.getCode());
+      // getErrorMessages() flattens any error-envelope shape to a List<String>;
+      // the raw body remains on getResponseBody().
+      System.err.println("Error messages: " + e.getErrorMessages());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
       e.printStackTrace();
@@ -549,6 +575,9 @@ public class Example {
     } catch (ApiException e) {
       System.err.println("Exception when calling DefaultApi#createCustomEvents");
       System.err.println("Status code: " + e.getCode());
+      // getErrorMessages() flattens any error-envelope shape to a List<String>;
+      // the raw body remains on getResponseBody().
+      System.err.println("Error messages: " + e.getErrorMessages());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
       e.printStackTrace();
@@ -659,6 +688,63 @@ public class Example {
 }
 ```
 
+#### Using `createNotificationWithRetry` (preferred for safe, idempotent retries)
+
+The `createNotificationWithRetry` method mirrors `createNotification` but generates the `idempotencyKey` for you, transparently retries transient failures (HTTP 429 / 503 / IO errors) with the **same** key, and reports via `getWasReplayed()` whether the server answered from a previously-completed request.
+
+```java
+// Import classes:
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import com.onesignal.client.ApiClient;
+import com.onesignal.client.ApiException;
+import com.onesignal.client.Configuration;
+import com.onesignal.client.NotificationHelpers;
+import com.onesignal.client.auth.*;
+import com.onesignal.client.model.*;
+import com.onesignal.client.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.onesignal.com");
+
+    HttpBearerAuth rest_api_key = (HttpBearerAuth) defaultClient.getAuthentication("rest_api_key");
+    rest_api_key.setBearerToken("BEARER TOKEN");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    Notification notification = new Notification();
+    notification.setAppId("YOUR_APP_ID");
+    LanguageStringMap contents = new LanguageStringMap();
+    contents.setEn("Hello from OneSignal!");
+    notification.setContents(contents);
+    Map<String, List<String>> aliases = new HashMap<>();
+    aliases.put("external_id", Arrays.asList("YOUR_USER_EXTERNAL_ID"));
+    notification.setIncludeAliases(aliases);
+    notification.setTargetChannel(Notification.TargetChannelEnum.PUSH);
+    // No idempotency key set: the helper generates a UUIDv4 and reuses it across retries.
+
+    try {
+      // An overload also accepts (notification, maxRetries, baseDelayMillis).
+      NotificationHelpers.CreateNotificationWithRetryResult result =
+          apiInstance.createNotificationWithRetry(notification);
+      if (result.getWasReplayed()) {
+        System.out.println("Server replayed a prior send (no duplicate): " + result.getResponse().getId());
+      } else {
+        System.out.println("Notification created: " + result.getResponse().getId());
+      }
+    } catch (ApiException e) {
+      System.err.println("createNotificationWithRetry failed: HTTP " + e.getCode());
+      // getErrorMessages() flattens any error-envelope shape to a List<String>.
+      System.err.println("Error messages: " + e.getErrorMessages());
+    }
+  }
+}
+```
+
 ### Parameters
 
 | Name | Type | Description  | Notes |
@@ -721,6 +807,9 @@ public class Example {
     } catch (ApiException e) {
       System.err.println("Exception when calling DefaultApi#createSegment");
       System.err.println("Status code: " + e.getCode());
+      // getErrorMessages() flattens any error-envelope shape to a List<String>;
+      // the raw body remains on getResponseBody().
+      System.err.println("Error messages: " + e.getErrorMessages());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
       e.printStackTrace();
@@ -795,6 +884,9 @@ public class Example {
     } catch (ApiException e) {
       System.err.println("Exception when calling DefaultApi#createSubscription");
       System.err.println("Status code: " + e.getCode());
+      // getErrorMessages() flattens any error-envelope shape to a List<String>;
+      // the raw body remains on getResponseBody().
+      System.err.println("Error messages: " + e.getErrorMessages());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
       e.printStackTrace();
@@ -870,6 +962,9 @@ public class Example {
     } catch (ApiException e) {
       System.err.println("Exception when calling DefaultApi#createTemplate");
       System.err.println("Status code: " + e.getCode());
+      // getErrorMessages() flattens any error-envelope shape to a List<String>;
+      // the raw body remains on getResponseBody().
+      System.err.println("Error messages: " + e.getErrorMessages());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
       e.printStackTrace();
@@ -940,10 +1035,27 @@ public class Example {
     } catch (ApiException e) {
       System.err.println("Exception when calling DefaultApi#createUser");
       System.err.println("Status code: " + e.getCode());
+      // getErrorMessages() flattens any error-envelope shape to a List<String>;
+      // the raw body remains on getResponseBody().
+      System.err.println("Error messages: " + e.getErrorMessages());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
       e.printStackTrace();
     }
+  }
+}
+```
+
+### Reading the 409 conflict metadata
+
+A `409` from this endpoint returns a `CreateUserConflictResponse` envelope. `e.getErrorMessages()` flattens each error to its `title`/`code` and omits the structured `meta` object (currently `conflicting_aliases`); parse it from the raw body (the SDK bundles Gson) when you need it:
+
+```java
+if (e.getCode() == 409) {
+  com.google.gson.JsonObject body = com.google.gson.JsonParser.parseString(e.getResponseBody()).getAsJsonObject();
+  for (com.google.gson.JsonElement err : body.getAsJsonArray("errors")) {
+    com.google.gson.JsonObject o = err.getAsJsonObject();
+    System.out.println(o.get("title") + " " + o.getAsJsonObject("meta").get("conflicting_aliases"));
   }
 }
 ```
@@ -1016,6 +1128,9 @@ public class Example {
     } catch (ApiException e) {
       System.err.println("Exception when calling DefaultApi#deleteAlias");
       System.err.println("Status code: " + e.getCode());
+      // getErrorMessages() flattens any error-envelope shape to a List<String>;
+      // the raw body remains on getResponseBody().
+      System.err.println("Error messages: " + e.getErrorMessages());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
       e.printStackTrace();
@@ -1091,6 +1206,9 @@ public class Example {
     } catch (ApiException e) {
       System.err.println("Exception when calling DefaultApi#deleteApiKey");
       System.err.println("Status code: " + e.getCode());
+      // getErrorMessages() flattens any error-envelope shape to a List<String>;
+      // the raw body remains on getResponseBody().
+      System.err.println("Error messages: " + e.getErrorMessages());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
       e.printStackTrace();
@@ -1161,6 +1279,9 @@ public class Example {
     } catch (ApiException e) {
       System.err.println("Exception when calling DefaultApi#deleteSegment");
       System.err.println("Status code: " + e.getCode());
+      // getErrorMessages() flattens any error-envelope shape to a List<String>;
+      // the raw body remains on getResponseBody().
+      System.err.println("Error messages: " + e.getErrorMessages());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
       e.printStackTrace();
@@ -1232,6 +1353,9 @@ public class Example {
     } catch (ApiException e) {
       System.err.println("Exception when calling DefaultApi#deleteSubscription");
       System.err.println("Status code: " + e.getCode());
+      // getErrorMessages() flattens any error-envelope shape to a List<String>;
+      // the raw body remains on getResponseBody().
+      System.err.println("Error messages: " + e.getErrorMessages());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
       e.printStackTrace();
@@ -1305,6 +1429,9 @@ public class Example {
     } catch (ApiException e) {
       System.err.println("Exception when calling DefaultApi#deleteTemplate");
       System.err.println("Status code: " + e.getCode());
+      // getErrorMessages() flattens any error-envelope shape to a List<String>;
+      // the raw body remains on getResponseBody().
+      System.err.println("Error messages: " + e.getErrorMessages());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
       e.printStackTrace();
@@ -1376,6 +1503,9 @@ public class Example {
     } catch (ApiException e) {
       System.err.println("Exception when calling DefaultApi#deleteUser");
       System.err.println("Status code: " + e.getCode());
+      // getErrorMessages() flattens any error-envelope shape to a List<String>;
+      // the raw body remains on getResponseBody().
+      System.err.println("Error messages: " + e.getErrorMessages());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
       e.printStackTrace();
@@ -1449,6 +1579,9 @@ public class Example {
     } catch (ApiException e) {
       System.err.println("Exception when calling DefaultApi#exportEvents");
       System.err.println("Status code: " + e.getCode());
+      // getErrorMessages() flattens any error-envelope shape to a List<String>;
+      // the raw body remains on getResponseBody().
+      System.err.println("Error messages: " + e.getErrorMessages());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
       e.printStackTrace();
@@ -1521,6 +1654,9 @@ public class Example {
     } catch (ApiException e) {
       System.err.println("Exception when calling DefaultApi#exportSubscriptions");
       System.err.println("Status code: " + e.getCode());
+      // getErrorMessages() flattens any error-envelope shape to a List<String>;
+      // the raw body remains on getResponseBody().
+      System.err.println("Error messages: " + e.getErrorMessages());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
       e.printStackTrace();
@@ -1593,6 +1729,9 @@ public class Example {
     } catch (ApiException e) {
       System.err.println("Exception when calling DefaultApi#getAliases");
       System.err.println("Status code: " + e.getCode());
+      // getErrorMessages() flattens any error-envelope shape to a List<String>;
+      // the raw body remains on getResponseBody().
+      System.err.println("Error messages: " + e.getErrorMessages());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
       e.printStackTrace();
@@ -1666,6 +1805,9 @@ public class Example {
     } catch (ApiException e) {
       System.err.println("Exception when calling DefaultApi#getAliasesBySubscription");
       System.err.println("Status code: " + e.getCode());
+      // getErrorMessages() flattens any error-envelope shape to a List<String>;
+      // the raw body remains on getResponseBody().
+      System.err.println("Error messages: " + e.getErrorMessages());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
       e.printStackTrace();
@@ -1736,6 +1878,9 @@ public class Example {
     } catch (ApiException e) {
       System.err.println("Exception when calling DefaultApi#getApp");
       System.err.println("Status code: " + e.getCode());
+      // getErrorMessages() flattens any error-envelope shape to a List<String>;
+      // the raw body remains on getResponseBody().
+      System.err.println("Error messages: " + e.getErrorMessages());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
       e.printStackTrace();
@@ -1804,6 +1949,9 @@ public class Example {
     } catch (ApiException e) {
       System.err.println("Exception when calling DefaultApi#getApps");
       System.err.println("Status code: " + e.getCode());
+      // getErrorMessages() flattens any error-envelope shape to a List<String>;
+      // the raw body remains on getResponseBody().
+      System.err.println("Error messages: " + e.getErrorMessages());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
       e.printStackTrace();
@@ -1871,6 +2019,9 @@ public class Example {
     } catch (ApiException e) {
       System.err.println("Exception when calling DefaultApi#getNotification");
       System.err.println("Status code: " + e.getCode());
+      // getErrorMessages() flattens any error-envelope shape to a List<String>;
+      // the raw body remains on getResponseBody().
+      System.err.println("Error messages: " + e.getErrorMessages());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
       e.printStackTrace();
@@ -1943,6 +2094,9 @@ public class Example {
     } catch (ApiException e) {
       System.err.println("Exception when calling DefaultApi#getNotificationHistory");
       System.err.println("Status code: " + e.getCode());
+      // getErrorMessages() flattens any error-envelope shape to a List<String>;
+      // the raw body remains on getResponseBody().
+      System.err.println("Error messages: " + e.getErrorMessages());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
       e.printStackTrace();
@@ -2017,6 +2171,9 @@ public class Example {
     } catch (ApiException e) {
       System.err.println("Exception when calling DefaultApi#getNotifications");
       System.err.println("Status code: " + e.getCode());
+      // getErrorMessages() flattens any error-envelope shape to a List<String>;
+      // the raw body remains on getResponseBody().
+      System.err.println("Error messages: " + e.getErrorMessages());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
       e.printStackTrace();
@@ -2094,6 +2251,9 @@ public class Example {
     } catch (ApiException e) {
       System.err.println("Exception when calling DefaultApi#getOutcomes");
       System.err.println("Status code: " + e.getCode());
+      // getErrorMessages() flattens any error-envelope shape to a List<String>;
+      // the raw body remains on getResponseBody().
+      System.err.println("Error messages: " + e.getErrorMessages());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
       e.printStackTrace();
@@ -2170,6 +2330,9 @@ public class Example {
     } catch (ApiException e) {
       System.err.println("Exception when calling DefaultApi#getSegments");
       System.err.println("Status code: " + e.getCode());
+      // getErrorMessages() flattens any error-envelope shape to a List<String>;
+      // the raw body remains on getResponseBody().
+      System.err.println("Error messages: " + e.getErrorMessages());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
       e.printStackTrace();
@@ -2243,6 +2406,9 @@ public class Example {
     } catch (ApiException e) {
       System.err.println("Exception when calling DefaultApi#getUser");
       System.err.println("Status code: " + e.getCode());
+      // getErrorMessages() flattens any error-envelope shape to a List<String>;
+      // the raw body remains on getResponseBody().
+      System.err.println("Error messages: " + e.getErrorMessages());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
       e.printStackTrace();
@@ -2316,6 +2482,9 @@ public class Example {
     } catch (ApiException e) {
       System.err.println("Exception when calling DefaultApi#rotateApiKey");
       System.err.println("Status code: " + e.getCode());
+      // getErrorMessages() flattens any error-envelope shape to a List<String>;
+      // the raw body remains on getResponseBody().
+      System.err.println("Error messages: " + e.getErrorMessages());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
       e.printStackTrace();
@@ -2387,6 +2556,9 @@ public class Example {
     } catch (ApiException e) {
       System.err.println("Exception when calling DefaultApi#startLiveActivity");
       System.err.println("Status code: " + e.getCode());
+      // getErrorMessages() flattens any error-envelope shape to a List<String>;
+      // the raw body remains on getResponseBody().
+      System.err.println("Error messages: " + e.getErrorMessages());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
       e.printStackTrace();
@@ -2460,6 +2632,9 @@ public class Example {
     } catch (ApiException e) {
       System.err.println("Exception when calling DefaultApi#transferSubscription");
       System.err.println("Status code: " + e.getCode());
+      // getErrorMessages() flattens any error-envelope shape to a List<String>;
+      // the raw body remains on getResponseBody().
+      System.err.println("Error messages: " + e.getErrorMessages());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
       e.printStackTrace();
@@ -2535,6 +2710,9 @@ public class Example {
     } catch (ApiException e) {
       System.err.println("Exception when calling DefaultApi#unsubscribeEmailWithToken");
       System.err.println("Status code: " + e.getCode());
+      // getErrorMessages() flattens any error-envelope shape to a List<String>;
+      // the raw body remains on getResponseBody().
+      System.err.println("Error messages: " + e.getErrorMessages());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
       e.printStackTrace();
@@ -2608,6 +2786,9 @@ public class Example {
     } catch (ApiException e) {
       System.err.println("Exception when calling DefaultApi#updateApiKey");
       System.err.println("Status code: " + e.getCode());
+      // getErrorMessages() flattens any error-envelope shape to a List<String>;
+      // the raw body remains on getResponseBody().
+      System.err.println("Error messages: " + e.getErrorMessages());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
       e.printStackTrace();
@@ -2679,6 +2860,9 @@ public class Example {
     } catch (ApiException e) {
       System.err.println("Exception when calling DefaultApi#updateApp");
       System.err.println("Status code: " + e.getCode());
+      // getErrorMessages() flattens any error-envelope shape to a List<String>;
+      // the raw body remains on getResponseBody().
+      System.err.println("Error messages: " + e.getErrorMessages());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
       e.printStackTrace();
@@ -2751,6 +2935,9 @@ public class Example {
     } catch (ApiException e) {
       System.err.println("Exception when calling DefaultApi#updateLiveActivity");
       System.err.println("Status code: " + e.getCode());
+      // getErrorMessages() flattens any error-envelope shape to a List<String>;
+      // the raw body remains on getResponseBody().
+      System.err.println("Error messages: " + e.getErrorMessages());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
       e.printStackTrace();
@@ -2823,6 +3010,9 @@ public class Example {
     } catch (ApiException e) {
       System.err.println("Exception when calling DefaultApi#updateSubscription");
       System.err.println("Status code: " + e.getCode());
+      // getErrorMessages() flattens any error-envelope shape to a List<String>;
+      // the raw body remains on getResponseBody().
+      System.err.println("Error messages: " + e.getErrorMessages());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
       e.printStackTrace();
@@ -2899,6 +3089,9 @@ public class Example {
     } catch (ApiException e) {
       System.err.println("Exception when calling DefaultApi#updateSubscriptionByToken");
       System.err.println("Status code: " + e.getCode());
+      // getErrorMessages() flattens any error-envelope shape to a List<String>;
+      // the raw body remains on getResponseBody().
+      System.err.println("Error messages: " + e.getErrorMessages());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
       e.printStackTrace();
@@ -2973,6 +3166,9 @@ public class Example {
     } catch (ApiException e) {
       System.err.println("Exception when calling DefaultApi#updateTemplate");
       System.err.println("Status code: " + e.getCode());
+      // getErrorMessages() flattens any error-envelope shape to a List<String>;
+      // the raw body remains on getResponseBody().
+      System.err.println("Error messages: " + e.getErrorMessages());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
       e.printStackTrace();
@@ -3046,6 +3242,9 @@ public class Example {
     } catch (ApiException e) {
       System.err.println("Exception when calling DefaultApi#updateUser");
       System.err.println("Status code: " + e.getCode());
+      // getErrorMessages() flattens any error-envelope shape to a List<String>;
+      // the raw body remains on getResponseBody().
+      System.err.println("Error messages: " + e.getErrorMessages());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
       e.printStackTrace();
@@ -3119,6 +3318,9 @@ public class Example {
     } catch (ApiException e) {
       System.err.println("Exception when calling DefaultApi#viewApiKeys");
       System.err.println("Status code: " + e.getCode());
+      // getErrorMessages() flattens any error-envelope shape to a List<String>;
+      // the raw body remains on getResponseBody().
+      System.err.println("Error messages: " + e.getErrorMessages());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
       e.printStackTrace();
@@ -3188,6 +3390,9 @@ public class Example {
     } catch (ApiException e) {
       System.err.println("Exception when calling DefaultApi#viewTemplate");
       System.err.println("Status code: " + e.getCode());
+      // getErrorMessages() flattens any error-envelope shape to a List<String>;
+      // the raw body remains on getResponseBody().
+      System.err.println("Error messages: " + e.getErrorMessages());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
       e.printStackTrace();
@@ -3261,6 +3466,9 @@ public class Example {
     } catch (ApiException e) {
       System.err.println("Exception when calling DefaultApi#viewTemplates");
       System.err.println("Status code: " + e.getCode());
+      // getErrorMessages() flattens any error-envelope shape to a List<String>;
+      // the raw body remains on getResponseBody().
+      System.err.println("Error messages: " + e.getErrorMessages());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
       e.printStackTrace();
