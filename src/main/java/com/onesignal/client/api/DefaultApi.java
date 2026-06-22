@@ -4069,6 +4069,7 @@ public class DefaultApi {
      * @param limit How many notifications to return.  Max is 50.  Default is 50. (optional)
      * @param offset Page offset.  Default is 0.  Results are sorted by queued_at in descending order.  queued_at is a representation of the time that the notification was queued at. (optional)
      * @param kind Kind of notifications returned:   * unset - All notification types (default)   * &#x60;0&#x60; - Dashboard only   * &#x60;1&#x60; - API only   * &#x60;3&#x60; - Automated only  (optional)
+     * @param timeOffset Time-offset pagination cursor for sequential pulls of all messages.  Accepts either an ISO 8601 formatted timestamp (e.g. &#x60;2025-01-01T00:00:00.000Z&#x60;) or the opaque Base64 cursor token returned as &#x60;next_time_offset&#x60; in a prior response.  When set, results are sorted ascending by send_after and the standard &#x60;offset&#x60; parameter cannot be used.  Repeat the request with each &#x60;next_time_offset&#x60; until an empty notifications array is returned. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -4080,7 +4081,7 @@ public class DefaultApi {
         <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getNotificationsCall(String appId, Integer limit, Integer offset, Integer kind, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getNotificationsCall(String appId, Integer limit, Integer offset, Integer kind, String timeOffset, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -4124,6 +4125,10 @@ public class DefaultApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("kind", kind));
         }
 
+        if (timeOffset != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("time_offset", timeOffset));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -4145,7 +4150,7 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getNotificationsValidateBeforeCall(String appId, Integer limit, Integer offset, Integer kind, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getNotificationsValidateBeforeCall(String appId, Integer limit, Integer offset, Integer kind, String timeOffset, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'appId' is set
         if (appId == null) {
@@ -4153,7 +4158,7 @@ public class DefaultApi {
         }
         
 
-        okhttp3.Call localVarCall = getNotificationsCall(appId, limit, offset, kind, _callback);
+        okhttp3.Call localVarCall = getNotificationsCall(appId, limit, offset, kind, timeOffset, _callback);
         return localVarCall;
 
     }
@@ -4165,6 +4170,7 @@ public class DefaultApi {
      * @param limit How many notifications to return.  Max is 50.  Default is 50. (optional)
      * @param offset Page offset.  Default is 0.  Results are sorted by queued_at in descending order.  queued_at is a representation of the time that the notification was queued at. (optional)
      * @param kind Kind of notifications returned:   * unset - All notification types (default)   * &#x60;0&#x60; - Dashboard only   * &#x60;1&#x60; - API only   * &#x60;3&#x60; - Automated only  (optional)
+     * @param timeOffset Time-offset pagination cursor for sequential pulls of all messages.  Accepts either an ISO 8601 formatted timestamp (e.g. &#x60;2025-01-01T00:00:00.000Z&#x60;) or the opaque Base64 cursor token returned as &#x60;next_time_offset&#x60; in a prior response.  When set, results are sorted ascending by send_after and the standard &#x60;offset&#x60; parameter cannot be used.  Repeat the request with each &#x60;next_time_offset&#x60; until an empty notifications array is returned. (optional)
      * @return NotificationSlice
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -4175,8 +4181,8 @@ public class DefaultApi {
         <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
      </table>
      */
-    public NotificationSlice getNotifications(String appId, Integer limit, Integer offset, Integer kind) throws ApiException {
-        ApiResponse<NotificationSlice> localVarResp = getNotificationsWithHttpInfo(appId, limit, offset, kind);
+    public NotificationSlice getNotifications(String appId, Integer limit, Integer offset, Integer kind, String timeOffset) throws ApiException {
+        ApiResponse<NotificationSlice> localVarResp = getNotificationsWithHttpInfo(appId, limit, offset, kind, timeOffset);
         return localVarResp.getData();
     }
 
@@ -4187,6 +4193,7 @@ public class DefaultApi {
      * @param limit How many notifications to return.  Max is 50.  Default is 50. (optional)
      * @param offset Page offset.  Default is 0.  Results are sorted by queued_at in descending order.  queued_at is a representation of the time that the notification was queued at. (optional)
      * @param kind Kind of notifications returned:   * unset - All notification types (default)   * &#x60;0&#x60; - Dashboard only   * &#x60;1&#x60; - API only   * &#x60;3&#x60; - Automated only  (optional)
+     * @param timeOffset Time-offset pagination cursor for sequential pulls of all messages.  Accepts either an ISO 8601 formatted timestamp (e.g. &#x60;2025-01-01T00:00:00.000Z&#x60;) or the opaque Base64 cursor token returned as &#x60;next_time_offset&#x60; in a prior response.  When set, results are sorted ascending by send_after and the standard &#x60;offset&#x60; parameter cannot be used.  Repeat the request with each &#x60;next_time_offset&#x60; until an empty notifications array is returned. (optional)
      * @return ApiResponse&lt;NotificationSlice&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -4197,8 +4204,8 @@ public class DefaultApi {
         <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<NotificationSlice> getNotificationsWithHttpInfo(String appId, Integer limit, Integer offset, Integer kind) throws ApiException {
-        okhttp3.Call localVarCall = getNotificationsValidateBeforeCall(appId, limit, offset, kind, null);
+    public ApiResponse<NotificationSlice> getNotificationsWithHttpInfo(String appId, Integer limit, Integer offset, Integer kind, String timeOffset) throws ApiException {
+        okhttp3.Call localVarCall = getNotificationsValidateBeforeCall(appId, limit, offset, kind, timeOffset, null);
         Type localVarReturnType = new TypeToken<NotificationSlice>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -4210,6 +4217,7 @@ public class DefaultApi {
      * @param limit How many notifications to return.  Max is 50.  Default is 50. (optional)
      * @param offset Page offset.  Default is 0.  Results are sorted by queued_at in descending order.  queued_at is a representation of the time that the notification was queued at. (optional)
      * @param kind Kind of notifications returned:   * unset - All notification types (default)   * &#x60;0&#x60; - Dashboard only   * &#x60;1&#x60; - API only   * &#x60;3&#x60; - Automated only  (optional)
+     * @param timeOffset Time-offset pagination cursor for sequential pulls of all messages.  Accepts either an ISO 8601 formatted timestamp (e.g. &#x60;2025-01-01T00:00:00.000Z&#x60;) or the opaque Base64 cursor token returned as &#x60;next_time_offset&#x60; in a prior response.  When set, results are sorted ascending by send_after and the standard &#x60;offset&#x60; parameter cannot be used.  Repeat the request with each &#x60;next_time_offset&#x60; until an empty notifications array is returned. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -4221,9 +4229,9 @@ public class DefaultApi {
         <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getNotificationsAsync(String appId, Integer limit, Integer offset, Integer kind, final ApiCallback<NotificationSlice> _callback) throws ApiException {
+    public okhttp3.Call getNotificationsAsync(String appId, Integer limit, Integer offset, Integer kind, String timeOffset, final ApiCallback<NotificationSlice> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getNotificationsValidateBeforeCall(appId, limit, offset, kind, _callback);
+        okhttp3.Call localVarCall = getNotificationsValidateBeforeCall(appId, limit, offset, kind, timeOffset, _callback);
         Type localVarReturnType = new TypeToken<NotificationSlice>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

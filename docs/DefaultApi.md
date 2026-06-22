@@ -2135,7 +2135,7 @@ public class Example {
 
 <a name="getNotifications"></a>
 # **getNotifications**
-> NotificationSlice getNotifications(appId, limit, offset, kind)
+> NotificationSlice getNotifications(appId, limit, offset, kind, timeOffset)
 
 View notifications
 
@@ -2165,8 +2165,9 @@ public class Example {
     Integer limit = 10; // Integer | How many notifications to return.  Max is 50.  Default is 50.
     Integer offset = 0; // Integer | Page offset.  Default is 0.  Results are sorted by queued_at in descending order.  queued_at is a representation of the time that the notification was queued at.
     Integer kind = 0; // Integer | Kind of notifications returned:   * unset - All notification types (default)   * `0` - Dashboard only   * `1` - API only   * `3` - Automated only 
+    String timeOffset = "2025-01-01T00:00:00.000Z"; // String | Time-offset pagination cursor for sequential pulls of all messages.  Accepts either an ISO 8601 formatted timestamp (e.g. `2025-01-01T00:00:00.000Z`) or the opaque Base64 cursor token returned as `next_time_offset` in a prior response.  When set, results are sorted ascending by send_after and the standard `offset` parameter cannot be used.  Repeat the request with each `next_time_offset` until an empty notifications array is returned.
     try {
-      NotificationSlice result = apiInstance.getNotifications(appId, limit, offset, kind);
+      NotificationSlice result = apiInstance.getNotifications(appId, limit, offset, kind, timeOffset);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling DefaultApi#getNotifications");
@@ -2190,6 +2191,7 @@ public class Example {
 | **limit** | **Integer**| How many notifications to return.  Max is 50.  Default is 50. | [optional] |
 | **offset** | **Integer**| Page offset.  Default is 0.  Results are sorted by queued_at in descending order.  queued_at is a representation of the time that the notification was queued at. | [optional] |
 | **kind** | **Integer**| Kind of notifications returned:   * unset - All notification types (default)   * &#x60;0&#x60; - Dashboard only   * &#x60;1&#x60; - API only   * &#x60;3&#x60; - Automated only  | [optional] [enum: 0, 1, 3] |
+| **timeOffset** | **String**| Time-offset pagination cursor for sequential pulls of all messages.  Accepts either an ISO 8601 formatted timestamp (e.g. &#x60;2025-01-01T00:00:00.000Z&#x60;) or the opaque Base64 cursor token returned as &#x60;next_time_offset&#x60; in a prior response.  When set, results are sorted ascending by send_after and the standard &#x60;offset&#x60; parameter cannot be used.  Repeat the request with each &#x60;next_time_offset&#x60; until an empty notifications array is returned. | [optional] |
 
 ### Return type
 
