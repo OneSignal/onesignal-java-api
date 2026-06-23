@@ -103,6 +103,34 @@ public final class NotificationHelpers {
         }
     }
 
+    /**
+     * Whether a POST /notifications 200 response is the "message sent" branch.
+     *
+     * <p>POST /notifications returns 200 in two cases that share the
+     * {@link CreateNotificationSuccessResponse} shape: a notification was
+     * created (non-empty {@code id}), or none was (empty {@code id}, with
+     * {@code errors} carrying the reason). Prefer this guard over inspecting
+     * {@code id} directly.
+     *
+     * @param response a create-notification success response
+     * @return {@code true} when a notification was created
+     */
+    public static boolean isMessageSent(CreateNotificationSuccessResponse response) {
+        return response != null && response.getId() != null && !response.getId().isEmpty();
+    }
+
+    /**
+     * Whether a POST /notifications 200 response is the "message not sent"
+     * branch -- no notification was created ({@code id} absent or empty);
+     * inspect {@code errors} for why.
+     *
+     * @param response a create-notification success response
+     * @return {@code true} when no notification was created
+     */
+    public static boolean isMessageNotSent(CreateNotificationSuccessResponse response) {
+        return !isMessageSent(response);
+    }
+
     private static String headerValue(Map<String, List<String>> headers, String name) {
         if (headers == null) {
             return null;

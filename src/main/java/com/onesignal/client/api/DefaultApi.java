@@ -125,6 +125,7 @@ public class DefaultApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call cancelNotificationCall(String appId, String notificationId, final ApiCallback _callback) throws ApiException {
@@ -213,6 +214,7 @@ public class DefaultApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public GenericSuccessBoolResponse cancelNotification(String appId, String notificationId) throws ApiException {
@@ -234,6 +236,7 @@ public class DefaultApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<GenericSuccessBoolResponse> cancelNotificationWithHttpInfo(String appId, String notificationId) throws ApiException {
@@ -257,6 +260,7 @@ public class DefaultApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call cancelNotificationAsync(String appId, String notificationId, final ApiCallback<GenericSuccessBoolResponse> _callback) throws ApiException {
@@ -279,6 +283,7 @@ public class DefaultApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call copyTemplateToAppCall(String templateId, String appId, CopyTemplateRequest copyTemplateRequest, final ApiCallback _callback) throws ApiException {
@@ -371,6 +376,7 @@ public class DefaultApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public TemplateResource copyTemplateToApp(String templateId, String appId, CopyTemplateRequest copyTemplateRequest) throws ApiException {
@@ -391,6 +397,7 @@ public class DefaultApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<TemplateResource> copyTemplateToAppWithHttpInfo(String templateId, String appId, CopyTemplateRequest copyTemplateRequest) throws ApiException {
@@ -413,6 +420,7 @@ public class DefaultApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call copyTemplateToAppAsync(String templateId, String appId, CopyTemplateRequest copyTemplateRequest, final ApiCallback<TemplateResource> _callback) throws ApiException {
@@ -439,6 +447,7 @@ public class DefaultApi {
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call createAliasCall(String appId, String aliasLabel, String aliasId, UserIdentityBody userIdentityBody, final ApiCallback _callback) throws ApiException {
@@ -538,6 +547,7 @@ public class DefaultApi {
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public UserIdentityBody createAlias(String appId, String aliasLabel, String aliasId, UserIdentityBody userIdentityBody) throws ApiException {
@@ -562,6 +572,7 @@ public class DefaultApi {
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<UserIdentityBody> createAliasWithHttpInfo(String appId, String aliasLabel, String aliasId, UserIdentityBody userIdentityBody) throws ApiException {
@@ -588,6 +599,7 @@ public class DefaultApi {
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call createAliasAsync(String appId, String aliasLabel, String aliasId, UserIdentityBody userIdentityBody, final ApiCallback<UserIdentityBody> _callback) throws ApiException {
@@ -613,6 +625,7 @@ public class DefaultApi {
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call createAliasBySubscriptionCall(String appId, String subscriptionId, UserIdentityBody userIdentityBody, final ApiCallback _callback) throws ApiException {
@@ -705,6 +718,7 @@ public class DefaultApi {
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public UserIdentityBody createAliasBySubscription(String appId, String subscriptionId, UserIdentityBody userIdentityBody) throws ApiException {
@@ -728,6 +742,7 @@ public class DefaultApi {
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<UserIdentityBody> createAliasBySubscriptionWithHttpInfo(String appId, String subscriptionId, UserIdentityBody userIdentityBody) throws ApiException {
@@ -753,6 +768,7 @@ public class DefaultApi {
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call createAliasBySubscriptionAsync(String appId, String subscriptionId, UserIdentityBody userIdentityBody, final ApiCallback<UserIdentityBody> _callback) throws ApiException {
@@ -774,6 +790,7 @@ public class DefaultApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call createApiKeyCall(String appId, CreateApiKeyRequest createApiKeyRequest, final ApiCallback _callback) throws ApiException {
@@ -856,6 +873,7 @@ public class DefaultApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public CreateApiKeyResponse createApiKey(String appId, CreateApiKeyRequest createApiKeyRequest) throws ApiException {
@@ -875,6 +893,7 @@ public class DefaultApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<CreateApiKeyResponse> createApiKeyWithHttpInfo(String appId, CreateApiKeyRequest createApiKeyRequest) throws ApiException {
@@ -896,6 +915,7 @@ public class DefaultApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call createApiKeyAsync(String appId, CreateApiKeyRequest createApiKeyRequest, final ApiCallback<CreateApiKeyResponse> _callback) throws ApiException {
@@ -917,6 +937,7 @@ public class DefaultApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call createAppCall(App app, final ApiCallback _callback) throws ApiException {
@@ -993,6 +1014,7 @@ public class DefaultApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public App createApp(App app) throws ApiException {
@@ -1012,6 +1034,7 @@ public class DefaultApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<App> createAppWithHttpInfo(App app) throws ApiException {
@@ -1033,6 +1056,7 @@ public class DefaultApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call createAppAsync(App app, final ApiCallback<App> _callback) throws ApiException {
@@ -1056,6 +1080,7 @@ public class DefaultApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call createCustomEventsCall(String appId, CustomEventsRequest customEventsRequest, final ApiCallback _callback) throws ApiException {
@@ -1140,6 +1165,7 @@ public class DefaultApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public Object createCustomEvents(String appId, CustomEventsRequest customEventsRequest) throws ApiException {
@@ -1161,6 +1187,7 @@ public class DefaultApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<Object> createCustomEventsWithHttpInfo(String appId, CustomEventsRequest customEventsRequest) throws ApiException {
@@ -1184,6 +1211,7 @@ public class DefaultApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call createCustomEventsAsync(String appId, CustomEventsRequest customEventsRequest, final ApiCallback<Object> _callback) throws ApiException {
@@ -1205,6 +1233,7 @@ public class DefaultApi {
         <tr><td> 200 </td><td> OK, invalid_aliases, or No Subscribed Players If a message was successfully created, you will get a 200 response with a non-empty &#x60;id&#x60; for the notification. If the 200 response contains &#x60;invalid_aliases&#x60;, that marks devices that exist in the provided app_id but are no longer subscribed. If &#x60;id&#x60; is an empty string, no notification was created: check the &#x60;errors&#x60; array (for example messages such as \&quot;All included players are not subscribed\&quot;) even though HTTP status is still 200. This can happen when alias keys are wrong, External IDs do not resolve to subscribed users, or other validation issues. If no id is returned, then a message was not created and the targeted User IDs do not exist under the provided app_id. Any User IDs sent in the request that do not exist under the specified app_id will be ignored.  </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call createNotificationCall(Notification notification, final ApiCallback _callback) throws ApiException {
@@ -1281,6 +1310,7 @@ public class DefaultApi {
         <tr><td> 200 </td><td> OK, invalid_aliases, or No Subscribed Players If a message was successfully created, you will get a 200 response with a non-empty &#x60;id&#x60; for the notification. If the 200 response contains &#x60;invalid_aliases&#x60;, that marks devices that exist in the provided app_id but are no longer subscribed. If &#x60;id&#x60; is an empty string, no notification was created: check the &#x60;errors&#x60; array (for example messages such as \&quot;All included players are not subscribed\&quot;) even though HTTP status is still 200. This can happen when alias keys are wrong, External IDs do not resolve to subscribed users, or other validation issues. If no id is returned, then a message was not created and the targeted User IDs do not exist under the provided app_id. Any User IDs sent in the request that do not exist under the specified app_id will be ignored.  </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public CreateNotificationSuccessResponse createNotification(Notification notification) throws ApiException {
@@ -1300,6 +1330,7 @@ public class DefaultApi {
         <tr><td> 200 </td><td> OK, invalid_aliases, or No Subscribed Players If a message was successfully created, you will get a 200 response with a non-empty &#x60;id&#x60; for the notification. If the 200 response contains &#x60;invalid_aliases&#x60;, that marks devices that exist in the provided app_id but are no longer subscribed. If &#x60;id&#x60; is an empty string, no notification was created: check the &#x60;errors&#x60; array (for example messages such as \&quot;All included players are not subscribed\&quot;) even though HTTP status is still 200. This can happen when alias keys are wrong, External IDs do not resolve to subscribed users, or other validation issues. If no id is returned, then a message was not created and the targeted User IDs do not exist under the provided app_id. Any User IDs sent in the request that do not exist under the specified app_id will be ignored.  </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<CreateNotificationSuccessResponse> createNotificationWithHttpInfo(Notification notification) throws ApiException {
@@ -1321,6 +1352,7 @@ public class DefaultApi {
         <tr><td> 200 </td><td> OK, invalid_aliases, or No Subscribed Players If a message was successfully created, you will get a 200 response with a non-empty &#x60;id&#x60; for the notification. If the 200 response contains &#x60;invalid_aliases&#x60;, that marks devices that exist in the provided app_id but are no longer subscribed. If &#x60;id&#x60; is an empty string, no notification was created: check the &#x60;errors&#x60; array (for example messages such as \&quot;All included players are not subscribed\&quot;) even though HTTP status is still 200. This can happen when alias keys are wrong, External IDs do not resolve to subscribed users, or other validation issues. If no id is returned, then a message was not created and the targeted User IDs do not exist under the provided app_id. Any User IDs sent in the request that do not exist under the specified app_id will be ignored.  </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call createNotificationAsync(Notification notification, final ApiCallback<CreateNotificationSuccessResponse> _callback) throws ApiException {
@@ -1344,6 +1376,7 @@ public class DefaultApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call createSegmentCall(String appId, Segment segment, final ApiCallback _callback) throws ApiException {
@@ -1423,6 +1456,7 @@ public class DefaultApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public CreateSegmentSuccessResponse createSegment(String appId, Segment segment) throws ApiException {
@@ -1444,6 +1478,7 @@ public class DefaultApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<CreateSegmentSuccessResponse> createSegmentWithHttpInfo(String appId, Segment segment) throws ApiException {
@@ -1467,6 +1502,7 @@ public class DefaultApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call createSegmentAsync(String appId, Segment segment, final ApiCallback<CreateSegmentSuccessResponse> _callback) throws ApiException {
@@ -1494,6 +1530,7 @@ public class DefaultApi {
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> Operation is not permitted due to user having the maximum number of subscriptions assigned </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call createSubscriptionCall(String appId, String aliasLabel, String aliasId, SubscriptionBody subscriptionBody, final ApiCallback _callback) throws ApiException {
@@ -1594,6 +1631,7 @@ public class DefaultApi {
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> Operation is not permitted due to user having the maximum number of subscriptions assigned </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public SubscriptionBody createSubscription(String appId, String aliasLabel, String aliasId, SubscriptionBody subscriptionBody) throws ApiException {
@@ -1619,6 +1657,7 @@ public class DefaultApi {
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> Operation is not permitted due to user having the maximum number of subscriptions assigned </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<SubscriptionBody> createSubscriptionWithHttpInfo(String appId, String aliasLabel, String aliasId, SubscriptionBody subscriptionBody) throws ApiException {
@@ -1646,6 +1685,7 @@ public class DefaultApi {
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> Operation is not permitted due to user having the maximum number of subscriptions assigned </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call createSubscriptionAsync(String appId, String aliasLabel, String aliasId, SubscriptionBody subscriptionBody, final ApiCallback<SubscriptionBody> _callback) throws ApiException {
@@ -1667,6 +1707,7 @@ public class DefaultApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call createTemplateCall(CreateTemplateRequest createTemplateRequest, final ApiCallback _callback) throws ApiException {
@@ -1743,6 +1784,7 @@ public class DefaultApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public TemplateResource createTemplate(CreateTemplateRequest createTemplateRequest) throws ApiException {
@@ -1762,6 +1804,7 @@ public class DefaultApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<TemplateResource> createTemplateWithHttpInfo(CreateTemplateRequest createTemplateRequest) throws ApiException {
@@ -1783,6 +1826,7 @@ public class DefaultApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call createTemplateAsync(CreateTemplateRequest createTemplateRequest, final ApiCallback<TemplateResource> _callback) throws ApiException {
@@ -1808,6 +1852,7 @@ public class DefaultApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> Multiple User Identity Conflict </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call createUserCall(String appId, User user, final ApiCallback _callback) throws ApiException {
@@ -1894,6 +1939,7 @@ public class DefaultApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> Multiple User Identity Conflict </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public User createUser(String appId, User user) throws ApiException {
@@ -1917,6 +1963,7 @@ public class DefaultApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> Multiple User Identity Conflict </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<User> createUserWithHttpInfo(String appId, User user) throws ApiException {
@@ -1942,6 +1989,7 @@ public class DefaultApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> Multiple User Identity Conflict </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call createUserAsync(String appId, User user, final ApiCallback<User> _callback) throws ApiException {
@@ -1968,6 +2016,7 @@ public class DefaultApi {
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call deleteAliasCall(String appId, String aliasLabel, String aliasId, String aliasLabelToDelete, final ApiCallback _callback) throws ApiException {
@@ -2068,6 +2117,7 @@ public class DefaultApi {
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public UserIdentityBody deleteAlias(String appId, String aliasLabel, String aliasId, String aliasLabelToDelete) throws ApiException {
@@ -2092,6 +2142,7 @@ public class DefaultApi {
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<UserIdentityBody> deleteAliasWithHttpInfo(String appId, String aliasLabel, String aliasId, String aliasLabelToDelete) throws ApiException {
@@ -2118,6 +2169,7 @@ public class DefaultApi {
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call deleteAliasAsync(String appId, String aliasLabel, String aliasId, String aliasLabelToDelete, final ApiCallback<UserIdentityBody> _callback) throws ApiException {
@@ -2139,6 +2191,7 @@ public class DefaultApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call deleteApiKeyCall(String appId, String tokenId, final ApiCallback _callback) throws ApiException {
@@ -2222,6 +2275,7 @@ public class DefaultApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public Object deleteApiKey(String appId, String tokenId) throws ApiException {
@@ -2241,6 +2295,7 @@ public class DefaultApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<Object> deleteApiKeyWithHttpInfo(String appId, String tokenId) throws ApiException {
@@ -2262,6 +2317,7 @@ public class DefaultApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call deleteApiKeyAsync(String appId, String tokenId, final ApiCallback<Object> _callback) throws ApiException {
@@ -2285,6 +2341,7 @@ public class DefaultApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call deleteSegmentCall(String appId, String segmentId, final ApiCallback _callback) throws ApiException {
@@ -2370,6 +2427,7 @@ public class DefaultApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public GenericSuccessBoolResponse deleteSegment(String appId, String segmentId) throws ApiException {
@@ -2391,6 +2449,7 @@ public class DefaultApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<GenericSuccessBoolResponse> deleteSegmentWithHttpInfo(String appId, String segmentId) throws ApiException {
@@ -2414,6 +2473,7 @@ public class DefaultApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call deleteSegmentAsync(String appId, String segmentId, final ApiCallback<GenericSuccessBoolResponse> _callback) throws ApiException {
@@ -2438,6 +2498,7 @@ public class DefaultApi {
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call deleteSubscriptionCall(String appId, String subscriptionId, final ApiCallback _callback) throws ApiException {
@@ -2523,6 +2584,7 @@ public class DefaultApi {
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public void deleteSubscription(String appId, String subscriptionId) throws ApiException {
@@ -2544,6 +2606,7 @@ public class DefaultApi {
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<Void> deleteSubscriptionWithHttpInfo(String appId, String subscriptionId) throws ApiException {
@@ -2567,6 +2630,7 @@ public class DefaultApi {
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call deleteSubscriptionAsync(String appId, String subscriptionId, final ApiCallback<Void> _callback) throws ApiException {
@@ -2588,6 +2652,7 @@ public class DefaultApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call deleteTemplateCall(String templateId, String appId, final ApiCallback _callback) throws ApiException {
@@ -2675,6 +2740,7 @@ public class DefaultApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public GenericSuccessBoolResponse deleteTemplate(String templateId, String appId) throws ApiException {
@@ -2695,6 +2761,7 @@ public class DefaultApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<GenericSuccessBoolResponse> deleteTemplateWithHttpInfo(String templateId, String appId) throws ApiException {
@@ -2717,6 +2784,7 @@ public class DefaultApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call deleteTemplateAsync(String templateId, String appId, final ApiCallback<GenericSuccessBoolResponse> _callback) throws ApiException {
@@ -2741,6 +2809,7 @@ public class DefaultApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call deleteUserCall(String appId, String aliasLabel, String aliasId, final ApiCallback _callback) throws ApiException {
@@ -2832,6 +2901,7 @@ public class DefaultApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public void deleteUser(String appId, String aliasLabel, String aliasId) throws ApiException {
@@ -2853,6 +2923,7 @@ public class DefaultApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<Void> deleteUserWithHttpInfo(String appId, String aliasLabel, String aliasId) throws ApiException {
@@ -2876,6 +2947,7 @@ public class DefaultApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call deleteUserAsync(String appId, String aliasLabel, String aliasId, final ApiCallback<Void> _callback) throws ApiException {
@@ -2898,6 +2970,7 @@ public class DefaultApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call exportEventsCall(String notificationId, String appId, final ApiCallback _callback) throws ApiException {
@@ -2986,6 +3059,7 @@ public class DefaultApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public ExportEventsSuccessResponse exportEvents(String notificationId, String appId) throws ApiException {
@@ -3007,6 +3081,7 @@ public class DefaultApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<ExportEventsSuccessResponse> exportEventsWithHttpInfo(String notificationId, String appId) throws ApiException {
@@ -3030,6 +3105,7 @@ public class DefaultApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call exportEventsAsync(String notificationId, String appId, final ApiCallback<ExportEventsSuccessResponse> _callback) throws ApiException {
@@ -3052,6 +3128,7 @@ public class DefaultApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call exportSubscriptionsCall(String appId, ExportSubscriptionsRequestBody exportSubscriptionsRequestBody, final ApiCallback _callback) throws ApiException {
@@ -3130,6 +3207,7 @@ public class DefaultApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public ExportSubscriptionsSuccessResponse exportSubscriptions(String appId, ExportSubscriptionsRequestBody exportSubscriptionsRequestBody) throws ApiException {
@@ -3150,6 +3228,7 @@ public class DefaultApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<ExportSubscriptionsSuccessResponse> exportSubscriptionsWithHttpInfo(String appId, ExportSubscriptionsRequestBody exportSubscriptionsRequestBody) throws ApiException {
@@ -3172,6 +3251,7 @@ public class DefaultApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call exportSubscriptionsAsync(String appId, ExportSubscriptionsRequestBody exportSubscriptionsRequestBody, final ApiCallback<ExportSubscriptionsSuccessResponse> _callback) throws ApiException {
@@ -3196,6 +3276,7 @@ public class DefaultApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getAliasesCall(String appId, String aliasLabel, String aliasId, final ApiCallback _callback) throws ApiException {
@@ -3288,6 +3369,7 @@ public class DefaultApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public UserIdentityBody getAliases(String appId, String aliasLabel, String aliasId) throws ApiException {
@@ -3310,6 +3392,7 @@ public class DefaultApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<UserIdentityBody> getAliasesWithHttpInfo(String appId, String aliasLabel, String aliasId) throws ApiException {
@@ -3334,6 +3417,7 @@ public class DefaultApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getAliasesAsync(String appId, String aliasLabel, String aliasId, final ApiCallback<UserIdentityBody> _callback) throws ApiException {
@@ -3356,6 +3440,7 @@ public class DefaultApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getAliasesBySubscriptionCall(String appId, String subscriptionId, final ApiCallback _callback) throws ApiException {
@@ -3440,6 +3525,7 @@ public class DefaultApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public UserIdentityBody getAliasesBySubscription(String appId, String subscriptionId) throws ApiException {
@@ -3460,6 +3546,7 @@ public class DefaultApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<UserIdentityBody> getAliasesBySubscriptionWithHttpInfo(String appId, String subscriptionId) throws ApiException {
@@ -3482,6 +3569,7 @@ public class DefaultApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getAliasesBySubscriptionAsync(String appId, String subscriptionId, final ApiCallback<UserIdentityBody> _callback) throws ApiException {
@@ -3503,6 +3591,7 @@ public class DefaultApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getAppCall(String appId, final ApiCallback _callback) throws ApiException {
@@ -3580,6 +3669,7 @@ public class DefaultApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public App getApp(String appId) throws ApiException {
@@ -3599,6 +3689,7 @@ public class DefaultApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<App> getAppWithHttpInfo(String appId) throws ApiException {
@@ -3620,6 +3711,7 @@ public class DefaultApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getAppAsync(String appId, final ApiCallback<App> _callback) throws ApiException {
@@ -3640,6 +3732,7 @@ public class DefaultApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getAppsCall(final ApiCallback _callback) throws ApiException {
@@ -3710,6 +3803,7 @@ public class DefaultApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public List<App> getApps() throws ApiException {
@@ -3728,6 +3822,7 @@ public class DefaultApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<List<App>> getAppsWithHttpInfo() throws ApiException {
@@ -3748,6 +3843,7 @@ public class DefaultApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getAppsAsync(final ApiCallback<List<App>> _callback) throws ApiException {
@@ -3771,6 +3867,7 @@ public class DefaultApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getNotificationCall(String appId, String notificationId, final ApiCallback _callback) throws ApiException {
@@ -3859,6 +3956,7 @@ public class DefaultApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public NotificationWithMeta getNotification(String appId, String notificationId) throws ApiException {
@@ -3880,6 +3978,7 @@ public class DefaultApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<NotificationWithMeta> getNotificationWithHttpInfo(String appId, String notificationId) throws ApiException {
@@ -3903,6 +4002,7 @@ public class DefaultApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getNotificationAsync(String appId, String notificationId, final ApiCallback<NotificationWithMeta> _callback) throws ApiException {
@@ -3926,6 +4026,7 @@ public class DefaultApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getNotificationHistoryCall(String notificationId, GetNotificationHistoryRequestBody getNotificationHistoryRequestBody, final ApiCallback _callback) throws ApiException {
@@ -4010,6 +4111,7 @@ public class DefaultApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public NotificationHistorySuccessResponse getNotificationHistory(String notificationId, GetNotificationHistoryRequestBody getNotificationHistoryRequestBody) throws ApiException {
@@ -4031,6 +4133,7 @@ public class DefaultApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<NotificationHistorySuccessResponse> getNotificationHistoryWithHttpInfo(String notificationId, GetNotificationHistoryRequestBody getNotificationHistoryRequestBody) throws ApiException {
@@ -4054,6 +4157,7 @@ public class DefaultApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getNotificationHistoryAsync(String notificationId, GetNotificationHistoryRequestBody getNotificationHistoryRequestBody, final ApiCallback<NotificationHistorySuccessResponse> _callback) throws ApiException {
@@ -4069,6 +4173,7 @@ public class DefaultApi {
      * @param limit How many notifications to return.  Max is 50.  Default is 50. (optional)
      * @param offset Page offset.  Default is 0.  Results are sorted by queued_at in descending order.  queued_at is a representation of the time that the notification was queued at. (optional)
      * @param kind Kind of notifications returned:   * unset - All notification types (default)   * &#x60;0&#x60; - Dashboard only   * &#x60;1&#x60; - API only   * &#x60;3&#x60; - Automated only  (optional)
+     * @param timeOffset Time-offset pagination cursor for sequential pulls of all messages.  Accepts either an ISO 8601 formatted timestamp (e.g. &#x60;2025-01-01T00:00:00.000Z&#x60;) or the opaque Base64 cursor token returned as &#x60;next_time_offset&#x60; in a prior response.  When set, results are sorted ascending by send_after and the standard &#x60;offset&#x60; parameter cannot be used.  Repeat the request with each &#x60;next_time_offset&#x60; until an empty notifications array is returned. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -4078,9 +4183,10 @@ public class DefaultApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getNotificationsCall(String appId, Integer limit, Integer offset, Integer kind, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getNotificationsCall(String appId, Integer limit, Integer offset, Integer kind, String timeOffset, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -4124,6 +4230,10 @@ public class DefaultApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("kind", kind));
         }
 
+        if (timeOffset != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("time_offset", timeOffset));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -4145,7 +4255,7 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getNotificationsValidateBeforeCall(String appId, Integer limit, Integer offset, Integer kind, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getNotificationsValidateBeforeCall(String appId, Integer limit, Integer offset, Integer kind, String timeOffset, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'appId' is set
         if (appId == null) {
@@ -4153,7 +4263,7 @@ public class DefaultApi {
         }
         
 
-        okhttp3.Call localVarCall = getNotificationsCall(appId, limit, offset, kind, _callback);
+        okhttp3.Call localVarCall = getNotificationsCall(appId, limit, offset, kind, timeOffset, _callback);
         return localVarCall;
 
     }
@@ -4165,6 +4275,7 @@ public class DefaultApi {
      * @param limit How many notifications to return.  Max is 50.  Default is 50. (optional)
      * @param offset Page offset.  Default is 0.  Results are sorted by queued_at in descending order.  queued_at is a representation of the time that the notification was queued at. (optional)
      * @param kind Kind of notifications returned:   * unset - All notification types (default)   * &#x60;0&#x60; - Dashboard only   * &#x60;1&#x60; - API only   * &#x60;3&#x60; - Automated only  (optional)
+     * @param timeOffset Time-offset pagination cursor for sequential pulls of all messages.  Accepts either an ISO 8601 formatted timestamp (e.g. &#x60;2025-01-01T00:00:00.000Z&#x60;) or the opaque Base64 cursor token returned as &#x60;next_time_offset&#x60; in a prior response.  When set, results are sorted ascending by send_after and the standard &#x60;offset&#x60; parameter cannot be used.  Repeat the request with each &#x60;next_time_offset&#x60; until an empty notifications array is returned. (optional)
      * @return NotificationSlice
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -4173,10 +4284,11 @@ public class DefaultApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
-    public NotificationSlice getNotifications(String appId, Integer limit, Integer offset, Integer kind) throws ApiException {
-        ApiResponse<NotificationSlice> localVarResp = getNotificationsWithHttpInfo(appId, limit, offset, kind);
+    public NotificationSlice getNotifications(String appId, Integer limit, Integer offset, Integer kind, String timeOffset) throws ApiException {
+        ApiResponse<NotificationSlice> localVarResp = getNotificationsWithHttpInfo(appId, limit, offset, kind, timeOffset);
         return localVarResp.getData();
     }
 
@@ -4187,6 +4299,7 @@ public class DefaultApi {
      * @param limit How many notifications to return.  Max is 50.  Default is 50. (optional)
      * @param offset Page offset.  Default is 0.  Results are sorted by queued_at in descending order.  queued_at is a representation of the time that the notification was queued at. (optional)
      * @param kind Kind of notifications returned:   * unset - All notification types (default)   * &#x60;0&#x60; - Dashboard only   * &#x60;1&#x60; - API only   * &#x60;3&#x60; - Automated only  (optional)
+     * @param timeOffset Time-offset pagination cursor for sequential pulls of all messages.  Accepts either an ISO 8601 formatted timestamp (e.g. &#x60;2025-01-01T00:00:00.000Z&#x60;) or the opaque Base64 cursor token returned as &#x60;next_time_offset&#x60; in a prior response.  When set, results are sorted ascending by send_after and the standard &#x60;offset&#x60; parameter cannot be used.  Repeat the request with each &#x60;next_time_offset&#x60; until an empty notifications array is returned. (optional)
      * @return ApiResponse&lt;NotificationSlice&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -4195,10 +4308,11 @@ public class DefaultApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<NotificationSlice> getNotificationsWithHttpInfo(String appId, Integer limit, Integer offset, Integer kind) throws ApiException {
-        okhttp3.Call localVarCall = getNotificationsValidateBeforeCall(appId, limit, offset, kind, null);
+    public ApiResponse<NotificationSlice> getNotificationsWithHttpInfo(String appId, Integer limit, Integer offset, Integer kind, String timeOffset) throws ApiException {
+        okhttp3.Call localVarCall = getNotificationsValidateBeforeCall(appId, limit, offset, kind, timeOffset, null);
         Type localVarReturnType = new TypeToken<NotificationSlice>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -4210,6 +4324,7 @@ public class DefaultApi {
      * @param limit How many notifications to return.  Max is 50.  Default is 50. (optional)
      * @param offset Page offset.  Default is 0.  Results are sorted by queued_at in descending order.  queued_at is a representation of the time that the notification was queued at. (optional)
      * @param kind Kind of notifications returned:   * unset - All notification types (default)   * &#x60;0&#x60; - Dashboard only   * &#x60;1&#x60; - API only   * &#x60;3&#x60; - Automated only  (optional)
+     * @param timeOffset Time-offset pagination cursor for sequential pulls of all messages.  Accepts either an ISO 8601 formatted timestamp (e.g. &#x60;2025-01-01T00:00:00.000Z&#x60;) or the opaque Base64 cursor token returned as &#x60;next_time_offset&#x60; in a prior response.  When set, results are sorted ascending by send_after and the standard &#x60;offset&#x60; parameter cannot be used.  Repeat the request with each &#x60;next_time_offset&#x60; until an empty notifications array is returned. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -4219,11 +4334,12 @@ public class DefaultApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getNotificationsAsync(String appId, Integer limit, Integer offset, Integer kind, final ApiCallback<NotificationSlice> _callback) throws ApiException {
+    public okhttp3.Call getNotificationsAsync(String appId, Integer limit, Integer offset, Integer kind, String timeOffset, final ApiCallback<NotificationSlice> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getNotificationsValidateBeforeCall(appId, limit, offset, kind, _callback);
+        okhttp3.Call localVarCall = getNotificationsValidateBeforeCall(appId, limit, offset, kind, timeOffset, _callback);
         Type localVarReturnType = new TypeToken<NotificationSlice>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -4245,6 +4361,7 @@ public class DefaultApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getOutcomesCall(String appId, String outcomeNames, String outcomeNames2, String outcomeTimeRange, String outcomePlatforms, String outcomeAttribution, final ApiCallback _callback) throws ApiException {
@@ -4352,6 +4469,7 @@ public class DefaultApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public OutcomesData getOutcomes(String appId, String outcomeNames, String outcomeNames2, String outcomeTimeRange, String outcomePlatforms, String outcomeAttribution) throws ApiException {
@@ -4376,6 +4494,7 @@ public class DefaultApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<OutcomesData> getOutcomesWithHttpInfo(String appId, String outcomeNames, String outcomeNames2, String outcomeTimeRange, String outcomePlatforms, String outcomeAttribution) throws ApiException {
@@ -4402,6 +4521,7 @@ public class DefaultApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getOutcomesAsync(String appId, String outcomeNames, String outcomeNames2, String outcomeTimeRange, String outcomePlatforms, String outcomeAttribution, final ApiCallback<OutcomesData> _callback) throws ApiException {
@@ -4425,6 +4545,7 @@ public class DefaultApi {
         <tr><td> 201 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getSegmentsCall(String appId, Integer offset, Integer limit, final ApiCallback _callback) throws ApiException {
@@ -4512,6 +4633,7 @@ public class DefaultApi {
         <tr><td> 201 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public GetSegmentsSuccessResponse getSegments(String appId, Integer offset, Integer limit) throws ApiException {
@@ -4533,6 +4655,7 @@ public class DefaultApi {
         <tr><td> 201 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<GetSegmentsSuccessResponse> getSegmentsWithHttpInfo(String appId, Integer offset, Integer limit) throws ApiException {
@@ -4556,6 +4679,7 @@ public class DefaultApi {
         <tr><td> 201 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getSegmentsAsync(String appId, Integer offset, Integer limit, final ApiCallback<GetSegmentsSuccessResponse> _callback) throws ApiException {
@@ -4580,6 +4704,7 @@ public class DefaultApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getUserCall(String appId, String aliasLabel, String aliasId, final ApiCallback _callback) throws ApiException {
@@ -4672,6 +4797,7 @@ public class DefaultApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public User getUser(String appId, String aliasLabel, String aliasId) throws ApiException {
@@ -4694,6 +4820,7 @@ public class DefaultApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<User> getUserWithHttpInfo(String appId, String aliasLabel, String aliasId) throws ApiException {
@@ -4718,6 +4845,7 @@ public class DefaultApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getUserAsync(String appId, String aliasLabel, String aliasId, final ApiCallback<User> _callback) throws ApiException {
@@ -4739,6 +4867,7 @@ public class DefaultApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call rotateApiKeyCall(String appId, String tokenId, final ApiCallback _callback) throws ApiException {
@@ -4822,6 +4951,7 @@ public class DefaultApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public CreateApiKeyResponse rotateApiKey(String appId, String tokenId) throws ApiException {
@@ -4841,6 +4971,7 @@ public class DefaultApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<CreateApiKeyResponse> rotateApiKeyWithHttpInfo(String appId, String tokenId) throws ApiException {
@@ -4862,6 +4993,7 @@ public class DefaultApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call rotateApiKeyAsync(String appId, String tokenId, final ApiCallback<CreateApiKeyResponse> _callback) throws ApiException {
@@ -4885,6 +5017,7 @@ public class DefaultApi {
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call startLiveActivityCall(String appId, String activityType, StartLiveActivityRequest startLiveActivityRequest, final ApiCallback _callback) throws ApiException {
@@ -4975,6 +5108,7 @@ public class DefaultApi {
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public StartLiveActivitySuccessResponse startLiveActivity(String appId, String activityType, StartLiveActivityRequest startLiveActivityRequest) throws ApiException {
@@ -4996,6 +5130,7 @@ public class DefaultApi {
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<StartLiveActivitySuccessResponse> startLiveActivityWithHttpInfo(String appId, String activityType, StartLiveActivityRequest startLiveActivityRequest) throws ApiException {
@@ -5019,6 +5154,7 @@ public class DefaultApi {
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call startLiveActivityAsync(String appId, String activityType, StartLiveActivityRequest startLiveActivityRequest, final ApiCallback<StartLiveActivitySuccessResponse> _callback) throws ApiException {
@@ -5044,6 +5180,7 @@ public class DefaultApi {
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call transferSubscriptionCall(String appId, String subscriptionId, TransferSubscriptionRequestBody transferSubscriptionRequestBody, final ApiCallback _callback) throws ApiException {
@@ -5136,6 +5273,7 @@ public class DefaultApi {
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public UserIdentityBody transferSubscription(String appId, String subscriptionId, TransferSubscriptionRequestBody transferSubscriptionRequestBody) throws ApiException {
@@ -5159,6 +5297,7 @@ public class DefaultApi {
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<UserIdentityBody> transferSubscriptionWithHttpInfo(String appId, String subscriptionId, TransferSubscriptionRequestBody transferSubscriptionRequestBody) throws ApiException {
@@ -5184,6 +5323,7 @@ public class DefaultApi {
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call transferSubscriptionAsync(String appId, String subscriptionId, TransferSubscriptionRequestBody transferSubscriptionRequestBody, final ApiCallback<UserIdentityBody> _callback) throws ApiException {
@@ -5207,6 +5347,7 @@ public class DefaultApi {
         <tr><td> 202 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call unsubscribeEmailWithTokenCall(String appId, String notificationId, String token, final ApiCallback _callback) throws ApiException {
@@ -5301,6 +5442,7 @@ public class DefaultApi {
         <tr><td> 202 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public GenericSuccessBoolResponse unsubscribeEmailWithToken(String appId, String notificationId, String token) throws ApiException {
@@ -5322,6 +5464,7 @@ public class DefaultApi {
         <tr><td> 202 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<GenericSuccessBoolResponse> unsubscribeEmailWithTokenWithHttpInfo(String appId, String notificationId, String token) throws ApiException {
@@ -5345,6 +5488,7 @@ public class DefaultApi {
         <tr><td> 202 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call unsubscribeEmailWithTokenAsync(String appId, String notificationId, String token, final ApiCallback<GenericSuccessBoolResponse> _callback) throws ApiException {
@@ -5367,6 +5511,7 @@ public class DefaultApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call updateApiKeyCall(String appId, String tokenId, UpdateApiKeyRequest updateApiKeyRequest, final ApiCallback _callback) throws ApiException {
@@ -5456,6 +5601,7 @@ public class DefaultApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public Object updateApiKey(String appId, String tokenId, UpdateApiKeyRequest updateApiKeyRequest) throws ApiException {
@@ -5476,6 +5622,7 @@ public class DefaultApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<Object> updateApiKeyWithHttpInfo(String appId, String tokenId, UpdateApiKeyRequest updateApiKeyRequest) throws ApiException {
@@ -5498,6 +5645,7 @@ public class DefaultApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call updateApiKeyAsync(String appId, String tokenId, UpdateApiKeyRequest updateApiKeyRequest, final ApiCallback<Object> _callback) throws ApiException {
@@ -5520,6 +5668,7 @@ public class DefaultApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call updateAppCall(String appId, App app, final ApiCallback _callback) throws ApiException {
@@ -5603,6 +5752,7 @@ public class DefaultApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public App updateApp(String appId, App app) throws ApiException {
@@ -5623,6 +5773,7 @@ public class DefaultApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<App> updateAppWithHttpInfo(String appId, App app) throws ApiException {
@@ -5645,6 +5796,7 @@ public class DefaultApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call updateAppAsync(String appId, App app, final ApiCallback<App> _callback) throws ApiException {
@@ -5668,6 +5820,7 @@ public class DefaultApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call updateLiveActivityCall(String appId, String activityId, UpdateLiveActivityRequest updateLiveActivityRequest, final ApiCallback _callback) throws ApiException {
@@ -5758,6 +5911,7 @@ public class DefaultApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public UpdateLiveActivitySuccessResponse updateLiveActivity(String appId, String activityId, UpdateLiveActivityRequest updateLiveActivityRequest) throws ApiException {
@@ -5779,6 +5933,7 @@ public class DefaultApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<UpdateLiveActivitySuccessResponse> updateLiveActivityWithHttpInfo(String appId, String activityId, UpdateLiveActivityRequest updateLiveActivityRequest) throws ApiException {
@@ -5802,6 +5957,7 @@ public class DefaultApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call updateLiveActivityAsync(String appId, String activityId, UpdateLiveActivityRequest updateLiveActivityRequest, final ApiCallback<UpdateLiveActivitySuccessResponse> _callback) throws ApiException {
@@ -5827,6 +5983,7 @@ public class DefaultApi {
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call updateSubscriptionCall(String appId, String subscriptionId, SubscriptionBody subscriptionBody, final ApiCallback _callback) throws ApiException {
@@ -5918,6 +6075,7 @@ public class DefaultApi {
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public void updateSubscription(String appId, String subscriptionId, SubscriptionBody subscriptionBody) throws ApiException {
@@ -5940,6 +6098,7 @@ public class DefaultApi {
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<Void> updateSubscriptionWithHttpInfo(String appId, String subscriptionId, SubscriptionBody subscriptionBody) throws ApiException {
@@ -5964,6 +6123,7 @@ public class DefaultApi {
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call updateSubscriptionAsync(String appId, String subscriptionId, SubscriptionBody subscriptionBody, final ApiCallback<Void> _callback) throws ApiException {
@@ -5987,6 +6147,7 @@ public class DefaultApi {
         <tr><td> 202 </td><td> ACCEPTED </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call updateSubscriptionByTokenCall(String appId, String tokenType, String token, SubscriptionBody subscriptionBody, final ApiCallback _callback) throws ApiException {
@@ -6084,6 +6245,7 @@ public class DefaultApi {
         <tr><td> 202 </td><td> ACCEPTED </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public Object updateSubscriptionByToken(String appId, String tokenType, String token, SubscriptionBody subscriptionBody) throws ApiException {
@@ -6106,6 +6268,7 @@ public class DefaultApi {
         <tr><td> 202 </td><td> ACCEPTED </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<Object> updateSubscriptionByTokenWithHttpInfo(String appId, String tokenType, String token, SubscriptionBody subscriptionBody) throws ApiException {
@@ -6130,6 +6293,7 @@ public class DefaultApi {
         <tr><td> 202 </td><td> ACCEPTED </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call updateSubscriptionByTokenAsync(String appId, String tokenType, String token, SubscriptionBody subscriptionBody, final ApiCallback<Object> _callback) throws ApiException {
@@ -6152,6 +6316,7 @@ public class DefaultApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call updateTemplateCall(String templateId, String appId, UpdateTemplateRequest updateTemplateRequest, final ApiCallback _callback) throws ApiException {
@@ -6244,6 +6409,7 @@ public class DefaultApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public TemplateResource updateTemplate(String templateId, String appId, UpdateTemplateRequest updateTemplateRequest) throws ApiException {
@@ -6264,6 +6430,7 @@ public class DefaultApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<TemplateResource> updateTemplateWithHttpInfo(String templateId, String appId, UpdateTemplateRequest updateTemplateRequest) throws ApiException {
@@ -6286,6 +6453,7 @@ public class DefaultApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call updateTemplateAsync(String templateId, String appId, UpdateTemplateRequest updateTemplateRequest, final ApiCallback<TemplateResource> _callback) throws ApiException {
@@ -6311,6 +6479,7 @@ public class DefaultApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call updateUserCall(String appId, String aliasLabel, String aliasId, UpdateUserRequest updateUserRequest, final ApiCallback _callback) throws ApiException {
@@ -6409,6 +6578,7 @@ public class DefaultApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public PropertiesBody updateUser(String appId, String aliasLabel, String aliasId, UpdateUserRequest updateUserRequest) throws ApiException {
@@ -6432,6 +6602,7 @@ public class DefaultApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<PropertiesBody> updateUserWithHttpInfo(String appId, String aliasLabel, String aliasId, UpdateUserRequest updateUserRequest) throws ApiException {
@@ -6457,6 +6628,7 @@ public class DefaultApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call updateUserAsync(String appId, String aliasLabel, String aliasId, UpdateUserRequest updateUserRequest, final ApiCallback<PropertiesBody> _callback) throws ApiException {
@@ -6477,6 +6649,7 @@ public class DefaultApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call viewApiKeysCall(String appId, final ApiCallback _callback) throws ApiException {
@@ -6553,6 +6726,7 @@ public class DefaultApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public ApiKeyTokensListResponse viewApiKeys(String appId) throws ApiException {
@@ -6571,6 +6745,7 @@ public class DefaultApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<ApiKeyTokensListResponse> viewApiKeysWithHttpInfo(String appId) throws ApiException {
@@ -6591,6 +6766,7 @@ public class DefaultApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call viewApiKeysAsync(String appId, final ApiCallback<ApiKeyTokensListResponse> _callback) throws ApiException {
@@ -6613,6 +6789,7 @@ public class DefaultApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call viewTemplateCall(String templateId, String appId, final ApiCallback _callback) throws ApiException {
@@ -6700,6 +6877,7 @@ public class DefaultApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public TemplateResource viewTemplate(String templateId, String appId) throws ApiException {
@@ -6720,6 +6898,7 @@ public class DefaultApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<TemplateResource> viewTemplateWithHttpInfo(String templateId, String appId) throws ApiException {
@@ -6742,6 +6921,7 @@ public class DefaultApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call viewTemplateAsync(String templateId, String appId, final ApiCallback<TemplateResource> _callback) throws ApiException {
@@ -6766,6 +6946,7 @@ public class DefaultApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call viewTemplatesCall(String appId, Integer limit, Integer offset, String channel, final ApiCallback _callback) throws ApiException {
@@ -6861,6 +7042,7 @@ public class DefaultApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public TemplatesListResponse viewTemplates(String appId, Integer limit, Integer offset, String channel) throws ApiException {
@@ -6883,6 +7065,7 @@ public class DefaultApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<TemplatesListResponse> viewTemplatesWithHttpInfo(String appId, Integer limit, Integer offset, String channel) throws ApiException {
@@ -6907,6 +7090,7 @@ public class DefaultApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call viewTemplatesAsync(String appId, Integer limit, Integer offset, String channel, final ApiCallback<TemplatesListResponse> _callback) throws ApiException {

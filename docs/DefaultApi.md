@@ -160,6 +160,7 @@ public class Example {
 | **400** | Bad Request |  -  |
 | **404** | Not Found |  -  |
 | **429** | Rate Limit Exceeded |  -  |
+| **0** | Unexpected error |  -  |
 
 <a name="copyTemplateToApp"></a>
 # **copyTemplateToApp**
@@ -235,6 +236,7 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
+| **0** | Unexpected error |  -  |
 
 <a name="createAlias"></a>
 # **createAlias**
@@ -315,6 +317,7 @@ public class Example {
 | **404** | Not Found |  -  |
 | **409** | Conflict |  -  |
 | **429** | Rate Limit Exceeded |  -  |
+| **0** | Unexpected error |  -  |
 
 <a name="createAliasBySubscription"></a>
 # **createAliasBySubscription**
@@ -393,6 +396,7 @@ public class Example {
 | **404** | Not Found |  -  |
 | **409** | Conflict |  -  |
 | **429** | Rate Limit Exceeded |  -  |
+| **0** | Unexpected error |  -  |
 
 <a name="createApiKey"></a>
 # **createApiKey**
@@ -466,6 +470,7 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
+| **0** | Unexpected error |  -  |
 
 <a name="createApp"></a>
 # **createApp**
@@ -538,6 +543,7 @@ public class Example {
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
 | **429** | Rate Limit Exceeded |  -  |
+| **0** | Unexpected error |  -  |
 
 <a name="createCustomEvents"></a>
 # **createCustomEvents**
@@ -613,6 +619,7 @@ public class Example {
 | **400** | Bad Request |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Rate Limit Exceeded |  -  |
+| **0** | Unexpected error |  -  |
 
 <a name="createNotification"></a>
 # **createNotification**
@@ -770,6 +777,7 @@ public class Example {
 | **200** | OK, invalid_aliases, or No Subscribed Players If a message was successfully created, you will get a 200 response with a non-empty &#x60;id&#x60; for the notification. If the 200 response contains &#x60;invalid_aliases&#x60;, that marks devices that exist in the provided app_id but are no longer subscribed. If &#x60;id&#x60; is an empty string, no notification was created: check the &#x60;errors&#x60; array (for example messages such as \&quot;All included players are not subscribed\&quot;) even though HTTP status is still 200. This can happen when alias keys are wrong, External IDs do not resolve to subscribed users, or other validation issues. If no id is returned, then a message was not created and the targeted User IDs do not exist under the provided app_id. Any User IDs sent in the request that do not exist under the specified app_id will be ignored.  |  -  |
 | **400** | Bad Request |  -  |
 | **429** | Rate Limit Exceeded |  -  |
+| **0** | Unexpected error |  -  |
 
 <a name="createSegment"></a>
 # **createSegment**
@@ -845,6 +853,7 @@ public class Example {
 | **400** | Bad Request |  -  |
 | **409** | Conflict |  -  |
 | **429** | Rate Limit Exceeded |  -  |
+| **0** | Unexpected error |  -  |
 
 <a name="createSubscription"></a>
 # **createSubscription**
@@ -926,6 +935,7 @@ public class Example {
 | **404** | Not Found |  -  |
 | **409** | Operation is not permitted due to user having the maximum number of subscriptions assigned |  -  |
 | **429** | Rate Limit Exceeded |  -  |
+| **0** | Unexpected error |  -  |
 
 <a name="createTemplate"></a>
 # **createTemplate**
@@ -998,6 +1008,7 @@ public class Example {
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
 | **422** | Unprocessable Entity |  -  |
+| **0** | Unexpected error |  -  |
 
 <a name="createUser"></a>
 # **createUser**
@@ -1089,6 +1100,7 @@ if (e.getCode() == 409) {
 | **400** | Bad Request |  -  |
 | **409** | Multiple User Identity Conflict |  -  |
 | **429** | Rate Limit Exceeded |  -  |
+| **0** | Unexpected error |  -  |
 
 <a name="deleteAlias"></a>
 # **deleteAlias**
@@ -1169,6 +1181,7 @@ public class Example {
 | **404** | Not Found |  -  |
 | **409** | Conflict |  -  |
 | **429** | Rate Limit Exceeded |  -  |
+| **0** | Unexpected error |  -  |
 
 <a name="deleteApiKey"></a>
 # **deleteApiKey**
@@ -1242,6 +1255,7 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
+| **0** | Unexpected error |  -  |
 
 <a name="deleteSegment"></a>
 # **deleteSegment**
@@ -1317,6 +1331,7 @@ public class Example {
 | **400** | Bad Request |  -  |
 | **404** | Not Found |  -  |
 | **429** | Rate Limit Exceeded |  -  |
+| **0** | Unexpected error |  -  |
 
 <a name="deleteSubscription"></a>
 # **deleteSubscription**
@@ -1392,6 +1407,7 @@ null (empty response body)
 | **404** | Not Found |  -  |
 | **409** | Conflict |  -  |
 | **429** | Rate Limit Exceeded |  -  |
+| **0** | Unexpected error |  -  |
 
 <a name="deleteTemplate"></a>
 # **deleteTemplate**
@@ -1466,6 +1482,7 @@ public class Example {
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
 | **404** | Not Found |  -  |
+| **0** | Unexpected error |  -  |
 
 <a name="deleteUser"></a>
 # **deleteUser**
@@ -1542,6 +1559,7 @@ null (empty response body)
 | **400** | Bad Request |  -  |
 | **409** | Conflict |  -  |
 | **429** | Rate Limit Exceeded |  -  |
+| **0** | Unexpected error |  -  |
 
 <a name="exportEvents"></a>
 # **exportEvents**
@@ -1617,6 +1635,7 @@ public class Example {
 | **400** | Bad Request |  -  |
 | **404** | Not Found |  -  |
 | **429** | Rate Limit Exceeded |  -  |
+| **0** | Unexpected error |  -  |
 
 <a name="exportSubscriptions"></a>
 # **exportSubscriptions**
@@ -1691,6 +1710,7 @@ public class Example {
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
 | **429** | Rate Limit Exceeded |  -  |
+| **0** | Unexpected error |  -  |
 
 <a name="getAliases"></a>
 # **getAliases**
@@ -1768,6 +1788,7 @@ public class Example {
 | **400** | Bad Request |  -  |
 | **404** | Not Found |  -  |
 | **429** | Rate Limit Exceeded |  -  |
+| **0** | Unexpected error |  -  |
 
 <a name="getAliasesBySubscription"></a>
 # **getAliasesBySubscription**
@@ -1842,6 +1863,7 @@ public class Example {
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
 | **404** | Not Found |  -  |
+| **0** | Unexpected error |  -  |
 
 <a name="getApp"></a>
 # **getApp**
@@ -1914,6 +1936,7 @@ public class Example {
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
 | **429** | Rate Limit Exceeded |  -  |
+| **0** | Unexpected error |  -  |
 
 <a name="getApps"></a>
 # **getApps**
@@ -1982,6 +2005,7 @@ This endpoint does not need any parameter.
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
 | **429** | Rate Limit Exceeded |  -  |
+| **0** | Unexpected error |  -  |
 
 <a name="getNotification"></a>
 # **getNotification**
@@ -2057,6 +2081,7 @@ public class Example {
 | **400** | Bad Request |  -  |
 | **404** | Not Found |  -  |
 | **429** | Rate Limit Exceeded |  -  |
+| **0** | Unexpected error |  -  |
 
 <a name="getNotificationHistory"></a>
 # **getNotificationHistory**
@@ -2132,10 +2157,11 @@ public class Example {
 | **400** | Bad Request |  -  |
 | **404** | Not Found |  -  |
 | **429** | Rate Limit Exceeded |  -  |
+| **0** | Unexpected error |  -  |
 
 <a name="getNotifications"></a>
 # **getNotifications**
-> NotificationSlice getNotifications(appId, limit, offset, kind)
+> NotificationSlice getNotifications(appId, limit, offset, kind, timeOffset)
 
 View notifications
 
@@ -2165,8 +2191,9 @@ public class Example {
     Integer limit = 10; // Integer | How many notifications to return.  Max is 50.  Default is 50.
     Integer offset = 0; // Integer | Page offset.  Default is 0.  Results are sorted by queued_at in descending order.  queued_at is a representation of the time that the notification was queued at.
     Integer kind = 0; // Integer | Kind of notifications returned:   * unset - All notification types (default)   * `0` - Dashboard only   * `1` - API only   * `3` - Automated only 
+    String timeOffset = "2025-01-01T00:00:00.000Z"; // String | Time-offset pagination cursor for sequential pulls of all messages.  Accepts either an ISO 8601 formatted timestamp (e.g. `2025-01-01T00:00:00.000Z`) or the opaque Base64 cursor token returned as `next_time_offset` in a prior response.  When set, results are sorted ascending by send_after and the standard `offset` parameter cannot be used.  Repeat the request with each `next_time_offset` until an empty notifications array is returned.
     try {
-      NotificationSlice result = apiInstance.getNotifications(appId, limit, offset, kind);
+      NotificationSlice result = apiInstance.getNotifications(appId, limit, offset, kind, timeOffset);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling DefaultApi#getNotifications");
@@ -2190,6 +2217,7 @@ public class Example {
 | **limit** | **Integer**| How many notifications to return.  Max is 50.  Default is 50. | [optional] |
 | **offset** | **Integer**| Page offset.  Default is 0.  Results are sorted by queued_at in descending order.  queued_at is a representation of the time that the notification was queued at. | [optional] |
 | **kind** | **Integer**| Kind of notifications returned:   * unset - All notification types (default)   * &#x60;0&#x60; - Dashboard only   * &#x60;1&#x60; - API only   * &#x60;3&#x60; - Automated only  | [optional] [enum: 0, 1, 3] |
+| **timeOffset** | **String**| Time-offset pagination cursor for sequential pulls of all messages.  Accepts either an ISO 8601 formatted timestamp (e.g. &#x60;2025-01-01T00:00:00.000Z&#x60;) or the opaque Base64 cursor token returned as &#x60;next_time_offset&#x60; in a prior response.  When set, results are sorted ascending by send_after and the standard &#x60;offset&#x60; parameter cannot be used.  Repeat the request with each &#x60;next_time_offset&#x60; until an empty notifications array is returned. | [optional] |
 
 ### Return type
 
@@ -2210,6 +2238,7 @@ public class Example {
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
 | **429** | Rate Limit Exceeded |  -  |
+| **0** | Unexpected error |  -  |
 
 <a name="getOutcomes"></a>
 # **getOutcomes**
@@ -2292,6 +2321,7 @@ public class Example {
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
 | **429** | Rate Limit Exceeded |  -  |
+| **0** | Unexpected error |  -  |
 
 <a name="getSegments"></a>
 # **getSegments**
@@ -2368,6 +2398,7 @@ public class Example {
 | **201** | OK |  -  |
 | **400** | Bad Request |  -  |
 | **429** | Rate Limit Exceeded |  -  |
+| **0** | Unexpected error |  -  |
 
 <a name="getUser"></a>
 # **getUser**
@@ -2445,6 +2476,7 @@ public class Example {
 | **400** | Bad Request |  -  |
 | **404** | Not Found |  -  |
 | **429** | Rate Limit Exceeded |  -  |
+| **0** | Unexpected error |  -  |
 
 <a name="rotateApiKey"></a>
 # **rotateApiKey**
@@ -2518,6 +2550,7 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
+| **0** | Unexpected error |  -  |
 
 <a name="startLiveActivity"></a>
 # **startLiveActivity**
@@ -2594,6 +2627,7 @@ public class Example {
 | **201** | Created |  -  |
 | **400** | Bad Request |  -  |
 | **429** | Rate Limit Exceeded |  -  |
+| **0** | Unexpected error |  -  |
 
 <a name="transferSubscription"></a>
 # **transferSubscription**
@@ -2672,6 +2706,7 @@ public class Example {
 | **404** | Not Found |  -  |
 | **409** | Conflict |  -  |
 | **429** | Rate Limit Exceeded |  -  |
+| **0** | Unexpected error |  -  |
 
 <a name="unsubscribeEmailWithToken"></a>
 # **unsubscribeEmailWithToken**
@@ -2748,6 +2783,7 @@ public class Example {
 | **202** | OK |  -  |
 | **400** | Bad Request |  -  |
 | **429** | Rate Limit Exceeded |  -  |
+| **0** | Unexpected error |  -  |
 
 <a name="updateApiKey"></a>
 # **updateApiKey**
@@ -2823,6 +2859,7 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
+| **0** | Unexpected error |  -  |
 
 <a name="updateApp"></a>
 # **updateApp**
@@ -2897,6 +2934,7 @@ public class Example {
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
 | **429** | Rate Limit Exceeded |  -  |
+| **0** | Unexpected error |  -  |
 
 <a name="updateLiveActivity"></a>
 # **updateLiveActivity**
@@ -2973,6 +3011,7 @@ public class Example {
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
 | **429** | Rate Limit Exceeded |  -  |
+| **0** | Unexpected error |  -  |
 
 <a name="updateSubscription"></a>
 # **updateSubscription**
@@ -3050,6 +3089,7 @@ null (empty response body)
 | **404** | Not Found |  -  |
 | **409** | Conflict |  -  |
 | **429** | Rate Limit Exceeded |  -  |
+| **0** | Unexpected error |  -  |
 
 <a name="updateSubscriptionByToken"></a>
 # **updateSubscriptionByToken**
@@ -3128,6 +3168,7 @@ public class Example {
 | **202** | ACCEPTED |  -  |
 | **400** | Bad Request |  -  |
 | **404** | Not Found |  -  |
+| **0** | Unexpected error |  -  |
 
 <a name="updateTemplate"></a>
 # **updateTemplate**
@@ -3203,6 +3244,7 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
+| **0** | Unexpected error |  -  |
 
 <a name="updateUser"></a>
 # **updateUser**
@@ -3282,6 +3324,7 @@ public class Example {
 | **400** | Bad Request |  -  |
 | **409** | Conflict |  -  |
 | **429** | Rate Limit Exceeded |  -  |
+| **0** | Unexpected error |  -  |
 
 <a name="viewApiKeys"></a>
 # **viewApiKeys**
@@ -3353,6 +3396,7 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
+| **0** | Unexpected error |  -  |
 
 <a name="viewTemplate"></a>
 # **viewTemplate**
@@ -3427,6 +3471,7 @@ public class Example {
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
 | **404** | Not Found |  -  |
+| **0** | Unexpected error |  -  |
 
 <a name="viewTemplates"></a>
 # **viewTemplates**
@@ -3505,4 +3550,5 @@ public class Example {
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
 | **429** | Rate Limit Exceeded |  -  |
+| **0** | Unexpected error |  -  |
 

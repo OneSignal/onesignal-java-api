@@ -75,11 +75,11 @@ public class CreateNotificationSuccessResponse {
   }
 
    /**
-   * Notification identifier when the request created a notification. An empty string means no notification was created; read &#x60;errors&#x60; for details (HTTP may still be 200).
+   * Notification identifier when the request created a notification. An empty string means no notification was created; read &#x60;errors&#x60; for details (HTTP may still be 200). All OneSignal server SDKs expose message-sent / message-not-sent narrowing helpers (named idiomatically per language — e.g. &#x60;isMessageSent&#x60;, &#x60;is_message_sent&#x60;, &#x60;message_sent?&#x60;); prefer them over comparing &#x60;id&#x60; directly.
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Notification identifier when the request created a notification. An empty string means no notification was created; read `errors` for details (HTTP may still be 200).")
+  @ApiModelProperty(value = "Notification identifier when the request created a notification. An empty string means no notification was created; read `errors` for details (HTTP may still be 200). All OneSignal server SDKs expose message-sent / message-not-sent narrowing helpers (named idiomatically per language — e.g. `isMessageSent`, `is_message_sent`, `message_sent?`); prefer them over comparing `id` directly.")
 
   public String getId() {
     return id;

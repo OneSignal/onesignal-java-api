@@ -67,6 +67,14 @@ public class NotificationSlice {
   @SerializedName(SERIALIZED_NAME_LIMIT)
   private Integer limit;
 
+  public static final String SERIALIZED_NAME_TIME_OFFSET = "time_offset";
+  @SerializedName(SERIALIZED_NAME_TIME_OFFSET)
+  private String timeOffset;
+
+  public static final String SERIALIZED_NAME_NEXT_TIME_OFFSET = "next_time_offset";
+  @SerializedName(SERIALIZED_NAME_NEXT_TIME_OFFSET)
+  private String nextTimeOffset;
+
   public static final String SERIALIZED_NAME_NOTIFICATIONS = "notifications";
   @SerializedName(SERIALIZED_NAME_NOTIFICATIONS)
   private List<NotificationWithMeta> notifications = null;
@@ -143,6 +151,52 @@ public class NotificationSlice {
   }
 
 
+  public NotificationSlice timeOffset(String timeOffset) {
+    
+    this.timeOffset = timeOffset;
+    return this;
+  }
+
+   /**
+   * The time_offset cursor specified in the request, if any.
+   * @return timeOffset
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The time_offset cursor specified in the request, if any.")
+
+  public String getTimeOffset() {
+    return timeOffset;
+  }
+
+
+  public void setTimeOffset(String timeOffset) {
+    this.timeOffset = timeOffset;
+  }
+
+
+  public NotificationSlice nextTimeOffset(String nextTimeOffset) {
+    
+    this.nextTimeOffset = nextTimeOffset;
+    return this;
+  }
+
+   /**
+   * An opaque Base64 cursor token representing the next page of messages to fetch.  Present when time_offset was provided in the request.  Pass this value as time_offset on the next request to continue paginating.
+   * @return nextTimeOffset
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "An opaque Base64 cursor token representing the next page of messages to fetch.  Present when time_offset was provided in the request.  Pass this value as time_offset on the next request to continue paginating.")
+
+  public String getNextTimeOffset() {
+    return nextTimeOffset;
+  }
+
+
+  public void setNextTimeOffset(String nextTimeOffset) {
+    this.nextTimeOffset = nextTimeOffset;
+  }
+
+
   public NotificationSlice notifications(List<NotificationWithMeta> notifications) {
     
     this.notifications = notifications;
@@ -187,12 +241,14 @@ public class NotificationSlice {
     return Objects.equals(this.totalCount, notificationSlice.totalCount) &&
         Objects.equals(this.offset, notificationSlice.offset) &&
         Objects.equals(this.limit, notificationSlice.limit) &&
+        Objects.equals(this.timeOffset, notificationSlice.timeOffset) &&
+        Objects.equals(this.nextTimeOffset, notificationSlice.nextTimeOffset) &&
         Objects.equals(this.notifications, notificationSlice.notifications);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(totalCount, offset, limit, notifications);
+    return Objects.hash(totalCount, offset, limit, timeOffset, nextTimeOffset, notifications);
   }
 
   @Override
@@ -202,6 +258,8 @@ public class NotificationSlice {
     sb.append("    totalCount: ").append(toIndentedString(totalCount)).append("\n");
     sb.append("    offset: ").append(toIndentedString(offset)).append("\n");
     sb.append("    limit: ").append(toIndentedString(limit)).append("\n");
+    sb.append("    timeOffset: ").append(toIndentedString(timeOffset)).append("\n");
+    sb.append("    nextTimeOffset: ").append(toIndentedString(nextTimeOffset)).append("\n");
     sb.append("    notifications: ").append(toIndentedString(notifications)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -228,6 +286,8 @@ public class NotificationSlice {
     openapiFields.add("total_count");
     openapiFields.add("offset");
     openapiFields.add("limit");
+    openapiFields.add("time_offset");
+    openapiFields.add("next_time_offset");
     openapiFields.add("notifications");
 
     // a set of required properties/fields (JSON key names)
