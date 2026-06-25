@@ -13,7 +13,7 @@ lazy val root = (project in file(".")).
       "com.squareup.okhttp3" % "okhttp" % "4.9.3",
       "com.squareup.okhttp3" % "logging-interceptor" % "4.9.3",
       "com.google.code.gson" % "gson" % "2.9.0",
-      "org.apache.commons" % "commons-lang3" % "3.12.0",
+      "org.apache.commons" % "commons-lang3" % "3.18.0",
       "javax.ws.rs" % "jsr311-api" % "1.1.1",
       "javax.ws.rs" % "javax.ws.rs-api" % "2.1.1",
       "org.openapitools" % "jackson-databind-nullable" % "0.2.2",
