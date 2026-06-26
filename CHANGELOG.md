@@ -1,5 +1,15 @@
 # Changelog
 
+## [5.9.0](https://github.com/OneSignal/onesignal-java-api/compare/v5.8.0...v5.9.0) (2026-06-26)
+
+### Features
+
+* add v5.8.1 package updates ([4c18590](https://github.com/OneSignal/onesignal-java-api/commit/4c185907abb805952781b0163afbebc636e2866f))
+
+### Bug Fixes
+
+* add v5.8.1 package updates ([#108](https://github.com/OneSignal/onesignal-java-api/issues/108)) ([78ced22](https://github.com/OneSignal/onesignal-java-api/commit/78ced22a7582d87661388720aaa63eaf3bb74e67))
+
 ## [5.8.0](https://github.com/OneSignal/onesignal-java-api/compare/v5.7.0...v5.8.0) (2026-06-24)
 
 ### Features
