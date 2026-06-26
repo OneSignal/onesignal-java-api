@@ -1,5 +1,7 @@
 # onesignal-java-client
 
+> **Building with an AI agent or LLM?** See [AGENTS.md](https://github.com/OneSignal/onesignal-java-api/blob/main/AGENTS.md) for an agent-oriented integration guide — authentication, calling conventions, idempotent retries, and the full API reference.
+
 OneSignal
 - API version: 5.8.0
 
