@@ -19,14 +19,14 @@ Building the API client library requires:
 <dependency>
   <groupId>com.onesignal</groupId>
   <artifactId>onesignal-java-client</artifactId>
-  <version>5.8.0</version>
+  <version>5.8.1</version>
 </dependency>
 ```
 
 ### Gradle
 
 ```groovy
-implementation "com.onesignal:onesignal-java-client:5.8.0"
+implementation "com.onesignal:onesignal-java-client:5.8.1"
 ```
 
 ## Configuration
