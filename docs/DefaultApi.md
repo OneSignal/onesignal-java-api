@@ -1949,6 +1949,7 @@ View the details of all of your current OneSignal apps
 ### Example
 ```java
 // Import classes:
+import java.util.List;
 import com.onesignal.client.ApiClient;
 import com.onesignal.client.ApiException;
 import com.onesignal.client.Configuration;
