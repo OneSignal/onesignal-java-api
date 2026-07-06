@@ -111,7 +111,7 @@ public class Example {
     
     // Configure HTTP bearer authorization: rest_api_key
     HttpBearerAuth rest_api_key = (HttpBearerAuth) defaultClient.getAuthentication("rest_api_key");
-    rest_api_key.setBearerToken("BEARER TOKEN");
+    rest_api_key.setBearerToken("YOUR_REST_API_KEY");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
     String appId = "00000000-0000-0000-0000-000000000000"; // String | 
@@ -187,7 +187,7 @@ public class Example {
     
     // Configure HTTP bearer authorization: organization_api_key
     HttpBearerAuth organization_api_key = (HttpBearerAuth) defaultClient.getAuthentication("organization_api_key");
-    organization_api_key.setBearerToken("BEARER TOKEN");
+    organization_api_key.setBearerToken("YOUR_ORGANIZATION_API_KEY");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
     String templateId = "e4d3c2b1-a09f-4f1e-8d7c-6b5a4f3e2d1c"; // String | 
@@ -263,7 +263,7 @@ public class Example {
     
     // Configure HTTP bearer authorization: rest_api_key
     HttpBearerAuth rest_api_key = (HttpBearerAuth) defaultClient.getAuthentication("rest_api_key");
-    rest_api_key.setBearerToken("BEARER TOKEN");
+    rest_api_key.setBearerToken("YOUR_REST_API_KEY");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
     String appId = "00000000-0000-0000-0000-000000000000"; // String | 
@@ -344,7 +344,7 @@ public class Example {
     
     // Configure HTTP bearer authorization: rest_api_key
     HttpBearerAuth rest_api_key = (HttpBearerAuth) defaultClient.getAuthentication("rest_api_key");
-    rest_api_key.setBearerToken("BEARER TOKEN");
+    rest_api_key.setBearerToken("YOUR_REST_API_KEY");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
     String appId = "00000000-0000-0000-0000-000000000000"; // String | 
@@ -423,7 +423,7 @@ public class Example {
     
     // Configure HTTP bearer authorization: organization_api_key
     HttpBearerAuth organization_api_key = (HttpBearerAuth) defaultClient.getAuthentication("organization_api_key");
-    organization_api_key.setBearerToken("BEARER TOKEN");
+    organization_api_key.setBearerToken("YOUR_ORGANIZATION_API_KEY");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
     String appId = "00000000-0000-0000-0000-000000000000"; // String | 
@@ -497,7 +497,7 @@ public class Example {
     
     // Configure HTTP bearer authorization: organization_api_key
     HttpBearerAuth organization_api_key = (HttpBearerAuth) defaultClient.getAuthentication("organization_api_key");
-    organization_api_key.setBearerToken("BEARER TOKEN");
+    organization_api_key.setBearerToken("YOUR_ORGANIZATION_API_KEY");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
     App app = new App(); // App | 
@@ -570,7 +570,7 @@ public class Example {
     
     // Configure HTTP bearer authorization: rest_api_key
     HttpBearerAuth rest_api_key = (HttpBearerAuth) defaultClient.getAuthentication("rest_api_key");
-    rest_api_key.setBearerToken("BEARER TOKEN");
+    rest_api_key.setBearerToken("YOUR_REST_API_KEY");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
     String appId = "00000000-0000-0000-0000-000000000000"; // String | Your OneSignal App ID in UUID v4 format.
@@ -651,7 +651,7 @@ public class Example {
     defaultClient.setBasePath("https://api.onesignal.com");
 
     HttpBearerAuth rest_api_key = (HttpBearerAuth) defaultClient.getAuthentication("rest_api_key");
-    rest_api_key.setBearerToken("BEARER TOKEN");
+    rest_api_key.setBearerToken("YOUR_REST_API_KEY");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
     Notification notification = new Notification();
@@ -720,7 +720,7 @@ public class Example {
     defaultClient.setBasePath("https://api.onesignal.com");
 
     HttpBearerAuth rest_api_key = (HttpBearerAuth) defaultClient.getAuthentication("rest_api_key");
-    rest_api_key.setBearerToken("BEARER TOKEN");
+    rest_api_key.setBearerToken("YOUR_REST_API_KEY");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
     Notification notification = new Notification();
@@ -804,7 +804,7 @@ public class Example {
     
     // Configure HTTP bearer authorization: rest_api_key
     HttpBearerAuth rest_api_key = (HttpBearerAuth) defaultClient.getAuthentication("rest_api_key");
-    rest_api_key.setBearerToken("BEARER TOKEN");
+    rest_api_key.setBearerToken("YOUR_REST_API_KEY");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
     String appId = "00000000-0000-0000-0000-000000000000"; // String | The OneSignal App ID for your app.  Available in Keys & IDs.
@@ -880,7 +880,7 @@ public class Example {
     
     // Configure HTTP bearer authorization: rest_api_key
     HttpBearerAuth rest_api_key = (HttpBearerAuth) defaultClient.getAuthentication("rest_api_key");
-    rest_api_key.setBearerToken("BEARER TOKEN");
+    rest_api_key.setBearerToken("YOUR_REST_API_KEY");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
     String appId = "00000000-0000-0000-0000-000000000000"; // String | 
@@ -962,7 +962,7 @@ public class Example {
     
     // Configure HTTP bearer authorization: rest_api_key
     HttpBearerAuth rest_api_key = (HttpBearerAuth) defaultClient.getAuthentication("rest_api_key");
-    rest_api_key.setBearerToken("BEARER TOKEN");
+    rest_api_key.setBearerToken("YOUR_REST_API_KEY");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
     CreateTemplateRequest createTemplateRequest = new CreateTemplateRequest(); // CreateTemplateRequest | 
@@ -1035,7 +1035,7 @@ public class Example {
     
     // Configure HTTP bearer authorization: rest_api_key
     HttpBearerAuth rest_api_key = (HttpBearerAuth) defaultClient.getAuthentication("rest_api_key");
-    rest_api_key.setBearerToken("BEARER TOKEN");
+    rest_api_key.setBearerToken("YOUR_REST_API_KEY");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
     String appId = "00000000-0000-0000-0000-000000000000"; // String | 
@@ -1127,7 +1127,7 @@ public class Example {
     
     // Configure HTTP bearer authorization: rest_api_key
     HttpBearerAuth rest_api_key = (HttpBearerAuth) defaultClient.getAuthentication("rest_api_key");
-    rest_api_key.setBearerToken("BEARER TOKEN");
+    rest_api_key.setBearerToken("YOUR_REST_API_KEY");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
     String appId = "00000000-0000-0000-0000-000000000000"; // String | 
@@ -1208,7 +1208,7 @@ public class Example {
     
     // Configure HTTP bearer authorization: organization_api_key
     HttpBearerAuth organization_api_key = (HttpBearerAuth) defaultClient.getAuthentication("organization_api_key");
-    organization_api_key.setBearerToken("BEARER TOKEN");
+    organization_api_key.setBearerToken("YOUR_ORGANIZATION_API_KEY");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
     String appId = "00000000-0000-0000-0000-000000000000"; // String | 
@@ -1282,7 +1282,7 @@ public class Example {
     
     // Configure HTTP bearer authorization: rest_api_key
     HttpBearerAuth rest_api_key = (HttpBearerAuth) defaultClient.getAuthentication("rest_api_key");
-    rest_api_key.setBearerToken("BEARER TOKEN");
+    rest_api_key.setBearerToken("YOUR_REST_API_KEY");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
     String appId = "00000000-0000-0000-0000-000000000000"; // String | The OneSignal App ID for your app.  Available in Keys & IDs.
@@ -1358,7 +1358,7 @@ public class Example {
     
     // Configure HTTP bearer authorization: rest_api_key
     HttpBearerAuth rest_api_key = (HttpBearerAuth) defaultClient.getAuthentication("rest_api_key");
-    rest_api_key.setBearerToken("BEARER TOKEN");
+    rest_api_key.setBearerToken("YOUR_REST_API_KEY");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
     String appId = "00000000-0000-0000-0000-000000000000"; // String | 
@@ -1434,7 +1434,7 @@ public class Example {
     
     // Configure HTTP bearer authorization: rest_api_key
     HttpBearerAuth rest_api_key = (HttpBearerAuth) defaultClient.getAuthentication("rest_api_key");
-    rest_api_key.setBearerToken("BEARER TOKEN");
+    rest_api_key.setBearerToken("YOUR_REST_API_KEY");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
     String templateId = "e4d3c2b1-a09f-4f1e-8d7c-6b5a4f3e2d1c"; // String | 
@@ -1509,7 +1509,7 @@ public class Example {
     
     // Configure HTTP bearer authorization: rest_api_key
     HttpBearerAuth rest_api_key = (HttpBearerAuth) defaultClient.getAuthentication("rest_api_key");
-    rest_api_key.setBearerToken("BEARER TOKEN");
+    rest_api_key.setBearerToken("YOUR_REST_API_KEY");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
     String appId = "00000000-0000-0000-0000-000000000000"; // String | 
@@ -1586,7 +1586,7 @@ public class Example {
     
     // Configure HTTP bearer authorization: rest_api_key
     HttpBearerAuth rest_api_key = (HttpBearerAuth) defaultClient.getAuthentication("rest_api_key");
-    rest_api_key.setBearerToken("BEARER TOKEN");
+    rest_api_key.setBearerToken("YOUR_REST_API_KEY");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
     String notificationId = "b3a0c8bd-3a4c-4b22-9a73-3f1a8c2d1b88"; // String | The ID of the notification to export events from.
@@ -1662,7 +1662,7 @@ public class Example {
     
     // Configure HTTP bearer authorization: rest_api_key
     HttpBearerAuth rest_api_key = (HttpBearerAuth) defaultClient.getAuthentication("rest_api_key");
-    rest_api_key.setBearerToken("BEARER TOKEN");
+    rest_api_key.setBearerToken("YOUR_REST_API_KEY");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
     String appId = "00000000-0000-0000-0000-000000000000"; // String | The app ID that you want to export devices from
@@ -1737,7 +1737,7 @@ public class Example {
     
     // Configure HTTP bearer authorization: rest_api_key
     HttpBearerAuth rest_api_key = (HttpBearerAuth) defaultClient.getAuthentication("rest_api_key");
-    rest_api_key.setBearerToken("BEARER TOKEN");
+    rest_api_key.setBearerToken("YOUR_REST_API_KEY");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
     String appId = "00000000-0000-0000-0000-000000000000"; // String | 
@@ -1815,7 +1815,7 @@ public class Example {
     
     // Configure HTTP bearer authorization: rest_api_key
     HttpBearerAuth rest_api_key = (HttpBearerAuth) defaultClient.getAuthentication("rest_api_key");
-    rest_api_key.setBearerToken("BEARER TOKEN");
+    rest_api_key.setBearerToken("YOUR_REST_API_KEY");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
     String appId = "00000000-0000-0000-0000-000000000000"; // String | 
@@ -1890,7 +1890,7 @@ public class Example {
     
     // Configure HTTP bearer authorization: organization_api_key
     HttpBearerAuth organization_api_key = (HttpBearerAuth) defaultClient.getAuthentication("organization_api_key");
-    organization_api_key.setBearerToken("BEARER TOKEN");
+    organization_api_key.setBearerToken("YOUR_ORGANIZATION_API_KEY");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
     String appId = "00000000-0000-0000-0000-000000000000"; // String | An app id
@@ -1964,7 +1964,7 @@ public class Example {
     
     // Configure HTTP bearer authorization: organization_api_key
     HttpBearerAuth organization_api_key = (HttpBearerAuth) defaultClient.getAuthentication("organization_api_key");
-    organization_api_key.setBearerToken("BEARER TOKEN");
+    organization_api_key.setBearerToken("YOUR_ORGANIZATION_API_KEY");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
     try {
@@ -2033,7 +2033,7 @@ public class Example {
     
     // Configure HTTP bearer authorization: rest_api_key
     HttpBearerAuth rest_api_key = (HttpBearerAuth) defaultClient.getAuthentication("rest_api_key");
-    rest_api_key.setBearerToken("BEARER TOKEN");
+    rest_api_key.setBearerToken("YOUR_REST_API_KEY");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
     String appId = "00000000-0000-0000-0000-000000000000"; // String | 
@@ -2109,7 +2109,7 @@ public class Example {
     
     // Configure HTTP bearer authorization: rest_api_key
     HttpBearerAuth rest_api_key = (HttpBearerAuth) defaultClient.getAuthentication("rest_api_key");
-    rest_api_key.setBearerToken("BEARER TOKEN");
+    rest_api_key.setBearerToken("YOUR_REST_API_KEY");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
     String notificationId = "b3a0c8bd-3a4c-4b22-9a73-3f1a8c2d1b88"; // String | The \"id\" of the message found in the Notification object
@@ -2185,7 +2185,7 @@ public class Example {
     
     // Configure HTTP bearer authorization: rest_api_key
     HttpBearerAuth rest_api_key = (HttpBearerAuth) defaultClient.getAuthentication("rest_api_key");
-    rest_api_key.setBearerToken("BEARER TOKEN");
+    rest_api_key.setBearerToken("YOUR_REST_API_KEY");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
     String appId = "00000000-0000-0000-0000-000000000000"; // String | The app ID that you want to view notifications from
@@ -2266,7 +2266,7 @@ public class Example {
     
     // Configure HTTP bearer authorization: rest_api_key
     HttpBearerAuth rest_api_key = (HttpBearerAuth) defaultClient.getAuthentication("rest_api_key");
-    rest_api_key.setBearerToken("BEARER TOKEN");
+    rest_api_key.setBearerToken("YOUR_REST_API_KEY");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
     String appId = "00000000-0000-0000-0000-000000000000"; // String | The OneSignal App ID for your app.  Available in Keys & IDs.
@@ -2349,7 +2349,7 @@ public class Example {
     
     // Configure HTTP bearer authorization: rest_api_key
     HttpBearerAuth rest_api_key = (HttpBearerAuth) defaultClient.getAuthentication("rest_api_key");
-    rest_api_key.setBearerToken("BEARER TOKEN");
+    rest_api_key.setBearerToken("YOUR_REST_API_KEY");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
     String appId = "00000000-0000-0000-0000-000000000000"; // String | The OneSignal App ID for your app.  Available in Keys & IDs.
@@ -2426,7 +2426,7 @@ public class Example {
     
     // Configure HTTP bearer authorization: rest_api_key
     HttpBearerAuth rest_api_key = (HttpBearerAuth) defaultClient.getAuthentication("rest_api_key");
-    rest_api_key.setBearerToken("BEARER TOKEN");
+    rest_api_key.setBearerToken("YOUR_REST_API_KEY");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
     String appId = "00000000-0000-0000-0000-000000000000"; // String | 
@@ -2504,7 +2504,7 @@ public class Example {
     
     // Configure HTTP bearer authorization: organization_api_key
     HttpBearerAuth organization_api_key = (HttpBearerAuth) defaultClient.getAuthentication("organization_api_key");
-    organization_api_key.setBearerToken("BEARER TOKEN");
+    organization_api_key.setBearerToken("YOUR_ORGANIZATION_API_KEY");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
     String appId = "00000000-0000-0000-0000-000000000000"; // String | 
@@ -2578,7 +2578,7 @@ public class Example {
     
     // Configure HTTP bearer authorization: rest_api_key
     HttpBearerAuth rest_api_key = (HttpBearerAuth) defaultClient.getAuthentication("rest_api_key");
-    rest_api_key.setBearerToken("BEARER TOKEN");
+    rest_api_key.setBearerToken("YOUR_REST_API_KEY");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
     String appId = "00000000-0000-0000-0000-000000000000"; // String | Your OneSignal App ID in UUID v4 format.
@@ -2655,7 +2655,7 @@ public class Example {
     
     // Configure HTTP bearer authorization: rest_api_key
     HttpBearerAuth rest_api_key = (HttpBearerAuth) defaultClient.getAuthentication("rest_api_key");
-    rest_api_key.setBearerToken("BEARER TOKEN");
+    rest_api_key.setBearerToken("YOUR_REST_API_KEY");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
     String appId = "00000000-0000-0000-0000-000000000000"; // String | 
@@ -2734,7 +2734,7 @@ public class Example {
     
     // Configure HTTP bearer authorization: rest_api_key
     HttpBearerAuth rest_api_key = (HttpBearerAuth) defaultClient.getAuthentication("rest_api_key");
-    rest_api_key.setBearerToken("BEARER TOKEN");
+    rest_api_key.setBearerToken("YOUR_REST_API_KEY");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
     String appId = "00000000-0000-0000-0000-000000000000"; // String | The OneSignal App ID for your app.  Available in Keys & IDs.
@@ -2811,7 +2811,7 @@ public class Example {
     
     // Configure HTTP bearer authorization: organization_api_key
     HttpBearerAuth organization_api_key = (HttpBearerAuth) defaultClient.getAuthentication("organization_api_key");
-    organization_api_key.setBearerToken("BEARER TOKEN");
+    organization_api_key.setBearerToken("YOUR_ORGANIZATION_API_KEY");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
     String appId = "00000000-0000-0000-0000-000000000000"; // String | 
@@ -2887,7 +2887,7 @@ public class Example {
     
     // Configure HTTP bearer authorization: organization_api_key
     HttpBearerAuth organization_api_key = (HttpBearerAuth) defaultClient.getAuthentication("organization_api_key");
-    organization_api_key.setBearerToken("BEARER TOKEN");
+    organization_api_key.setBearerToken("YOUR_ORGANIZATION_API_KEY");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
     String appId = "00000000-0000-0000-0000-000000000000"; // String | An app id
@@ -2962,7 +2962,7 @@ public class Example {
     
     // Configure HTTP bearer authorization: rest_api_key
     HttpBearerAuth rest_api_key = (HttpBearerAuth) defaultClient.getAuthentication("rest_api_key");
-    rest_api_key.setBearerToken("BEARER TOKEN");
+    rest_api_key.setBearerToken("YOUR_REST_API_KEY");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
     String appId = "00000000-0000-0000-0000-000000000000"; // String | The OneSignal App ID for your app.  Available in Keys & IDs.
@@ -3039,7 +3039,7 @@ public class Example {
     
     // Configure HTTP bearer authorization: rest_api_key
     HttpBearerAuth rest_api_key = (HttpBearerAuth) defaultClient.getAuthentication("rest_api_key");
-    rest_api_key.setBearerToken("BEARER TOKEN");
+    rest_api_key.setBearerToken("YOUR_REST_API_KEY");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
     String appId = "00000000-0000-0000-0000-000000000000"; // String | 
@@ -3117,7 +3117,7 @@ public class Example {
     
     // Configure HTTP bearer authorization: rest_api_key
     HttpBearerAuth rest_api_key = (HttpBearerAuth) defaultClient.getAuthentication("rest_api_key");
-    rest_api_key.setBearerToken("BEARER TOKEN");
+    rest_api_key.setBearerToken("YOUR_REST_API_KEY");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
     String appId = "00000000-0000-0000-0000-000000000000"; // String | Your OneSignal App ID in UUID v4 format.
@@ -3196,7 +3196,7 @@ public class Example {
     
     // Configure HTTP bearer authorization: rest_api_key
     HttpBearerAuth rest_api_key = (HttpBearerAuth) defaultClient.getAuthentication("rest_api_key");
-    rest_api_key.setBearerToken("BEARER TOKEN");
+    rest_api_key.setBearerToken("YOUR_REST_API_KEY");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
     String templateId = "e4d3c2b1-a09f-4f1e-8d7c-6b5a4f3e2d1c"; // String | 
@@ -3272,7 +3272,7 @@ public class Example {
     
     // Configure HTTP bearer authorization: rest_api_key
     HttpBearerAuth rest_api_key = (HttpBearerAuth) defaultClient.getAuthentication("rest_api_key");
-    rest_api_key.setBearerToken("BEARER TOKEN");
+    rest_api_key.setBearerToken("YOUR_REST_API_KEY");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
     String appId = "00000000-0000-0000-0000-000000000000"; // String | 
@@ -3352,7 +3352,7 @@ public class Example {
     
     // Configure HTTP bearer authorization: organization_api_key
     HttpBearerAuth organization_api_key = (HttpBearerAuth) defaultClient.getAuthentication("organization_api_key");
-    organization_api_key.setBearerToken("BEARER TOKEN");
+    organization_api_key.setBearerToken("YOUR_ORGANIZATION_API_KEY");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
     String appId = "00000000-0000-0000-0000-000000000000"; // String | 
@@ -3424,7 +3424,7 @@ public class Example {
     
     // Configure HTTP bearer authorization: rest_api_key
     HttpBearerAuth rest_api_key = (HttpBearerAuth) defaultClient.getAuthentication("rest_api_key");
-    rest_api_key.setBearerToken("BEARER TOKEN");
+    rest_api_key.setBearerToken("YOUR_REST_API_KEY");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
     String templateId = "e4d3c2b1-a09f-4f1e-8d7c-6b5a4f3e2d1c"; // String | 
@@ -3499,7 +3499,7 @@ public class Example {
     
     // Configure HTTP bearer authorization: rest_api_key
     HttpBearerAuth rest_api_key = (HttpBearerAuth) defaultClient.getAuthentication("rest_api_key");
-    rest_api_key.setBearerToken("BEARER TOKEN");
+    rest_api_key.setBearerToken("YOUR_REST_API_KEY");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
     String appId = "00000000-0000-0000-0000-000000000000"; // String | Your OneSignal App ID in UUID v4 format.
