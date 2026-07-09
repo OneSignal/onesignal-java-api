@@ -3,7 +3,7 @@
 > **Building with an AI agent or LLM?** See [AGENTS.md](https://github.com/OneSignal/onesignal-java-api/blob/main/AGENTS.md) for an agent-oriented integration guide — authentication, calling conventions, idempotent retries, and the full API reference.
 
 OneSignal
-- API version: 5.8.0
+- API version: 5.9.0
 
 A powerful way to send personalized messages at scale and build effective customer engagement strategies. Learn more at onesignal.com
 
@@ -21,14 +21,14 @@ Building the API client library requires:
 <dependency>
   <groupId>com.onesignal</groupId>
   <artifactId>onesignal-java-client</artifactId>
-  <version>5.8.1</version>
+  <version>5.9.0</version>
 </dependency>
 ```
 
 ### Gradle
 
 ```groovy
-implementation "com.onesignal:onesignal-java-client:5.8.1"
+implementation "com.onesignal:onesignal-java-client:5.9.0"
 ```
 
 ## Configuration
