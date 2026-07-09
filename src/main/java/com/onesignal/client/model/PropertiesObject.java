@@ -124,7 +124,7 @@ public class PropertiesObject {
    * @return tags
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "{\"level\":\"10\",\"vip\":\"true\"}", value = "")
 
   public Map<String, Object> getTags() {
     return tags;
@@ -147,7 +147,7 @@ public class PropertiesObject {
    * @return language
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "en", value = "")
 
   public String getLanguage() {
     return language;
@@ -170,7 +170,7 @@ public class PropertiesObject {
    * @return timezoneId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "America/Los_Angeles", value = "")
 
   public String getTimezoneId() {
     return timezoneId;
@@ -239,7 +239,7 @@ public class PropertiesObject {
    * @return country
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "US", value = "")
 
   public String getCountry() {
     return country;
@@ -362,7 +362,7 @@ public class PropertiesObject {
    * @return ip
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "203.0.113.10", value = "")
 
   public String getIp() {
     return ip;

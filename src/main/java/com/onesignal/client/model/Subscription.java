@@ -203,7 +203,7 @@ public class Subscription {
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "e4e87830-b954-4363-b7bc-1f01dbaee5c8", value = "")
 
   public String getId() {
     return id;
@@ -249,7 +249,7 @@ public class Subscription {
    * @return token
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "d5d4d1a8-1c9e-42fb-b3f2-56d3a5a9a8b7", value = "")
 
   public String getToken() {
     return token;
@@ -272,7 +272,7 @@ public class Subscription {
    * @return enabled
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "true", value = "")
 
   public Boolean getEnabled() {
     return enabled;
@@ -295,7 +295,7 @@ public class Subscription {
    * @return notificationTypes
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "1", value = "")
 
   public Integer getNotificationTypes() {
     return notificationTypes;
@@ -318,7 +318,7 @@ public class Subscription {
    * @return sessionTime
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "60", value = "")
 
   public Integer getSessionTime() {
     return sessionTime;
@@ -341,7 +341,7 @@ public class Subscription {
    * @return sessionCount
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "1", value = "")
 
   public Integer getSessionCount() {
     return sessionCount;
@@ -364,7 +364,7 @@ public class Subscription {
    * @return sdk
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "5.2.0", value = "")
 
   public String getSdk() {
     return sdk;
@@ -387,7 +387,7 @@ public class Subscription {
    * @return deviceModel
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "iPhone14,2", value = "")
 
   public String getDeviceModel() {
     return deviceModel;
@@ -410,7 +410,7 @@ public class Subscription {
    * @return deviceOs
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "17.1", value = "")
 
   public String getDeviceOs() {
     return deviceOs;
@@ -479,7 +479,7 @@ public class Subscription {
    * @return appVersion
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "1.0.0", value = "")
 
   public String getAppVersion() {
     return appVersion;
@@ -525,7 +525,7 @@ public class Subscription {
    * @return carrier
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "Verizon", value = "")
 
   public String getCarrier() {
     return carrier;
@@ -548,7 +548,7 @@ public class Subscription {
    * @return webAuth
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "5DUmpGmLuTxWCLj5lJpwLQ", value = "")
 
   public String getWebAuth() {
     return webAuth;
@@ -571,7 +571,7 @@ public class Subscription {
    * @return webP256
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "BM5-r8DauQXOb2E-3PgLPjSvjT0Ao9v5oJhw8bZ0cW7Vh6BbmPYcqbbCEJ1P2sK0hZ7HxSh9zGyU5pQk1jJmZ8A", value = "")
 
   public String getWebP256() {
     return webP256;

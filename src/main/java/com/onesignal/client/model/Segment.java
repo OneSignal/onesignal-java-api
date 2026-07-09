@@ -81,7 +81,7 @@ public class Segment {
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "UUID of the segment.  If left empty, it will be assigned automaticaly.")
+  @ApiModelProperty(example = "d5d4d1a8-1c9e-42fb-b3f2-56d3a5a9a8b7", value = "UUID of the segment.  If left empty, it will be assigned automaticaly.")
 
   public String getId() {
     return id;
@@ -104,7 +104,7 @@ public class Segment {
    * @return name
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Name of the segment.  You'll see this name on the Web UI.")
+  @ApiModelProperty(example = "Inactive 30 days", required = true, value = "Name of the segment.  You'll see this name on the Web UI.")
 
   public String getName() {
     return name;

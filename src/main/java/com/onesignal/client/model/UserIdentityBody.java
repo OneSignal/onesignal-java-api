@@ -81,7 +81,7 @@ public class UserIdentityBody {
    * @return identity
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "{\"external_id\":\"YOUR_USER_EXTERNAL_ID\"}", value = "")
 
   public Map<String, String> getIdentity() {
     return identity;

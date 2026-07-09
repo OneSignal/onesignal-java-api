@@ -158,7 +158,7 @@ public class Filter {
    * @return field
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required. Name of the field to use as the first operand in the filter expression.")
+  @ApiModelProperty(example = "tag", value = "Required. Name of the field to use as the first operand in the filter expression.")
 
   public String getField() {
     return field;
@@ -181,7 +181,7 @@ public class Filter {
    * @return key
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "If `field` is `tag`, this field is *required* to specify `key` inside the tags.")
+  @ApiModelProperty(example = "level", value = "If `field` is `tag`, this field is *required* to specify `key` inside the tags.")
 
   public String getKey() {
     return key;
@@ -204,7 +204,7 @@ public class Filter {
    * @return value
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Constant value to use as the second operand in the filter expression. This value is *required* when the relation operator is a binary operator.")
+  @ApiModelProperty(example = "10", value = "Constant value to use as the second operand in the filter expression. This value is *required* when the relation operator is a binary operator.")
 
   public String getValue() {
     return value;
@@ -227,7 +227,7 @@ public class Filter {
    * @return hoursAgo
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "If `field` is session-related, this is *required* to specify the number of hours before or after the user's session.")
+  @ApiModelProperty(example = "24", value = "If `field` is session-related, this is *required* to specify the number of hours before or after the user's session.")
 
   public String getHoursAgo() {
     return hoursAgo;

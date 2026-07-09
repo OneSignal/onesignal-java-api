@@ -82,7 +82,7 @@ public class Purchase {
    * @return sku
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The unique identifier of the purchased item.")
+  @ApiModelProperty(example = "com.example.coins100", required = true, value = "The unique identifier of the purchased item.")
 
   public String getSku() {
     return sku;
@@ -105,7 +105,7 @@ public class Purchase {
    * @return amount
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The amount, in USD, spent purchasing the item.")
+  @ApiModelProperty(example = "0.99", required = true, value = "The amount, in USD, spent purchasing the item.")
 
   public String getAmount() {
     return amount;
@@ -128,7 +128,7 @@ public class Purchase {
    * @return iso
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The 3-letter ISO 4217 currency code. Required for correct storage and conversion of amount.")
+  @ApiModelProperty(example = "USD", required = true, value = "The 3-letter ISO 4217 currency code. Required for correct storage and conversion of amount.")
 
   public String getIso() {
     return iso;
