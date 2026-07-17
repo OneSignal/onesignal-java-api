@@ -100,7 +100,11 @@ public class Filter {
     
     TIME_ELAPSED_GT("time_elapsed_gt"),
     
-    TIME_ELAPSED_LT("time_elapsed_lt");
+    TIME_ELAPSED_LT("time_elapsed_lt"),
+    
+    IN_ARRAY("in_array"),
+    
+    NOT_IN_ARRAY("not_in_array");
 
     private String value;
 
@@ -200,11 +204,11 @@ public class Filter {
   }
 
    /**
-   * Constant value to use as the second operand in the filter expression. This value is *required* when the relation operator is a binary operator.
+   * Constant value to use as the second operand in the filter expression. This value is *required* when the relation operator is a binary operator. For &#x60;in_array&#x60; and &#x60;not_in_array&#x60; relations, provide a comma-separated list of up to 20 values.
    * @return value
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "10", value = "Constant value to use as the second operand in the filter expression. This value is *required* when the relation operator is a binary operator.")
+  @ApiModelProperty(example = "10", value = "Constant value to use as the second operand in the filter expression. This value is *required* when the relation operator is a binary operator. For `in_array` and `not_in_array` relations, provide a comma-separated list of up to 20 values.")
 
   public String getValue() {
     return value;
