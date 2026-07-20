@@ -1,5 +1,7 @@
 # Changelog
 
+## [5.10.0](https://github.com/OneSignal/onesignal-java-api/compare/v5.9.0...v5.10.0) (2026-07-20)
+
 ## [5.9.0](https://github.com/OneSignal/onesignal-java-api/compare/v5.8.1...v5.9.0) (2026-07-09)
 
 ## [5.8.1](https://github.com/OneSignal/onesignal-java-api/compare/v5.8.0...v5.8.1) (2026-06-26)
