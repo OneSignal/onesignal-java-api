@@ -44,6 +44,7 @@ import com.onesignal.client.model.ExportSubscriptionsSuccessResponse;
 import com.onesignal.client.model.GenericError;
 import com.onesignal.client.model.GenericSuccessBoolResponse;
 import com.onesignal.client.model.GetNotificationHistoryRequestBody;
+import com.onesignal.client.model.GetSegmentSuccessResponse;
 import com.onesignal.client.model.GetSegmentsSuccessResponse;
 import com.onesignal.client.model.Notification;
 import com.onesignal.client.model.NotificationHistorySuccessResponse;
@@ -4528,6 +4529,170 @@ public class DefaultApi {
 
         okhttp3.Call localVarCall = getOutcomesValidateBeforeCall(appId, outcomeNames, outcomeNames2, outcomeTimeRange, outcomePlatforms, outcomeAttribution, _callback);
         Type localVarReturnType = new TypeToken<OutcomesData>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for getSegment
+     * @param appId The OneSignal App ID for your app.  Available in Keys &amp; IDs. (required)
+     * @param segmentId The segment&#39;s unique identifier. Can be found using the View Segments API or in the URL of the segment when viewing it in the dashboard. (required)
+     * @param includeSegmentDetail Set to true to include segment metadata and filters in the response. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getSegmentCall(String appId, String segmentId, Boolean includeSegmentDetail, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/apps/{app_id}/segments/{segment_id}"
+            .replaceAll("\\{" + "app_id" + "\\}", localVarApiClient.escapeString(appId.toString()))
+            .replaceAll("\\{" + "segment_id" + "\\}", localVarApiClient.escapeString(segmentId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        // Adds client sdk version header
+        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.10.0");
+
+        if (includeSegmentDetail != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("include-segment-detail", includeSegmentDetail));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "rest_api_key" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getSegmentValidateBeforeCall(String appId, String segmentId, Boolean includeSegmentDetail, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'appId' is set
+        if (appId == null) {
+            throw new ApiException("Missing the required parameter 'appId' when calling getSegment(Async)");
+        }
+        
+        // verify the required parameter 'segmentId' is set
+        if (segmentId == null) {
+            throw new ApiException("Missing the required parameter 'segmentId' when calling getSegment(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = getSegmentCall(appId, segmentId, includeSegmentDetail, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * View Segment
+     * Retrieve details for a single segment by its ID, including subscriber count and optionally segment metadata and filters.
+     * @param appId The OneSignal App ID for your app.  Available in Keys &amp; IDs. (required)
+     * @param segmentId The segment&#39;s unique identifier. Can be found using the View Segments API or in the URL of the segment when viewing it in the dashboard. (required)
+     * @param includeSegmentDetail Set to true to include segment metadata and filters in the response. (optional)
+     * @return GetSegmentSuccessResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
+     </table>
+     */
+    public GetSegmentSuccessResponse getSegment(String appId, String segmentId, Boolean includeSegmentDetail) throws ApiException {
+        ApiResponse<GetSegmentSuccessResponse> localVarResp = getSegmentWithHttpInfo(appId, segmentId, includeSegmentDetail);
+        return localVarResp.getData();
+    }
+
+    /**
+     * View Segment
+     * Retrieve details for a single segment by its ID, including subscriber count and optionally segment metadata and filters.
+     * @param appId The OneSignal App ID for your app.  Available in Keys &amp; IDs. (required)
+     * @param segmentId The segment&#39;s unique identifier. Can be found using the View Segments API or in the URL of the segment when viewing it in the dashboard. (required)
+     * @param includeSegmentDetail Set to true to include segment metadata and filters in the response. (optional)
+     * @return ApiResponse&lt;GetSegmentSuccessResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<GetSegmentSuccessResponse> getSegmentWithHttpInfo(String appId, String segmentId, Boolean includeSegmentDetail) throws ApiException {
+        okhttp3.Call localVarCall = getSegmentValidateBeforeCall(appId, segmentId, includeSegmentDetail, null);
+        Type localVarReturnType = new TypeToken<GetSegmentSuccessResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * View Segment (asynchronously)
+     * Retrieve details for a single segment by its ID, including subscriber count and optionally segment metadata and filters.
+     * @param appId The OneSignal App ID for your app.  Available in Keys &amp; IDs. (required)
+     * @param segmentId The segment&#39;s unique identifier. Can be found using the View Segments API or in the URL of the segment when viewing it in the dashboard. (required)
+     * @param includeSegmentDetail Set to true to include segment metadata and filters in the response. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getSegmentAsync(String appId, String segmentId, Boolean includeSegmentDetail, final ApiCallback<GetSegmentSuccessResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getSegmentValidateBeforeCall(appId, segmentId, includeSegmentDetail, _callback);
+        Type localVarReturnType = new TypeToken<GetSegmentSuccessResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

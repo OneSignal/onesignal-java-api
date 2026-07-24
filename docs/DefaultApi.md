@@ -32,6 +32,7 @@ All URIs are relative to *https://api.onesignal.com*
 | [**getNotificationHistory**](DefaultApi.md#getNotificationHistory) | **POST** /notifications/{notification_id}/history | Notification History |
 | [**getNotifications**](DefaultApi.md#getNotifications) | **GET** /notifications | View notifications |
 | [**getOutcomes**](DefaultApi.md#getOutcomes) | **GET** /apps/{app_id}/outcomes | View Outcomes |
+| [**getSegment**](DefaultApi.md#getSegment) | **GET** /apps/{app_id}/segments/{segment_id} | View Segment |
 | [**getSegments**](DefaultApi.md#getSegments) | **GET** /apps/{app_id}/segments | Get Segments |
 | [**getUser**](DefaultApi.md#getUser) | **GET** /apps/{app_id}/users/by/{alias_label}/{alias_id} |  |
 | [**rotateApiKey**](DefaultApi.md#rotateApiKey) | **POST** /apps/{app_id}/auth/tokens/{token_id}/rotate | Rotate API key |
@@ -2327,6 +2328,84 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
+| **429** | Rate Limit Exceeded |  -  |
+| **0** | Unexpected error |  -  |
+
+<a name="getSegment"></a>
+# **getSegment**
+> GetSegmentSuccessResponse getSegment(appId, segmentId, includeSegmentDetail)
+
+View Segment
+
+Retrieve details for a single segment by its ID, including subscriber count and optionally segment metadata and filters.
+
+### Example
+```java
+// Import classes:
+import com.onesignal.client.ApiClient;
+import com.onesignal.client.ApiException;
+import com.onesignal.client.Configuration;
+import com.onesignal.client.auth.*;
+import com.onesignal.client.model.*;
+import com.onesignal.client.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.onesignal.com");
+    
+    // Configure HTTP bearer authorization: rest_api_key
+    HttpBearerAuth rest_api_key = (HttpBearerAuth) defaultClient.getAuthentication("rest_api_key");
+    rest_api_key.setBearerToken("YOUR_REST_API_KEY");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String appId = "YOUR_APP_ID"; // String | The OneSignal App ID for your app.  Available in Keys & IDs.
+    String segmentId = "d6c5a3e1-9f17-44a1-9d10-7c0e4a2b1c8e"; // String | The segment's unique identifier. Can be found using the View Segments API or in the URL of the segment when viewing it in the dashboard.
+    Boolean includeSegmentDetail = true; // Boolean | Set to true to include segment metadata and filters in the response.
+    try {
+      GetSegmentSuccessResponse result = apiInstance.getSegment(appId, segmentId, includeSegmentDetail);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#getSegment");
+      System.err.println("Status code: " + e.getCode());
+      // getErrorMessages() flattens any error-envelope shape to a List<String>;
+      // the raw body remains on getResponseBody().
+      System.err.println("Error messages: " + e.getErrorMessages());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **appId** | **String**| The OneSignal App ID for your app.  Available in Keys &amp; IDs. | |
+| **segmentId** | **String**| The segment&#39;s unique identifier. Can be found using the View Segments API or in the URL of the segment when viewing it in the dashboard. | |
+| **includeSegmentDetail** | **Boolean**| Set to true to include segment metadata and filters in the response. | [optional] |
+
+### Return type
+
+[**GetSegmentSuccessResponse**](GetSegmentSuccessResponse.md)
+
+### Authorization
+
+[rest_api_key](https://github.com/OneSignal/onesignal-java-api#configuration)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **404** | Not Found |  -  |
 | **429** | Rate Limit Exceeded |  -  |
 | **0** | Unexpected error |  -  |
 
