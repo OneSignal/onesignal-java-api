@@ -44,7 +44,9 @@ import com.onesignal.client.model.ExportSubscriptionsSuccessResponse;
 import com.onesignal.client.model.GenericError;
 import com.onesignal.client.model.GenericSuccessBoolResponse;
 import com.onesignal.client.model.GetNotificationHistoryRequestBody;
+import com.onesignal.client.model.GetSegmentSuccessResponse;
 import com.onesignal.client.model.GetSegmentsSuccessResponse;
+import com.onesignal.client.model.ListAuditLogsSuccessResponse;
 import com.onesignal.client.model.Notification;
 import com.onesignal.client.model.NotificationHistorySuccessResponse;
 import com.onesignal.client.model.NotificationSlice;
@@ -62,6 +64,8 @@ import com.onesignal.client.model.TransferSubscriptionRequestBody;
 import com.onesignal.client.model.UpdateApiKeyRequest;
 import com.onesignal.client.model.UpdateLiveActivityRequest;
 import com.onesignal.client.model.UpdateLiveActivitySuccessResponse;
+import com.onesignal.client.model.UpdateSegmentRequest;
+import com.onesignal.client.model.UpdateSegmentSuccessResponse;
 import com.onesignal.client.model.UpdateTemplateRequest;
 import com.onesignal.client.model.UpdateUserRequest;
 import com.onesignal.client.model.User;
@@ -4532,6 +4536,170 @@ public class DefaultApi {
         return localVarCall;
     }
     /**
+     * Build call for getSegment
+     * @param appId The OneSignal App ID for your app.  Available in Keys &amp; IDs. (required)
+     * @param segmentId The segment&#39;s unique identifier. Can be found using the View Segments API or in the URL of the segment when viewing it in the dashboard. (required)
+     * @param includeSegmentDetail Set to true to include segment metadata and filters in the response. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getSegmentCall(String appId, String segmentId, Boolean includeSegmentDetail, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/apps/{app_id}/segments/{segment_id}"
+            .replaceAll("\\{" + "app_id" + "\\}", localVarApiClient.escapeString(appId.toString()))
+            .replaceAll("\\{" + "segment_id" + "\\}", localVarApiClient.escapeString(segmentId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        // Adds client sdk version header
+        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.10.0");
+
+        if (includeSegmentDetail != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("include-segment-detail", includeSegmentDetail));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "rest_api_key" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getSegmentValidateBeforeCall(String appId, String segmentId, Boolean includeSegmentDetail, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'appId' is set
+        if (appId == null) {
+            throw new ApiException("Missing the required parameter 'appId' when calling getSegment(Async)");
+        }
+        
+        // verify the required parameter 'segmentId' is set
+        if (segmentId == null) {
+            throw new ApiException("Missing the required parameter 'segmentId' when calling getSegment(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = getSegmentCall(appId, segmentId, includeSegmentDetail, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * View Segment
+     * Retrieve details for a single segment by its ID, including subscriber count and optionally segment metadata and filters.
+     * @param appId The OneSignal App ID for your app.  Available in Keys &amp; IDs. (required)
+     * @param segmentId The segment&#39;s unique identifier. Can be found using the View Segments API or in the URL of the segment when viewing it in the dashboard. (required)
+     * @param includeSegmentDetail Set to true to include segment metadata and filters in the response. (optional)
+     * @return GetSegmentSuccessResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
+     </table>
+     */
+    public GetSegmentSuccessResponse getSegment(String appId, String segmentId, Boolean includeSegmentDetail) throws ApiException {
+        ApiResponse<GetSegmentSuccessResponse> localVarResp = getSegmentWithHttpInfo(appId, segmentId, includeSegmentDetail);
+        return localVarResp.getData();
+    }
+
+    /**
+     * View Segment
+     * Retrieve details for a single segment by its ID, including subscriber count and optionally segment metadata and filters.
+     * @param appId The OneSignal App ID for your app.  Available in Keys &amp; IDs. (required)
+     * @param segmentId The segment&#39;s unique identifier. Can be found using the View Segments API or in the URL of the segment when viewing it in the dashboard. (required)
+     * @param includeSegmentDetail Set to true to include segment metadata and filters in the response. (optional)
+     * @return ApiResponse&lt;GetSegmentSuccessResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<GetSegmentSuccessResponse> getSegmentWithHttpInfo(String appId, String segmentId, Boolean includeSegmentDetail) throws ApiException {
+        okhttp3.Call localVarCall = getSegmentValidateBeforeCall(appId, segmentId, includeSegmentDetail, null);
+        Type localVarReturnType = new TypeToken<GetSegmentSuccessResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * View Segment (asynchronously)
+     * Retrieve details for a single segment by its ID, including subscriber count and optionally segment metadata and filters.
+     * @param appId The OneSignal App ID for your app.  Available in Keys &amp; IDs. (required)
+     * @param segmentId The segment&#39;s unique identifier. Can be found using the View Segments API or in the URL of the segment when viewing it in the dashboard. (required)
+     * @param includeSegmentDetail Set to true to include segment metadata and filters in the response. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getSegmentAsync(String appId, String segmentId, Boolean includeSegmentDetail, final ApiCallback<GetSegmentSuccessResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getSegmentValidateBeforeCall(appId, segmentId, includeSegmentDetail, _callback);
+        Type localVarReturnType = new TypeToken<GetSegmentSuccessResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for getSegments
      * @param appId The OneSignal App ID for your app.  Available in Keys &amp; IDs. (required)
      * @param offset Segments are listed in ascending order of created_at date. offset will omit that number of segments from the beginning of the list. Eg offset 5, will remove the 5 earliest created Segments. (optional)
@@ -4852,6 +5020,244 @@ public class DefaultApi {
 
         okhttp3.Call localVarCall = getUserValidateBeforeCall(appId, aliasLabel, aliasId, _callback);
         Type localVarReturnType = new TypeToken<User>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for listAuditLogs
+     * @param organizationId The UUID of the organization to retrieve audit logs for. Must match the authenticated Organization API Key. (required)
+     * @param startTime Start of the time range in ISO 8601 format (e.g. 2026-02-01T00:00:00Z). Required unless cursor is provided. Must be within the last 90 days. (optional)
+     * @param endTime End of the time range in ISO 8601 format. Defaults to the current time. Must be after start_time. (optional)
+     * @param cursor Pagination cursor returned in a previous response as next_cursor. When provided, start_time and end_time are ignored. (optional)
+     * @param limit Maximum number of events to return per page. Minimum 1, maximum 100. Values outside this range are clamped automatically by the server. (optional)
+     * @param appIds Filter events by app UUID. Accepts up to 10 values. Org-level events are always included. (optional)
+     * @param actions Filter by action type (e.g. notification.sent, segment.created). Accepts up to 20 values. (optional)
+     * @param actorIds Filter by actor UUID (the user or service that performed the action). Accepts up to 10 values. (optional)
+     * @param actorEmails Filter by actor email address. Accepts up to 10 values. (optional)
+     * @param targetTypes Filter by the type of resource the action was performed on (e.g. notification, segment, journey). Accepts up to 10 values. (optional)
+     * @param targetIds Filter by the UUID of the resource the action was performed on. Accepts up to 10 values. (optional)
+     * @param ipAddresses Filter by the IP address the action originated from. Accepts up to 10 values. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listAuditLogsCall(String organizationId, String startTime, String endTime, String cursor, Integer limit, List<String> appIds, List<String> actions, List<String> actorIds, List<String> actorEmails, List<String> targetTypes, List<String> targetIds, List<String> ipAddresses, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/organizations/{organization_id}/audit_logs"
+            .replaceAll("\\{" + "organization_id" + "\\}", localVarApiClient.escapeString(organizationId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        // Adds client sdk version header
+        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.10.0");
+
+        if (startTime != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("start_time", startTime));
+        }
+
+        if (endTime != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("end_time", endTime));
+        }
+
+        if (cursor != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("cursor", cursor));
+        }
+
+        if (limit != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
+        }
+
+        if (appIds != null) {
+            localVarCollectionQueryParams.addAll(localVarApiClient.parameterToPairs("multi", "app_ids", appIds));
+        }
+
+        if (actions != null) {
+            localVarCollectionQueryParams.addAll(localVarApiClient.parameterToPairs("multi", "actions", actions));
+        }
+
+        if (actorIds != null) {
+            localVarCollectionQueryParams.addAll(localVarApiClient.parameterToPairs("multi", "actor_ids", actorIds));
+        }
+
+        if (actorEmails != null) {
+            localVarCollectionQueryParams.addAll(localVarApiClient.parameterToPairs("multi", "actor_emails", actorEmails));
+        }
+
+        if (targetTypes != null) {
+            localVarCollectionQueryParams.addAll(localVarApiClient.parameterToPairs("multi", "target_types", targetTypes));
+        }
+
+        if (targetIds != null) {
+            localVarCollectionQueryParams.addAll(localVarApiClient.parameterToPairs("multi", "target_ids", targetIds));
+        }
+
+        if (ipAddresses != null) {
+            localVarCollectionQueryParams.addAll(localVarApiClient.parameterToPairs("multi", "ip_addresses", ipAddresses));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "organization_api_key" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listAuditLogsValidateBeforeCall(String organizationId, String startTime, String endTime, String cursor, Integer limit, List<String> appIds, List<String> actions, List<String> actorIds, List<String> actorEmails, List<String> targetTypes, List<String> targetIds, List<String> ipAddresses, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'organizationId' is set
+        if (organizationId == null) {
+            throw new ApiException("Missing the required parameter 'organizationId' when calling listAuditLogs(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = listAuditLogsCall(organizationId, startTime, endTime, cursor, limit, appIds, actions, actorIds, actorEmails, targetTypes, targetIds, ipAddresses, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * List audit logs
+     * Retrieve a paginated, time-scoped list of audit log events for an organization. Requires an Enterprise plan with the audit logs entitlement enabled.
+     * @param organizationId The UUID of the organization to retrieve audit logs for. Must match the authenticated Organization API Key. (required)
+     * @param startTime Start of the time range in ISO 8601 format (e.g. 2026-02-01T00:00:00Z). Required unless cursor is provided. Must be within the last 90 days. (optional)
+     * @param endTime End of the time range in ISO 8601 format. Defaults to the current time. Must be after start_time. (optional)
+     * @param cursor Pagination cursor returned in a previous response as next_cursor. When provided, start_time and end_time are ignored. (optional)
+     * @param limit Maximum number of events to return per page. Minimum 1, maximum 100. Values outside this range are clamped automatically by the server. (optional)
+     * @param appIds Filter events by app UUID. Accepts up to 10 values. Org-level events are always included. (optional)
+     * @param actions Filter by action type (e.g. notification.sent, segment.created). Accepts up to 20 values. (optional)
+     * @param actorIds Filter by actor UUID (the user or service that performed the action). Accepts up to 10 values. (optional)
+     * @param actorEmails Filter by actor email address. Accepts up to 10 values. (optional)
+     * @param targetTypes Filter by the type of resource the action was performed on (e.g. notification, segment, journey). Accepts up to 10 values. (optional)
+     * @param targetIds Filter by the UUID of the resource the action was performed on. Accepts up to 10 values. (optional)
+     * @param ipAddresses Filter by the IP address the action originated from. Accepts up to 10 values. (optional)
+     * @return ListAuditLogsSuccessResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ListAuditLogsSuccessResponse listAuditLogs(String organizationId, String startTime, String endTime, String cursor, Integer limit, List<String> appIds, List<String> actions, List<String> actorIds, List<String> actorEmails, List<String> targetTypes, List<String> targetIds, List<String> ipAddresses) throws ApiException {
+        ApiResponse<ListAuditLogsSuccessResponse> localVarResp = listAuditLogsWithHttpInfo(organizationId, startTime, endTime, cursor, limit, appIds, actions, actorIds, actorEmails, targetTypes, targetIds, ipAddresses);
+        return localVarResp.getData();
+    }
+
+    /**
+     * List audit logs
+     * Retrieve a paginated, time-scoped list of audit log events for an organization. Requires an Enterprise plan with the audit logs entitlement enabled.
+     * @param organizationId The UUID of the organization to retrieve audit logs for. Must match the authenticated Organization API Key. (required)
+     * @param startTime Start of the time range in ISO 8601 format (e.g. 2026-02-01T00:00:00Z). Required unless cursor is provided. Must be within the last 90 days. (optional)
+     * @param endTime End of the time range in ISO 8601 format. Defaults to the current time. Must be after start_time. (optional)
+     * @param cursor Pagination cursor returned in a previous response as next_cursor. When provided, start_time and end_time are ignored. (optional)
+     * @param limit Maximum number of events to return per page. Minimum 1, maximum 100. Values outside this range are clamped automatically by the server. (optional)
+     * @param appIds Filter events by app UUID. Accepts up to 10 values. Org-level events are always included. (optional)
+     * @param actions Filter by action type (e.g. notification.sent, segment.created). Accepts up to 20 values. (optional)
+     * @param actorIds Filter by actor UUID (the user or service that performed the action). Accepts up to 10 values. (optional)
+     * @param actorEmails Filter by actor email address. Accepts up to 10 values. (optional)
+     * @param targetTypes Filter by the type of resource the action was performed on (e.g. notification, segment, journey). Accepts up to 10 values. (optional)
+     * @param targetIds Filter by the UUID of the resource the action was performed on. Accepts up to 10 values. (optional)
+     * @param ipAddresses Filter by the IP address the action originated from. Accepts up to 10 values. (optional)
+     * @return ApiResponse&lt;ListAuditLogsSuccessResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<ListAuditLogsSuccessResponse> listAuditLogsWithHttpInfo(String organizationId, String startTime, String endTime, String cursor, Integer limit, List<String> appIds, List<String> actions, List<String> actorIds, List<String> actorEmails, List<String> targetTypes, List<String> targetIds, List<String> ipAddresses) throws ApiException {
+        okhttp3.Call localVarCall = listAuditLogsValidateBeforeCall(organizationId, startTime, endTime, cursor, limit, appIds, actions, actorIds, actorEmails, targetTypes, targetIds, ipAddresses, null);
+        Type localVarReturnType = new TypeToken<ListAuditLogsSuccessResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * List audit logs (asynchronously)
+     * Retrieve a paginated, time-scoped list of audit log events for an organization. Requires an Enterprise plan with the audit logs entitlement enabled.
+     * @param organizationId The UUID of the organization to retrieve audit logs for. Must match the authenticated Organization API Key. (required)
+     * @param startTime Start of the time range in ISO 8601 format (e.g. 2026-02-01T00:00:00Z). Required unless cursor is provided. Must be within the last 90 days. (optional)
+     * @param endTime End of the time range in ISO 8601 format. Defaults to the current time. Must be after start_time. (optional)
+     * @param cursor Pagination cursor returned in a previous response as next_cursor. When provided, start_time and end_time are ignored. (optional)
+     * @param limit Maximum number of events to return per page. Minimum 1, maximum 100. Values outside this range are clamped automatically by the server. (optional)
+     * @param appIds Filter events by app UUID. Accepts up to 10 values. Org-level events are always included. (optional)
+     * @param actions Filter by action type (e.g. notification.sent, segment.created). Accepts up to 20 values. (optional)
+     * @param actorIds Filter by actor UUID (the user or service that performed the action). Accepts up to 10 values. (optional)
+     * @param actorEmails Filter by actor email address. Accepts up to 10 values. (optional)
+     * @param targetTypes Filter by the type of resource the action was performed on (e.g. notification, segment, journey). Accepts up to 10 values. (optional)
+     * @param targetIds Filter by the UUID of the resource the action was performed on. Accepts up to 10 values. (optional)
+     * @param ipAddresses Filter by the IP address the action originated from. Accepts up to 10 values. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listAuditLogsAsync(String organizationId, String startTime, String endTime, String cursor, Integer limit, List<String> appIds, List<String> actions, List<String> actorIds, List<String> actorEmails, List<String> targetTypes, List<String> targetIds, List<String> ipAddresses, final ApiCallback<ListAuditLogsSuccessResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = listAuditLogsValidateBeforeCall(organizationId, startTime, endTime, cursor, limit, appIds, actions, actorIds, actorEmails, targetTypes, targetIds, ipAddresses, _callback);
+        Type localVarReturnType = new TypeToken<ListAuditLogsSuccessResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -5964,6 +6370,170 @@ public class DefaultApi {
 
         okhttp3.Call localVarCall = updateLiveActivityValidateBeforeCall(appId, activityId, updateLiveActivityRequest, _callback);
         Type localVarReturnType = new TypeToken<UpdateLiveActivitySuccessResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for updateSegment
+     * @param appId The OneSignal App ID for your app.  Available in Keys &amp; IDs. (required)
+     * @param segmentId The segment&#39;s unique identifier. Can be found using the View Segments API or in the URL of the segment when viewing it in the dashboard. (required)
+     * @param updateSegmentRequest  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call updateSegmentCall(String appId, String segmentId, UpdateSegmentRequest updateSegmentRequest, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = updateSegmentRequest;
+
+        // create path and map variables
+        String localVarPath = "/apps/{app_id}/segments/{segment_id}"
+            .replaceAll("\\{" + "app_id" + "\\}", localVarApiClient.escapeString(appId.toString()))
+            .replaceAll("\\{" + "segment_id" + "\\}", localVarApiClient.escapeString(segmentId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        // Adds client sdk version header
+        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.10.0");
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "rest_api_key" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "PATCH", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call updateSegmentValidateBeforeCall(String appId, String segmentId, UpdateSegmentRequest updateSegmentRequest, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'appId' is set
+        if (appId == null) {
+            throw new ApiException("Missing the required parameter 'appId' when calling updateSegment(Async)");
+        }
+        
+        // verify the required parameter 'segmentId' is set
+        if (segmentId == null) {
+            throw new ApiException("Missing the required parameter 'segmentId' when calling updateSegment(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = updateSegmentCall(appId, segmentId, updateSegmentRequest, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Update Segment
+     * Update an existing segment&#39;s name and/or filters. The name parameter is always required. When filters are provided, all existing filters are replaced with the new ones.
+     * @param appId The OneSignal App ID for your app.  Available in Keys &amp; IDs. (required)
+     * @param segmentId The segment&#39;s unique identifier. Can be found using the View Segments API or in the URL of the segment when viewing it in the dashboard. (required)
+     * @param updateSegmentRequest  (optional)
+     * @return UpdateSegmentSuccessResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
+     </table>
+     */
+    public UpdateSegmentSuccessResponse updateSegment(String appId, String segmentId, UpdateSegmentRequest updateSegmentRequest) throws ApiException {
+        ApiResponse<UpdateSegmentSuccessResponse> localVarResp = updateSegmentWithHttpInfo(appId, segmentId, updateSegmentRequest);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Update Segment
+     * Update an existing segment&#39;s name and/or filters. The name parameter is always required. When filters are provided, all existing filters are replaced with the new ones.
+     * @param appId The OneSignal App ID for your app.  Available in Keys &amp; IDs. (required)
+     * @param segmentId The segment&#39;s unique identifier. Can be found using the View Segments API or in the URL of the segment when viewing it in the dashboard. (required)
+     * @param updateSegmentRequest  (optional)
+     * @return ApiResponse&lt;UpdateSegmentSuccessResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<UpdateSegmentSuccessResponse> updateSegmentWithHttpInfo(String appId, String segmentId, UpdateSegmentRequest updateSegmentRequest) throws ApiException {
+        okhttp3.Call localVarCall = updateSegmentValidateBeforeCall(appId, segmentId, updateSegmentRequest, null);
+        Type localVarReturnType = new TypeToken<UpdateSegmentSuccessResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Update Segment (asynchronously)
+     * Update an existing segment&#39;s name and/or filters. The name parameter is always required. When filters are provided, all existing filters are replaced with the new ones.
+     * @param appId The OneSignal App ID for your app.  Available in Keys &amp; IDs. (required)
+     * @param segmentId The segment&#39;s unique identifier. Can be found using the View Segments API or in the URL of the segment when viewing it in the dashboard. (required)
+     * @param updateSegmentRequest  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call updateSegmentAsync(String appId, String segmentId, UpdateSegmentRequest updateSegmentRequest, final ApiCallback<UpdateSegmentSuccessResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = updateSegmentValidateBeforeCall(appId, segmentId, updateSegmentRequest, _callback);
+        Type localVarReturnType = new TypeToken<UpdateSegmentSuccessResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
