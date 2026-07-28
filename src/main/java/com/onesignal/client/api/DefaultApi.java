@@ -2994,7 +2994,7 @@ public class DefaultApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/notifications/{notification_id}/export_events?app_id={app_id}"
+        String localVarPath = "/notifications/{notification_id}/export_events"
             .replaceAll("\\{" + "notification_id" + "\\}", localVarApiClient.escapeString(notificationId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
