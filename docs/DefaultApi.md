@@ -32,8 +32,10 @@ All URIs are relative to *https://api.onesignal.com*
 | [**getNotificationHistory**](DefaultApi.md#getNotificationHistory) | **POST** /notifications/{notification_id}/history | Notification History |
 | [**getNotifications**](DefaultApi.md#getNotifications) | **GET** /notifications | View notifications |
 | [**getOutcomes**](DefaultApi.md#getOutcomes) | **GET** /apps/{app_id}/outcomes | View Outcomes |
+| [**getSegment**](DefaultApi.md#getSegment) | **GET** /apps/{app_id}/segments/{segment_id} | View Segment |
 | [**getSegments**](DefaultApi.md#getSegments) | **GET** /apps/{app_id}/segments | Get Segments |
 | [**getUser**](DefaultApi.md#getUser) | **GET** /apps/{app_id}/users/by/{alias_label}/{alias_id} |  |
+| [**listAuditLogs**](DefaultApi.md#listAuditLogs) | **GET** /organizations/{organization_id}/audit_logs | List audit logs |
 | [**rotateApiKey**](DefaultApi.md#rotateApiKey) | **POST** /apps/{app_id}/auth/tokens/{token_id}/rotate | Rotate API key |
 | [**startLiveActivity**](DefaultApi.md#startLiveActivity) | **POST** /apps/{app_id}/activities/activity/{activity_type} | Start Live Activity |
 | [**transferSubscription**](DefaultApi.md#transferSubscription) | **PATCH** /apps/{app_id}/subscriptions/{subscription_id}/owner |  |
@@ -41,6 +43,7 @@ All URIs are relative to *https://api.onesignal.com*
 | [**updateApiKey**](DefaultApi.md#updateApiKey) | **PATCH** /apps/{app_id}/auth/tokens/{token_id} | Update API key |
 | [**updateApp**](DefaultApi.md#updateApp) | **PUT** /apps/{app_id} | Update an app |
 | [**updateLiveActivity**](DefaultApi.md#updateLiveActivity) | **POST** /apps/{app_id}/live_activities/{activity_id}/notifications | Update a Live Activity via Push |
+| [**updateSegment**](DefaultApi.md#updateSegment) | **PATCH** /apps/{app_id}/segments/{segment_id} | Update Segment |
 | [**updateSubscription**](DefaultApi.md#updateSubscription) | **PATCH** /apps/{app_id}/subscriptions/{subscription_id} |  |
 | [**updateSubscriptionByToken**](DefaultApi.md#updateSubscriptionByToken) | **PATCH** /apps/{app_id}/subscriptions_by_token/{token_type}/{token} | Update subscription by token |
 | [**updateTemplate**](DefaultApi.md#updateTemplate) | **PATCH** /templates/{template_id} | Update template |
@@ -2330,6 +2333,84 @@ public class Example {
 | **429** | Rate Limit Exceeded |  -  |
 | **0** | Unexpected error |  -  |
 
+<a name="getSegment"></a>
+# **getSegment**
+> GetSegmentSuccessResponse getSegment(appId, segmentId, includeSegmentDetail)
+
+View Segment
+
+Retrieve details for a single segment by its ID, including subscriber count and optionally segment metadata and filters.
+
+### Example
+```java
+// Import classes:
+import com.onesignal.client.ApiClient;
+import com.onesignal.client.ApiException;
+import com.onesignal.client.Configuration;
+import com.onesignal.client.auth.*;
+import com.onesignal.client.model.*;
+import com.onesignal.client.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.onesignal.com");
+    
+    // Configure HTTP bearer authorization: rest_api_key
+    HttpBearerAuth rest_api_key = (HttpBearerAuth) defaultClient.getAuthentication("rest_api_key");
+    rest_api_key.setBearerToken("YOUR_REST_API_KEY");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String appId = "YOUR_APP_ID"; // String | The OneSignal App ID for your app.  Available in Keys & IDs.
+    String segmentId = "d6c5a3e1-9f17-44a1-9d10-7c0e4a2b1c8e"; // String | The segment's unique identifier. Can be found using the View Segments API or in the URL of the segment when viewing it in the dashboard.
+    Boolean includeSegmentDetail = true; // Boolean | Set to true to include segment metadata and filters in the response.
+    try {
+      GetSegmentSuccessResponse result = apiInstance.getSegment(appId, segmentId, includeSegmentDetail);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#getSegment");
+      System.err.println("Status code: " + e.getCode());
+      // getErrorMessages() flattens any error-envelope shape to a List<String>;
+      // the raw body remains on getResponseBody().
+      System.err.println("Error messages: " + e.getErrorMessages());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **appId** | **String**| The OneSignal App ID for your app.  Available in Keys &amp; IDs. | |
+| **segmentId** | **String**| The segment&#39;s unique identifier. Can be found using the View Segments API or in the URL of the segment when viewing it in the dashboard. | |
+| **includeSegmentDetail** | **Boolean**| Set to true to include segment metadata and filters in the response. | [optional] |
+
+### Return type
+
+[**GetSegmentSuccessResponse**](GetSegmentSuccessResponse.md)
+
+### Authorization
+
+[rest_api_key](https://github.com/OneSignal/onesignal-java-api#configuration)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **404** | Not Found |  -  |
+| **429** | Rate Limit Exceeded |  -  |
+| **0** | Unexpected error |  -  |
+
 <a name="getSegments"></a>
 # **getSegments**
 > GetSegmentsSuccessResponse getSegments(appId, offset, limit)
@@ -2481,6 +2562,103 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
+| **404** | Not Found |  -  |
+| **429** | Rate Limit Exceeded |  -  |
+| **0** | Unexpected error |  -  |
+
+<a name="listAuditLogs"></a>
+# **listAuditLogs**
+> ListAuditLogsSuccessResponse listAuditLogs(organizationId, startTime, endTime, cursor, limit, appIds, actions, actorIds, actorEmails, targetTypes, targetIds, ipAddresses)
+
+List audit logs
+
+Retrieve a paginated, time-scoped list of audit log events for an organization. Requires an Enterprise plan with the audit logs entitlement enabled.
+
+### Example
+```java
+// Import classes:
+import com.onesignal.client.ApiClient;
+import com.onesignal.client.ApiException;
+import com.onesignal.client.Configuration;
+import com.onesignal.client.auth.*;
+import com.onesignal.client.model.*;
+import com.onesignal.client.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.onesignal.com");
+    
+    // Configure HTTP bearer authorization: organization_api_key
+    HttpBearerAuth organization_api_key = (HttpBearerAuth) defaultClient.getAuthentication("organization_api_key");
+    organization_api_key.setBearerToken("YOUR_ORGANIZATION_API_KEY");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String organizationId = "YOUR_ORG_ID"; // String | The UUID of the organization to retrieve audit logs for. Must match the authenticated Organization API Key.
+    String startTime = "startTime_example"; // String | Start of the time range in ISO 8601 format (e.g. 2026-02-01T00:00:00Z). Required unless cursor is provided. Must be within the last 90 days.
+    String endTime = "endTime_example"; // String | End of the time range in ISO 8601 format. Defaults to the current time. Must be after start_time.
+    String cursor = "cursor_example"; // String | Pagination cursor returned in a previous response as next_cursor. When provided, start_time and end_time are ignored.
+    Integer limit = 56; // Integer | Maximum number of events to return per page. Minimum 1, maximum 100. Values outside this range are clamped automatically by the server.
+    List<String> appIds = Arrays.asList(); // List<String> | Filter events by app UUID. Accepts up to 10 values. Org-level events are always included.
+    List<String> actions = Arrays.asList(); // List<String> | Filter by action type (e.g. notification.sent, segment.created). Accepts up to 20 values.
+    List<String> actorIds = Arrays.asList(); // List<String> | Filter by actor UUID (the user or service that performed the action). Accepts up to 10 values.
+    List<String> actorEmails = Arrays.asList(); // List<String> | Filter by actor email address. Accepts up to 10 values.
+    List<String> targetTypes = Arrays.asList(); // List<String> | Filter by the type of resource the action was performed on (e.g. notification, segment, journey). Accepts up to 10 values.
+    List<String> targetIds = Arrays.asList(); // List<String> | Filter by the UUID of the resource the action was performed on. Accepts up to 10 values.
+    List<String> ipAddresses = Arrays.asList(); // List<String> | Filter by the IP address the action originated from. Accepts up to 10 values.
+    try {
+      ListAuditLogsSuccessResponse result = apiInstance.listAuditLogs(organizationId, startTime, endTime, cursor, limit, appIds, actions, actorIds, actorEmails, targetTypes, targetIds, ipAddresses);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#listAuditLogs");
+      System.err.println("Status code: " + e.getCode());
+      // getErrorMessages() flattens any error-envelope shape to a List<String>;
+      // the raw body remains on getResponseBody().
+      System.err.println("Error messages: " + e.getErrorMessages());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **organizationId** | **String**| The UUID of the organization to retrieve audit logs for. Must match the authenticated Organization API Key. | |
+| **startTime** | **String**| Start of the time range in ISO 8601 format (e.g. 2026-02-01T00:00:00Z). Required unless cursor is provided. Must be within the last 90 days. | [optional] |
+| **endTime** | **String**| End of the time range in ISO 8601 format. Defaults to the current time. Must be after start_time. | [optional] |
+| **cursor** | **String**| Pagination cursor returned in a previous response as next_cursor. When provided, start_time and end_time are ignored. | [optional] |
+| **limit** | **Integer**| Maximum number of events to return per page. Minimum 1, maximum 100. Values outside this range are clamped automatically by the server. | [optional] |
+| **appIds** | [**List&lt;String&gt;**](String.md)| Filter events by app UUID. Accepts up to 10 values. Org-level events are always included. | [optional] |
+| **actions** | [**List&lt;String&gt;**](String.md)| Filter by action type (e.g. notification.sent, segment.created). Accepts up to 20 values. | [optional] |
+| **actorIds** | [**List&lt;String&gt;**](String.md)| Filter by actor UUID (the user or service that performed the action). Accepts up to 10 values. | [optional] |
+| **actorEmails** | [**List&lt;String&gt;**](String.md)| Filter by actor email address. Accepts up to 10 values. | [optional] |
+| **targetTypes** | [**List&lt;String&gt;**](String.md)| Filter by the type of resource the action was performed on (e.g. notification, segment, journey). Accepts up to 10 values. | [optional] |
+| **targetIds** | [**List&lt;String&gt;**](String.md)| Filter by the UUID of the resource the action was performed on. Accepts up to 10 values. | [optional] |
+| **ipAddresses** | [**List&lt;String&gt;**](String.md)| Filter by the IP address the action originated from. Accepts up to 10 values. | [optional] |
+
+### Return type
+
+[**ListAuditLogsSuccessResponse**](ListAuditLogsSuccessResponse.md)
+
+### Authorization
+
+[organization_api_key](https://github.com/OneSignal/onesignal-java-api#configuration)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 | **429** | Rate Limit Exceeded |  -  |
 | **0** | Unexpected error |  -  |
@@ -3017,6 +3195,85 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
+| **429** | Rate Limit Exceeded |  -  |
+| **0** | Unexpected error |  -  |
+
+<a name="updateSegment"></a>
+# **updateSegment**
+> UpdateSegmentSuccessResponse updateSegment(appId, segmentId, updateSegmentRequest)
+
+Update Segment
+
+Update an existing segment&#39;s name and/or filters. The name parameter is always required. When filters are provided, all existing filters are replaced with the new ones.
+
+### Example
+```java
+// Import classes:
+import com.onesignal.client.ApiClient;
+import com.onesignal.client.ApiException;
+import com.onesignal.client.Configuration;
+import com.onesignal.client.auth.*;
+import com.onesignal.client.model.*;
+import com.onesignal.client.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.onesignal.com");
+    
+    // Configure HTTP bearer authorization: rest_api_key
+    HttpBearerAuth rest_api_key = (HttpBearerAuth) defaultClient.getAuthentication("rest_api_key");
+    rest_api_key.setBearerToken("YOUR_REST_API_KEY");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String appId = "YOUR_APP_ID"; // String | The OneSignal App ID for your app.  Available in Keys & IDs.
+    String segmentId = "d6c5a3e1-9f17-44a1-9d10-7c0e4a2b1c8e"; // String | The segment's unique identifier. Can be found using the View Segments API or in the URL of the segment when viewing it in the dashboard.
+    UpdateSegmentRequest updateSegmentRequest = new UpdateSegmentRequest(); // UpdateSegmentRequest | 
+    try {
+      UpdateSegmentSuccessResponse result = apiInstance.updateSegment(appId, segmentId, updateSegmentRequest);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#updateSegment");
+      System.err.println("Status code: " + e.getCode());
+      // getErrorMessages() flattens any error-envelope shape to a List<String>;
+      // the raw body remains on getResponseBody().
+      System.err.println("Error messages: " + e.getErrorMessages());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **appId** | **String**| The OneSignal App ID for your app.  Available in Keys &amp; IDs. | |
+| **segmentId** | **String**| The segment&#39;s unique identifier. Can be found using the View Segments API or in the URL of the segment when viewing it in the dashboard. | |
+| **updateSegmentRequest** | [**UpdateSegmentRequest**](UpdateSegmentRequest.md)|  | [optional] |
+
+### Return type
+
+[**UpdateSegmentSuccessResponse**](UpdateSegmentSuccessResponse.md)
+
+### Authorization
+
+[rest_api_key](https://github.com/OneSignal/onesignal-java-api#configuration)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
 | **429** | Rate Limit Exceeded |  -  |
 | **0** | Unexpected error |  -  |
 
