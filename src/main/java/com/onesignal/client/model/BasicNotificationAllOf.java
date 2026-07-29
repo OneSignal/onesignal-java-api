@@ -232,6 +232,10 @@ public class BasicNotificationAllOf {
   @SerializedName(SERIALIZED_NAME_BIG_PICTURE)
   private String bigPicture;
 
+  public static final String SERIALIZED_NAME_GLOBAL_IMAGE = "global_image";
+  @SerializedName(SERIALIZED_NAME_GLOBAL_IMAGE)
+  private String globalImage;
+
   public static final String SERIALIZED_NAME_HUAWEI_BIG_PICTURE = "huawei_big_picture";
   @SerializedName(SERIALIZED_NAME_HUAWEI_BIG_PICTURE)
   private String huaweiBigPicture;
@@ -1294,6 +1298,29 @@ public class BasicNotificationAllOf {
 
   public void setBigPicture(String bigPicture) {
     this.bigPicture = bigPicture;
+  }
+
+
+  public BasicNotificationAllOf globalImage(String globalImage) {
+    
+    this.globalImage = globalImage;
+    return this;
+  }
+
+   /**
+   * Channel: Push Notifications Platform: All Picture to display on all platforms that support it. Must be a URL to an image file. Platform-specific picture fields (big_picture, huawei_big_picture, adm_big_picture, chrome_web_image, ios_attachments, firefox_icon) take precedence over this value when set. 
+   * @return globalImage
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Channel: Push Notifications Platform: All Picture to display on all platforms that support it. Must be a URL to an image file. Platform-specific picture fields (big_picture, huawei_big_picture, adm_big_picture, chrome_web_image, ios_attachments, firefox_icon) take precedence over this value when set. ")
+
+  public String getGlobalImage() {
+    return globalImage;
+  }
+
+
+  public void setGlobalImage(String globalImage) {
+    this.globalImage = globalImage;
   }
 
 
@@ -3034,6 +3061,7 @@ public class BasicNotificationAllOf {
         Objects.equals(this.mutableContent, basicNotificationAllOf.mutableContent) &&
         Objects.equals(this.targetContentIdentifier, basicNotificationAllOf.targetContentIdentifier) &&
         Objects.equals(this.bigPicture, basicNotificationAllOf.bigPicture) &&
+        Objects.equals(this.globalImage, basicNotificationAllOf.globalImage) &&
         Objects.equals(this.huaweiBigPicture, basicNotificationAllOf.huaweiBigPicture) &&
         Objects.equals(this.admBigPicture, basicNotificationAllOf.admBigPicture) &&
         Objects.equals(this.chromeBigPicture, basicNotificationAllOf.chromeBigPicture) &&
@@ -3114,7 +3142,7 @@ public class BasicNotificationAllOf {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, value, name, aggregation, isIos, isAndroid, isHuawei, isAnyWeb, isChromeWeb, isFirefox, isSafari, isWPWNS, isAdm, isChrome, appId, externalId, idempotencyKey, contents, headings, subtitle, data, huaweiMsgType, url, webUrl, appUrl, iosAttachments, templateId, contentAvailable, mutableContent, targetContentIdentifier, bigPicture, huaweiBigPicture, admBigPicture, chromeBigPicture, chromeWebImage, buttons, webButtons, iosCategory, androidChannelId, huaweiChannelId, existingAndroidChannelId, huaweiExistingChannelId, androidBackgroundLayout, smallIcon, huaweiSmallIcon, largeIcon, huaweiLargeIcon, admSmallIcon, admLargeIcon, chromeWebIcon, chromeWebBadge, firefoxIcon, chromeIcon, iosSound, androidSound, huaweiSound, admSound, wpWnsSound, androidLedColor, huaweiLedColor, androidAccentColor, huaweiAccentColor, androidVisibility, huaweiVisibility, iosBadgeType, iosBadgeCount, collapseId, webPushTopic, apnsAlert, delayedOption, deliveryTimeOfDay, ttl, priority, apnsPushTypeOverride, throttleRatePerMinute, androidGroup, androidGroupMessage, admGroup, admGroupMessage, threadId, summaryArg, summaryArgCount, iosRelevanceScore, iosInterruptionLevel, emailSubject, emailBody, emailFromName, emailFromAddress, emailReplyToAddress, emailPreheader, disableEmailClickTracking, includeUnsubscribed, emailBcc, emailSenderDomain, smsFrom, smsMediaUrls, filters, customData, huaweiBadgeClass, huaweiBadgeAddNum, huaweiBadgeSetNum, huaweiCategory, huaweiBiTag);
+    return Objects.hash(id, value, name, aggregation, isIos, isAndroid, isHuawei, isAnyWeb, isChromeWeb, isFirefox, isSafari, isWPWNS, isAdm, isChrome, appId, externalId, idempotencyKey, contents, headings, subtitle, data, huaweiMsgType, url, webUrl, appUrl, iosAttachments, templateId, contentAvailable, mutableContent, targetContentIdentifier, bigPicture, globalImage, huaweiBigPicture, admBigPicture, chromeBigPicture, chromeWebImage, buttons, webButtons, iosCategory, androidChannelId, huaweiChannelId, existingAndroidChannelId, huaweiExistingChannelId, androidBackgroundLayout, smallIcon, huaweiSmallIcon, largeIcon, huaweiLargeIcon, admSmallIcon, admLargeIcon, chromeWebIcon, chromeWebBadge, firefoxIcon, chromeIcon, iosSound, androidSound, huaweiSound, admSound, wpWnsSound, androidLedColor, huaweiLedColor, androidAccentColor, huaweiAccentColor, androidVisibility, huaweiVisibility, iosBadgeType, iosBadgeCount, collapseId, webPushTopic, apnsAlert, delayedOption, deliveryTimeOfDay, ttl, priority, apnsPushTypeOverride, throttleRatePerMinute, androidGroup, androidGroupMessage, admGroup, admGroupMessage, threadId, summaryArg, summaryArgCount, iosRelevanceScore, iosInterruptionLevel, emailSubject, emailBody, emailFromName, emailFromAddress, emailReplyToAddress, emailPreheader, disableEmailClickTracking, includeUnsubscribed, emailBcc, emailSenderDomain, smsFrom, smsMediaUrls, filters, customData, huaweiBadgeClass, huaweiBadgeAddNum, huaweiBadgeSetNum, huaweiCategory, huaweiBiTag);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -3159,6 +3187,7 @@ public class BasicNotificationAllOf {
     sb.append("    mutableContent: ").append(toIndentedString(mutableContent)).append("\n");
     sb.append("    targetContentIdentifier: ").append(toIndentedString(targetContentIdentifier)).append("\n");
     sb.append("    bigPicture: ").append(toIndentedString(bigPicture)).append("\n");
+    sb.append("    globalImage: ").append(toIndentedString(globalImage)).append("\n");
     sb.append("    huaweiBigPicture: ").append(toIndentedString(huaweiBigPicture)).append("\n");
     sb.append("    admBigPicture: ").append(toIndentedString(admBigPicture)).append("\n");
     sb.append("    chromeBigPicture: ").append(toIndentedString(chromeBigPicture)).append("\n");
@@ -3284,6 +3313,7 @@ public class BasicNotificationAllOf {
     openapiFields.add("mutable_content");
     openapiFields.add("target_content_identifier");
     openapiFields.add("big_picture");
+    openapiFields.add("global_image");
     openapiFields.add("huawei_big_picture");
     openapiFields.add("adm_big_picture");
     openapiFields.add("chrome_big_picture");
