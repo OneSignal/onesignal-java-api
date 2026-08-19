@@ -11,6 +11,7 @@ All URIs are relative to *https://api.onesignal.com*
 | [**createApiKey**](DefaultApi.md#createApiKey) | **POST** /apps/{app_id}/auth/tokens | Create API key |
 | [**createApp**](DefaultApi.md#createApp) | **POST** /apps | Create an app |
 | [**createCustomEvents**](DefaultApi.md#createCustomEvents) | **POST** /apps/{app_id}/custom_events | Create custom events |
+| [**createJourney**](DefaultApi.md#createJourney) | **POST** /apps/{app_id}/journeys | Create journey |
 | [**createNotification**](DefaultApi.md#createNotification) | **POST** /notifications | Create notification |
 | [**createSegment**](DefaultApi.md#createSegment) | **POST** /apps/{app_id}/segments | Create Segment |
 | [**createSubscription**](DefaultApi.md#createSubscription) | **POST** /apps/{app_id}/users/by/{alias_label}/{alias_id}/subscriptions |  |
@@ -18,6 +19,7 @@ All URIs are relative to *https://api.onesignal.com*
 | [**createUser**](DefaultApi.md#createUser) | **POST** /apps/{app_id}/users |  |
 | [**deleteAlias**](DefaultApi.md#deleteAlias) | **DELETE** /apps/{app_id}/users/by/{alias_label}/{alias_id}/identity/{alias_label_to_delete} |  |
 | [**deleteApiKey**](DefaultApi.md#deleteApiKey) | **DELETE** /apps/{app_id}/auth/tokens/{token_id} | Delete API key |
+| [**deleteJourney**](DefaultApi.md#deleteJourney) | **DELETE** /apps/{app_id}/journeys/{journey_id} | Delete journey |
 | [**deleteSegment**](DefaultApi.md#deleteSegment) | **DELETE** /apps/{app_id}/segments/{segment_id} | Delete Segment |
 | [**deleteSubscription**](DefaultApi.md#deleteSubscription) | **DELETE** /apps/{app_id}/subscriptions/{subscription_id} |  |
 | [**deleteTemplate**](DefaultApi.md#deleteTemplate) | **DELETE** /templates/{template_id} | Delete template |
@@ -42,6 +44,8 @@ All URIs are relative to *https://api.onesignal.com*
 | [**unsubscribeEmailWithToken**](DefaultApi.md#unsubscribeEmailWithToken) | **POST** /apps/{app_id}/notifications/{notification_id}/unsubscribe | Unsubscribe with token |
 | [**updateApiKey**](DefaultApi.md#updateApiKey) | **PATCH** /apps/{app_id}/auth/tokens/{token_id} | Update API key |
 | [**updateApp**](DefaultApi.md#updateApp) | **PUT** /apps/{app_id} | Update an app |
+| [**updateJourney**](DefaultApi.md#updateJourney) | **PATCH** /apps/{app_id}/journeys/{journey_id} | Update journey |
+| [**updateJourneyNode**](DefaultApi.md#updateJourneyNode) | **PATCH** /apps/{app_id}/journeys/{journey_id}/nodes/{node_id} | Update journey node |
 | [**updateLiveActivity**](DefaultApi.md#updateLiveActivity) | **POST** /apps/{app_id}/live_activities/{activity_id}/notifications | Update a Live Activity via Push |
 | [**updateSegment**](DefaultApi.md#updateSegment) | **PATCH** /apps/{app_id}/segments/{segment_id} | Update Segment |
 | [**updateSubscription**](DefaultApi.md#updateSubscription) | **PATCH** /apps/{app_id}/subscriptions/{subscription_id} |  |
@@ -49,6 +53,9 @@ All URIs are relative to *https://api.onesignal.com*
 | [**updateTemplate**](DefaultApi.md#updateTemplate) | **PATCH** /templates/{template_id} | Update template |
 | [**updateUser**](DefaultApi.md#updateUser) | **PATCH** /apps/{app_id}/users/by/{alias_label}/{alias_id} |  |
 | [**viewApiKeys**](DefaultApi.md#viewApiKeys) | **GET** /apps/{app_id}/auth/tokens | View API keys |
+| [**viewJourney**](DefaultApi.md#viewJourney) | **GET** /apps/{app_id}/journeys/{journey_id} | View journey |
+| [**viewJourneyStats**](DefaultApi.md#viewJourneyStats) | **GET** /apps/{app_id}/journeys/{journey_id}/stats | View journey stats |
+| [**viewJourneys**](DefaultApi.md#viewJourneys) | **GET** /apps/{app_id}/journeys | View journeys |
 | [**viewTemplate**](DefaultApi.md#viewTemplate) | **GET** /templates/{template_id} | View template |
 | [**viewTemplates**](DefaultApi.md#viewTemplates) | **GET** /templates | View templates |
 
@@ -621,6 +628,82 @@ public class Example {
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
 | **401** | Unauthorized |  -  |
+| **429** | Rate Limit Exceeded |  -  |
+| **0** | Unexpected error |  -  |
+
+<a name="createJourney"></a>
+# **createJourney**
+> Journey createJourney(appId, createJourneyRequest)
+
+Create journey
+
+The Journeys API is in beta. Endpoints and response fields can still change. Create a new journey with an audience and a node graph. Journeys are always created in the draft state. The authenticated App API key must have permission to create journeys.
+
+### Example
+```java
+// Import classes:
+import com.onesignal.client.ApiClient;
+import com.onesignal.client.ApiException;
+import com.onesignal.client.Configuration;
+import com.onesignal.client.auth.*;
+import com.onesignal.client.model.*;
+import com.onesignal.client.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.onesignal.com");
+    
+    // Configure HTTP bearer authorization: rest_api_key
+    HttpBearerAuth rest_api_key = (HttpBearerAuth) defaultClient.getAuthentication("rest_api_key");
+    rest_api_key.setBearerToken("YOUR_REST_API_KEY");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String appId = "YOUR_APP_ID"; // String | Your OneSignal App ID in UUID v4 format.
+    CreateJourneyRequest createJourneyRequest = new CreateJourneyRequest(); // CreateJourneyRequest | 
+    try {
+      Journey result = apiInstance.createJourney(appId, createJourneyRequest);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#createJourney");
+      System.err.println("Status code: " + e.getCode());
+      // getErrorMessages() flattens any error-envelope shape to a List<String>;
+      // the raw body remains on getResponseBody().
+      System.err.println("Error messages: " + e.getErrorMessages());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **appId** | **String**| Your OneSignal App ID in UUID v4 format. | |
+| **createJourneyRequest** | [**CreateJourneyRequest**](CreateJourneyRequest.md)|  | |
+
+### Return type
+
+[**Journey**](Journey.md)
+
+### Authorization
+
+[rest_api_key](https://github.com/OneSignal/onesignal-java-api#configuration)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | Created |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Forbidden |  -  |
 | **429** | Rate Limit Exceeded |  -  |
 | **0** | Unexpected error |  -  |
 
@@ -1264,6 +1347,82 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
+| **0** | Unexpected error |  -  |
+
+<a name="deleteJourney"></a>
+# **deleteJourney**
+> GenericSuccessBoolResponse deleteJourney(appId, journeyId)
+
+Delete journey
+
+The Journeys API is in beta. Endpoints and response fields can still change. Permanently delete a journey by its UUID. Returns { \&quot;success\&quot;: true } on success. The authenticated App API key must have permission to delete journeys. Deleting a journey stops any in-flight users and cannot be undone. Archive a running journey instead if you need to keep its data.
+
+### Example
+```java
+// Import classes:
+import com.onesignal.client.ApiClient;
+import com.onesignal.client.ApiException;
+import com.onesignal.client.Configuration;
+import com.onesignal.client.auth.*;
+import com.onesignal.client.model.*;
+import com.onesignal.client.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.onesignal.com");
+    
+    // Configure HTTP bearer authorization: rest_api_key
+    HttpBearerAuth rest_api_key = (HttpBearerAuth) defaultClient.getAuthentication("rest_api_key");
+    rest_api_key.setBearerToken("YOUR_REST_API_KEY");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String appId = "YOUR_APP_ID"; // String | Your OneSignal App ID in UUID v4 format.
+    String journeyId = "YOUR_JOURNEY_ID"; // String | UUID of the journey to delete.
+    try {
+      GenericSuccessBoolResponse result = apiInstance.deleteJourney(appId, journeyId);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#deleteJourney");
+      System.err.println("Status code: " + e.getCode());
+      // getErrorMessages() flattens any error-envelope shape to a List<String>;
+      // the raw body remains on getResponseBody().
+      System.err.println("Error messages: " + e.getErrorMessages());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **appId** | **String**| Your OneSignal App ID in UUID v4 format. | |
+| **journeyId** | **String**| UUID of the journey to delete. | |
+
+### Return type
+
+[**GenericSuccessBoolResponse**](GenericSuccessBoolResponse.md)
+
+### Authorization
+
+[rest_api_key](https://github.com/OneSignal/onesignal-java-api#configuration)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **429** | Rate Limit Exceeded |  -  |
 | **0** | Unexpected error |  -  |
 
 <a name="deleteSegment"></a>
@@ -3121,6 +3280,170 @@ public class Example {
 | **429** | Rate Limit Exceeded |  -  |
 | **0** | Unexpected error |  -  |
 
+<a name="updateJourney"></a>
+# **updateJourney**
+> Journey updateJourney(appId, journeyId, updateJourneyRequest)
+
+Update journey
+
+The Journeys API is in beta. Endpoints and response fields can still change. Apply a partial update to a journey using JSON Merge Patch (RFC 7396). Send only the fields you want to change; omitted fields are left unchanged. A null value clears a nullable field, and arrays such as nodes are replaced wholesale. Set state to active to activate a draft journey.
+
+### Example
+```java
+// Import classes:
+import com.onesignal.client.ApiClient;
+import com.onesignal.client.ApiException;
+import com.onesignal.client.Configuration;
+import com.onesignal.client.auth.*;
+import com.onesignal.client.model.*;
+import com.onesignal.client.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.onesignal.com");
+    
+    // Configure HTTP bearer authorization: rest_api_key
+    HttpBearerAuth rest_api_key = (HttpBearerAuth) defaultClient.getAuthentication("rest_api_key");
+    rest_api_key.setBearerToken("YOUR_REST_API_KEY");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String appId = "YOUR_APP_ID"; // String | Your OneSignal App ID in UUID v4 format.
+    String journeyId = "YOUR_JOURNEY_ID"; // String | UUID of the journey to update.
+    UpdateJourneyRequest updateJourneyRequest = new UpdateJourneyRequest(); // UpdateJourneyRequest | 
+    try {
+      Journey result = apiInstance.updateJourney(appId, journeyId, updateJourneyRequest);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#updateJourney");
+      System.err.println("Status code: " + e.getCode());
+      // getErrorMessages() flattens any error-envelope shape to a List<String>;
+      // the raw body remains on getResponseBody().
+      System.err.println("Error messages: " + e.getErrorMessages());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **appId** | **String**| Your OneSignal App ID in UUID v4 format. | |
+| **journeyId** | **String**| UUID of the journey to update. | |
+| **updateJourneyRequest** | [**UpdateJourneyRequest**](UpdateJourneyRequest.md)|  | |
+
+### Return type
+
+[**Journey**](Journey.md)
+
+### Authorization
+
+[rest_api_key](https://github.com/OneSignal/onesignal-java-api#configuration)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
+| **429** | Rate Limit Exceeded |  -  |
+| **0** | Unexpected error |  -  |
+
+<a name="updateJourneyNode"></a>
+# **updateJourneyNode**
+> Journey updateJourneyNode(appId, journeyId, nodeId, updateJourneyNodeRequest)
+
+Update journey node
+
+The Journeys API is in beta. Endpoints and response fields can still change. Apply a partial update to a single node, located by its server-assigned id, using JSON Merge Patch (RFC 7396). Send only the node fields you want to change; the rest of the node and the rest of the journey graph are left untouched. Returns the full updated journey.
+
+### Example
+```java
+// Import classes:
+import com.onesignal.client.ApiClient;
+import com.onesignal.client.ApiException;
+import com.onesignal.client.Configuration;
+import com.onesignal.client.auth.*;
+import com.onesignal.client.model.*;
+import com.onesignal.client.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.onesignal.com");
+    
+    // Configure HTTP bearer authorization: rest_api_key
+    HttpBearerAuth rest_api_key = (HttpBearerAuth) defaultClient.getAuthentication("rest_api_key");
+    rest_api_key.setBearerToken("YOUR_REST_API_KEY");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String appId = "YOUR_APP_ID"; // String | Your OneSignal App ID in UUID v4 format.
+    String journeyId = "YOUR_JOURNEY_ID"; // String | UUID of the journey that owns the node.
+    String nodeId = "YOUR_NODE_ID"; // String | Server-assigned UUID of the node to update, from a prior View journey fetch.
+    UpdateJourneyNodeRequest updateJourneyNodeRequest = new UpdateJourneyNodeRequest(); // UpdateJourneyNodeRequest | 
+    try {
+      Journey result = apiInstance.updateJourneyNode(appId, journeyId, nodeId, updateJourneyNodeRequest);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#updateJourneyNode");
+      System.err.println("Status code: " + e.getCode());
+      // getErrorMessages() flattens any error-envelope shape to a List<String>;
+      // the raw body remains on getResponseBody().
+      System.err.println("Error messages: " + e.getErrorMessages());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **appId** | **String**| Your OneSignal App ID in UUID v4 format. | |
+| **journeyId** | **String**| UUID of the journey that owns the node. | |
+| **nodeId** | **String**| Server-assigned UUID of the node to update, from a prior View journey fetch. | |
+| **updateJourneyNodeRequest** | [**UpdateJourneyNodeRequest**](UpdateJourneyNodeRequest.md)|  | |
+
+### Return type
+
+[**Journey**](Journey.md)
+
+### Authorization
+
+[rest_api_key](https://github.com/OneSignal/onesignal-java-api#configuration)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
+| **429** | Rate Limit Exceeded |  -  |
+| **0** | Unexpected error |  -  |
+
 <a name="updateLiveActivity"></a>
 # **updateLiveActivity**
 > UpdateLiveActivitySuccessResponse updateLiveActivity(appId, activityId, updateLiveActivityRequest)
@@ -3660,6 +3983,234 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
+| **0** | Unexpected error |  -  |
+
+<a name="viewJourney"></a>
+# **viewJourney**
+> Journey viewJourney(appId, journeyId)
+
+View journey
+
+The Journeys API is in beta. Endpoints and response fields can still change. Retrieve the full configuration of a single journey by its UUID, including its audience and node graph.
+
+### Example
+```java
+// Import classes:
+import com.onesignal.client.ApiClient;
+import com.onesignal.client.ApiException;
+import com.onesignal.client.Configuration;
+import com.onesignal.client.auth.*;
+import com.onesignal.client.model.*;
+import com.onesignal.client.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.onesignal.com");
+    
+    // Configure HTTP bearer authorization: rest_api_key
+    HttpBearerAuth rest_api_key = (HttpBearerAuth) defaultClient.getAuthentication("rest_api_key");
+    rest_api_key.setBearerToken("YOUR_REST_API_KEY");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String appId = "YOUR_APP_ID"; // String | Your OneSignal App ID in UUID v4 format.
+    String journeyId = "YOUR_JOURNEY_ID"; // String | UUID of the journey to retrieve.
+    try {
+      Journey result = apiInstance.viewJourney(appId, journeyId);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#viewJourney");
+      System.err.println("Status code: " + e.getCode());
+      // getErrorMessages() flattens any error-envelope shape to a List<String>;
+      // the raw body remains on getResponseBody().
+      System.err.println("Error messages: " + e.getErrorMessages());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **appId** | **String**| Your OneSignal App ID in UUID v4 format. | |
+| **journeyId** | **String**| UUID of the journey to retrieve. | |
+
+### Return type
+
+[**Journey**](Journey.md)
+
+### Authorization
+
+[rest_api_key](https://github.com/OneSignal/onesignal-java-api#configuration)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **404** | Not Found |  -  |
+| **429** | Rate Limit Exceeded |  -  |
+| **0** | Unexpected error |  -  |
+
+<a name="viewJourneyStats"></a>
+# **viewJourneyStats**
+> JourneyStats viewJourneyStats(appId, journeyId)
+
+View journey stats
+
+The Journeys API is in beta. Endpoints and response fields can still change. Retrieve performance stats for a single journey: journey-level entry and exit counts, per-node counts keyed by node id, per-branch counts keyed by branch id, and channel delivery stats for message-sending nodes. The response carries no definition detail, so join it by id against the journey from View journey.
+
+### Example
+```java
+// Import classes:
+import com.onesignal.client.ApiClient;
+import com.onesignal.client.ApiException;
+import com.onesignal.client.Configuration;
+import com.onesignal.client.auth.*;
+import com.onesignal.client.model.*;
+import com.onesignal.client.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.onesignal.com");
+    
+    // Configure HTTP bearer authorization: rest_api_key
+    HttpBearerAuth rest_api_key = (HttpBearerAuth) defaultClient.getAuthentication("rest_api_key");
+    rest_api_key.setBearerToken("YOUR_REST_API_KEY");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String appId = "YOUR_APP_ID"; // String | Your OneSignal App ID in UUID v4 format.
+    String journeyId = "YOUR_JOURNEY_ID"; // String | UUID of the journey to retrieve stats for.
+    try {
+      JourneyStats result = apiInstance.viewJourneyStats(appId, journeyId);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#viewJourneyStats");
+      System.err.println("Status code: " + e.getCode());
+      // getErrorMessages() flattens any error-envelope shape to a List<String>;
+      // the raw body remains on getResponseBody().
+      System.err.println("Error messages: " + e.getErrorMessages());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **appId** | **String**| Your OneSignal App ID in UUID v4 format. | |
+| **journeyId** | **String**| UUID of the journey to retrieve stats for. | |
+
+### Return type
+
+[**JourneyStats**](JourneyStats.md)
+
+### Authorization
+
+[rest_api_key](https://github.com/OneSignal/onesignal-java-api#configuration)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **404** | Not Found |  -  |
+| **429** | Rate Limit Exceeded |  -  |
+| **0** | Unexpected error |  -  |
+
+<a name="viewJourneys"></a>
+# **viewJourneys**
+> JourneyListResponse viewJourneys(appId, cursor, limit)
+
+View journeys
+
+The Journeys API is in beta. Endpoints and response fields can still change. Retrieve a paginated list of journeys for an app. Returns a summary representation of each journey; use View journey for the full configuration. Uses forward-only cursor-based pagination.
+
+### Example
+```java
+// Import classes:
+import com.onesignal.client.ApiClient;
+import com.onesignal.client.ApiException;
+import com.onesignal.client.Configuration;
+import com.onesignal.client.auth.*;
+import com.onesignal.client.model.*;
+import com.onesignal.client.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.onesignal.com");
+    
+    // Configure HTTP bearer authorization: rest_api_key
+    HttpBearerAuth rest_api_key = (HttpBearerAuth) defaultClient.getAuthentication("rest_api_key");
+    rest_api_key.setBearerToken("YOUR_REST_API_KEY");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String appId = "YOUR_APP_ID"; // String | Your OneSignal App ID in UUID v4 format.
+    String cursor = "cursor_example"; // String | Opaque pagination token from a previous response's next_cursor. Omit for the first page.
+    Integer limit = 50; // Integer | Maximum journeys to return per page. Minimum 1, maximum 50.
+    try {
+      JourneyListResponse result = apiInstance.viewJourneys(appId, cursor, limit);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#viewJourneys");
+      System.err.println("Status code: " + e.getCode());
+      // getErrorMessages() flattens any error-envelope shape to a List<String>;
+      // the raw body remains on getResponseBody().
+      System.err.println("Error messages: " + e.getErrorMessages());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **appId** | **String**| Your OneSignal App ID in UUID v4 format. | |
+| **cursor** | **String**| Opaque pagination token from a previous response&#39;s next_cursor. Omit for the first page. | [optional] |
+| **limit** | **Integer**| Maximum journeys to return per page. Minimum 1, maximum 50. | [optional] [default to 50] |
+
+### Return type
+
+[**JourneyListResponse**](JourneyListResponse.md)
+
+### Authorization
+
+[rest_api_key](https://github.com/OneSignal/onesignal-java-api#configuration)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Forbidden |  -  |
+| **429** | Rate Limit Exceeded |  -  |
 | **0** | Unexpected error |  -  |
 
 <a name="viewTemplate"></a>
