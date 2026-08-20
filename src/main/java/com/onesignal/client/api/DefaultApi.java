@@ -31,6 +31,7 @@ import com.onesignal.client.model.App;
 import com.onesignal.client.model.CopyTemplateRequest;
 import com.onesignal.client.model.CreateApiKeyRequest;
 import com.onesignal.client.model.CreateApiKeyResponse;
+import com.onesignal.client.model.CreateJourneyRequest;
 import com.onesignal.client.model.CreateNotificationSuccessResponse;
 import com.onesignal.client.model.CreateSegmentConflictResponse;
 import com.onesignal.client.model.CreateSegmentSuccessResponse;
@@ -45,6 +46,9 @@ import com.onesignal.client.model.GenericSuccessBoolResponse;
 import com.onesignal.client.model.GetNotificationHistoryRequestBody;
 import com.onesignal.client.model.GetSegmentSuccessResponse;
 import com.onesignal.client.model.GetSegmentsSuccessResponse;
+import com.onesignal.client.model.Journey;
+import com.onesignal.client.model.JourneyListResponse;
+import com.onesignal.client.model.JourneyStats;
 import com.onesignal.client.model.ListAuditLogsSuccessResponse;
 import com.onesignal.client.model.Notification;
 import com.onesignal.client.model.NotificationHistorySuccessResponse;
@@ -61,6 +65,8 @@ import com.onesignal.client.model.TemplateResource;
 import com.onesignal.client.model.TemplatesListResponse;
 import com.onesignal.client.model.TransferSubscriptionRequestBody;
 import com.onesignal.client.model.UpdateApiKeyRequest;
+import com.onesignal.client.model.UpdateJourneyNodeRequest;
+import com.onesignal.client.model.UpdateJourneyRequest;
 import com.onesignal.client.model.UpdateLiveActivityRequest;
 import com.onesignal.client.model.UpdateLiveActivitySuccessResponse;
 import com.onesignal.client.model.UpdateSegmentRequest;
@@ -158,7 +164,7 @@ public class DefaultApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         // Adds client sdk version header
-        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.11.2");
+        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.12.0");
 
         if (appId != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("app_id", appId));
@@ -316,7 +322,7 @@ public class DefaultApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         // Adds client sdk version header
-        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.11.2");
+        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.12.0");
 
         if (appId != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("app_id", appId));
@@ -482,7 +488,7 @@ public class DefaultApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         // Adds client sdk version header
-        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.11.2");
+        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.12.0");
 
         final String[] localVarAccepts = {
             "application/json"
@@ -659,7 +665,7 @@ public class DefaultApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         // Adds client sdk version header
-        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.11.2");
+        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.12.0");
 
         final String[] localVarAccepts = {
             "application/json"
@@ -823,7 +829,7 @@ public class DefaultApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         // Adds client sdk version header
-        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.11.2");
+        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.12.0");
 
         final String[] localVarAccepts = {
             "application/json"
@@ -969,7 +975,7 @@ public class DefaultApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         // Adds client sdk version header
-        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.11.2");
+        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.12.0");
 
         final String[] localVarAccepts = {
             "application/json"
@@ -1113,7 +1119,7 @@ public class DefaultApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         // Adds client sdk version header
-        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.11.2");
+        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.12.0");
 
         final String[] localVarAccepts = {
             "application/json"
@@ -1225,6 +1231,161 @@ public class DefaultApi {
         return localVarCall;
     }
     /**
+     * Build call for createJourney
+     * @param appId Your OneSignal App ID in UUID v4 format. (required)
+     * @param createJourneyRequest  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createJourneyCall(String appId, CreateJourneyRequest createJourneyRequest, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = createJourneyRequest;
+
+        // create path and map variables
+        String localVarPath = "/apps/{app_id}/journeys"
+            .replaceAll("\\{" + "app_id" + "\\}", localVarApiClient.escapeString(appId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        // Adds client sdk version header
+        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.12.0");
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "rest_api_key" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call createJourneyValidateBeforeCall(String appId, CreateJourneyRequest createJourneyRequest, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'appId' is set
+        if (appId == null) {
+            throw new ApiException("Missing the required parameter 'appId' when calling createJourney(Async)");
+        }
+        
+        // verify the required parameter 'createJourneyRequest' is set
+        if (createJourneyRequest == null) {
+            throw new ApiException("Missing the required parameter 'createJourneyRequest' when calling createJourney(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = createJourneyCall(appId, createJourneyRequest, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Create journey
+     * The Journeys API is in beta. Endpoints and response fields can still change. Create a new journey with an audience and a node graph. Journeys are always created in the draft state. The authenticated App API key must have permission to create journeys.
+     * @param appId Your OneSignal App ID in UUID v4 format. (required)
+     * @param createJourneyRequest  (required)
+     * @return Journey
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
+     </table>
+     */
+    public Journey createJourney(String appId, CreateJourneyRequest createJourneyRequest) throws ApiException {
+        ApiResponse<Journey> localVarResp = createJourneyWithHttpInfo(appId, createJourneyRequest);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Create journey
+     * The Journeys API is in beta. Endpoints and response fields can still change. Create a new journey with an audience and a node graph. Journeys are always created in the draft state. The authenticated App API key must have permission to create journeys.
+     * @param appId Your OneSignal App ID in UUID v4 format. (required)
+     * @param createJourneyRequest  (required)
+     * @return ApiResponse&lt;Journey&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Journey> createJourneyWithHttpInfo(String appId, CreateJourneyRequest createJourneyRequest) throws ApiException {
+        okhttp3.Call localVarCall = createJourneyValidateBeforeCall(appId, createJourneyRequest, null);
+        Type localVarReturnType = new TypeToken<Journey>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Create journey (asynchronously)
+     * The Journeys API is in beta. Endpoints and response fields can still change. Create a new journey with an audience and a node graph. Journeys are always created in the draft state. The authenticated App API key must have permission to create journeys.
+     * @param appId Your OneSignal App ID in UUID v4 format. (required)
+     * @param createJourneyRequest  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createJourneyAsync(String appId, CreateJourneyRequest createJourneyRequest, final ApiCallback<Journey> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = createJourneyValidateBeforeCall(appId, createJourneyRequest, _callback);
+        Type localVarReturnType = new TypeToken<Journey>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for createNotification
      * @param notification  (required)
      * @param _callback Callback for upload/download progress
@@ -1265,7 +1426,7 @@ public class DefaultApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         // Adds client sdk version header
-        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.11.2");
+        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.12.0");
 
         final String[] localVarAccepts = {
             "application/json"
@@ -1409,7 +1570,7 @@ public class DefaultApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         // Adds client sdk version header
-        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.11.2");
+        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.12.0");
 
         final String[] localVarAccepts = {
             "application/json"
@@ -1565,7 +1726,7 @@ public class DefaultApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         // Adds client sdk version header
-        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.11.2");
+        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.12.0");
 
         final String[] localVarAccepts = {
             "application/json"
@@ -1739,7 +1900,7 @@ public class DefaultApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         // Adds client sdk version header
-        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.11.2");
+        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.12.0");
 
         final String[] localVarAccepts = {
             "application/json"
@@ -1885,7 +2046,7 @@ public class DefaultApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         // Adds client sdk version header
-        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.11.2");
+        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.12.0");
 
         final String[] localVarAccepts = {
             "application/json"
@@ -2052,7 +2213,7 @@ public class DefaultApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         // Adds client sdk version header
-        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.11.2");
+        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.12.0");
 
         final String[] localVarAccepts = {
             "application/json"
@@ -2225,7 +2386,7 @@ public class DefaultApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         // Adds client sdk version header
-        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.11.2");
+        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.12.0");
 
         final String[] localVarAccepts = {
             "application/json"
@@ -2331,6 +2492,162 @@ public class DefaultApi {
         return localVarCall;
     }
     /**
+     * Build call for deleteJourney
+     * @param appId Your OneSignal App ID in UUID v4 format. (required)
+     * @param journeyId UUID of the journey to delete. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call deleteJourneyCall(String appId, String journeyId, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/apps/{app_id}/journeys/{journey_id}"
+            .replaceAll("\\{" + "app_id" + "\\}", localVarApiClient.escapeString(appId.toString()))
+            .replaceAll("\\{" + "journey_id" + "\\}", localVarApiClient.escapeString(journeyId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        // Adds client sdk version header
+        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.12.0");
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "rest_api_key" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call deleteJourneyValidateBeforeCall(String appId, String journeyId, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'appId' is set
+        if (appId == null) {
+            throw new ApiException("Missing the required parameter 'appId' when calling deleteJourney(Async)");
+        }
+        
+        // verify the required parameter 'journeyId' is set
+        if (journeyId == null) {
+            throw new ApiException("Missing the required parameter 'journeyId' when calling deleteJourney(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = deleteJourneyCall(appId, journeyId, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Delete journey
+     * The Journeys API is in beta. Endpoints and response fields can still change. Permanently delete a journey by its UUID. Returns { \&quot;success\&quot;: true } on success. The authenticated App API key must have permission to delete journeys. Deleting a journey stops any in-flight users and cannot be undone. Archive a running journey instead if you need to keep its data.
+     * @param appId Your OneSignal App ID in UUID v4 format. (required)
+     * @param journeyId UUID of the journey to delete. (required)
+     * @return GenericSuccessBoolResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
+     </table>
+     */
+    public GenericSuccessBoolResponse deleteJourney(String appId, String journeyId) throws ApiException {
+        ApiResponse<GenericSuccessBoolResponse> localVarResp = deleteJourneyWithHttpInfo(appId, journeyId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Delete journey
+     * The Journeys API is in beta. Endpoints and response fields can still change. Permanently delete a journey by its UUID. Returns { \&quot;success\&quot;: true } on success. The authenticated App API key must have permission to delete journeys. Deleting a journey stops any in-flight users and cannot be undone. Archive a running journey instead if you need to keep its data.
+     * @param appId Your OneSignal App ID in UUID v4 format. (required)
+     * @param journeyId UUID of the journey to delete. (required)
+     * @return ApiResponse&lt;GenericSuccessBoolResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<GenericSuccessBoolResponse> deleteJourneyWithHttpInfo(String appId, String journeyId) throws ApiException {
+        okhttp3.Call localVarCall = deleteJourneyValidateBeforeCall(appId, journeyId, null);
+        Type localVarReturnType = new TypeToken<GenericSuccessBoolResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Delete journey (asynchronously)
+     * The Journeys API is in beta. Endpoints and response fields can still change. Permanently delete a journey by its UUID. Returns { \&quot;success\&quot;: true } on success. The authenticated App API key must have permission to delete journeys. Deleting a journey stops any in-flight users and cannot be undone. Archive a running journey instead if you need to keep its data.
+     * @param appId Your OneSignal App ID in UUID v4 format. (required)
+     * @param journeyId UUID of the journey to delete. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call deleteJourneyAsync(String appId, String journeyId, final ApiCallback<GenericSuccessBoolResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = deleteJourneyValidateBeforeCall(appId, journeyId, _callback);
+        Type localVarReturnType = new TypeToken<GenericSuccessBoolResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for deleteSegment
      * @param appId The OneSignal App ID for your app.  Available in Keys &amp; IDs. (required)
      * @param segmentId The segment_id can be found in the URL of the segment when viewing it in the dashboard. (required)
@@ -2375,7 +2692,7 @@ public class DefaultApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         // Adds client sdk version header
-        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.11.2");
+        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.12.0");
 
         final String[] localVarAccepts = {
             "application/json"
@@ -2532,7 +2849,7 @@ public class DefaultApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         // Adds client sdk version header
-        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.11.2");
+        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.12.0");
 
         final String[] localVarAccepts = {
             "application/json"
@@ -2685,7 +3002,7 @@ public class DefaultApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         // Adds client sdk version header
-        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.11.2");
+        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.12.0");
 
         if (appId != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("app_id", appId));
@@ -2844,7 +3161,7 @@ public class DefaultApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         // Adds client sdk version header
-        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.11.2");
+        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.12.0");
 
         final String[] localVarAccepts = {
             "application/json"
@@ -3003,7 +3320,7 @@ public class DefaultApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         // Adds client sdk version header
-        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.11.2");
+        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.12.0");
 
         if (appId != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("app_id", appId));
@@ -3161,7 +3478,7 @@ public class DefaultApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         // Adds client sdk version header
-        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.11.2");
+        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.12.0");
 
         final String[] localVarAccepts = {
             "application/json"
@@ -3311,7 +3628,7 @@ public class DefaultApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         // Adds client sdk version header
-        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.11.2");
+        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.12.0");
 
         final String[] localVarAccepts = {
             "application/json"
@@ -3474,7 +3791,7 @@ public class DefaultApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         // Adds client sdk version header
-        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.11.2");
+        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.12.0");
 
         final String[] localVarAccepts = {
             "application/json"
@@ -3624,7 +3941,7 @@ public class DefaultApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         // Adds client sdk version header
-        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.11.2");
+        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.12.0");
 
         final String[] localVarAccepts = {
             "application/json"
@@ -3764,7 +4081,7 @@ public class DefaultApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         // Adds client sdk version header
-        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.11.2");
+        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.12.0");
 
         final String[] localVarAccepts = {
             "application/json"
@@ -3900,7 +4217,7 @@ public class DefaultApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         // Adds client sdk version header
-        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.11.2");
+        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.12.0");
 
         if (appId != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("app_id", appId));
@@ -4059,7 +4376,7 @@ public class DefaultApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         // Adds client sdk version header
-        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.11.2");
+        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.12.0");
 
         final String[] localVarAccepts = {
             "application/json"
@@ -4215,7 +4532,7 @@ public class DefaultApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         // Adds client sdk version header
-        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.11.2");
+        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.12.0");
 
         if (appId != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("app_id", appId));
@@ -4394,7 +4711,7 @@ public class DefaultApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         // Adds client sdk version header
-        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.11.2");
+        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.12.0");
 
         if (outcomeNames != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("outcome_names", outcomeNames));
@@ -4580,7 +4897,7 @@ public class DefaultApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         // Adds client sdk version header
-        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.11.2");
+        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.12.0");
 
         if (includeSegmentDetail != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("include-segment-detail", includeSegmentDetail));
@@ -4742,7 +5059,7 @@ public class DefaultApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         // Adds client sdk version header
-        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.11.2");
+        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.12.0");
 
         if (offset != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("offset", offset));
@@ -4903,7 +5220,7 @@ public class DefaultApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         // Adds client sdk version header
-        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.11.2");
+        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.12.0");
 
         final String[] localVarAccepts = {
             "application/json"
@@ -5077,7 +5394,7 @@ public class DefaultApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         // Adds client sdk version header
-        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.11.2");
+        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.12.0");
 
         if (startTime != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("start_time", startTime));
@@ -5303,7 +5620,7 @@ public class DefaultApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         // Adds client sdk version header
-        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.11.2");
+        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.12.0");
 
         final String[] localVarAccepts = {
             "application/json"
@@ -5453,7 +5770,7 @@ public class DefaultApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         // Adds client sdk version header
-        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.11.2");
+        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.12.0");
 
         final String[] localVarAccepts = {
             "application/json"
@@ -5616,7 +5933,7 @@ public class DefaultApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         // Adds client sdk version header
-        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.11.2");
+        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.12.0");
 
         final String[] localVarAccepts = {
             "application/json"
@@ -5783,7 +6100,7 @@ public class DefaultApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         // Adds client sdk version header
-        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.11.2");
+        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.12.0");
 
         if (token != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("token", token));
@@ -5947,7 +6264,7 @@ public class DefaultApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         // Adds client sdk version header
-        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.11.2");
+        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.12.0");
 
         final String[] localVarAccepts = {
             "application/json"
@@ -6103,7 +6420,7 @@ public class DefaultApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         // Adds client sdk version header
-        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.11.2");
+        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.12.0");
 
         final String[] localVarAccepts = {
             "application/json"
@@ -6212,6 +6529,370 @@ public class DefaultApi {
         return localVarCall;
     }
     /**
+     * Build call for updateJourney
+     * @param appId Your OneSignal App ID in UUID v4 format. (required)
+     * @param journeyId UUID of the journey to update. (required)
+     * @param updateJourneyRequest  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call updateJourneyCall(String appId, String journeyId, UpdateJourneyRequest updateJourneyRequest, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = updateJourneyRequest;
+
+        // create path and map variables
+        String localVarPath = "/apps/{app_id}/journeys/{journey_id}"
+            .replaceAll("\\{" + "app_id" + "\\}", localVarApiClient.escapeString(appId.toString()))
+            .replaceAll("\\{" + "journey_id" + "\\}", localVarApiClient.escapeString(journeyId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        // Adds client sdk version header
+        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.12.0");
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "rest_api_key" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "PATCH", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call updateJourneyValidateBeforeCall(String appId, String journeyId, UpdateJourneyRequest updateJourneyRequest, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'appId' is set
+        if (appId == null) {
+            throw new ApiException("Missing the required parameter 'appId' when calling updateJourney(Async)");
+        }
+        
+        // verify the required parameter 'journeyId' is set
+        if (journeyId == null) {
+            throw new ApiException("Missing the required parameter 'journeyId' when calling updateJourney(Async)");
+        }
+        
+        // verify the required parameter 'updateJourneyRequest' is set
+        if (updateJourneyRequest == null) {
+            throw new ApiException("Missing the required parameter 'updateJourneyRequest' when calling updateJourney(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = updateJourneyCall(appId, journeyId, updateJourneyRequest, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Update journey
+     * The Journeys API is in beta. Endpoints and response fields can still change. Apply a partial update to a journey using JSON Merge Patch (RFC 7396). Send only the fields you want to change; omitted fields are left unchanged. A null value clears a nullable field, and arrays such as nodes are replaced wholesale. Set state to active to activate a draft journey.
+     * @param appId Your OneSignal App ID in UUID v4 format. (required)
+     * @param journeyId UUID of the journey to update. (required)
+     * @param updateJourneyRequest  (required)
+     * @return Journey
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
+     </table>
+     */
+    public Journey updateJourney(String appId, String journeyId, UpdateJourneyRequest updateJourneyRequest) throws ApiException {
+        ApiResponse<Journey> localVarResp = updateJourneyWithHttpInfo(appId, journeyId, updateJourneyRequest);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Update journey
+     * The Journeys API is in beta. Endpoints and response fields can still change. Apply a partial update to a journey using JSON Merge Patch (RFC 7396). Send only the fields you want to change; omitted fields are left unchanged. A null value clears a nullable field, and arrays such as nodes are replaced wholesale. Set state to active to activate a draft journey.
+     * @param appId Your OneSignal App ID in UUID v4 format. (required)
+     * @param journeyId UUID of the journey to update. (required)
+     * @param updateJourneyRequest  (required)
+     * @return ApiResponse&lt;Journey&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Journey> updateJourneyWithHttpInfo(String appId, String journeyId, UpdateJourneyRequest updateJourneyRequest) throws ApiException {
+        okhttp3.Call localVarCall = updateJourneyValidateBeforeCall(appId, journeyId, updateJourneyRequest, null);
+        Type localVarReturnType = new TypeToken<Journey>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Update journey (asynchronously)
+     * The Journeys API is in beta. Endpoints and response fields can still change. Apply a partial update to a journey using JSON Merge Patch (RFC 7396). Send only the fields you want to change; omitted fields are left unchanged. A null value clears a nullable field, and arrays such as nodes are replaced wholesale. Set state to active to activate a draft journey.
+     * @param appId Your OneSignal App ID in UUID v4 format. (required)
+     * @param journeyId UUID of the journey to update. (required)
+     * @param updateJourneyRequest  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call updateJourneyAsync(String appId, String journeyId, UpdateJourneyRequest updateJourneyRequest, final ApiCallback<Journey> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = updateJourneyValidateBeforeCall(appId, journeyId, updateJourneyRequest, _callback);
+        Type localVarReturnType = new TypeToken<Journey>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for updateJourneyNode
+     * @param appId Your OneSignal App ID in UUID v4 format. (required)
+     * @param journeyId UUID of the journey that owns the node. (required)
+     * @param nodeId Server-assigned UUID of the node to update, from a prior View journey fetch. (required)
+     * @param updateJourneyNodeRequest  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call updateJourneyNodeCall(String appId, String journeyId, String nodeId, UpdateJourneyNodeRequest updateJourneyNodeRequest, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = updateJourneyNodeRequest;
+
+        // create path and map variables
+        String localVarPath = "/apps/{app_id}/journeys/{journey_id}/nodes/{node_id}"
+            .replaceAll("\\{" + "app_id" + "\\}", localVarApiClient.escapeString(appId.toString()))
+            .replaceAll("\\{" + "journey_id" + "\\}", localVarApiClient.escapeString(journeyId.toString()))
+            .replaceAll("\\{" + "node_id" + "\\}", localVarApiClient.escapeString(nodeId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        // Adds client sdk version header
+        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.12.0");
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "rest_api_key" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "PATCH", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call updateJourneyNodeValidateBeforeCall(String appId, String journeyId, String nodeId, UpdateJourneyNodeRequest updateJourneyNodeRequest, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'appId' is set
+        if (appId == null) {
+            throw new ApiException("Missing the required parameter 'appId' when calling updateJourneyNode(Async)");
+        }
+        
+        // verify the required parameter 'journeyId' is set
+        if (journeyId == null) {
+            throw new ApiException("Missing the required parameter 'journeyId' when calling updateJourneyNode(Async)");
+        }
+        
+        // verify the required parameter 'nodeId' is set
+        if (nodeId == null) {
+            throw new ApiException("Missing the required parameter 'nodeId' when calling updateJourneyNode(Async)");
+        }
+        
+        // verify the required parameter 'updateJourneyNodeRequest' is set
+        if (updateJourneyNodeRequest == null) {
+            throw new ApiException("Missing the required parameter 'updateJourneyNodeRequest' when calling updateJourneyNode(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = updateJourneyNodeCall(appId, journeyId, nodeId, updateJourneyNodeRequest, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Update journey node
+     * The Journeys API is in beta. Endpoints and response fields can still change. Apply a partial update to a single node, located by its server-assigned id, using JSON Merge Patch (RFC 7396). Send only the node fields you want to change; the rest of the node and the rest of the journey graph are left untouched. Returns the full updated journey.
+     * @param appId Your OneSignal App ID in UUID v4 format. (required)
+     * @param journeyId UUID of the journey that owns the node. (required)
+     * @param nodeId Server-assigned UUID of the node to update, from a prior View journey fetch. (required)
+     * @param updateJourneyNodeRequest  (required)
+     * @return Journey
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
+     </table>
+     */
+    public Journey updateJourneyNode(String appId, String journeyId, String nodeId, UpdateJourneyNodeRequest updateJourneyNodeRequest) throws ApiException {
+        ApiResponse<Journey> localVarResp = updateJourneyNodeWithHttpInfo(appId, journeyId, nodeId, updateJourneyNodeRequest);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Update journey node
+     * The Journeys API is in beta. Endpoints and response fields can still change. Apply a partial update to a single node, located by its server-assigned id, using JSON Merge Patch (RFC 7396). Send only the node fields you want to change; the rest of the node and the rest of the journey graph are left untouched. Returns the full updated journey.
+     * @param appId Your OneSignal App ID in UUID v4 format. (required)
+     * @param journeyId UUID of the journey that owns the node. (required)
+     * @param nodeId Server-assigned UUID of the node to update, from a prior View journey fetch. (required)
+     * @param updateJourneyNodeRequest  (required)
+     * @return ApiResponse&lt;Journey&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Journey> updateJourneyNodeWithHttpInfo(String appId, String journeyId, String nodeId, UpdateJourneyNodeRequest updateJourneyNodeRequest) throws ApiException {
+        okhttp3.Call localVarCall = updateJourneyNodeValidateBeforeCall(appId, journeyId, nodeId, updateJourneyNodeRequest, null);
+        Type localVarReturnType = new TypeToken<Journey>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Update journey node (asynchronously)
+     * The Journeys API is in beta. Endpoints and response fields can still change. Apply a partial update to a single node, located by its server-assigned id, using JSON Merge Patch (RFC 7396). Send only the node fields you want to change; the rest of the node and the rest of the journey graph are left untouched. Returns the full updated journey.
+     * @param appId Your OneSignal App ID in UUID v4 format. (required)
+     * @param journeyId UUID of the journey that owns the node. (required)
+     * @param nodeId Server-assigned UUID of the node to update, from a prior View journey fetch. (required)
+     * @param updateJourneyNodeRequest  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call updateJourneyNodeAsync(String appId, String journeyId, String nodeId, UpdateJourneyNodeRequest updateJourneyNodeRequest, final ApiCallback<Journey> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = updateJourneyNodeValidateBeforeCall(appId, journeyId, nodeId, updateJourneyNodeRequest, _callback);
+        Type localVarReturnType = new TypeToken<Journey>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for updateLiveActivity
      * @param appId The OneSignal App ID for your app.  Available in Keys &amp; IDs. (required)
      * @param activityId Live Activity record ID (required)
@@ -6256,7 +6937,7 @@ public class DefaultApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         // Adds client sdk version header
-        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.11.2");
+        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.12.0");
 
         final String[] localVarAccepts = {
             "application/json"
@@ -6419,7 +7100,7 @@ public class DefaultApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         // Adds client sdk version header
-        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.11.2");
+        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.12.0");
 
         final String[] localVarAccepts = {
             "application/json"
@@ -6583,7 +7264,7 @@ public class DefaultApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         // Adds client sdk version header
-        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.11.2");
+        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.12.0");
 
         final String[] localVarAccepts = {
             "application/json"
@@ -6748,7 +7429,7 @@ public class DefaultApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         // Adds client sdk version header
-        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.11.2");
+        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.12.0");
 
         final String[] localVarAccepts = {
             "application/json"
@@ -6915,7 +7596,7 @@ public class DefaultApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         // Adds client sdk version header
-        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.11.2");
+        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.12.0");
 
         if (appId != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("app_id", appId));
@@ -7080,7 +7761,7 @@ public class DefaultApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         // Adds client sdk version header
-        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.11.2");
+        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.12.0");
 
         final String[] localVarAccepts = {
             "application/json"
@@ -7248,7 +7929,7 @@ public class DefaultApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         // Adds client sdk version header
-        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.11.2");
+        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.12.0");
 
         final String[] localVarAccepts = {
             "application/json"
@@ -7346,6 +8027,472 @@ public class DefaultApi {
         return localVarCall;
     }
     /**
+     * Build call for viewJourney
+     * @param appId Your OneSignal App ID in UUID v4 format. (required)
+     * @param journeyId UUID of the journey to retrieve. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call viewJourneyCall(String appId, String journeyId, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/apps/{app_id}/journeys/{journey_id}"
+            .replaceAll("\\{" + "app_id" + "\\}", localVarApiClient.escapeString(appId.toString()))
+            .replaceAll("\\{" + "journey_id" + "\\}", localVarApiClient.escapeString(journeyId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        // Adds client sdk version header
+        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.12.0");
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "rest_api_key" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call viewJourneyValidateBeforeCall(String appId, String journeyId, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'appId' is set
+        if (appId == null) {
+            throw new ApiException("Missing the required parameter 'appId' when calling viewJourney(Async)");
+        }
+        
+        // verify the required parameter 'journeyId' is set
+        if (journeyId == null) {
+            throw new ApiException("Missing the required parameter 'journeyId' when calling viewJourney(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = viewJourneyCall(appId, journeyId, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * View journey
+     * The Journeys API is in beta. Endpoints and response fields can still change. Retrieve the full configuration of a single journey by its UUID, including its audience and node graph.
+     * @param appId Your OneSignal App ID in UUID v4 format. (required)
+     * @param journeyId UUID of the journey to retrieve. (required)
+     * @return Journey
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
+     </table>
+     */
+    public Journey viewJourney(String appId, String journeyId) throws ApiException {
+        ApiResponse<Journey> localVarResp = viewJourneyWithHttpInfo(appId, journeyId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * View journey
+     * The Journeys API is in beta. Endpoints and response fields can still change. Retrieve the full configuration of a single journey by its UUID, including its audience and node graph.
+     * @param appId Your OneSignal App ID in UUID v4 format. (required)
+     * @param journeyId UUID of the journey to retrieve. (required)
+     * @return ApiResponse&lt;Journey&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Journey> viewJourneyWithHttpInfo(String appId, String journeyId) throws ApiException {
+        okhttp3.Call localVarCall = viewJourneyValidateBeforeCall(appId, journeyId, null);
+        Type localVarReturnType = new TypeToken<Journey>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * View journey (asynchronously)
+     * The Journeys API is in beta. Endpoints and response fields can still change. Retrieve the full configuration of a single journey by its UUID, including its audience and node graph.
+     * @param appId Your OneSignal App ID in UUID v4 format. (required)
+     * @param journeyId UUID of the journey to retrieve. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call viewJourneyAsync(String appId, String journeyId, final ApiCallback<Journey> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = viewJourneyValidateBeforeCall(appId, journeyId, _callback);
+        Type localVarReturnType = new TypeToken<Journey>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for viewJourneyStats
+     * @param appId Your OneSignal App ID in UUID v4 format. (required)
+     * @param journeyId UUID of the journey to retrieve stats for. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call viewJourneyStatsCall(String appId, String journeyId, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/apps/{app_id}/journeys/{journey_id}/stats"
+            .replaceAll("\\{" + "app_id" + "\\}", localVarApiClient.escapeString(appId.toString()))
+            .replaceAll("\\{" + "journey_id" + "\\}", localVarApiClient.escapeString(journeyId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        // Adds client sdk version header
+        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.12.0");
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "rest_api_key" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call viewJourneyStatsValidateBeforeCall(String appId, String journeyId, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'appId' is set
+        if (appId == null) {
+            throw new ApiException("Missing the required parameter 'appId' when calling viewJourneyStats(Async)");
+        }
+        
+        // verify the required parameter 'journeyId' is set
+        if (journeyId == null) {
+            throw new ApiException("Missing the required parameter 'journeyId' when calling viewJourneyStats(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = viewJourneyStatsCall(appId, journeyId, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * View journey stats
+     * The Journeys API is in beta. Endpoints and response fields can still change. Retrieve performance stats for a single journey: journey-level entry and exit counts, per-node counts keyed by node id, per-branch counts keyed by branch id, and channel delivery stats for message-sending nodes. The response carries no definition detail, so join it by id against the journey from View journey.
+     * @param appId Your OneSignal App ID in UUID v4 format. (required)
+     * @param journeyId UUID of the journey to retrieve stats for. (required)
+     * @return JourneyStats
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
+     </table>
+     */
+    public JourneyStats viewJourneyStats(String appId, String journeyId) throws ApiException {
+        ApiResponse<JourneyStats> localVarResp = viewJourneyStatsWithHttpInfo(appId, journeyId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * View journey stats
+     * The Journeys API is in beta. Endpoints and response fields can still change. Retrieve performance stats for a single journey: journey-level entry and exit counts, per-node counts keyed by node id, per-branch counts keyed by branch id, and channel delivery stats for message-sending nodes. The response carries no definition detail, so join it by id against the journey from View journey.
+     * @param appId Your OneSignal App ID in UUID v4 format. (required)
+     * @param journeyId UUID of the journey to retrieve stats for. (required)
+     * @return ApiResponse&lt;JourneyStats&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<JourneyStats> viewJourneyStatsWithHttpInfo(String appId, String journeyId) throws ApiException {
+        okhttp3.Call localVarCall = viewJourneyStatsValidateBeforeCall(appId, journeyId, null);
+        Type localVarReturnType = new TypeToken<JourneyStats>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * View journey stats (asynchronously)
+     * The Journeys API is in beta. Endpoints and response fields can still change. Retrieve performance stats for a single journey: journey-level entry and exit counts, per-node counts keyed by node id, per-branch counts keyed by branch id, and channel delivery stats for message-sending nodes. The response carries no definition detail, so join it by id against the journey from View journey.
+     * @param appId Your OneSignal App ID in UUID v4 format. (required)
+     * @param journeyId UUID of the journey to retrieve stats for. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call viewJourneyStatsAsync(String appId, String journeyId, final ApiCallback<JourneyStats> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = viewJourneyStatsValidateBeforeCall(appId, journeyId, _callback);
+        Type localVarReturnType = new TypeToken<JourneyStats>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for viewJourneys
+     * @param appId Your OneSignal App ID in UUID v4 format. (required)
+     * @param cursor Opaque pagination token from a previous response&#39;s next_cursor. Omit for the first page. (optional)
+     * @param limit Maximum journeys to return per page. Minimum 1, maximum 50. (optional, default to 50)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call viewJourneysCall(String appId, String cursor, Integer limit, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/apps/{app_id}/journeys"
+            .replaceAll("\\{" + "app_id" + "\\}", localVarApiClient.escapeString(appId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        // Adds client sdk version header
+        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.12.0");
+
+        if (cursor != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("cursor", cursor));
+        }
+
+        if (limit != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "rest_api_key" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call viewJourneysValidateBeforeCall(String appId, String cursor, Integer limit, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'appId' is set
+        if (appId == null) {
+            throw new ApiException("Missing the required parameter 'appId' when calling viewJourneys(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = viewJourneysCall(appId, cursor, limit, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * View journeys
+     * The Journeys API is in beta. Endpoints and response fields can still change. Retrieve a paginated list of journeys for an app. Returns a summary representation of each journey; use View journey for the full configuration. Uses forward-only cursor-based pagination.
+     * @param appId Your OneSignal App ID in UUID v4 format. (required)
+     * @param cursor Opaque pagination token from a previous response&#39;s next_cursor. Omit for the first page. (optional)
+     * @param limit Maximum journeys to return per page. Minimum 1, maximum 50. (optional, default to 50)
+     * @return JourneyListResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
+     </table>
+     */
+    public JourneyListResponse viewJourneys(String appId, String cursor, Integer limit) throws ApiException {
+        ApiResponse<JourneyListResponse> localVarResp = viewJourneysWithHttpInfo(appId, cursor, limit);
+        return localVarResp.getData();
+    }
+
+    /**
+     * View journeys
+     * The Journeys API is in beta. Endpoints and response fields can still change. Retrieve a paginated list of journeys for an app. Returns a summary representation of each journey; use View journey for the full configuration. Uses forward-only cursor-based pagination.
+     * @param appId Your OneSignal App ID in UUID v4 format. (required)
+     * @param cursor Opaque pagination token from a previous response&#39;s next_cursor. Omit for the first page. (optional)
+     * @param limit Maximum journeys to return per page. Minimum 1, maximum 50. (optional, default to 50)
+     * @return ApiResponse&lt;JourneyListResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<JourneyListResponse> viewJourneysWithHttpInfo(String appId, String cursor, Integer limit) throws ApiException {
+        okhttp3.Call localVarCall = viewJourneysValidateBeforeCall(appId, cursor, limit, null);
+        Type localVarReturnType = new TypeToken<JourneyListResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * View journeys (asynchronously)
+     * The Journeys API is in beta. Endpoints and response fields can still change. Retrieve a paginated list of journeys for an app. Returns a summary representation of each journey; use View journey for the full configuration. Uses forward-only cursor-based pagination.
+     * @param appId Your OneSignal App ID in UUID v4 format. (required)
+     * @param cursor Opaque pagination token from a previous response&#39;s next_cursor. Omit for the first page. (optional)
+     * @param limit Maximum journeys to return per page. Minimum 1, maximum 50. (optional, default to 50)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call viewJourneysAsync(String appId, String cursor, Integer limit, final ApiCallback<JourneyListResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = viewJourneysValidateBeforeCall(appId, cursor, limit, _callback);
+        Type localVarReturnType = new TypeToken<JourneyListResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for viewTemplate
      * @param templateId  (required)
      * @param appId  (required)
@@ -7388,7 +8535,7 @@ public class DefaultApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         // Adds client sdk version header
-        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.11.2");
+        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.12.0");
 
         if (appId != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("app_id", appId));
@@ -7544,7 +8691,7 @@ public class DefaultApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         // Adds client sdk version header
-        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.11.2");
+        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.12.0");
 
         if (appId != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("app_id", appId));
