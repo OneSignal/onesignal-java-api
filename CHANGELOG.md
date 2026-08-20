@@ -1,5 +1,12 @@
 # Changelog
 
+## [5.12.0](https://github.com/OneSignal/onesignal-java-api/compare/v5.11.2...v5.12.0) (2026-08-20)
+
+### Features
+
+* add v5.12.0 package updates ([9b7015b](https://github.com/OneSignal/onesignal-java-api/commit/9b7015b3647310afa5620afab7e66af88ee09d81))
+* add v5.12.0 package updates ([#126](https://github.com/OneSignal/onesignal-java-api/issues/126)) ([06c05b9](https://github.com/OneSignal/onesignal-java-api/commit/06c05b99f74331d7324023ea82c141411ca7a0c4)), closes [OneSignal/api-client-libraries#450](https://github.com/OneSignal/api-client-libraries/issues/450)
+
 ## [5.11.2](https://github.com/OneSignal/onesignal-java-api/compare/v5.11.1...v5.11.2) (2026-08-12)
 
 ## [5.11.1](https://github.com/OneSignal/onesignal-java-api/compare/v5.11.0...v5.11.1) (2026-07-29)
