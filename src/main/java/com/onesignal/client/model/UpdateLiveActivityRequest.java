@@ -23,6 +23,8 @@ import com.onesignal.client.model.LanguageStringMap;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.math.BigDecimal;
+import org.openapitools.jackson.nullable.JsonNullable;
 import java.io.Serializable;
 
 import com.google.gson.Gson;
@@ -123,6 +125,10 @@ public class UpdateLiveActivityRequest {
   @SerializedName(SERIALIZED_NAME_SOUND)
   private String sound;
 
+  public static final String SERIALIZED_NAME_IOS_SOUND = "ios_sound";
+  @SerializedName(SERIALIZED_NAME_IOS_SOUND)
+  private String iosSound;
+
   public static final String SERIALIZED_NAME_STALE_DATE = "stale_date";
   @SerializedName(SERIALIZED_NAME_STALE_DATE)
   private Integer staleDate;
@@ -134,6 +140,10 @@ public class UpdateLiveActivityRequest {
   public static final String SERIALIZED_NAME_PRIORITY = "priority";
   @SerializedName(SERIALIZED_NAME_PRIORITY)
   private Integer priority;
+
+  public static final String SERIALIZED_NAME_IOS_RELEVANCE_SCORE = "ios_relevance_score";
+  @SerializedName(SERIALIZED_NAME_IOS_RELEVANCE_SCORE)
+  private BigDecimal iosRelevanceScore;
 
   public UpdateLiveActivityRequest() { 
   }
@@ -260,11 +270,13 @@ public class UpdateLiveActivityRequest {
   }
 
    /**
-   * Sound file that is included in your app to play instead of the default device notification sound. Omit to disable vibration and sound for the notification.
+   * Deprecated. The API ignores this field. Use &#x60;ios_sound&#x60;.
    * @return sound
+   * @deprecated
   **/
+  @Deprecated
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Sound file that is included in your app to play instead of the default device notification sound. Omit to disable vibration and sound for the notification.")
+  @ApiModelProperty(value = "Deprecated. The API ignores this field. Use `ios_sound`.")
 
   public String getSound() {
     return sound;
@@ -273,6 +285,29 @@ public class UpdateLiveActivityRequest {
 
   public void setSound(String sound) {
     this.sound = sound;
+  }
+
+
+  public UpdateLiveActivityRequest iosSound(String iosSound) {
+    
+    this.iosSound = iosSound;
+    return this;
+  }
+
+   /**
+   * Sound file that is included in your app to play instead of the default device notification sound. Omit to disable vibration and sound for the notification. Requires &#x60;headings&#x60; on the same request: ActivityKit ignores an update whose alert has no title, which silently drops the sound. Supersedes the deprecated &#x60;sound&#x60; field. 
+   * @return iosSound
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Sound file that is included in your app to play instead of the default device notification sound. Omit to disable vibration and sound for the notification. Requires `headings` on the same request: ActivityKit ignores an update whose alert has no title, which silently drops the sound. Supersedes the deprecated `sound` field. ")
+
+  public String getIosSound() {
+    return iosSound;
+  }
+
+
+  public void setIosSound(String iosSound) {
+    this.iosSound = iosSound;
   }
 
 
@@ -329,11 +364,11 @@ public class UpdateLiveActivityRequest {
   }
 
    /**
-   * Delivery priority through the the push provider (APNs). Pass 10 for higher priority notifications, or 5 for lower priority notifications. Lower priority notifications are sent based on the power considerations of the end user&#39;s device. If not set, defaults to 10. Some providers (APNs) allow for a limited budget of high priority notifications per hour, and if that budget is exceeded, the provider may throttle notification delivery.
+   * Delivery priority through the push provider (APNs). Pass 10 for higher priority notifications, or 5 for lower priority notifications. Lower priority notifications are sent based on the power considerations of the end user&#39;s device. If not set, defaults to 10. Some providers (APNs) allow for a limited budget of high priority notifications per hour, and if that budget is exceeded, the provider may throttle notification delivery.
    * @return priority
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Delivery priority through the the push provider (APNs). Pass 10 for higher priority notifications, or 5 for lower priority notifications. Lower priority notifications are sent based on the power considerations of the end user's device. If not set, defaults to 10. Some providers (APNs) allow for a limited budget of high priority notifications per hour, and if that budget is exceeded, the provider may throttle notification delivery.")
+  @ApiModelProperty(value = "Delivery priority through the push provider (APNs). Pass 10 for higher priority notifications, or 5 for lower priority notifications. Lower priority notifications are sent based on the power considerations of the end user's device. If not set, defaults to 10. Some providers (APNs) allow for a limited budget of high priority notifications per hour, and if that budget is exceeded, the provider may throttle notification delivery.")
 
   public Integer getPriority() {
     return priority;
@@ -342,6 +377,29 @@ public class UpdateLiveActivityRequest {
 
   public void setPriority(Integer priority) {
     this.priority = priority;
+  }
+
+
+  public UpdateLiveActivityRequest iosRelevanceScore(BigDecimal iosRelevanceScore) {
+    
+    this.iosRelevanceScore = iosRelevanceScore;
+    return this;
+  }
+
+   /**
+   * A value between 0 and 1. When more than one Live Activity is active for your app, the one with the highest relevance score shows in the Dynamic Island. If the scores are equal, the system shows the Live Activity that started first. The score also sets the order of Live Activities on the Lock Screen. Only available on iOS 16.2 and later.
+   * @return iosRelevanceScore
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "A value between 0 and 1. When more than one Live Activity is active for your app, the one with the highest relevance score shows in the Dynamic Island. If the scores are equal, the system shows the Live Activity that started first. The score also sets the order of Live Activities on the Lock Screen. Only available on iOS 16.2 and later.")
+
+  public BigDecimal getIosRelevanceScore() {
+    return iosRelevanceScore;
+  }
+
+
+  public void setIosRelevanceScore(BigDecimal iosRelevanceScore) {
+    this.iosRelevanceScore = iosRelevanceScore;
   }
 
 
@@ -361,14 +419,27 @@ public class UpdateLiveActivityRequest {
         Objects.equals(this.contents, updateLiveActivityRequest.contents) &&
         Objects.equals(this.headings, updateLiveActivityRequest.headings) &&
         Objects.equals(this.sound, updateLiveActivityRequest.sound) &&
+        Objects.equals(this.iosSound, updateLiveActivityRequest.iosSound) &&
         Objects.equals(this.staleDate, updateLiveActivityRequest.staleDate) &&
         Objects.equals(this.dismissalDate, updateLiveActivityRequest.dismissalDate) &&
-        Objects.equals(this.priority, updateLiveActivityRequest.priority);
+        Objects.equals(this.priority, updateLiveActivityRequest.priority) &&
+        Objects.equals(this.iosRelevanceScore, updateLiveActivityRequest.iosRelevanceScore);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, event, eventUpdates, contents, headings, sound, staleDate, dismissalDate, priority);
+    return Objects.hash(name, event, eventUpdates, contents, headings, sound, iosSound, staleDate, dismissalDate, priority, iosRelevanceScore);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override
@@ -381,9 +452,11 @@ public class UpdateLiveActivityRequest {
     sb.append("    contents: ").append(toIndentedString(contents)).append("\n");
     sb.append("    headings: ").append(toIndentedString(headings)).append("\n");
     sb.append("    sound: ").append(toIndentedString(sound)).append("\n");
+    sb.append("    iosSound: ").append(toIndentedString(iosSound)).append("\n");
     sb.append("    staleDate: ").append(toIndentedString(staleDate)).append("\n");
     sb.append("    dismissalDate: ").append(toIndentedString(dismissalDate)).append("\n");
     sb.append("    priority: ").append(toIndentedString(priority)).append("\n");
+    sb.append("    iosRelevanceScore: ").append(toIndentedString(iosRelevanceScore)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -412,9 +485,11 @@ public class UpdateLiveActivityRequest {
     openapiFields.add("contents");
     openapiFields.add("headings");
     openapiFields.add("sound");
+    openapiFields.add("ios_sound");
     openapiFields.add("stale_date");
     openapiFields.add("dismissal_date");
     openapiFields.add("priority");
+    openapiFields.add("ios_relevance_score");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
