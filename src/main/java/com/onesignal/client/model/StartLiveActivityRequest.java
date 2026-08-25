@@ -385,11 +385,11 @@ public class StartLiveActivityRequest {
   }
 
    /**
-   * iOS 15+. A score to indicate how a notification should be displayed when grouped. Use a float between 0-1.
+   * A value between 0 and 1. When more than one Live Activity is active for your app, the one with the highest relevance score shows in the Dynamic Island. If the scores are equal, the system shows the Live Activity that started first. The score also sets the order of Live Activities on the Lock Screen. Only available on iOS 16.2 and later.
    * @return iosRelevanceScore
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "iOS 15+. A score to indicate how a notification should be displayed when grouped. Use a float between 0-1.")
+  @ApiModelProperty(value = "A value between 0 and 1. When more than one Live Activity is active for your app, the one with the highest relevance score shows in the Dynamic Island. If the scores are equal, the system shows the Live Activity that started first. The score also sets the order of Live Activities on the Lock Screen. Only available on iOS 16.2 and later.")
 
   public BigDecimal getIosRelevanceScore() {
     return iosRelevanceScore;
