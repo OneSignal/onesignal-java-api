@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.onesignal.client.model.EmailWarmUp;
 import com.onesignal.client.model.PlatformDeliveryData;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -110,6 +111,10 @@ public class NotificationWithMetaAllOf {
   public static final String SERIALIZED_NAME_BCC_SENT = "bcc_sent";
   @SerializedName(SERIALIZED_NAME_BCC_SENT)
   private Integer bccSent;
+
+  public static final String SERIALIZED_NAME_EMAIL_WARM_UP = "email_warm_up";
+  @SerializedName(SERIALIZED_NAME_EMAIL_WARM_UP)
+  private EmailWarmUp emailWarmUp;
 
   public NotificationWithMetaAllOf() { 
   }
@@ -444,6 +449,29 @@ public class NotificationWithMetaAllOf {
   }
 
 
+  public NotificationWithMetaAllOf emailWarmUp(EmailWarmUp emailWarmUp) {
+    
+    this.emailWarmUp = emailWarmUp;
+    return this;
+  }
+
+   /**
+   * Get emailWarmUp
+   * @return emailWarmUp
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public EmailWarmUp getEmailWarmUp() {
+    return emailWarmUp;
+  }
+
+
+  public void setEmailWarmUp(EmailWarmUp emailWarmUp) {
+    this.emailWarmUp = emailWarmUp;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -467,7 +495,8 @@ public class NotificationWithMetaAllOf {
         Objects.equals(this.throttleRatePerMinute, notificationWithMetaAllOf.throttleRatePerMinute) &&
         Objects.equals(this.canceled, notificationWithMetaAllOf.canceled) &&
         Objects.equals(this.emailBcc, notificationWithMetaAllOf.emailBcc) &&
-        Objects.equals(this.bccSent, notificationWithMetaAllOf.bccSent);
+        Objects.equals(this.bccSent, notificationWithMetaAllOf.bccSent) &&
+        Objects.equals(this.emailWarmUp, notificationWithMetaAllOf.emailWarmUp);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -476,7 +505,7 @@ public class NotificationWithMetaAllOf {
 
   @Override
   public int hashCode() {
-    return Objects.hash(remaining, successful, failed, errored, converted, queuedAt, sendAfter, completedAt, platformDeliveryStats, received, throttleRatePerMinute, canceled, emailBcc, bccSent);
+    return Objects.hash(remaining, successful, failed, errored, converted, queuedAt, sendAfter, completedAt, platformDeliveryStats, received, throttleRatePerMinute, canceled, emailBcc, bccSent, emailWarmUp);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -504,6 +533,7 @@ public class NotificationWithMetaAllOf {
     sb.append("    canceled: ").append(toIndentedString(canceled)).append("\n");
     sb.append("    emailBcc: ").append(toIndentedString(emailBcc)).append("\n");
     sb.append("    bccSent: ").append(toIndentedString(bccSent)).append("\n");
+    sb.append("    emailWarmUp: ").append(toIndentedString(emailWarmUp)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -540,6 +570,7 @@ public class NotificationWithMetaAllOf {
     openapiFields.add("canceled");
     openapiFields.add("email_bcc");
     openapiFields.add("bcc_sent");
+    openapiFields.add("email_warm_up");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

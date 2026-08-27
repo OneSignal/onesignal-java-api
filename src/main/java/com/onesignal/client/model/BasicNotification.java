@@ -22,6 +22,7 @@ import com.google.gson.stream.JsonWriter;
 import com.onesignal.client.model.BasicNotificationAllOf;
 import com.onesignal.client.model.BasicNotificationAllOfAndroidBackgroundLayout;
 import com.onesignal.client.model.Button;
+import com.onesignal.client.model.EmailWarmUpRequest;
 import com.onesignal.client.model.FilterExpression;
 import com.onesignal.client.model.LanguageStringMap;
 import com.onesignal.client.model.NotificationTarget;
@@ -595,6 +596,59 @@ public class BasicNotification {
   public static final String SERIALIZED_NAME_EMAIL_SENDER_DOMAIN = "email_sender_domain";
   @SerializedName(SERIALIZED_NAME_EMAIL_SENDER_DOMAIN)
   private String emailSenderDomain;
+
+  /**
+   * Channel: Email Set to \&quot;warmup\&quot; to send this as an Auto Warm Up campaign: a single campaign delivered gradually to your audience over several days, so you don&#39;t have to pace sends manually. OneSignal generates a sending schedule based on your past delivery volumes, scheduled Auto Warm Up emails, and the size of your current audience. When set, &#x60;email_warm_up&#x60; is required and describes the campaign&#39;s stages and (optionally) its scheduling strategy. &#x60;send_after&#x60; cannot be combined with &#x60;kind: \&quot;warmup\&quot;&#x60;. The campaign will be scheduled to begin at its first stage&#39;s &#x60;start&#x60; time. Only supported for Email notifications. 
+   */
+  @JsonAdapter(KindEnum.Adapter.class)
+  public enum KindEnum {
+    WARMUP("warmup");
+
+    private String value;
+
+    KindEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static KindEnum fromValue(String value) {
+      for (KindEnum b : KindEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<KindEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final KindEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public KindEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return KindEnum.fromValue(value);
+      }
+    }
+  }
+
+  public static final String SERIALIZED_NAME_KIND = "kind";
+  @SerializedName(SERIALIZED_NAME_KIND)
+  private KindEnum kind;
+
+  public static final String SERIALIZED_NAME_EMAIL_WARM_UP = "email_warm_up";
+  @SerializedName(SERIALIZED_NAME_EMAIL_WARM_UP)
+  private EmailWarmUpRequest emailWarmUp;
 
   public static final String SERIALIZED_NAME_SMS_FROM = "sms_from";
   @SerializedName(SERIALIZED_NAME_SMS_FROM)
@@ -3102,11 +3156,11 @@ public class BasicNotification {
   }
 
    /**
-   * Channel: Email Required.  The subject of the email. 
+   * Channel: Email Required. The subject of the email. 
    * @return emailSubject
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Channel: Email Required.  The subject of the email. ")
+  @ApiModelProperty(value = "Channel: Email Required. The subject of the email. ")
 
   public String getEmailSubject() {
     return emailSubject;
@@ -3330,6 +3384,52 @@ public class BasicNotification {
 
   public void setEmailSenderDomain(String emailSenderDomain) {
     this.emailSenderDomain = emailSenderDomain;
+  }
+
+
+  public BasicNotification kind(KindEnum kind) {
+    
+    this.kind = kind;
+    return this;
+  }
+
+   /**
+   * Channel: Email Set to \&quot;warmup\&quot; to send this as an Auto Warm Up campaign: a single campaign delivered gradually to your audience over several days, so you don&#39;t have to pace sends manually. OneSignal generates a sending schedule based on your past delivery volumes, scheduled Auto Warm Up emails, and the size of your current audience. When set, &#x60;email_warm_up&#x60; is required and describes the campaign&#39;s stages and (optionally) its scheduling strategy. &#x60;send_after&#x60; cannot be combined with &#x60;kind: \&quot;warmup\&quot;&#x60;. The campaign will be scheduled to begin at its first stage&#39;s &#x60;start&#x60; time. Only supported for Email notifications. 
+   * @return kind
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Channel: Email Set to \"warmup\" to send this as an Auto Warm Up campaign: a single campaign delivered gradually to your audience over several days, so you don't have to pace sends manually. OneSignal generates a sending schedule based on your past delivery volumes, scheduled Auto Warm Up emails, and the size of your current audience. When set, `email_warm_up` is required and describes the campaign's stages and (optionally) its scheduling strategy. `send_after` cannot be combined with `kind: \"warmup\"`. The campaign will be scheduled to begin at its first stage's `start` time. Only supported for Email notifications. ")
+
+  public KindEnum getKind() {
+    return kind;
+  }
+
+
+  public void setKind(KindEnum kind) {
+    this.kind = kind;
+  }
+
+
+  public BasicNotification emailWarmUp(EmailWarmUpRequest emailWarmUp) {
+    
+    this.emailWarmUp = emailWarmUp;
+    return this;
+  }
+
+   /**
+   * Get emailWarmUp
+   * @return emailWarmUp
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public EmailWarmUpRequest getEmailWarmUp() {
+    return emailWarmUp;
+  }
+
+
+  public void setEmailWarmUp(EmailWarmUpRequest emailWarmUp) {
+    this.emailWarmUp = emailWarmUp;
   }
 
 
@@ -3675,6 +3775,8 @@ public class BasicNotification {
         Objects.equals(this.includeUnsubscribed, basicNotification.includeUnsubscribed) &&
         Objects.equals(this.emailBcc, basicNotification.emailBcc) &&
         Objects.equals(this.emailSenderDomain, basicNotification.emailSenderDomain) &&
+        Objects.equals(this.kind, basicNotification.kind) &&
+        Objects.equals(this.emailWarmUp, basicNotification.emailWarmUp) &&
         Objects.equals(this.smsFrom, basicNotification.smsFrom) &&
         Objects.equals(this.smsMediaUrls, basicNotification.smsMediaUrls) &&
         Objects.equals(this.filters, basicNotification.filters) &&
@@ -3692,7 +3794,7 @@ public class BasicNotification {
 
   @Override
   public int hashCode() {
-    return Objects.hash(includedSegments, excludedSegments, includeSubscriptionIds, includeEmailTokens, emailTo, includePhoneNumbers, includeIosTokens, includeWpWnsUris, includeAmazonRegIds, includeChromeRegIds, includeChromeWebRegIds, includeAndroidRegIds, includeAliases, targetChannel, id, value, name, aggregation, isIos, isAndroid, isHuawei, isAnyWeb, isChromeWeb, isFirefox, isSafari, isWPWNS, isAdm, isChrome, appId, externalId, idempotencyKey, contents, headings, subtitle, data, huaweiMsgType, url, webUrl, appUrl, iosAttachments, templateId, contentAvailable, mutableContent, targetContentIdentifier, bigPicture, globalImage, huaweiBigPicture, admBigPicture, chromeBigPicture, chromeWebImage, buttons, webButtons, iosCategory, androidChannelId, huaweiChannelId, existingAndroidChannelId, huaweiExistingChannelId, androidBackgroundLayout, smallIcon, huaweiSmallIcon, largeIcon, huaweiLargeIcon, admSmallIcon, admLargeIcon, chromeWebIcon, chromeWebBadge, firefoxIcon, chromeIcon, iosSound, androidSound, huaweiSound, admSound, wpWnsSound, androidLedColor, huaweiLedColor, androidAccentColor, huaweiAccentColor, androidVisibility, huaweiVisibility, iosBadgeType, iosBadgeCount, collapseId, webPushTopic, apnsAlert, delayedOption, deliveryTimeOfDay, ttl, priority, apnsPushTypeOverride, throttleRatePerMinute, androidGroup, androidGroupMessage, admGroup, admGroupMessage, threadId, summaryArg, summaryArgCount, iosRelevanceScore, iosInterruptionLevel, emailSubject, emailBody, emailFromName, emailFromAddress, emailReplyToAddress, emailPreheader, disableEmailClickTracking, includeUnsubscribed, emailBcc, emailSenderDomain, smsFrom, smsMediaUrls, filters, customData, huaweiBadgeClass, huaweiBadgeAddNum, huaweiBadgeSetNum, huaweiCategory, huaweiBiTag);
+    return Objects.hash(includedSegments, excludedSegments, includeSubscriptionIds, includeEmailTokens, emailTo, includePhoneNumbers, includeIosTokens, includeWpWnsUris, includeAmazonRegIds, includeChromeRegIds, includeChromeWebRegIds, includeAndroidRegIds, includeAliases, targetChannel, id, value, name, aggregation, isIos, isAndroid, isHuawei, isAnyWeb, isChromeWeb, isFirefox, isSafari, isWPWNS, isAdm, isChrome, appId, externalId, idempotencyKey, contents, headings, subtitle, data, huaweiMsgType, url, webUrl, appUrl, iosAttachments, templateId, contentAvailable, mutableContent, targetContentIdentifier, bigPicture, globalImage, huaweiBigPicture, admBigPicture, chromeBigPicture, chromeWebImage, buttons, webButtons, iosCategory, androidChannelId, huaweiChannelId, existingAndroidChannelId, huaweiExistingChannelId, androidBackgroundLayout, smallIcon, huaweiSmallIcon, largeIcon, huaweiLargeIcon, admSmallIcon, admLargeIcon, chromeWebIcon, chromeWebBadge, firefoxIcon, chromeIcon, iosSound, androidSound, huaweiSound, admSound, wpWnsSound, androidLedColor, huaweiLedColor, androidAccentColor, huaweiAccentColor, androidVisibility, huaweiVisibility, iosBadgeType, iosBadgeCount, collapseId, webPushTopic, apnsAlert, delayedOption, deliveryTimeOfDay, ttl, priority, apnsPushTypeOverride, throttleRatePerMinute, androidGroup, androidGroupMessage, admGroup, admGroupMessage, threadId, summaryArg, summaryArgCount, iosRelevanceScore, iosInterruptionLevel, emailSubject, emailBody, emailFromName, emailFromAddress, emailReplyToAddress, emailPreheader, disableEmailClickTracking, includeUnsubscribed, emailBcc, emailSenderDomain, kind, emailWarmUp, smsFrom, smsMediaUrls, filters, customData, huaweiBadgeClass, huaweiBadgeAddNum, huaweiBadgeSetNum, huaweiCategory, huaweiBiTag);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -3815,6 +3917,8 @@ public class BasicNotification {
     sb.append("    includeUnsubscribed: ").append(toIndentedString(includeUnsubscribed)).append("\n");
     sb.append("    emailBcc: ").append(toIndentedString(emailBcc)).append("\n");
     sb.append("    emailSenderDomain: ").append(toIndentedString(emailSenderDomain)).append("\n");
+    sb.append("    kind: ").append(toIndentedString(kind)).append("\n");
+    sb.append("    emailWarmUp: ").append(toIndentedString(emailWarmUp)).append("\n");
     sb.append("    smsFrom: ").append(toIndentedString(smsFrom)).append("\n");
     sb.append("    smsMediaUrls: ").append(toIndentedString(smsMediaUrls)).append("\n");
     sb.append("    filters: ").append(toIndentedString(filters)).append("\n");
@@ -3955,6 +4059,8 @@ public class BasicNotification {
     openapiFields.add("include_unsubscribed");
     openapiFields.add("email_bcc");
     openapiFields.add("email_sender_domain");
+    openapiFields.add("kind");
+    openapiFields.add("email_warm_up");
     openapiFields.add("sms_from");
     openapiFields.add("sms_media_urls");
     openapiFields.add("filters");
