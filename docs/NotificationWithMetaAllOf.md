@@ -21,6 +21,7 @@
 |**canceled** | **Boolean** | Indicates whether the notification was canceled before it could be sent. |  [optional] |
 |**emailBcc** | **List&lt;String&gt;** | BCC recipients that were set on this email notification. |  [optional] |
 |**bccSent** | **Integer** | Number of BCC copies successfully sent for this notification. |  [optional] |
+|**emailWarmUp** | [**EmailWarmUp**](EmailWarmUp.md) |  |  [optional] |
 
 
 
