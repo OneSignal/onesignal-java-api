@@ -24,6 +24,7 @@ All URIs are relative to *https://api.onesignal.com*
 | [**deleteSubscription**](DefaultApi.md#deleteSubscription) | **DELETE** /apps/{app_id}/subscriptions/{subscription_id} |  |
 | [**deleteTemplate**](DefaultApi.md#deleteTemplate) | **DELETE** /templates/{template_id} | Delete template |
 | [**deleteUser**](DefaultApi.md#deleteUser) | **DELETE** /apps/{app_id}/users/by/{alias_label}/{alias_id} |  |
+| [**estimateNotificationRecipients**](DefaultApi.md#estimateNotificationRecipients) | **POST** /notifications/count-unsaved | Estimate notification recipients |
 | [**exportEvents**](DefaultApi.md#exportEvents) | **POST** /notifications/{notification_id}/export_events | Export CSV of Events |
 | [**exportSubscriptions**](DefaultApi.md#exportSubscriptions) | **POST** /players/csv_export?app_id&#x3D;{app_id} | Export CSV of Subscriptions |
 | [**getAliases**](DefaultApi.md#getAliases) | **GET** /apps/{app_id}/users/by/{alias_label}/{alias_id}/identity |  |
@@ -1726,6 +1727,79 @@ null (empty response body)
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
 | **409** | Conflict |  -  |
+| **429** | Rate Limit Exceeded |  -  |
+| **0** | Unexpected error |  -  |
+
+<a name="estimateNotificationRecipients"></a>
+# **estimateNotificationRecipients**
+> EstimateNotificationRecipientsSuccessResponse estimateNotificationRecipients(estimateNotificationRecipientsRequest)
+
+Estimate notification recipients
+
+Returns the estimated number of recipients for a notification&#39;s targeting, without creating or sending anything. The returned &#x60;count&#x60; reflects the same audience-size estimate you would see under \&quot;Choose your target audience\&quot; when composing a message. It is based on the user targeting method you&#39;ve set and the specific platforms the message is targeted to send to. This endpoint only supports a subset of targeting parameters: &#x60;included_segments&#x60; is required (its &#x60;\&quot;All\&quot;&#x60; shorthand targets every subscriber), and &#x60;excluded_segments&#x60;, &#x60;filters&#x60;, &#x60;include_aliases&#x60;, and &#x60;target_channel&#x60; narrow that audience further. Use &#x60;target_channel&#x60; to select platforms. &#x60;include_subscription_ids&#x60; and the other raw subscription id/token fields, and the individual &#x60;isIos&#x60; / &#x60;isAndroid&#x60; / etc. platform flags, are not supported. All other notification fields (content, delivery options, and so on) are accepted, but ignored. 
+
+### Example
+```java
+// Import classes:
+import com.onesignal.client.ApiClient;
+import com.onesignal.client.ApiException;
+import com.onesignal.client.Configuration;
+import com.onesignal.client.auth.*;
+import com.onesignal.client.model.*;
+import com.onesignal.client.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.onesignal.com");
+    
+    // Configure HTTP bearer authorization: rest_api_key
+    HttpBearerAuth rest_api_key = (HttpBearerAuth) defaultClient.getAuthentication("rest_api_key");
+    rest_api_key.setBearerToken("YOUR_REST_API_KEY");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    EstimateNotificationRecipientsRequest estimateNotificationRecipientsRequest = new EstimateNotificationRecipientsRequest(); // EstimateNotificationRecipientsRequest | 
+    try {
+      EstimateNotificationRecipientsSuccessResponse result = apiInstance.estimateNotificationRecipients(estimateNotificationRecipientsRequest);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#estimateNotificationRecipients");
+      System.err.println("Status code: " + e.getCode());
+      // getErrorMessages() flattens any error-envelope shape to a List<String>;
+      // the raw body remains on getResponseBody().
+      System.err.println("Error messages: " + e.getErrorMessages());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **estimateNotificationRecipientsRequest** | [**EstimateNotificationRecipientsRequest**](EstimateNotificationRecipientsRequest.md)|  | |
+
+### Return type
+
+[**EstimateNotificationRecipientsSuccessResponse**](EstimateNotificationRecipientsSuccessResponse.md)
+
+### Authorization
+
+[rest_api_key](https://github.com/OneSignal/onesignal-java-api#configuration)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
 | **429** | Rate Limit Exceeded |  -  |
 | **0** | Unexpected error |  -  |
 
