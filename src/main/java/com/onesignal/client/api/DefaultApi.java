@@ -38,6 +38,8 @@ import com.onesignal.client.model.CreateSegmentSuccessResponse;
 import com.onesignal.client.model.CreateTemplateRequest;
 import com.onesignal.client.model.CreateUserConflictResponse;
 import com.onesignal.client.model.CustomEventsRequest;
+import com.onesignal.client.model.EstimateNotificationRecipientsRequest;
+import com.onesignal.client.model.EstimateNotificationRecipientsSuccessResponse;
 import com.onesignal.client.model.ExportEventsSuccessResponse;
 import com.onesignal.client.model.ExportSubscriptionsRequestBody;
 import com.onesignal.client.model.ExportSubscriptionsSuccessResponse;
@@ -3274,6 +3276,147 @@ public class DefaultApi {
 
         okhttp3.Call localVarCall = deleteUserValidateBeforeCall(appId, aliasLabel, aliasId, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for estimateNotificationRecipients
+     * @param estimateNotificationRecipientsRequest  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call estimateNotificationRecipientsCall(EstimateNotificationRecipientsRequest estimateNotificationRecipientsRequest, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = estimateNotificationRecipientsRequest;
+
+        // create path and map variables
+        String localVarPath = "/notifications/count-unsaved";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        // Adds client sdk version header
+        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.14.0");
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "rest_api_key" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call estimateNotificationRecipientsValidateBeforeCall(EstimateNotificationRecipientsRequest estimateNotificationRecipientsRequest, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'estimateNotificationRecipientsRequest' is set
+        if (estimateNotificationRecipientsRequest == null) {
+            throw new ApiException("Missing the required parameter 'estimateNotificationRecipientsRequest' when calling estimateNotificationRecipients(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = estimateNotificationRecipientsCall(estimateNotificationRecipientsRequest, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Estimate notification recipients
+     * Returns the estimated number of recipients for a notification&#39;s targeting, without creating or sending anything. The returned &#x60;count&#x60; reflects the same audience-size estimate you would see under \&quot;Choose your target audience\&quot; when composing a message. It is based on the user targeting method you&#39;ve set and the specific platforms the message is targeted to send to. This endpoint only supports a subset of targeting parameters: &#x60;included_segments&#x60; is required (its &#x60;\&quot;All\&quot;&#x60; shorthand targets every subscriber), and &#x60;excluded_segments&#x60;, &#x60;filters&#x60;, &#x60;include_aliases&#x60;, and &#x60;target_channel&#x60; narrow that audience further. Use &#x60;target_channel&#x60; to select platforms. &#x60;include_subscription_ids&#x60; and the other raw subscription id/token fields, and the individual &#x60;isIos&#x60; / &#x60;isAndroid&#x60; / etc. platform flags, are not supported. All other notification fields (content, delivery options, and so on) are accepted, but ignored. 
+     * @param estimateNotificationRecipientsRequest  (required)
+     * @return EstimateNotificationRecipientsSuccessResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
+     </table>
+     */
+    public EstimateNotificationRecipientsSuccessResponse estimateNotificationRecipients(EstimateNotificationRecipientsRequest estimateNotificationRecipientsRequest) throws ApiException {
+        ApiResponse<EstimateNotificationRecipientsSuccessResponse> localVarResp = estimateNotificationRecipientsWithHttpInfo(estimateNotificationRecipientsRequest);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Estimate notification recipients
+     * Returns the estimated number of recipients for a notification&#39;s targeting, without creating or sending anything. The returned &#x60;count&#x60; reflects the same audience-size estimate you would see under \&quot;Choose your target audience\&quot; when composing a message. It is based on the user targeting method you&#39;ve set and the specific platforms the message is targeted to send to. This endpoint only supports a subset of targeting parameters: &#x60;included_segments&#x60; is required (its &#x60;\&quot;All\&quot;&#x60; shorthand targets every subscriber), and &#x60;excluded_segments&#x60;, &#x60;filters&#x60;, &#x60;include_aliases&#x60;, and &#x60;target_channel&#x60; narrow that audience further. Use &#x60;target_channel&#x60; to select platforms. &#x60;include_subscription_ids&#x60; and the other raw subscription id/token fields, and the individual &#x60;isIos&#x60; / &#x60;isAndroid&#x60; / etc. platform flags, are not supported. All other notification fields (content, delivery options, and so on) are accepted, but ignored. 
+     * @param estimateNotificationRecipientsRequest  (required)
+     * @return ApiResponse&lt;EstimateNotificationRecipientsSuccessResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<EstimateNotificationRecipientsSuccessResponse> estimateNotificationRecipientsWithHttpInfo(EstimateNotificationRecipientsRequest estimateNotificationRecipientsRequest) throws ApiException {
+        okhttp3.Call localVarCall = estimateNotificationRecipientsValidateBeforeCall(estimateNotificationRecipientsRequest, null);
+        Type localVarReturnType = new TypeToken<EstimateNotificationRecipientsSuccessResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Estimate notification recipients (asynchronously)
+     * Returns the estimated number of recipients for a notification&#39;s targeting, without creating or sending anything. The returned &#x60;count&#x60; reflects the same audience-size estimate you would see under \&quot;Choose your target audience\&quot; when composing a message. It is based on the user targeting method you&#39;ve set and the specific platforms the message is targeted to send to. This endpoint only supports a subset of targeting parameters: &#x60;included_segments&#x60; is required (its &#x60;\&quot;All\&quot;&#x60; shorthand targets every subscriber), and &#x60;excluded_segments&#x60;, &#x60;filters&#x60;, &#x60;include_aliases&#x60;, and &#x60;target_channel&#x60; narrow that audience further. Use &#x60;target_channel&#x60; to select platforms. &#x60;include_subscription_ids&#x60; and the other raw subscription id/token fields, and the individual &#x60;isIos&#x60; / &#x60;isAndroid&#x60; / etc. platform flags, are not supported. All other notification fields (content, delivery options, and so on) are accepted, but ignored. 
+     * @param estimateNotificationRecipientsRequest  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call estimateNotificationRecipientsAsync(EstimateNotificationRecipientsRequest estimateNotificationRecipientsRequest, final ApiCallback<EstimateNotificationRecipientsSuccessResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = estimateNotificationRecipientsValidateBeforeCall(estimateNotificationRecipientsRequest, _callback);
+        Type localVarReturnType = new TypeToken<EstimateNotificationRecipientsSuccessResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
