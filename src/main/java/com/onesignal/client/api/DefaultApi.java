@@ -38,6 +38,7 @@ import com.onesignal.client.model.CreateSegmentSuccessResponse;
 import com.onesignal.client.model.CreateTemplateRequest;
 import com.onesignal.client.model.CreateUserConflictResponse;
 import com.onesignal.client.model.CustomEventsRequest;
+import com.onesignal.client.model.EmailReputationResponse;
 import com.onesignal.client.model.EstimateNotificationRecipientsRequest;
 import com.onesignal.client.model.EstimateNotificationRecipientsSuccessResponse;
 import com.onesignal.client.model.ExportEventsSuccessResponse;
@@ -4313,6 +4314,152 @@ public class DefaultApi {
 
         okhttp3.Call localVarCall = getAppsValidateBeforeCall(_callback);
         Type localVarReturnType = new TypeToken<List<App>>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for getEmailReputation
+     * @param appId Your OneSignal App ID in UUID v4 format. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getEmailReputationCall(String appId, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/apps/{app_id}/email_analytics/delivery_metrics"
+            .replaceAll("\\{" + "app_id" + "\\}", localVarApiClient.escapeString(appId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        // Adds client sdk version header
+        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.15.0");
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "rest_api_key" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getEmailReputationValidateBeforeCall(String appId, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'appId' is set
+        if (appId == null) {
+            throw new ApiException("Missing the required parameter 'appId' when calling getEmailReputation(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = getEmailReputationCall(appId, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Get email reputation statistics
+     * The email bounce and spam complaint rates received for the app over the last 24 hours, 7 days, and 30 days. Rates are expressed as fractions of successfully delivered emails (for example, &#x60;0.02&#x60; means 2%). A window reports &#x60;0&#x60; for both rates when the app has not successfully delivered any email in that period. 
+     * @param appId Your OneSignal App ID in UUID v4 format. (required)
+     * @return EmailReputationResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
+     </table>
+     */
+    public EmailReputationResponse getEmailReputation(String appId) throws ApiException {
+        ApiResponse<EmailReputationResponse> localVarResp = getEmailReputationWithHttpInfo(appId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get email reputation statistics
+     * The email bounce and spam complaint rates received for the app over the last 24 hours, 7 days, and 30 days. Rates are expressed as fractions of successfully delivered emails (for example, &#x60;0.02&#x60; means 2%). A window reports &#x60;0&#x60; for both rates when the app has not successfully delivered any email in that period. 
+     * @param appId Your OneSignal App ID in UUID v4 format. (required)
+     * @return ApiResponse&lt;EmailReputationResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<EmailReputationResponse> getEmailReputationWithHttpInfo(String appId) throws ApiException {
+        okhttp3.Call localVarCall = getEmailReputationValidateBeforeCall(appId, null);
+        Type localVarReturnType = new TypeToken<EmailReputationResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get email reputation statistics (asynchronously)
+     * The email bounce and spam complaint rates received for the app over the last 24 hours, 7 days, and 30 days. Rates are expressed as fractions of successfully delivered emails (for example, &#x60;0.02&#x60; means 2%). A window reports &#x60;0&#x60; for both rates when the app has not successfully delivered any email in that period. 
+     * @param appId Your OneSignal App ID in UUID v4 format. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getEmailReputationAsync(String appId, final ApiCallback<EmailReputationResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getEmailReputationValidateBeforeCall(appId, _callback);
+        Type localVarReturnType = new TypeToken<EmailReputationResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
