@@ -31,6 +31,7 @@ All URIs are relative to *https://api.onesignal.com*
 | [**getAliasesBySubscription**](DefaultApi.md#getAliasesBySubscription) | **GET** /apps/{app_id}/subscriptions/{subscription_id}/user/identity |  |
 | [**getApp**](DefaultApi.md#getApp) | **GET** /apps/{app_id} | View an app |
 | [**getApps**](DefaultApi.md#getApps) | **GET** /apps | View apps |
+| [**getEmailReputation**](DefaultApi.md#getEmailReputation) | **GET** /apps/{app_id}/email_analytics/delivery_metrics | Get email reputation statistics |
 | [**getNotification**](DefaultApi.md#getNotification) | **GET** /notifications/{notification_id} | View notification |
 | [**getNotificationHistory**](DefaultApi.md#getNotificationHistory) | **POST** /notifications/{notification_id}/history | Notification History |
 | [**getNotifications**](DefaultApi.md#getNotifications) | **GET** /notifications | View notifications |
@@ -2247,6 +2248,80 @@ This endpoint does not need any parameter.
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
+| **429** | Rate Limit Exceeded |  -  |
+| **0** | Unexpected error |  -  |
+
+<a name="getEmailReputation"></a>
+# **getEmailReputation**
+> EmailReputationResponse getEmailReputation(appId)
+
+Get email reputation statistics
+
+The email bounce and spam complaint rates received for the app over the last 24 hours, 7 days, and 30 days. Rates are expressed as fractions of successfully delivered emails (for example, &#x60;0.02&#x60; means 2%). A window reports &#x60;0&#x60; for both rates when the app has not successfully delivered any email in that period. 
+
+### Example
+```java
+// Import classes:
+import com.onesignal.client.ApiClient;
+import com.onesignal.client.ApiException;
+import com.onesignal.client.Configuration;
+import com.onesignal.client.auth.*;
+import com.onesignal.client.model.*;
+import com.onesignal.client.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.onesignal.com");
+    
+    // Configure HTTP bearer authorization: rest_api_key
+    HttpBearerAuth rest_api_key = (HttpBearerAuth) defaultClient.getAuthentication("rest_api_key");
+    rest_api_key.setBearerToken("YOUR_REST_API_KEY");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String appId = "YOUR_APP_ID"; // String | Your OneSignal App ID in UUID v4 format.
+    try {
+      EmailReputationResponse result = apiInstance.getEmailReputation(appId);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#getEmailReputation");
+      System.err.println("Status code: " + e.getCode());
+      // getErrorMessages() flattens any error-envelope shape to a List<String>;
+      // the raw body remains on getResponseBody().
+      System.err.println("Error messages: " + e.getErrorMessages());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **appId** | **String**| Your OneSignal App ID in UUID v4 format. | |
+
+### Return type
+
+[**EmailReputationResponse**](EmailReputationResponse.md)
+
+### Authorization
+
+[rest_api_key](https://github.com/OneSignal/onesignal-java-api#configuration)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **404** | Not Found |  -  |
 | **429** | Rate Limit Exceeded |  -  |
 | **0** | Unexpected error |  -  |
 

@@ -117,6 +117,8 @@ public class JSON {
             .registerTypeAdapterFactory(new com.onesignal.client.model.CustomEvent.CustomTypeAdapterFactory())
             .registerTypeAdapterFactory(new com.onesignal.client.model.CustomEventsRequest.CustomTypeAdapterFactory())
             .registerTypeAdapterFactory(new com.onesignal.client.model.DeliveryData.CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(new com.onesignal.client.model.EmailReputationResponse.CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(new com.onesignal.client.model.EmailReputationWindow.CustomTypeAdapterFactory())
             .registerTypeAdapterFactory(new com.onesignal.client.model.EmailWarmUp.CustomTypeAdapterFactory())
             .registerTypeAdapterFactory(new com.onesignal.client.model.EmailWarmUpRequest.CustomTypeAdapterFactory())
             .registerTypeAdapterFactory(new com.onesignal.client.model.EmailWarmUpStage.CustomTypeAdapterFactory())
