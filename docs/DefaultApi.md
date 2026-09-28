@@ -24,6 +24,7 @@ All URIs are relative to *https://api.onesignal.com*
 | [**deleteSubscription**](DefaultApi.md#deleteSubscription) | **DELETE** /apps/{app_id}/subscriptions/{subscription_id} |  |
 | [**deleteTemplate**](DefaultApi.md#deleteTemplate) | **DELETE** /templates/{template_id} | Delete template |
 | [**deleteUser**](DefaultApi.md#deleteUser) | **DELETE** /apps/{app_id}/users/by/{alias_label}/{alias_id} |  |
+| [**duplicateJourney**](DefaultApi.md#duplicateJourney) | **POST** /apps/{app_id}/journeys/{journey_id}/duplicate | Duplicate journey |
 | [**estimateNotificationRecipients**](DefaultApi.md#estimateNotificationRecipients) | **POST** /notifications/count-unsaved | Estimate notification recipients |
 | [**exportEvents**](DefaultApi.md#exportEvents) | **POST** /notifications/{notification_id}/export_events | Export CSV of Events |
 | [**exportSubscriptions**](DefaultApi.md#exportSubscriptions) | **POST** /players/csv_export?app_id&#x3D;{app_id} | Export CSV of Subscriptions |
@@ -1728,6 +1729,85 @@ null (empty response body)
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
 | **409** | Conflict |  -  |
+| **429** | Rate Limit Exceeded |  -  |
+| **0** | Unexpected error |  -  |
+
+<a name="duplicateJourney"></a>
+# **duplicateJourney**
+> Journey duplicateJourney(appId, journeyId, duplicateJourneyRequest)
+
+Duplicate journey
+
+The Journeys API is in beta. Endpoints and response fields can still change. Copy an existing journey into a new draft. The source does not change. The copy is always a draft, and started_at and archived_at are null. If you omit the body, or omit overrides, the copy keeps the source description, audience, nodes, early_exit, and reentry_rules. The copy takes the source name plus \&quot; (Copy)\&quot;. The copy does not keep schedule. Send schedule under overrides to set it. Server-controlled fields are rejected with 400. The authenticated App API key must have permission to create journeys.
+
+### Example
+```java
+// Import classes:
+import com.onesignal.client.ApiClient;
+import com.onesignal.client.ApiException;
+import com.onesignal.client.Configuration;
+import com.onesignal.client.auth.*;
+import com.onesignal.client.model.*;
+import com.onesignal.client.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.onesignal.com");
+    
+    // Configure HTTP bearer authorization: rest_api_key
+    HttpBearerAuth rest_api_key = (HttpBearerAuth) defaultClient.getAuthentication("rest_api_key");
+    rest_api_key.setBearerToken("YOUR_REST_API_KEY");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String appId = "YOUR_APP_ID"; // String | Your OneSignal App ID in UUID v4 format.
+    String journeyId = "YOUR_JOURNEY_ID"; // String | UUID of the journey to copy.
+    DuplicateJourneyRequest duplicateJourneyRequest = new DuplicateJourneyRequest(); // DuplicateJourneyRequest | 
+    try {
+      Journey result = apiInstance.duplicateJourney(appId, journeyId, duplicateJourneyRequest);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#duplicateJourney");
+      System.err.println("Status code: " + e.getCode());
+      // getErrorMessages() flattens any error-envelope shape to a List<String>;
+      // the raw body remains on getResponseBody().
+      System.err.println("Error messages: " + e.getErrorMessages());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **appId** | **String**| Your OneSignal App ID in UUID v4 format. | |
+| **journeyId** | **String**| UUID of the journey to copy. | |
+| **duplicateJourneyRequest** | [**DuplicateJourneyRequest**](DuplicateJourneyRequest.md)|  | [optional] |
+
+### Return type
+
+[**Journey**](Journey.md)
+
+### Authorization
+
+[rest_api_key](https://github.com/OneSignal/onesignal-java-api#configuration)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | Created |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
 | **429** | Rate Limit Exceeded |  -  |
 | **0** | Unexpected error |  -  |
 

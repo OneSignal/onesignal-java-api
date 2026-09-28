@@ -53,9 +53,9 @@ import java.util.Set;
 import com.onesignal.client.JSON;
 
 /**
- * Full journey representation returned by the detail, create, and update endpoints.
+ * Full journey representation returned by the detail, create, update, and duplicate endpoints.
  */
-@ApiModel(description = "Full journey representation returned by the detail, create, and update endpoints.")
+@ApiModel(description = "Full journey representation returned by the detail, create, update, and duplicate endpoints.")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class Journey {
   private static final long serialVersionUID = 1L;
