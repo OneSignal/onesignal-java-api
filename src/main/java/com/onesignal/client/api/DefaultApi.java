@@ -38,6 +38,7 @@ import com.onesignal.client.model.CreateSegmentSuccessResponse;
 import com.onesignal.client.model.CreateTemplateRequest;
 import com.onesignal.client.model.CreateUserConflictResponse;
 import com.onesignal.client.model.CustomEventsRequest;
+import com.onesignal.client.model.DuplicateJourneyRequest;
 import com.onesignal.client.model.EmailReputationResponse;
 import com.onesignal.client.model.EstimateNotificationRecipientsRequest;
 import com.onesignal.client.model.EstimateNotificationRecipientsSuccessResponse;
@@ -1590,6 +1591,11 @@ public class DefaultApi {
         if (localVarContentType != null) {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
+        // OkHttp requires a POST body. A null document has no Content-Type.
+        // The client then sends a zero-length body.
+        if (segment == null) {
+            localVarHeaderParams.remove("Content-Type");
+        }
 
         String[] localVarAuthNames = new String[] { "rest_api_key" };
         return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
@@ -2653,7 +2659,7 @@ public class DefaultApi {
     /**
      * Build call for deleteSegment
      * @param appId The OneSignal App ID for your app.  Available in Keys &amp; IDs. (required)
-     * @param segmentId The segment_id can be found in the URL of the segment when viewing it in the dashboard. (required)
+     * @param segmentId The segment&#39;s unique identifier. In the dashboard, go to Audience &gt; Segments, open the segment&#39;s options menu, and select Copy segment ID. You can also get it from the View Segments API or the segment&#39;s URL in the dashboard. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2740,7 +2746,7 @@ public class DefaultApi {
      * Delete Segment
      * Delete a segment (not user devices) - Required: OneSignal Paid Plan You can delete a segment under your app by calling this API. You must provide an API key in the Authorization header that has admin access on the app. The segment_id can be found in the URL of the segment when viewing it in the dashboard. 
      * @param appId The OneSignal App ID for your app.  Available in Keys &amp; IDs. (required)
-     * @param segmentId The segment_id can be found in the URL of the segment when viewing it in the dashboard. (required)
+     * @param segmentId The segment&#39;s unique identifier. In the dashboard, go to Audience &gt; Segments, open the segment&#39;s options menu, and select Copy segment ID. You can also get it from the View Segments API or the segment&#39;s URL in the dashboard. (required)
      * @return GenericSuccessBoolResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2762,7 +2768,7 @@ public class DefaultApi {
      * Delete Segment
      * Delete a segment (not user devices) - Required: OneSignal Paid Plan You can delete a segment under your app by calling this API. You must provide an API key in the Authorization header that has admin access on the app. The segment_id can be found in the URL of the segment when viewing it in the dashboard. 
      * @param appId The OneSignal App ID for your app.  Available in Keys &amp; IDs. (required)
-     * @param segmentId The segment_id can be found in the URL of the segment when viewing it in the dashboard. (required)
+     * @param segmentId The segment&#39;s unique identifier. In the dashboard, go to Audience &gt; Segments, open the segment&#39;s options menu, and select Copy segment ID. You can also get it from the View Segments API or the segment&#39;s URL in the dashboard. (required)
      * @return ApiResponse&lt;GenericSuccessBoolResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2785,7 +2791,7 @@ public class DefaultApi {
      * Delete Segment (asynchronously)
      * Delete a segment (not user devices) - Required: OneSignal Paid Plan You can delete a segment under your app by calling this API. You must provide an API key in the Authorization header that has admin access on the app. The segment_id can be found in the URL of the segment when viewing it in the dashboard. 
      * @param appId The OneSignal App ID for your app.  Available in Keys &amp; IDs. (required)
-     * @param segmentId The segment_id can be found in the URL of the segment when viewing it in the dashboard. (required)
+     * @param segmentId The segment&#39;s unique identifier. In the dashboard, go to Audience &gt; Segments, open the segment&#39;s options menu, and select Copy segment ID. You can also get it from the View Segments API or the segment&#39;s URL in the dashboard. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -3280,6 +3286,175 @@ public class DefaultApi {
         return localVarCall;
     }
     /**
+     * Build call for duplicateJourney
+     * @param appId Your OneSignal App ID in UUID v4 format. (required)
+     * @param journeyId UUID of the journey to copy. (required)
+     * @param duplicateJourneyRequest  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call duplicateJourneyCall(String appId, String journeyId, DuplicateJourneyRequest duplicateJourneyRequest, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = duplicateJourneyRequest;
+
+        // create path and map variables
+        String localVarPath = "/apps/{app_id}/journeys/{journey_id}/duplicate"
+            .replaceAll("\\{" + "app_id" + "\\}", localVarApiClient.escapeString(appId.toString()))
+            .replaceAll("\\{" + "journey_id" + "\\}", localVarApiClient.escapeString(journeyId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        // Adds client sdk version header
+        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.16.0");
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+        // OkHttp requires a POST body. A null document has no Content-Type.
+        // The client then sends a zero-length body.
+        if (duplicateJourneyRequest == null) {
+            localVarHeaderParams.remove("Content-Type");
+        }
+
+        String[] localVarAuthNames = new String[] { "rest_api_key" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call duplicateJourneyValidateBeforeCall(String appId, String journeyId, DuplicateJourneyRequest duplicateJourneyRequest, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'appId' is set
+        if (appId == null) {
+            throw new ApiException("Missing the required parameter 'appId' when calling duplicateJourney(Async)");
+        }
+        
+        // verify the required parameter 'journeyId' is set
+        if (journeyId == null) {
+            throw new ApiException("Missing the required parameter 'journeyId' when calling duplicateJourney(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = duplicateJourneyCall(appId, journeyId, duplicateJourneyRequest, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Duplicate journey
+     * The Journeys API is in beta. Endpoints and response fields can still change. Copy an existing journey into a new draft. The source does not change. The copy is always a draft, and started_at and archived_at are null. If you omit the body, or omit overrides, the copy keeps the source description, audience, nodes, early_exit, and reentry_rules. The copy takes the source name plus \&quot; (Copy)\&quot;. The copy does not keep schedule. Send schedule under overrides to set it. Server-controlled fields are rejected with 400. The authenticated App API key must have permission to create journeys.
+     * @param appId Your OneSignal App ID in UUID v4 format. (required)
+     * @param journeyId UUID of the journey to copy. (required)
+     * @param duplicateJourneyRequest  (optional)
+     * @return Journey
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
+     </table>
+     */
+    public Journey duplicateJourney(String appId, String journeyId, DuplicateJourneyRequest duplicateJourneyRequest) throws ApiException {
+        ApiResponse<Journey> localVarResp = duplicateJourneyWithHttpInfo(appId, journeyId, duplicateJourneyRequest);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Duplicate journey
+     * The Journeys API is in beta. Endpoints and response fields can still change. Copy an existing journey into a new draft. The source does not change. The copy is always a draft, and started_at and archived_at are null. If you omit the body, or omit overrides, the copy keeps the source description, audience, nodes, early_exit, and reentry_rules. The copy takes the source name plus \&quot; (Copy)\&quot;. The copy does not keep schedule. Send schedule under overrides to set it. Server-controlled fields are rejected with 400. The authenticated App API key must have permission to create journeys.
+     * @param appId Your OneSignal App ID in UUID v4 format. (required)
+     * @param journeyId UUID of the journey to copy. (required)
+     * @param duplicateJourneyRequest  (optional)
+     * @return ApiResponse&lt;Journey&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Journey> duplicateJourneyWithHttpInfo(String appId, String journeyId, DuplicateJourneyRequest duplicateJourneyRequest) throws ApiException {
+        okhttp3.Call localVarCall = duplicateJourneyValidateBeforeCall(appId, journeyId, duplicateJourneyRequest, null);
+        Type localVarReturnType = new TypeToken<Journey>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Duplicate journey (asynchronously)
+     * The Journeys API is in beta. Endpoints and response fields can still change. Copy an existing journey into a new draft. The source does not change. The copy is always a draft, and started_at and archived_at are null. If you omit the body, or omit overrides, the copy keeps the source description, audience, nodes, early_exit, and reentry_rules. The copy takes the source name plus \&quot; (Copy)\&quot;. The copy does not keep schedule. Send schedule under overrides to set it. Server-controlled fields are rejected with 400. The authenticated App API key must have permission to create journeys.
+     * @param appId Your OneSignal App ID in UUID v4 format. (required)
+     * @param journeyId UUID of the journey to copy. (required)
+     * @param duplicateJourneyRequest  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call duplicateJourneyAsync(String appId, String journeyId, DuplicateJourneyRequest duplicateJourneyRequest, final ApiCallback<Journey> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = duplicateJourneyValidateBeforeCall(appId, journeyId, duplicateJourneyRequest, _callback);
+        Type localVarReturnType = new TypeToken<Journey>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for estimateNotificationRecipients
      * @param estimateNotificationRecipientsRequest  (required)
      * @param _callback Callback for upload/download progress
@@ -3638,6 +3813,11 @@ public class DefaultApi {
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
             localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+        // OkHttp requires a POST body. A null document has no Content-Type.
+        // The client then sends a zero-length body.
+        if (exportSubscriptionsRequestBody == null) {
+            localVarHeaderParams.remove("Content-Type");
         }
 
         String[] localVarAuthNames = new String[] { "rest_api_key" };
@@ -5144,7 +5324,7 @@ public class DefaultApi {
     /**
      * Build call for getSegment
      * @param appId The OneSignal App ID for your app.  Available in Keys &amp; IDs. (required)
-     * @param segmentId The segment&#39;s unique identifier. Can be found using the View Segments API or in the URL of the segment when viewing it in the dashboard. (required)
+     * @param segmentId The segment&#39;s unique identifier. In the dashboard, go to Audience &gt; Segments, open the segment&#39;s options menu, and select Copy segment ID. You can also get it from the View Segments API or the segment&#39;s URL in the dashboard. (required)
      * @param includeSegmentDetail Set to true to include segment metadata and filters in the response. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -5236,7 +5416,7 @@ public class DefaultApi {
      * View Segment
      * Retrieve details for a single segment by its ID, including subscriber count and optionally segment metadata and filters.
      * @param appId The OneSignal App ID for your app.  Available in Keys &amp; IDs. (required)
-     * @param segmentId The segment&#39;s unique identifier. Can be found using the View Segments API or in the URL of the segment when viewing it in the dashboard. (required)
+     * @param segmentId The segment&#39;s unique identifier. In the dashboard, go to Audience &gt; Segments, open the segment&#39;s options menu, and select Copy segment ID. You can also get it from the View Segments API or the segment&#39;s URL in the dashboard. (required)
      * @param includeSegmentDetail Set to true to include segment metadata and filters in the response. (optional)
      * @return GetSegmentSuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -5259,7 +5439,7 @@ public class DefaultApi {
      * View Segment
      * Retrieve details for a single segment by its ID, including subscriber count and optionally segment metadata and filters.
      * @param appId The OneSignal App ID for your app.  Available in Keys &amp; IDs. (required)
-     * @param segmentId The segment&#39;s unique identifier. Can be found using the View Segments API or in the URL of the segment when viewing it in the dashboard. (required)
+     * @param segmentId The segment&#39;s unique identifier. In the dashboard, go to Audience &gt; Segments, open the segment&#39;s options menu, and select Copy segment ID. You can also get it from the View Segments API or the segment&#39;s URL in the dashboard. (required)
      * @param includeSegmentDetail Set to true to include segment metadata and filters in the response. (optional)
      * @return ApiResponse&lt;GetSegmentSuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -5283,7 +5463,7 @@ public class DefaultApi {
      * View Segment (asynchronously)
      * Retrieve details for a single segment by its ID, including subscriber count and optionally segment metadata and filters.
      * @param appId The OneSignal App ID for your app.  Available in Keys &amp; IDs. (required)
-     * @param segmentId The segment&#39;s unique identifier. Can be found using the View Segments API or in the URL of the segment when viewing it in the dashboard. (required)
+     * @param segmentId The segment&#39;s unique identifier. In the dashboard, go to Audience &gt; Segments, open the segment&#39;s options menu, and select Copy segment ID. You can also get it from the View Segments API or the segment&#39;s URL in the dashboard. (required)
      * @param includeSegmentDetail Set to true to include segment metadata and filters in the response. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -7346,7 +7526,7 @@ public class DefaultApi {
     /**
      * Build call for updateSegment
      * @param appId The OneSignal App ID for your app.  Available in Keys &amp; IDs. (required)
-     * @param segmentId The segment&#39;s unique identifier. Can be found using the View Segments API or in the URL of the segment when viewing it in the dashboard. (required)
+     * @param segmentId The segment&#39;s unique identifier. In the dashboard, go to Audience &gt; Segments, open the segment&#39;s options menu, and select Copy segment ID. You can also get it from the View Segments API or the segment&#39;s URL in the dashboard. (required)
      * @param updateSegmentRequest  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -7407,6 +7587,11 @@ public class DefaultApi {
         if (localVarContentType != null) {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
+        // OkHttp requires a POST body. A null document has no Content-Type.
+        // The client then sends a zero-length body.
+        if (updateSegmentRequest == null) {
+            localVarHeaderParams.remove("Content-Type");
+        }
 
         String[] localVarAuthNames = new String[] { "rest_api_key" };
         return localVarApiClient.buildCall(basePath, localVarPath, "PATCH", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
@@ -7435,7 +7620,7 @@ public class DefaultApi {
      * Update Segment
      * Update an existing segment&#39;s name and/or filters. The name parameter is always required. When filters are provided, all existing filters are replaced with the new ones.
      * @param appId The OneSignal App ID for your app.  Available in Keys &amp; IDs. (required)
-     * @param segmentId The segment&#39;s unique identifier. Can be found using the View Segments API or in the URL of the segment when viewing it in the dashboard. (required)
+     * @param segmentId The segment&#39;s unique identifier. In the dashboard, go to Audience &gt; Segments, open the segment&#39;s options menu, and select Copy segment ID. You can also get it from the View Segments API or the segment&#39;s URL in the dashboard. (required)
      * @param updateSegmentRequest  (optional)
      * @return UpdateSegmentSuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -7459,7 +7644,7 @@ public class DefaultApi {
      * Update Segment
      * Update an existing segment&#39;s name and/or filters. The name parameter is always required. When filters are provided, all existing filters are replaced with the new ones.
      * @param appId The OneSignal App ID for your app.  Available in Keys &amp; IDs. (required)
-     * @param segmentId The segment&#39;s unique identifier. Can be found using the View Segments API or in the URL of the segment when viewing it in the dashboard. (required)
+     * @param segmentId The segment&#39;s unique identifier. In the dashboard, go to Audience &gt; Segments, open the segment&#39;s options menu, and select Copy segment ID. You can also get it from the View Segments API or the segment&#39;s URL in the dashboard. (required)
      * @param updateSegmentRequest  (optional)
      * @return ApiResponse&lt;UpdateSegmentSuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -7484,7 +7669,7 @@ public class DefaultApi {
      * Update Segment (asynchronously)
      * Update an existing segment&#39;s name and/or filters. The name parameter is always required. When filters are provided, all existing filters are replaced with the new ones.
      * @param appId The OneSignal App ID for your app.  Available in Keys &amp; IDs. (required)
-     * @param segmentId The segment&#39;s unique identifier. Can be found using the View Segments API or in the URL of the segment when viewing it in the dashboard. (required)
+     * @param segmentId The segment&#39;s unique identifier. In the dashboard, go to Audience &gt; Segments, open the segment&#39;s options menu, and select Copy segment ID. You can also get it from the View Segments API or the segment&#39;s URL in the dashboard. (required)
      * @param updateSegmentRequest  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call

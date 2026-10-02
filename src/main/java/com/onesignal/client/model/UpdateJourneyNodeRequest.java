@@ -204,11 +204,11 @@ public class UpdateJourneyNodeRequest {
   }
 
    /**
-   * Optional free-text label, up to 255 characters. Stored and returned as-is with no effect on journey behavior.
+   * Optional free-text label, up to 1024 characters. Stored and returned as-is with no effect on journey behavior.
    * @return annotation
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Optional free-text label, up to 255 characters. Stored and returned as-is with no effect on journey behavior.")
+  @ApiModelProperty(value = "Optional free-text label, up to 1024 characters. Stored and returned as-is with no effect on journey behavior.")
 
   public String getAnnotation() {
     return annotation;
@@ -507,11 +507,11 @@ public class UpdateJourneyNodeRequest {
   }
 
    /**
-   * Branching nodes: nested branches. split_range requires 2-20 weighted branches that sum to 100. yes_no requires exactly 2 branches. wait_until requires 1-10 condition branches.
+   * Branching nodes: nested branches. split_range requires 2-25 weighted branches that sum to 100. yes_no requires exactly 2 branches. wait_until requires 1-25 condition branches.
    * @return branches
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Branching nodes: nested branches. split_range requires 2-20 weighted branches that sum to 100. yes_no requires exactly 2 branches. wait_until requires 1-10 condition branches.")
+  @ApiModelProperty(value = "Branching nodes: nested branches. split_range requires 2-25 weighted branches that sum to 100. yes_no requires exactly 2 branches. wait_until requires 1-25 condition branches.")
 
   public List<JourneyBranch> getBranches() {
     return branches;
