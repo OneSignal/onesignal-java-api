@@ -110,6 +110,8 @@ Used to stop a scheduled or currently outgoing notification
 ### Example
 ```java
 // Import classes:
+import java.util.Arrays;
+import java.util.List;
 import com.onesignal.client.ApiClient;
 import com.onesignal.client.ApiException;
 import com.onesignal.client.Configuration;
@@ -186,6 +188,8 @@ Copy a template to a destination app.
 ### Example
 ```java
 // Import classes:
+import java.util.Arrays;
+import java.util.List;
 import com.onesignal.client.ApiClient;
 import com.onesignal.client.ApiException;
 import com.onesignal.client.Configuration;
@@ -205,7 +209,7 @@ public class Example {
     DefaultApi apiInstance = new DefaultApi(defaultClient);
     String templateId = "e4d3c2b1-a09f-4f1e-8d7c-6b5a4f3e2d1c"; // String | 
     String appId = "YOUR_APP_ID"; // String | 
-    CopyTemplateRequest copyTemplateRequest = new CopyTemplateRequest(); // CopyTemplateRequest | 
+    CopyTemplateRequest copyTemplateRequest = new CopyTemplateRequest().targetAppId("YOUR_TARGET_APP_ID"); // CopyTemplateRequest | 
     try {
       TemplateResource result = apiInstance.copyTemplateToApp(templateId, appId, copyTemplateRequest);
       System.out.println(result);
@@ -262,6 +266,8 @@ Upserts one or more Aliases to an existing User identified by (:alias_label, :al
 ### Example
 ```java
 // Import classes:
+import java.util.Arrays;
+import java.util.List;
 import com.onesignal.client.ApiClient;
 import com.onesignal.client.ApiException;
 import com.onesignal.client.Configuration;
@@ -343,6 +349,8 @@ Upserts one or more Aliases for the User identified by :subscription_id.
 ### Example
 ```java
 // Import classes:
+import java.util.Arrays;
+import java.util.List;
 import com.onesignal.client.ApiClient;
 import com.onesignal.client.ApiException;
 import com.onesignal.client.Configuration;
@@ -422,6 +430,8 @@ Use this API to create a new App API Key (also called a Rich Authentication Toke
 ### Example
 ```java
 // Import classes:
+import java.util.Arrays;
+import java.util.List;
 import com.onesignal.client.ApiClient;
 import com.onesignal.client.ApiException;
 import com.onesignal.client.Configuration;
@@ -496,6 +506,8 @@ Creates a new OneSignal app
 ### Example
 ```java
 // Import classes:
+import java.util.Arrays;
+import java.util.List;
 import com.onesignal.client.ApiClient;
 import com.onesignal.client.ApiException;
 import com.onesignal.client.Configuration;
@@ -569,6 +581,8 @@ The Custom Events API allows you to record user events. Custom events can repres
 ### Example
 ```java
 // Import classes:
+import java.util.Arrays;
+import java.util.List;
 import com.onesignal.client.ApiClient;
 import com.onesignal.client.ApiException;
 import com.onesignal.client.Configuration;
@@ -587,7 +601,7 @@ public class Example {
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
     String appId = "YOUR_APP_ID"; // String | Your OneSignal App ID in UUID v4 format.
-    CustomEventsRequest customEventsRequest = new CustomEventsRequest(); // CustomEventsRequest | 
+    CustomEventsRequest customEventsRequest = new CustomEventsRequest().events(Arrays.asList(new CustomEvent().name("YOUR_NAME"))); // CustomEventsRequest | 
     try {
       Object result = apiInstance.createCustomEvents(appId, customEventsRequest);
       System.out.println(result);
@@ -645,6 +659,8 @@ The Journeys API is in beta. Endpoints and response fields can still change. Cre
 ### Example
 ```java
 // Import classes:
+import java.util.Arrays;
+import java.util.List;
 import com.onesignal.client.ApiClient;
 import com.onesignal.client.ApiException;
 import com.onesignal.client.Configuration;
@@ -663,7 +679,7 @@ public class Example {
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
     String appId = "YOUR_APP_ID"; // String | Your OneSignal App ID in UUID v4 format.
-    CreateJourneyRequest createJourneyRequest = new CreateJourneyRequest(); // CreateJourneyRequest | 
+    CreateJourneyRequest createJourneyRequest = new CreateJourneyRequest().name("YOUR_NAME"); // CreateJourneyRequest | 
     try {
       Journey result = apiInstance.createJourney(appId, createJourneyRequest);
       System.out.println(result);
@@ -885,6 +901,8 @@ Create a segment visible and usable in the dashboard and API - Required: OneSign
 ### Example
 ```java
 // Import classes:
+import java.util.Arrays;
+import java.util.List;
 import com.onesignal.client.ApiClient;
 import com.onesignal.client.ApiException;
 import com.onesignal.client.Configuration;
@@ -903,7 +921,7 @@ public class Example {
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
     String appId = "YOUR_APP_ID"; // String | The OneSignal App ID for your app.  Available in Keys & IDs.
-    Segment segment = new Segment(); // Segment | 
+    Segment segment = new Segment().name("Inactive 30 days").filters(Arrays.asList(new FilterExpression(new Filter()))); // Segment | 
     try {
       CreateSegmentSuccessResponse result = apiInstance.createSegment(appId, segment);
       System.out.println(result);
@@ -961,6 +979,8 @@ Creates a new Subscription under the User provided. Useful to add email addresse
 ### Example
 ```java
 // Import classes:
+import java.util.Arrays;
+import java.util.List;
 import com.onesignal.client.ApiClient;
 import com.onesignal.client.ApiException;
 import com.onesignal.client.Configuration;
@@ -1043,6 +1063,8 @@ Create reusable message templates for push, email, and SMS channels.
 ### Example
 ```java
 // Import classes:
+import java.util.Arrays;
+import java.util.List;
 import com.onesignal.client.ApiClient;
 import com.onesignal.client.ApiException;
 import com.onesignal.client.Configuration;
@@ -1060,7 +1082,7 @@ public class Example {
     rest_api_key.setBearerToken("YOUR_REST_API_KEY");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
-    CreateTemplateRequest createTemplateRequest = new CreateTemplateRequest(); // CreateTemplateRequest | 
+    CreateTemplateRequest createTemplateRequest = new CreateTemplateRequest().appId("YOUR_APP_ID").name("YOUR_NAME").contents(new LanguageStringMap()); // CreateTemplateRequest | 
     try {
       TemplateResource result = apiInstance.createTemplate(createTemplateRequest);
       System.out.println(result);
@@ -1116,6 +1138,8 @@ Creates a User, optionally Subscriptions owned by the User as well as Aliases. A
 ### Example
 ```java
 // Import classes:
+import java.util.Arrays;
+import java.util.List;
 import com.onesignal.client.ApiClient;
 import com.onesignal.client.ApiException;
 import com.onesignal.client.Configuration;
@@ -1208,6 +1232,8 @@ Deletes an alias by alias label
 ### Example
 ```java
 // Import classes:
+import java.util.Arrays;
+import java.util.List;
 import com.onesignal.client.ApiClient;
 import com.onesignal.client.ApiException;
 import com.onesignal.client.Configuration;
@@ -1289,6 +1315,8 @@ Delete a specific Rich Authentication Token (App API Key) for a OneSignal app. R
 ### Example
 ```java
 // Import classes:
+import java.util.Arrays;
+import java.util.List;
 import com.onesignal.client.ApiClient;
 import com.onesignal.client.ApiException;
 import com.onesignal.client.Configuration;
@@ -1363,6 +1391,8 @@ The Journeys API is in beta. Endpoints and response fields can still change. Per
 ### Example
 ```java
 // Import classes:
+import java.util.Arrays;
+import java.util.List;
 import com.onesignal.client.ApiClient;
 import com.onesignal.client.ApiException;
 import com.onesignal.client.Configuration;
@@ -1439,6 +1469,8 @@ Delete a segment (not user devices) - Required: OneSignal Paid Plan You can dele
 ### Example
 ```java
 // Import classes:
+import java.util.Arrays;
+import java.util.List;
 import com.onesignal.client.ApiClient;
 import com.onesignal.client.ApiException;
 import com.onesignal.client.Configuration;
@@ -1515,6 +1547,8 @@ Deletes the Subscription.
 ### Example
 ```java
 // Import classes:
+import java.util.Arrays;
+import java.util.List;
 import com.onesignal.client.ApiClient;
 import com.onesignal.client.ApiException;
 import com.onesignal.client.Configuration;
@@ -1591,6 +1625,8 @@ Delete a template by id.
 ### Example
 ```java
 // Import classes:
+import java.util.Arrays;
+import java.util.List;
 import com.onesignal.client.ApiClient;
 import com.onesignal.client.ApiException;
 import com.onesignal.client.Configuration;
@@ -1666,6 +1702,8 @@ Removes the User identified by (:alias_label, :alias_id), and all Subscriptions 
 ### Example
 ```java
 // Import classes:
+import java.util.Arrays;
+import java.util.List;
 import com.onesignal.client.ApiClient;
 import com.onesignal.client.ApiException;
 import com.onesignal.client.Configuration;
@@ -1743,6 +1781,8 @@ The Journeys API is in beta. Endpoints and response fields can still change. Cop
 ### Example
 ```java
 // Import classes:
+import java.util.Arrays;
+import java.util.List;
 import com.onesignal.client.ApiClient;
 import com.onesignal.client.ApiException;
 import com.onesignal.client.Configuration;
@@ -1822,6 +1862,8 @@ Returns the estimated number of recipients for a notification&#39;s targeting, w
 ### Example
 ```java
 // Import classes:
+import java.util.Arrays;
+import java.util.List;
 import com.onesignal.client.ApiClient;
 import com.onesignal.client.ApiException;
 import com.onesignal.client.Configuration;
@@ -1839,7 +1881,7 @@ public class Example {
     rest_api_key.setBearerToken("YOUR_REST_API_KEY");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
-    EstimateNotificationRecipientsRequest estimateNotificationRecipientsRequest = new EstimateNotificationRecipientsRequest(); // EstimateNotificationRecipientsRequest | 
+    EstimateNotificationRecipientsRequest estimateNotificationRecipientsRequest = new EstimateNotificationRecipientsRequest().appId("YOUR_APP_ID"); // EstimateNotificationRecipientsRequest | 
     try {
       EstimateNotificationRecipientsSuccessResponse result = apiInstance.estimateNotificationRecipients(estimateNotificationRecipientsRequest);
       System.out.println(result);
@@ -1895,6 +1937,8 @@ Generate a compressed CSV report of all of the events data for a notification. T
 ### Example
 ```java
 // Import classes:
+import java.util.Arrays;
+import java.util.List;
 import com.onesignal.client.ApiClient;
 import com.onesignal.client.ApiException;
 import com.onesignal.client.Configuration;
@@ -1971,6 +2015,8 @@ Generate a compressed CSV export of all of your current user data This method ca
 ### Example
 ```java
 // Import classes:
+import java.util.Arrays;
+import java.util.List;
 import com.onesignal.client.ApiClient;
 import com.onesignal.client.ApiException;
 import com.onesignal.client.Configuration;
@@ -2046,6 +2092,8 @@ Lists all Aliases for the User identified by (:alias_label, :alias_id).
 ### Example
 ```java
 // Import classes:
+import java.util.Arrays;
+import java.util.List;
 import com.onesignal.client.ApiClient;
 import com.onesignal.client.ApiException;
 import com.onesignal.client.Configuration;
@@ -2124,6 +2172,8 @@ Lists all Aliases for the User identified by :subscription_id.
 ### Example
 ```java
 // Import classes:
+import java.util.Arrays;
+import java.util.List;
 import com.onesignal.client.ApiClient;
 import com.onesignal.client.ApiException;
 import com.onesignal.client.Configuration;
@@ -2199,6 +2249,8 @@ View the details of a single OneSignal app
 ### Example
 ```java
 // Import classes:
+import java.util.Arrays;
+import java.util.List;
 import com.onesignal.client.ApiClient;
 import com.onesignal.client.ApiException;
 import com.onesignal.client.Configuration;
@@ -2272,6 +2324,7 @@ View the details of all of your current OneSignal apps
 ### Example
 ```java
 // Import classes:
+import java.util.Arrays;
 import java.util.List;
 import com.onesignal.client.ApiClient;
 import com.onesignal.client.ApiException;
@@ -2342,6 +2395,8 @@ The email bounce and spam complaint rates received for the app over the last 24 
 ### Example
 ```java
 // Import classes:
+import java.util.Arrays;
+import java.util.List;
 import com.onesignal.client.ApiClient;
 import com.onesignal.client.ApiException;
 import com.onesignal.client.Configuration;
@@ -2416,6 +2471,8 @@ View the details of a single notification and outcomes associated with it
 ### Example
 ```java
 // Import classes:
+import java.util.Arrays;
+import java.util.List;
 import com.onesignal.client.ApiClient;
 import com.onesignal.client.ApiException;
 import com.onesignal.client.Configuration;
@@ -2492,6 +2549,8 @@ Notification History
 ### Example
 ```java
 // Import classes:
+import java.util.Arrays;
+import java.util.List;
 import com.onesignal.client.ApiClient;
 import com.onesignal.client.ApiException;
 import com.onesignal.client.Configuration;
@@ -2568,6 +2627,8 @@ View the details of multiple notifications
 ### Example
 ```java
 // Import classes:
+import java.util.Arrays;
+import java.util.List;
 import com.onesignal.client.ApiClient;
 import com.onesignal.client.ApiException;
 import com.onesignal.client.Configuration;
@@ -2649,6 +2710,8 @@ View the details of all the outcomes associated with your app  &amp;#x1F6A7; Req
 ### Example
 ```java
 // Import classes:
+import java.util.Arrays;
+import java.util.List;
 import com.onesignal.client.ApiClient;
 import com.onesignal.client.ApiException;
 import com.onesignal.client.Configuration;
@@ -2732,6 +2795,8 @@ Retrieve details for a single segment by its ID, including subscriber count and 
 ### Example
 ```java
 // Import classes:
+import java.util.Arrays;
+import java.util.List;
 import com.onesignal.client.ApiClient;
 import com.onesignal.client.ApiException;
 import com.onesignal.client.Configuration;
@@ -2810,6 +2875,8 @@ Returns an array of segments from an app.
 ### Example
 ```java
 // Import classes:
+import java.util.Arrays;
+import java.util.List;
 import com.onesignal.client.ApiClient;
 import com.onesignal.client.ApiException;
 import com.onesignal.client.Configuration;
@@ -2887,6 +2954,8 @@ Returns the User’s properties, Aliases, and Subscriptions.
 ### Example
 ```java
 // Import classes:
+import java.util.Arrays;
+import java.util.List;
 import com.onesignal.client.ApiClient;
 import com.onesignal.client.ApiException;
 import com.onesignal.client.Configuration;
@@ -2965,6 +3034,8 @@ Retrieve a paginated, time-scoped list of audit log events for an organization. 
 ### Example
 ```java
 // Import classes:
+import java.util.Arrays;
+import java.util.List;
 import com.onesignal.client.ApiClient;
 import com.onesignal.client.ApiException;
 import com.onesignal.client.Configuration;
@@ -2983,10 +3054,10 @@ public class Example {
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
     String organizationId = "YOUR_ORG_ID"; // String | The UUID of the organization to retrieve audit logs for. Must match the authenticated Organization API Key.
-    String startTime = "startTime_example"; // String | Start of the time range in ISO 8601 format (e.g. 2026-02-01T00:00:00Z). Required unless cursor is provided. Must be within the last 90 days.
-    String endTime = "endTime_example"; // String | End of the time range in ISO 8601 format. Defaults to the current time. Must be after start_time.
-    String cursor = "cursor_example"; // String | Pagination cursor returned in a previous response as next_cursor. When provided, start_time and end_time are ignored.
-    Integer limit = 56; // Integer | Maximum number of events to return per page. Minimum 1, maximum 100. Values outside this range are clamped automatically by the server.
+    String startTime = "2026-02-01T00:00:00Z"; // String | Start of the time range in ISO 8601 format (e.g. 2026-02-01T00:00:00Z). Required unless cursor is provided. Must be within the last 90 days.
+    String endTime = "2026-02-02T00:00:00Z"; // String | End of the time range in ISO 8601 format. Defaults to the current time. Must be after start_time.
+    String cursor = "YOUR_NEXT_CURSOR"; // String | Pagination cursor returned in a previous response as next_cursor. When provided, start_time and end_time are ignored.
+    Integer limit = 50; // Integer | Maximum number of events to return per page. Minimum 1, maximum 100. Values outside this range are clamped automatically by the server.
     List<String> appIds = Arrays.asList(); // List<String> | Filter events by app UUID. Accepts up to 10 values. Org-level events are always included.
     List<String> actions = Arrays.asList(); // List<String> | Filter by action type (e.g. notification.sent, segment.created). Accepts up to 20 values.
     List<String> actorIds = Arrays.asList(); // List<String> | Filter by actor UUID (the user or service that performed the action). Accepts up to 10 values.
@@ -3062,6 +3133,8 @@ Rotate a Rich Authentication Token (App API Key) for a OneSignal app. Rotating a
 ### Example
 ```java
 // Import classes:
+import java.util.Arrays;
+import java.util.List;
 import com.onesignal.client.ApiClient;
 import com.onesignal.client.ApiException;
 import com.onesignal.client.Configuration;
@@ -3136,6 +3209,8 @@ Remotely start a Live Activity on iOS devices via OneSignal’s REST API.
 ### Example
 ```java
 // Import classes:
+import java.util.Arrays;
+import java.util.List;
 import com.onesignal.client.ApiClient;
 import com.onesignal.client.ApiException;
 import com.onesignal.client.Configuration;
@@ -3155,7 +3230,7 @@ public class Example {
     DefaultApi apiInstance = new DefaultApi(defaultClient);
     String appId = "YOUR_APP_ID"; // String | Your OneSignal App ID in UUID v4 format.
     String activityType = "order_status"; // String | The name of the Live Activity defined in your app. This should match the attributes struct used in your app's Live Activity implementation.
-    StartLiveActivityRequest startLiveActivityRequest = new StartLiveActivityRequest(); // StartLiveActivityRequest | 
+    StartLiveActivityRequest startLiveActivityRequest = new StartLiveActivityRequest().name("YOUR_NAME").event(StartLiveActivityRequest.EventEnum.START).activityId("YOUR_ACTIVITY_ID").eventAttributes(new Object()).eventUpdates(new Object()).contents(new LanguageStringMap()).headings(new LanguageStringMap()); // StartLiveActivityRequest | 
     try {
       StartLiveActivitySuccessResponse result = apiInstance.startLiveActivity(appId, activityType, startLiveActivityRequest);
       System.out.println(result);
@@ -3213,6 +3288,8 @@ Transfers this Subscription to the User identified by the identity in the payloa
 ### Example
 ```java
 // Import classes:
+import java.util.Arrays;
+import java.util.List;
 import com.onesignal.client.ApiClient;
 import com.onesignal.client.ApiException;
 import com.onesignal.client.Configuration;
@@ -3292,6 +3369,8 @@ Unsubscribe an email with a token when using your own custom email unsubscribe l
 ### Example
 ```java
 // Import classes:
+import java.util.Arrays;
+import java.util.List;
 import com.onesignal.client.ApiClient;
 import com.onesignal.client.ApiException;
 import com.onesignal.client.Configuration;
@@ -3369,6 +3448,8 @@ Update a Rich Authentication Token (App API Key) for a OneSignal app.
 ### Example
 ```java
 // Import classes:
+import java.util.Arrays;
+import java.util.List;
 import com.onesignal.client.ApiClient;
 import com.onesignal.client.ApiException;
 import com.onesignal.client.Configuration;
@@ -3445,6 +3526,8 @@ Updates the name or configuration settings of an existing OneSignal app
 ### Example
 ```java
 // Import classes:
+import java.util.Arrays;
+import java.util.List;
 import com.onesignal.client.ApiClient;
 import com.onesignal.client.ApiException;
 import com.onesignal.client.Configuration;
@@ -3520,6 +3603,8 @@ The Journeys API is in beta. Endpoints and response fields can still change. App
 ### Example
 ```java
 // Import classes:
+import java.util.Arrays;
+import java.util.List;
 import com.onesignal.client.ApiClient;
 import com.onesignal.client.ApiException;
 import com.onesignal.client.Configuration;
@@ -3601,6 +3686,8 @@ The Journeys API is in beta. Endpoints and response fields can still change. App
 ### Example
 ```java
 // Import classes:
+import java.util.Arrays;
+import java.util.List;
 import com.onesignal.client.ApiClient;
 import com.onesignal.client.ApiException;
 import com.onesignal.client.Configuration;
@@ -3684,6 +3771,8 @@ Updates a specified live activity.
 ### Example
 ```java
 // Import classes:
+import java.util.Arrays;
+import java.util.List;
 import com.onesignal.client.ApiClient;
 import com.onesignal.client.ApiException;
 import com.onesignal.client.Configuration;
@@ -3703,7 +3792,7 @@ public class Example {
     DefaultApi apiInstance = new DefaultApi(defaultClient);
     String appId = "YOUR_APP_ID"; // String | The OneSignal App ID for your app.  Available in Keys & IDs.
     String activityId = "12345"; // String | Live Activity record ID
-    UpdateLiveActivityRequest updateLiveActivityRequest = new UpdateLiveActivityRequest(); // UpdateLiveActivityRequest | 
+    UpdateLiveActivityRequest updateLiveActivityRequest = new UpdateLiveActivityRequest().name("YOUR_NAME").event(UpdateLiveActivityRequest.EventEnum.UPDATE).eventUpdates(new Object()); // UpdateLiveActivityRequest | 
     try {
       UpdateLiveActivitySuccessResponse result = apiInstance.updateLiveActivity(appId, activityId, updateLiveActivityRequest);
       System.out.println(result);
@@ -3761,6 +3850,8 @@ Update an existing segment&#39;s name and/or filters. The name parameter is alwa
 ### Example
 ```java
 // Import classes:
+import java.util.Arrays;
+import java.util.List;
 import com.onesignal.client.ApiClient;
 import com.onesignal.client.ApiException;
 import com.onesignal.client.Configuration;
@@ -3780,7 +3871,7 @@ public class Example {
     DefaultApi apiInstance = new DefaultApi(defaultClient);
     String appId = "YOUR_APP_ID"; // String | The OneSignal App ID for your app.  Available in Keys & IDs.
     String segmentId = "d6c5a3e1-9f17-44a1-9d10-7c0e4a2b1c8e"; // String | The segment's unique identifier. In the dashboard, go to Audience > Segments, open the segment's options menu, and select Copy segment ID. You can also get it from the View Segments API or the segment's URL in the dashboard.
-    UpdateSegmentRequest updateSegmentRequest = new UpdateSegmentRequest(); // UpdateSegmentRequest | 
+    UpdateSegmentRequest updateSegmentRequest = new UpdateSegmentRequest().name("YOUR_NAME"); // UpdateSegmentRequest | 
     try {
       UpdateSegmentSuccessResponse result = apiInstance.updateSegment(appId, segmentId, updateSegmentRequest);
       System.out.println(result);
@@ -3840,6 +3931,8 @@ Updates an existing Subscription’s properties.
 ### Example
 ```java
 // Import classes:
+import java.util.Arrays;
+import java.util.List;
 import com.onesignal.client.ApiClient;
 import com.onesignal.client.ApiException;
 import com.onesignal.client.Configuration;
@@ -3918,6 +4011,8 @@ Update properties on an existing OneSignal subscription using its token.
 ### Example
 ```java
 // Import classes:
+import java.util.Arrays;
+import java.util.List;
 import com.onesignal.client.ApiClient;
 import com.onesignal.client.ApiException;
 import com.onesignal.client.Configuration;
@@ -3997,6 +4092,8 @@ Update an existing template.
 ### Example
 ```java
 // Import classes:
+import java.util.Arrays;
+import java.util.List;
 import com.onesignal.client.ApiClient;
 import com.onesignal.client.ApiException;
 import com.onesignal.client.Configuration;
@@ -4073,6 +4170,8 @@ Updates an existing User’s properties.
 ### Example
 ```java
 // Import classes:
+import java.util.Arrays;
+import java.util.List;
 import com.onesignal.client.ApiClient;
 import com.onesignal.client.ApiException;
 import com.onesignal.client.Configuration;
@@ -4153,6 +4252,8 @@ View the details of all of your current app API keys (Rich Authentication Token)
 ### Example
 ```java
 // Import classes:
+import java.util.Arrays;
+import java.util.List;
 import com.onesignal.client.ApiClient;
 import com.onesignal.client.ApiException;
 import com.onesignal.client.Configuration;
@@ -4225,6 +4326,8 @@ The Journeys API is in beta. Endpoints and response fields can still change. Ret
 ### Example
 ```java
 // Import classes:
+import java.util.Arrays;
+import java.util.List;
 import com.onesignal.client.ApiClient;
 import com.onesignal.client.ApiException;
 import com.onesignal.client.Configuration;
@@ -4300,6 +4403,8 @@ The Journeys API is in beta. Endpoints and response fields can still change. Ret
 ### Example
 ```java
 // Import classes:
+import java.util.Arrays;
+import java.util.List;
 import com.onesignal.client.ApiClient;
 import com.onesignal.client.ApiException;
 import com.onesignal.client.Configuration;
@@ -4375,6 +4480,8 @@ The Journeys API is in beta. Endpoints and response fields can still change. Ret
 ### Example
 ```java
 // Import classes:
+import java.util.Arrays;
+import java.util.List;
 import com.onesignal.client.ApiClient;
 import com.onesignal.client.ApiException;
 import com.onesignal.client.Configuration;
@@ -4393,7 +4500,7 @@ public class Example {
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
     String appId = "YOUR_APP_ID"; // String | Your OneSignal App ID in UUID v4 format.
-    String cursor = "cursor_example"; // String | Opaque pagination token from a previous response's next_cursor. Omit for the first page.
+    String cursor = "YOUR_NEXT_CURSOR"; // String | Opaque pagination token from a previous response's next_cursor. Omit for the first page.
     Integer limit = 50; // Integer | Maximum journeys to return per page. Minimum 1, maximum 50.
     try {
       JourneyListResponse result = apiInstance.viewJourneys(appId, cursor, limit);
@@ -4453,6 +4560,8 @@ Fetch a single template by id.
 ### Example
 ```java
 // Import classes:
+import java.util.Arrays;
+import java.util.List;
 import com.onesignal.client.ApiClient;
 import com.onesignal.client.ApiException;
 import com.onesignal.client.Configuration;
@@ -4528,6 +4637,8 @@ List templates for an app.
 ### Example
 ```java
 // Import classes:
+import java.util.Arrays;
+import java.util.List;
 import com.onesignal.client.ApiClient;
 import com.onesignal.client.ApiException;
 import com.onesignal.client.Configuration;
