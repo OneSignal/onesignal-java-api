@@ -39,6 +39,8 @@ import com.onesignal.client.model.CreateTemplateRequest;
 import com.onesignal.client.model.CreateUserConflictResponse;
 import com.onesignal.client.model.CustomEventsRequest;
 import com.onesignal.client.model.DuplicateJourneyRequest;
+import com.onesignal.client.model.EmailProviderMetricsResponse;
+import com.onesignal.client.model.EmailProviderMetricsTimeseriesResponse;
 import com.onesignal.client.model.EmailReputationResponse;
 import com.onesignal.client.model.EstimateNotificationRecipientsRequest;
 import com.onesignal.client.model.EstimateNotificationRecipientsSuccessResponse;
@@ -58,6 +60,7 @@ import com.onesignal.client.model.Notification;
 import com.onesignal.client.model.NotificationHistorySuccessResponse;
 import com.onesignal.client.model.NotificationSlice;
 import com.onesignal.client.model.NotificationWithMeta;
+import java.time.OffsetDateTime;
 import com.onesignal.client.model.OutcomesData;
 import com.onesignal.client.model.PropertiesBody;
 import com.onesignal.client.model.RateLimitError;
@@ -4494,6 +4497,397 @@ public class DefaultApi {
 
         okhttp3.Call localVarCall = getAppsValidateBeforeCall(_callback);
         Type localVarReturnType = new TypeToken<List<App>>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for getEmailProviderMetrics
+     * @param appId Your OneSignal App ID in UUID v4 format. (required)
+     * @param domain The sending domain to report on. Must be an email domain configured for this app. (required)
+     * @param start Start of the reporting window, as an ISO 8601 timestamp (for example, &#x60;2026-08-01T00:00:00Z&#x60;). (required)
+     * @param end End of the reporting window, as an ISO 8601 timestamp (for example, &#x60;2026-08-08T00:00:00Z&#x60;). (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getEmailProviderMetricsCall(String appId, String domain, OffsetDateTime start, OffsetDateTime end, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/apps/{app_id}/email_analytics/provider_metrics"
+            .replaceAll("\\{" + "app_id" + "\\}", localVarApiClient.escapeString(appId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        // Adds client sdk version header
+        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.17.0");
+
+        if (domain != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("domain", domain));
+        }
+
+        if (start != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("start", start));
+        }
+
+        if (end != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("end", end));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "rest_api_key" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getEmailProviderMetricsValidateBeforeCall(String appId, String domain, OffsetDateTime start, OffsetDateTime end, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'appId' is set
+        if (appId == null) {
+            throw new ApiException("Missing the required parameter 'appId' when calling getEmailProviderMetrics(Async)");
+        }
+        
+        // verify the required parameter 'domain' is set
+        if (domain == null) {
+            throw new ApiException("Missing the required parameter 'domain' when calling getEmailProviderMetrics(Async)");
+        }
+        
+        // verify the required parameter 'start' is set
+        if (start == null) {
+            throw new ApiException("Missing the required parameter 'start' when calling getEmailProviderMetrics(Async)");
+        }
+        
+        // verify the required parameter 'end' is set
+        if (end == null) {
+            throw new ApiException("Missing the required parameter 'end' when calling getEmailProviderMetrics(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = getEmailProviderMetricsCall(appId, domain, start, end, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Get email inbox provider metrics
+     * Email delivery, opens, clicks, bounces, failures, and spam complaints broken down by inbox provider (Gmail, Outlook, Yahoo, Apple, and more) to pinpoint where deliverability problems are coming from. Metrics are reported for a single sending domain over the requested time range. &#x60;start&#x60; must be before &#x60;end&#x60; and no more than 365 days ago. &#x60;providers&#x60; is empty when the domain is not found for the app or is not currently active for sending. 
+     * @param appId Your OneSignal App ID in UUID v4 format. (required)
+     * @param domain The sending domain to report on. Must be an email domain configured for this app. (required)
+     * @param start Start of the reporting window, as an ISO 8601 timestamp (for example, &#x60;2026-08-01T00:00:00Z&#x60;). (required)
+     * @param end End of the reporting window, as an ISO 8601 timestamp (for example, &#x60;2026-08-08T00:00:00Z&#x60;). (required)
+     * @return EmailProviderMetricsResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
+     </table>
+     */
+    public EmailProviderMetricsResponse getEmailProviderMetrics(String appId, String domain, OffsetDateTime start, OffsetDateTime end) throws ApiException {
+        ApiResponse<EmailProviderMetricsResponse> localVarResp = getEmailProviderMetricsWithHttpInfo(appId, domain, start, end);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get email inbox provider metrics
+     * Email delivery, opens, clicks, bounces, failures, and spam complaints broken down by inbox provider (Gmail, Outlook, Yahoo, Apple, and more) to pinpoint where deliverability problems are coming from. Metrics are reported for a single sending domain over the requested time range. &#x60;start&#x60; must be before &#x60;end&#x60; and no more than 365 days ago. &#x60;providers&#x60; is empty when the domain is not found for the app or is not currently active for sending. 
+     * @param appId Your OneSignal App ID in UUID v4 format. (required)
+     * @param domain The sending domain to report on. Must be an email domain configured for this app. (required)
+     * @param start Start of the reporting window, as an ISO 8601 timestamp (for example, &#x60;2026-08-01T00:00:00Z&#x60;). (required)
+     * @param end End of the reporting window, as an ISO 8601 timestamp (for example, &#x60;2026-08-08T00:00:00Z&#x60;). (required)
+     * @return ApiResponse&lt;EmailProviderMetricsResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<EmailProviderMetricsResponse> getEmailProviderMetricsWithHttpInfo(String appId, String domain, OffsetDateTime start, OffsetDateTime end) throws ApiException {
+        okhttp3.Call localVarCall = getEmailProviderMetricsValidateBeforeCall(appId, domain, start, end, null);
+        Type localVarReturnType = new TypeToken<EmailProviderMetricsResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get email inbox provider metrics (asynchronously)
+     * Email delivery, opens, clicks, bounces, failures, and spam complaints broken down by inbox provider (Gmail, Outlook, Yahoo, Apple, and more) to pinpoint where deliverability problems are coming from. Metrics are reported for a single sending domain over the requested time range. &#x60;start&#x60; must be before &#x60;end&#x60; and no more than 365 days ago. &#x60;providers&#x60; is empty when the domain is not found for the app or is not currently active for sending. 
+     * @param appId Your OneSignal App ID in UUID v4 format. (required)
+     * @param domain The sending domain to report on. Must be an email domain configured for this app. (required)
+     * @param start Start of the reporting window, as an ISO 8601 timestamp (for example, &#x60;2026-08-01T00:00:00Z&#x60;). (required)
+     * @param end End of the reporting window, as an ISO 8601 timestamp (for example, &#x60;2026-08-08T00:00:00Z&#x60;). (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getEmailProviderMetricsAsync(String appId, String domain, OffsetDateTime start, OffsetDateTime end, final ApiCallback<EmailProviderMetricsResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getEmailProviderMetricsValidateBeforeCall(appId, domain, start, end, _callback);
+        Type localVarReturnType = new TypeToken<EmailProviderMetricsResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for getEmailProviderMetricsTimeseries
+     * @param appId Your OneSignal App ID in UUID v4 format. (required)
+     * @param domain The sending domain to report on. Must be an email domain configured for this app. (required)
+     * @param start Start of the reporting window, as an ISO 8601 timestamp (for example, &#x60;2026-08-01T00:00:00Z&#x60;). (required)
+     * @param end End of the reporting window, as an ISO 8601 timestamp (for example, &#x60;2026-08-08T00:00:00Z&#x60;). (required)
+     * @param granularity The size of each time bucket. Hourly data is only available for the last 60 days. (required)
+     * @param providers Inbox providers to include in the totals. Omit to include all providers. Accepted values: &#x60;apple&#x60;, &#x60;att&#x60;, &#x60;canadian&#x60;, &#x60;chinese&#x60;, &#x60;comcast&#x60;, &#x60;free_fr&#x60;, &#x60;french&#x60;, &#x60;german&#x60;, &#x60;gmail&#x60;, &#x60;google_workspace&#x60;, &#x60;googlers&#x60;, &#x60;inbox_lv&#x60;, &#x60;italian&#x60;, &#x60;japanese&#x60;, &#x60;outlook_365&#x60;, &#x60;outlook_eu&#x60;, &#x60;outlook_us&#x60;, &#x60;proton&#x60;, &#x60;rackspace&#x60;, &#x60;russian&#x60;, &#x60;uk&#x60;, &#x60;united_online&#x60;, &#x60;yahoo_eu&#x60;, &#x60;yahoo_us&#x60;, &#x60;other_eu&#x60;, &#x60;other_us&#x60;, and &#x60;other&#x60;. Example: providers[]&#x3D;gmail&amp;providers[]&#x3D;yahoo_us  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getEmailProviderMetricsTimeseriesCall(String appId, String domain, OffsetDateTime start, OffsetDateTime end, String granularity, List<String> providers, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/apps/{app_id}/email_analytics/provider_metrics_timeseries"
+            .replaceAll("\\{" + "app_id" + "\\}", localVarApiClient.escapeString(appId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        // Adds client sdk version header
+        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.17.0");
+
+        if (domain != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("domain", domain));
+        }
+
+        if (start != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("start", start));
+        }
+
+        if (end != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("end", end));
+        }
+
+        if (granularity != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("granularity", granularity));
+        }
+
+        if (providers != null) {
+            localVarCollectionQueryParams.addAll(localVarApiClient.parameterToPairs("multi", "providers[]", providers));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "rest_api_key" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getEmailProviderMetricsTimeseriesValidateBeforeCall(String appId, String domain, OffsetDateTime start, OffsetDateTime end, String granularity, List<String> providers, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'appId' is set
+        if (appId == null) {
+            throw new ApiException("Missing the required parameter 'appId' when calling getEmailProviderMetricsTimeseries(Async)");
+        }
+        
+        // verify the required parameter 'domain' is set
+        if (domain == null) {
+            throw new ApiException("Missing the required parameter 'domain' when calling getEmailProviderMetricsTimeseries(Async)");
+        }
+        
+        // verify the required parameter 'start' is set
+        if (start == null) {
+            throw new ApiException("Missing the required parameter 'start' when calling getEmailProviderMetricsTimeseries(Async)");
+        }
+        
+        // verify the required parameter 'end' is set
+        if (end == null) {
+            throw new ApiException("Missing the required parameter 'end' when calling getEmailProviderMetricsTimeseries(Async)");
+        }
+        
+        // verify the required parameter 'granularity' is set
+        if (granularity == null) {
+            throw new ApiException("Missing the required parameter 'granularity' when calling getEmailProviderMetricsTimeseries(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = getEmailProviderMetricsTimeseriesCall(appId, domain, start, end, granularity, providers, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Get email inbox provider metrics over time
+     * Email delivery, opens, clicks, bounces, failures, and spam complaints for a sending domain over time, bucketed by hour, day, or month. Use &#x60;providers[]&#x60; to narrow the totals to specific inbox providers (Gmail, Outlook, Yahoo, Apple, and more) and track how deliverability to them changes. Each event&#39;s metrics are totaled across the requested providers, or across all providers when none are given. &#x60;start&#x60; must be before &#x60;end&#x60; and no more than 365 days ago, or 60 days ago for &#x60;hourly&#x60; granularity. &#x60;events&#x60; is empty when the domain is not found for the app or is not currently active for sending. 
+     * @param appId Your OneSignal App ID in UUID v4 format. (required)
+     * @param domain The sending domain to report on. Must be an email domain configured for this app. (required)
+     * @param start Start of the reporting window, as an ISO 8601 timestamp (for example, &#x60;2026-08-01T00:00:00Z&#x60;). (required)
+     * @param end End of the reporting window, as an ISO 8601 timestamp (for example, &#x60;2026-08-08T00:00:00Z&#x60;). (required)
+     * @param granularity The size of each time bucket. Hourly data is only available for the last 60 days. (required)
+     * @param providers Inbox providers to include in the totals. Omit to include all providers. Accepted values: &#x60;apple&#x60;, &#x60;att&#x60;, &#x60;canadian&#x60;, &#x60;chinese&#x60;, &#x60;comcast&#x60;, &#x60;free_fr&#x60;, &#x60;french&#x60;, &#x60;german&#x60;, &#x60;gmail&#x60;, &#x60;google_workspace&#x60;, &#x60;googlers&#x60;, &#x60;inbox_lv&#x60;, &#x60;italian&#x60;, &#x60;japanese&#x60;, &#x60;outlook_365&#x60;, &#x60;outlook_eu&#x60;, &#x60;outlook_us&#x60;, &#x60;proton&#x60;, &#x60;rackspace&#x60;, &#x60;russian&#x60;, &#x60;uk&#x60;, &#x60;united_online&#x60;, &#x60;yahoo_eu&#x60;, &#x60;yahoo_us&#x60;, &#x60;other_eu&#x60;, &#x60;other_us&#x60;, and &#x60;other&#x60;. Example: providers[]&#x3D;gmail&amp;providers[]&#x3D;yahoo_us  (optional)
+     * @return EmailProviderMetricsTimeseriesResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
+     </table>
+     */
+    public EmailProviderMetricsTimeseriesResponse getEmailProviderMetricsTimeseries(String appId, String domain, OffsetDateTime start, OffsetDateTime end, String granularity, List<String> providers) throws ApiException {
+        ApiResponse<EmailProviderMetricsTimeseriesResponse> localVarResp = getEmailProviderMetricsTimeseriesWithHttpInfo(appId, domain, start, end, granularity, providers);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get email inbox provider metrics over time
+     * Email delivery, opens, clicks, bounces, failures, and spam complaints for a sending domain over time, bucketed by hour, day, or month. Use &#x60;providers[]&#x60; to narrow the totals to specific inbox providers (Gmail, Outlook, Yahoo, Apple, and more) and track how deliverability to them changes. Each event&#39;s metrics are totaled across the requested providers, or across all providers when none are given. &#x60;start&#x60; must be before &#x60;end&#x60; and no more than 365 days ago, or 60 days ago for &#x60;hourly&#x60; granularity. &#x60;events&#x60; is empty when the domain is not found for the app or is not currently active for sending. 
+     * @param appId Your OneSignal App ID in UUID v4 format. (required)
+     * @param domain The sending domain to report on. Must be an email domain configured for this app. (required)
+     * @param start Start of the reporting window, as an ISO 8601 timestamp (for example, &#x60;2026-08-01T00:00:00Z&#x60;). (required)
+     * @param end End of the reporting window, as an ISO 8601 timestamp (for example, &#x60;2026-08-08T00:00:00Z&#x60;). (required)
+     * @param granularity The size of each time bucket. Hourly data is only available for the last 60 days. (required)
+     * @param providers Inbox providers to include in the totals. Omit to include all providers. Accepted values: &#x60;apple&#x60;, &#x60;att&#x60;, &#x60;canadian&#x60;, &#x60;chinese&#x60;, &#x60;comcast&#x60;, &#x60;free_fr&#x60;, &#x60;french&#x60;, &#x60;german&#x60;, &#x60;gmail&#x60;, &#x60;google_workspace&#x60;, &#x60;googlers&#x60;, &#x60;inbox_lv&#x60;, &#x60;italian&#x60;, &#x60;japanese&#x60;, &#x60;outlook_365&#x60;, &#x60;outlook_eu&#x60;, &#x60;outlook_us&#x60;, &#x60;proton&#x60;, &#x60;rackspace&#x60;, &#x60;russian&#x60;, &#x60;uk&#x60;, &#x60;united_online&#x60;, &#x60;yahoo_eu&#x60;, &#x60;yahoo_us&#x60;, &#x60;other_eu&#x60;, &#x60;other_us&#x60;, and &#x60;other&#x60;. Example: providers[]&#x3D;gmail&amp;providers[]&#x3D;yahoo_us  (optional)
+     * @return ApiResponse&lt;EmailProviderMetricsTimeseriesResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<EmailProviderMetricsTimeseriesResponse> getEmailProviderMetricsTimeseriesWithHttpInfo(String appId, String domain, OffsetDateTime start, OffsetDateTime end, String granularity, List<String> providers) throws ApiException {
+        okhttp3.Call localVarCall = getEmailProviderMetricsTimeseriesValidateBeforeCall(appId, domain, start, end, granularity, providers, null);
+        Type localVarReturnType = new TypeToken<EmailProviderMetricsTimeseriesResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get email inbox provider metrics over time (asynchronously)
+     * Email delivery, opens, clicks, bounces, failures, and spam complaints for a sending domain over time, bucketed by hour, day, or month. Use &#x60;providers[]&#x60; to narrow the totals to specific inbox providers (Gmail, Outlook, Yahoo, Apple, and more) and track how deliverability to them changes. Each event&#39;s metrics are totaled across the requested providers, or across all providers when none are given. &#x60;start&#x60; must be before &#x60;end&#x60; and no more than 365 days ago, or 60 days ago for &#x60;hourly&#x60; granularity. &#x60;events&#x60; is empty when the domain is not found for the app or is not currently active for sending. 
+     * @param appId Your OneSignal App ID in UUID v4 format. (required)
+     * @param domain The sending domain to report on. Must be an email domain configured for this app. (required)
+     * @param start Start of the reporting window, as an ISO 8601 timestamp (for example, &#x60;2026-08-01T00:00:00Z&#x60;). (required)
+     * @param end End of the reporting window, as an ISO 8601 timestamp (for example, &#x60;2026-08-08T00:00:00Z&#x60;). (required)
+     * @param granularity The size of each time bucket. Hourly data is only available for the last 60 days. (required)
+     * @param providers Inbox providers to include in the totals. Omit to include all providers. Accepted values: &#x60;apple&#x60;, &#x60;att&#x60;, &#x60;canadian&#x60;, &#x60;chinese&#x60;, &#x60;comcast&#x60;, &#x60;free_fr&#x60;, &#x60;french&#x60;, &#x60;german&#x60;, &#x60;gmail&#x60;, &#x60;google_workspace&#x60;, &#x60;googlers&#x60;, &#x60;inbox_lv&#x60;, &#x60;italian&#x60;, &#x60;japanese&#x60;, &#x60;outlook_365&#x60;, &#x60;outlook_eu&#x60;, &#x60;outlook_us&#x60;, &#x60;proton&#x60;, &#x60;rackspace&#x60;, &#x60;russian&#x60;, &#x60;uk&#x60;, &#x60;united_online&#x60;, &#x60;yahoo_eu&#x60;, &#x60;yahoo_us&#x60;, &#x60;other_eu&#x60;, &#x60;other_us&#x60;, and &#x60;other&#x60;. Example: providers[]&#x3D;gmail&amp;providers[]&#x3D;yahoo_us  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getEmailProviderMetricsTimeseriesAsync(String appId, String domain, OffsetDateTime start, OffsetDateTime end, String granularity, List<String> providers, final ApiCallback<EmailProviderMetricsTimeseriesResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getEmailProviderMetricsTimeseriesValidateBeforeCall(appId, domain, start, end, granularity, providers, _callback);
+        Type localVarReturnType = new TypeToken<EmailProviderMetricsTimeseriesResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
