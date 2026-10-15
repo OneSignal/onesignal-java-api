@@ -32,6 +32,8 @@ All URIs are relative to *https://api.onesignal.com*
 | [**getAliasesBySubscription**](DefaultApi.md#getAliasesBySubscription) | **GET** /apps/{app_id}/subscriptions/{subscription_id}/user/identity |  |
 | [**getApp**](DefaultApi.md#getApp) | **GET** /apps/{app_id} | View an app |
 | [**getApps**](DefaultApi.md#getApps) | **GET** /apps | View apps |
+| [**getEmailProviderMetrics**](DefaultApi.md#getEmailProviderMetrics) | **GET** /apps/{app_id}/email_analytics/provider_metrics | Get email inbox provider metrics |
+| [**getEmailProviderMetricsTimeseries**](DefaultApi.md#getEmailProviderMetricsTimeseries) | **GET** /apps/{app_id}/email_analytics/provider_metrics_timeseries | Get email inbox provider metrics over time |
 | [**getEmailReputation**](DefaultApi.md#getEmailReputation) | **GET** /apps/{app_id}/email_analytics/delivery_metrics | Get email reputation statistics |
 | [**getNotification**](DefaultApi.md#getNotification) | **GET** /notifications/{notification_id} | View notification |
 | [**getNotificationHistory**](DefaultApi.md#getNotificationHistory) | **POST** /notifications/{notification_id}/history | Notification History |
@@ -2381,6 +2383,174 @@ This endpoint does not need any parameter.
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
+| **429** | Rate Limit Exceeded |  -  |
+| **0** | Unexpected error |  -  |
+
+<a name="getEmailProviderMetrics"></a>
+# **getEmailProviderMetrics**
+> EmailProviderMetricsResponse getEmailProviderMetrics(appId, domain, start, end)
+
+Get email inbox provider metrics
+
+Email delivery, opens, clicks, bounces, failures, and spam complaints broken down by inbox provider (Gmail, Outlook, Yahoo, Apple, and more) to pinpoint where deliverability problems are coming from. Metrics are reported for a single sending domain over the requested time range. &#x60;start&#x60; must be before &#x60;end&#x60; and no more than 365 days ago. &#x60;providers&#x60; is empty when the domain is not found for the app or is not currently active for sending. 
+
+### Example
+```java
+// Import classes:
+import java.util.Arrays;
+import java.util.List;
+import com.onesignal.client.ApiClient;
+import com.onesignal.client.ApiException;
+import com.onesignal.client.Configuration;
+import com.onesignal.client.auth.*;
+import com.onesignal.client.model.*;
+import com.onesignal.client.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.onesignal.com");
+    
+    // Configure HTTP bearer authorization: rest_api_key
+    HttpBearerAuth rest_api_key = (HttpBearerAuth) defaultClient.getAuthentication("rest_api_key");
+    rest_api_key.setBearerToken("YOUR_REST_API_KEY");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String appId = "YOUR_APP_ID"; // String | Your OneSignal App ID in UUID v4 format.
+    String domain = "mail.example.com"; // String | The sending domain to report on. Must be an email domain configured for this app.
+    OffsetDateTime start = OffsetDateTime.parse("2026-08-01T00:00Z"); // OffsetDateTime | Start of the reporting window, as an ISO 8601 timestamp (for example, `2026-08-01T00:00:00Z`).
+    OffsetDateTime end = OffsetDateTime.parse("2026-08-08T00:00Z"); // OffsetDateTime | End of the reporting window, as an ISO 8601 timestamp (for example, `2026-08-08T00:00:00Z`).
+    try {
+      EmailProviderMetricsResponse result = apiInstance.getEmailProviderMetrics(appId, domain, start, end);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#getEmailProviderMetrics");
+      System.err.println("Status code: " + e.getCode());
+      // getErrorMessages() flattens any error-envelope shape to a List<String>;
+      // the raw body remains on getResponseBody().
+      System.err.println("Error messages: " + e.getErrorMessages());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **appId** | **String**| Your OneSignal App ID in UUID v4 format. | |
+| **domain** | **String**| The sending domain to report on. Must be an email domain configured for this app. | |
+| **start** | **OffsetDateTime**| Start of the reporting window, as an ISO 8601 timestamp (for example, &#x60;2026-08-01T00:00:00Z&#x60;). | |
+| **end** | **OffsetDateTime**| End of the reporting window, as an ISO 8601 timestamp (for example, &#x60;2026-08-08T00:00:00Z&#x60;). | |
+
+### Return type
+
+[**EmailProviderMetricsResponse**](EmailProviderMetricsResponse.md)
+
+### Authorization
+
+[rest_api_key](https://github.com/OneSignal/onesignal-java-api#configuration)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **404** | Not Found |  -  |
+| **429** | Rate Limit Exceeded |  -  |
+| **0** | Unexpected error |  -  |
+
+<a name="getEmailProviderMetricsTimeseries"></a>
+# **getEmailProviderMetricsTimeseries**
+> EmailProviderMetricsTimeseriesResponse getEmailProviderMetricsTimeseries(appId, domain, start, end, granularity, providers)
+
+Get email inbox provider metrics over time
+
+Email delivery, opens, clicks, bounces, failures, and spam complaints for a sending domain over time, bucketed by hour, day, or month. Use &#x60;providers[]&#x60; to narrow the totals to specific inbox providers (Gmail, Outlook, Yahoo, Apple, and more) and track how deliverability to them changes. Each event&#39;s metrics are totaled across the requested providers, or across all providers when none are given. &#x60;start&#x60; must be before &#x60;end&#x60; and no more than 365 days ago, or 60 days ago for &#x60;hourly&#x60; granularity. &#x60;events&#x60; is empty when the domain is not found for the app or is not currently active for sending. 
+
+### Example
+```java
+// Import classes:
+import java.util.Arrays;
+import java.util.List;
+import com.onesignal.client.ApiClient;
+import com.onesignal.client.ApiException;
+import com.onesignal.client.Configuration;
+import com.onesignal.client.auth.*;
+import com.onesignal.client.model.*;
+import com.onesignal.client.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.onesignal.com");
+    
+    // Configure HTTP bearer authorization: rest_api_key
+    HttpBearerAuth rest_api_key = (HttpBearerAuth) defaultClient.getAuthentication("rest_api_key");
+    rest_api_key.setBearerToken("YOUR_REST_API_KEY");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String appId = "YOUR_APP_ID"; // String | Your OneSignal App ID in UUID v4 format.
+    String domain = "mail.example.com"; // String | The sending domain to report on. Must be an email domain configured for this app.
+    OffsetDateTime start = OffsetDateTime.parse("2026-08-01T00:00Z"); // OffsetDateTime | Start of the reporting window, as an ISO 8601 timestamp (for example, `2026-08-01T00:00:00Z`).
+    OffsetDateTime end = OffsetDateTime.parse("2026-08-08T00:00Z"); // OffsetDateTime | End of the reporting window, as an ISO 8601 timestamp (for example, `2026-08-08T00:00:00Z`).
+    String granularity = "daily"; // String | The size of each time bucket. Hourly data is only available for the last 60 days.
+    List<String> providers = Arrays.asList(); // List<String> | Inbox providers to include in the totals. Omit to include all providers. Accepted values: `apple`, `att`, `canadian`, `chinese`, `comcast`, `free_fr`, `french`, `german`, `gmail`, `google_workspace`, `googlers`, `inbox_lv`, `italian`, `japanese`, `outlook_365`, `outlook_eu`, `outlook_us`, `proton`, `rackspace`, `russian`, `uk`, `united_online`, `yahoo_eu`, `yahoo_us`, `other_eu`, `other_us`, and `other`. Example: providers[]=gmail&providers[]=yahoo_us 
+    try {
+      EmailProviderMetricsTimeseriesResponse result = apiInstance.getEmailProviderMetricsTimeseries(appId, domain, start, end, granularity, providers);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#getEmailProviderMetricsTimeseries");
+      System.err.println("Status code: " + e.getCode());
+      // getErrorMessages() flattens any error-envelope shape to a List<String>;
+      // the raw body remains on getResponseBody().
+      System.err.println("Error messages: " + e.getErrorMessages());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **appId** | **String**| Your OneSignal App ID in UUID v4 format. | |
+| **domain** | **String**| The sending domain to report on. Must be an email domain configured for this app. | |
+| **start** | **OffsetDateTime**| Start of the reporting window, as an ISO 8601 timestamp (for example, &#x60;2026-08-01T00:00:00Z&#x60;). | |
+| **end** | **OffsetDateTime**| End of the reporting window, as an ISO 8601 timestamp (for example, &#x60;2026-08-08T00:00:00Z&#x60;). | |
+| **granularity** | **String**| The size of each time bucket. Hourly data is only available for the last 60 days. | [enum: hourly, daily, monthly] |
+| **providers** | [**List&lt;String&gt;**](String.md)| Inbox providers to include in the totals. Omit to include all providers. Accepted values: &#x60;apple&#x60;, &#x60;att&#x60;, &#x60;canadian&#x60;, &#x60;chinese&#x60;, &#x60;comcast&#x60;, &#x60;free_fr&#x60;, &#x60;french&#x60;, &#x60;german&#x60;, &#x60;gmail&#x60;, &#x60;google_workspace&#x60;, &#x60;googlers&#x60;, &#x60;inbox_lv&#x60;, &#x60;italian&#x60;, &#x60;japanese&#x60;, &#x60;outlook_365&#x60;, &#x60;outlook_eu&#x60;, &#x60;outlook_us&#x60;, &#x60;proton&#x60;, &#x60;rackspace&#x60;, &#x60;russian&#x60;, &#x60;uk&#x60;, &#x60;united_online&#x60;, &#x60;yahoo_eu&#x60;, &#x60;yahoo_us&#x60;, &#x60;other_eu&#x60;, &#x60;other_us&#x60;, and &#x60;other&#x60;. Example: providers[]&#x3D;gmail&amp;providers[]&#x3D;yahoo_us  | [optional] |
+
+### Return type
+
+[**EmailProviderMetricsTimeseriesResponse**](EmailProviderMetricsTimeseriesResponse.md)
+
+### Authorization
+
+[rest_api_key](https://github.com/OneSignal/onesignal-java-api#configuration)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **404** | Not Found |  -  |
 | **429** | Rate Limit Exceeded |  -  |
 | **0** | Unexpected error |  -  |
 
