@@ -54,7 +54,9 @@ import com.onesignal.client.model.GetSegmentSuccessResponse;
 import com.onesignal.client.model.GetSegmentsSuccessResponse;
 import com.onesignal.client.model.Journey;
 import com.onesignal.client.model.JourneyListResponse;
+import com.onesignal.client.model.JourneySchemaResponse;
 import com.onesignal.client.model.JourneyStats;
+import com.onesignal.client.model.JourneyValidationErrorResponse;
 import com.onesignal.client.model.ListAuditLogsSuccessResponse;
 import com.onesignal.client.model.Notification;
 import com.onesignal.client.model.NotificationHistorySuccessResponse;
@@ -171,7 +173,7 @@ public class DefaultApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         // Adds client sdk version header
-        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.18.0");
+        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.19.0");
 
         if (appId != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("app_id", appId));
@@ -329,7 +331,7 @@ public class DefaultApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         // Adds client sdk version header
-        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.18.0");
+        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.19.0");
 
         if (appId != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("app_id", appId));
@@ -495,7 +497,7 @@ public class DefaultApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         // Adds client sdk version header
-        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.18.0");
+        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.19.0");
 
         final String[] localVarAccepts = {
             "application/json"
@@ -672,7 +674,7 @@ public class DefaultApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         // Adds client sdk version header
-        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.18.0");
+        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.19.0");
 
         final String[] localVarAccepts = {
             "application/json"
@@ -836,7 +838,7 @@ public class DefaultApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         // Adds client sdk version header
-        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.18.0");
+        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.19.0");
 
         final String[] localVarAccepts = {
             "application/json"
@@ -982,7 +984,7 @@ public class DefaultApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         // Adds client sdk version header
-        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.18.0");
+        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.19.0");
 
         final String[] localVarAccepts = {
             "application/json"
@@ -1126,7 +1128,7 @@ public class DefaultApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         // Adds client sdk version header
-        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.18.0");
+        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.19.0");
 
         final String[] localVarAccepts = {
             "application/json"
@@ -1281,7 +1283,7 @@ public class DefaultApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         // Adds client sdk version header
-        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.18.0");
+        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.19.0");
 
         final String[] localVarAccepts = {
             "application/json"
@@ -1433,7 +1435,7 @@ public class DefaultApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         // Adds client sdk version header
-        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.18.0");
+        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.19.0");
 
         final String[] localVarAccepts = {
             "application/json"
@@ -1577,7 +1579,7 @@ public class DefaultApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         // Adds client sdk version header
-        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.18.0");
+        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.19.0");
 
         final String[] localVarAccepts = {
             "application/json"
@@ -1738,7 +1740,7 @@ public class DefaultApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         // Adds client sdk version header
-        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.18.0");
+        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.19.0");
 
         final String[] localVarAccepts = {
             "application/json"
@@ -1912,7 +1914,7 @@ public class DefaultApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         // Adds client sdk version header
-        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.18.0");
+        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.19.0");
 
         final String[] localVarAccepts = {
             "application/json"
@@ -2058,7 +2060,7 @@ public class DefaultApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         // Adds client sdk version header
-        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.18.0");
+        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.19.0");
 
         final String[] localVarAccepts = {
             "application/json"
@@ -2225,7 +2227,7 @@ public class DefaultApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         // Adds client sdk version header
-        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.18.0");
+        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.19.0");
 
         final String[] localVarAccepts = {
             "application/json"
@@ -2398,7 +2400,7 @@ public class DefaultApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         // Adds client sdk version header
-        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.18.0");
+        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.19.0");
 
         final String[] localVarAccepts = {
             "application/json"
@@ -2548,7 +2550,7 @@ public class DefaultApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         // Adds client sdk version header
-        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.18.0");
+        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.19.0");
 
         final String[] localVarAccepts = {
             "application/json"
@@ -2704,7 +2706,7 @@ public class DefaultApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         // Adds client sdk version header
-        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.18.0");
+        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.19.0");
 
         final String[] localVarAccepts = {
             "application/json"
@@ -2861,7 +2863,7 @@ public class DefaultApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         // Adds client sdk version header
-        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.18.0");
+        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.19.0");
 
         final String[] localVarAccepts = {
             "application/json"
@@ -3014,7 +3016,7 @@ public class DefaultApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         // Adds client sdk version header
-        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.18.0");
+        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.19.0");
 
         if (appId != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("app_id", appId));
@@ -3173,7 +3175,7 @@ public class DefaultApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         // Adds client sdk version header
-        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.18.0");
+        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.19.0");
 
         final String[] localVarAccepts = {
             "application/json"
@@ -3335,7 +3337,7 @@ public class DefaultApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         // Adds client sdk version header
-        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.18.0");
+        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.19.0");
 
         final String[] localVarAccepts = {
             "application/json"
@@ -3498,7 +3500,7 @@ public class DefaultApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         // Adds client sdk version header
-        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.18.0");
+        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.19.0");
 
         final String[] localVarAccepts = {
             "application/json"
@@ -3642,7 +3644,7 @@ public class DefaultApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         // Adds client sdk version header
-        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.18.0");
+        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.19.0");
 
         if (appId != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("app_id", appId));
@@ -3800,7 +3802,7 @@ public class DefaultApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         // Adds client sdk version header
-        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.18.0");
+        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.19.0");
 
         final String[] localVarAccepts = {
             "application/json"
@@ -3955,7 +3957,7 @@ public class DefaultApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         // Adds client sdk version header
-        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.18.0");
+        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.19.0");
 
         final String[] localVarAccepts = {
             "application/json"
@@ -4118,7 +4120,7 @@ public class DefaultApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         // Adds client sdk version header
-        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.18.0");
+        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.19.0");
 
         final String[] localVarAccepts = {
             "application/json"
@@ -4268,7 +4270,7 @@ public class DefaultApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         // Adds client sdk version header
-        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.18.0");
+        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.19.0");
 
         final String[] localVarAccepts = {
             "application/json"
@@ -4408,7 +4410,7 @@ public class DefaultApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         // Adds client sdk version header
-        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.18.0");
+        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.19.0");
 
         final String[] localVarAccepts = {
             "application/json"
@@ -4546,7 +4548,7 @@ public class DefaultApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         // Adds client sdk version header
-        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.18.0");
+        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.19.0");
 
         if (domain != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("domain", domain));
@@ -4733,7 +4735,7 @@ public class DefaultApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         // Adds client sdk version header
-        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.18.0");
+        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.19.0");
 
         if (domain != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("domain", domain));
@@ -4934,7 +4936,7 @@ public class DefaultApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         // Adds client sdk version header
-        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.18.0");
+        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.19.0");
 
         final String[] localVarAccepts = {
             "application/json"
@@ -5038,6 +5040,151 @@ public class DefaultApi {
         return localVarCall;
     }
     /**
+     * Build call for getJourneySchema
+     * @param operation The authoring operation whose schema you need. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The schema and its applicability. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Missing or unsupported operation. </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getJourneySchemaCall(String operation, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/journeys/schema";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        // Adds client sdk version header
+        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.19.0");
+
+        if (operation != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("operation", operation));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getJourneySchemaValidateBeforeCall(String operation, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'operation' is set
+        if (operation == null) {
+            throw new ApiException("Missing the required parameter 'operation' when calling getJourneySchema(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = getJourneySchemaCall(operation, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Get Journey schema
+     * Retrieve the JSON Schema for a Journey authoring operation without authentication or app context. The response identifies the document to validate. Schema retrieval does not validate permissions or business rules for a later write.
+     * @param operation The authoring operation whose schema you need. (required)
+     * @return JourneySchemaResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The schema and its applicability. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Missing or unsupported operation. </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
+     </table>
+     */
+    public JourneySchemaResponse getJourneySchema(String operation) throws ApiException {
+        ApiResponse<JourneySchemaResponse> localVarResp = getJourneySchemaWithHttpInfo(operation);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get Journey schema
+     * Retrieve the JSON Schema for a Journey authoring operation without authentication or app context. The response identifies the document to validate. Schema retrieval does not validate permissions or business rules for a later write.
+     * @param operation The authoring operation whose schema you need. (required)
+     * @return ApiResponse&lt;JourneySchemaResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The schema and its applicability. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Missing or unsupported operation. </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<JourneySchemaResponse> getJourneySchemaWithHttpInfo(String operation) throws ApiException {
+        okhttp3.Call localVarCall = getJourneySchemaValidateBeforeCall(operation, null);
+        Type localVarReturnType = new TypeToken<JourneySchemaResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get Journey schema (asynchronously)
+     * Retrieve the JSON Schema for a Journey authoring operation without authentication or app context. The response identifies the document to validate. Schema retrieval does not validate permissions or business rules for a later write.
+     * @param operation The authoring operation whose schema you need. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The schema and its applicability. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Missing or unsupported operation. </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Rate Limit Exceeded </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getJourneySchemaAsync(String operation, final ApiCallback<JourneySchemaResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getJourneySchemaValidateBeforeCall(operation, _callback);
+        Type localVarReturnType = new TypeToken<JourneySchemaResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for getNotification
      * @param appId  (required)
      * @param notificationId  (required)
@@ -5081,7 +5228,7 @@ public class DefaultApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         // Adds client sdk version header
-        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.18.0");
+        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.19.0");
 
         if (appId != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("app_id", appId));
@@ -5240,7 +5387,7 @@ public class DefaultApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         // Adds client sdk version header
-        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.18.0");
+        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.19.0");
 
         final String[] localVarAccepts = {
             "application/json"
@@ -5396,7 +5543,7 @@ public class DefaultApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         // Adds client sdk version header
-        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.18.0");
+        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.19.0");
 
         if (appId != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("app_id", appId));
@@ -5575,7 +5722,7 @@ public class DefaultApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         // Adds client sdk version header
-        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.18.0");
+        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.19.0");
 
         if (outcomeNames != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("outcome_names", outcomeNames));
@@ -5761,7 +5908,7 @@ public class DefaultApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         // Adds client sdk version header
-        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.18.0");
+        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.19.0");
 
         if (includeSegmentDetail != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("include-segment-detail", includeSegmentDetail));
@@ -5923,7 +6070,7 @@ public class DefaultApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         // Adds client sdk version header
-        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.18.0");
+        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.19.0");
 
         if (offset != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("offset", offset));
@@ -6084,7 +6231,7 @@ public class DefaultApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         // Adds client sdk version header
-        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.18.0");
+        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.19.0");
 
         final String[] localVarAccepts = {
             "application/json"
@@ -6258,7 +6405,7 @@ public class DefaultApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         // Adds client sdk version header
-        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.18.0");
+        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.19.0");
 
         if (startTime != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("start_time", startTime));
@@ -6484,7 +6631,7 @@ public class DefaultApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         // Adds client sdk version header
-        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.18.0");
+        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.19.0");
 
         final String[] localVarAccepts = {
             "application/json"
@@ -6634,7 +6781,7 @@ public class DefaultApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         // Adds client sdk version header
-        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.18.0");
+        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.19.0");
 
         final String[] localVarAccepts = {
             "application/json"
@@ -6797,7 +6944,7 @@ public class DefaultApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         // Adds client sdk version header
-        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.18.0");
+        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.19.0");
 
         final String[] localVarAccepts = {
             "application/json"
@@ -6964,7 +7111,7 @@ public class DefaultApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         // Adds client sdk version header
-        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.18.0");
+        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.19.0");
 
         if (token != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("token", token));
@@ -7128,7 +7275,7 @@ public class DefaultApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         // Adds client sdk version header
-        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.18.0");
+        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.19.0");
 
         final String[] localVarAccepts = {
             "application/json"
@@ -7284,7 +7431,7 @@ public class DefaultApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         // Adds client sdk version header
-        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.18.0");
+        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.19.0");
 
         final String[] localVarAccepts = {
             "application/json"
@@ -7441,7 +7588,7 @@ public class DefaultApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         // Adds client sdk version header
-        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.18.0");
+        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.19.0");
 
         final String[] localVarAccepts = {
             "application/json"
@@ -7620,7 +7767,7 @@ public class DefaultApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         // Adds client sdk version header
-        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.18.0");
+        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.19.0");
 
         final String[] localVarAccepts = {
             "application/json"
@@ -7801,7 +7948,7 @@ public class DefaultApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         // Adds client sdk version header
-        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.18.0");
+        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.19.0");
 
         final String[] localVarAccepts = {
             "application/json"
@@ -7964,7 +8111,7 @@ public class DefaultApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         // Adds client sdk version header
-        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.18.0");
+        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.19.0");
 
         final String[] localVarAccepts = {
             "application/json"
@@ -8133,7 +8280,7 @@ public class DefaultApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         // Adds client sdk version header
-        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.18.0");
+        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.19.0");
 
         final String[] localVarAccepts = {
             "application/json"
@@ -8298,7 +8445,7 @@ public class DefaultApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         // Adds client sdk version header
-        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.18.0");
+        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.19.0");
 
         final String[] localVarAccepts = {
             "application/json"
@@ -8465,7 +8612,7 @@ public class DefaultApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         // Adds client sdk version header
-        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.18.0");
+        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.19.0");
 
         if (appId != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("app_id", appId));
@@ -8630,7 +8777,7 @@ public class DefaultApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         // Adds client sdk version header
-        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.18.0");
+        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.19.0");
 
         final String[] localVarAccepts = {
             "application/json"
@@ -8798,7 +8945,7 @@ public class DefaultApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         // Adds client sdk version header
-        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.18.0");
+        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.19.0");
 
         final String[] localVarAccepts = {
             "application/json"
@@ -8939,7 +9086,7 @@ public class DefaultApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         // Adds client sdk version header
-        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.18.0");
+        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.19.0");
 
         final String[] localVarAccepts = {
             "application/json"
@@ -9091,7 +9238,7 @@ public class DefaultApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         // Adds client sdk version header
-        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.18.0");
+        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.19.0");
 
         final String[] localVarAccepts = {
             "application/json"
@@ -9244,7 +9391,7 @@ public class DefaultApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         // Adds client sdk version header
-        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.18.0");
+        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.19.0");
 
         if (cursor != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("cursor", cursor));
@@ -9404,7 +9551,7 @@ public class DefaultApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         // Adds client sdk version header
-        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.18.0");
+        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.19.0");
 
         if (appId != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("app_id", appId));
@@ -9522,6 +9669,7 @@ public class DefaultApi {
      * @param limit Maximum number of templates. Default and max is 50. (optional, default to 50)
      * @param offset Pagination offset. (optional, default to 0)
      * @param channel Filter by delivery channel. (optional)
+     * @param name Return only templates whose name contains this text, ignoring case. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -9534,7 +9682,7 @@ public class DefaultApi {
         <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call viewTemplatesCall(String appId, Integer limit, Integer offset, String channel, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call viewTemplatesCall(String appId, Integer limit, Integer offset, String channel, String name, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -9560,7 +9708,7 @@ public class DefaultApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         // Adds client sdk version header
-        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.18.0");
+        localVarHeaderParams.put("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-java, version=5.19.0");
 
         if (appId != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("app_id", appId));
@@ -9576,6 +9724,10 @@ public class DefaultApi {
 
         if (channel != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("channel", channel));
+        }
+
+        if (name != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("name", name));
         }
 
         final String[] localVarAccepts = {
@@ -9599,7 +9751,7 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call viewTemplatesValidateBeforeCall(String appId, Integer limit, Integer offset, String channel, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call viewTemplatesValidateBeforeCall(String appId, Integer limit, Integer offset, String channel, String name, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'appId' is set
         if (appId == null) {
@@ -9607,7 +9759,7 @@ public class DefaultApi {
         }
         
 
-        okhttp3.Call localVarCall = viewTemplatesCall(appId, limit, offset, channel, _callback);
+        okhttp3.Call localVarCall = viewTemplatesCall(appId, limit, offset, channel, name, _callback);
         return localVarCall;
 
     }
@@ -9619,6 +9771,7 @@ public class DefaultApi {
      * @param limit Maximum number of templates. Default and max is 50. (optional, default to 50)
      * @param offset Pagination offset. (optional, default to 0)
      * @param channel Filter by delivery channel. (optional)
+     * @param name Return only templates whose name contains this text, ignoring case. (optional)
      * @return TemplatesListResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -9630,8 +9783,8 @@ public class DefaultApi {
         <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
-    public TemplatesListResponse viewTemplates(String appId, Integer limit, Integer offset, String channel) throws ApiException {
-        ApiResponse<TemplatesListResponse> localVarResp = viewTemplatesWithHttpInfo(appId, limit, offset, channel);
+    public TemplatesListResponse viewTemplates(String appId, Integer limit, Integer offset, String channel, String name) throws ApiException {
+        ApiResponse<TemplatesListResponse> localVarResp = viewTemplatesWithHttpInfo(appId, limit, offset, channel, name);
         return localVarResp.getData();
     }
 
@@ -9642,6 +9795,7 @@ public class DefaultApi {
      * @param limit Maximum number of templates. Default and max is 50. (optional, default to 50)
      * @param offset Pagination offset. (optional, default to 0)
      * @param channel Filter by delivery channel. (optional)
+     * @param name Return only templates whose name contains this text, ignoring case. (optional)
      * @return ApiResponse&lt;TemplatesListResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -9653,8 +9807,8 @@ public class DefaultApi {
         <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<TemplatesListResponse> viewTemplatesWithHttpInfo(String appId, Integer limit, Integer offset, String channel) throws ApiException {
-        okhttp3.Call localVarCall = viewTemplatesValidateBeforeCall(appId, limit, offset, channel, null);
+    public ApiResponse<TemplatesListResponse> viewTemplatesWithHttpInfo(String appId, Integer limit, Integer offset, String channel, String name) throws ApiException {
+        okhttp3.Call localVarCall = viewTemplatesValidateBeforeCall(appId, limit, offset, channel, name, null);
         Type localVarReturnType = new TypeToken<TemplatesListResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -9666,6 +9820,7 @@ public class DefaultApi {
      * @param limit Maximum number of templates. Default and max is 50. (optional, default to 50)
      * @param offset Pagination offset. (optional, default to 0)
      * @param channel Filter by delivery channel. (optional)
+     * @param name Return only templates whose name contains this text, ignoring case. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -9678,9 +9833,9 @@ public class DefaultApi {
         <tr><td> 0 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call viewTemplatesAsync(String appId, Integer limit, Integer offset, String channel, final ApiCallback<TemplatesListResponse> _callback) throws ApiException {
+    public okhttp3.Call viewTemplatesAsync(String appId, Integer limit, Integer offset, String channel, String name, final ApiCallback<TemplatesListResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = viewTemplatesValidateBeforeCall(appId, limit, offset, channel, _callback);
+        okhttp3.Call localVarCall = viewTemplatesValidateBeforeCall(appId, limit, offset, channel, name, _callback);
         Type localVarReturnType = new TypeToken<TemplatesListResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

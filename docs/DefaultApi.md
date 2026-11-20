@@ -35,6 +35,7 @@ All URIs are relative to *https://api.onesignal.com*
 | [**getEmailProviderMetrics**](DefaultApi.md#getEmailProviderMetrics) | **GET** /apps/{app_id}/email_analytics/provider_metrics | Get email inbox provider metrics |
 | [**getEmailProviderMetricsTimeseries**](DefaultApi.md#getEmailProviderMetricsTimeseries) | **GET** /apps/{app_id}/email_analytics/provider_metrics_timeseries | Get email inbox provider metrics over time |
 | [**getEmailReputation**](DefaultApi.md#getEmailReputation) | **GET** /apps/{app_id}/email_analytics/delivery_metrics | Get email reputation statistics |
+| [**getJourneySchema**](DefaultApi.md#getJourneySchema) | **GET** /journeys/schema | Get Journey schema |
 | [**getNotification**](DefaultApi.md#getNotification) | **GET** /notifications/{notification_id} | View notification |
 | [**getNotificationHistory**](DefaultApi.md#getNotificationHistory) | **POST** /notifications/{notification_id}/history | Notification History |
 | [**getNotifications**](DefaultApi.md#getNotifications) | **GET** /notifications | View notifications |
@@ -2630,6 +2631,76 @@ public class Example {
 | **429** | Rate Limit Exceeded |  -  |
 | **0** | Unexpected error |  -  |
 
+<a name="getJourneySchema"></a>
+# **getJourneySchema**
+> JourneySchemaResponse getJourneySchema(operation)
+
+Get Journey schema
+
+Retrieve the JSON Schema for a Journey authoring operation without authentication or app context. The response identifies the document to validate. Schema retrieval does not validate permissions or business rules for a later write.
+
+### Example
+```java
+// Import classes:
+import java.util.Arrays;
+import java.util.List;
+import com.onesignal.client.ApiClient;
+import com.onesignal.client.ApiException;
+import com.onesignal.client.Configuration;
+import com.onesignal.client.model.*;
+import com.onesignal.client.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.onesignal.com");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String operation = "create"; // String | The authoring operation whose schema you need.
+    try {
+      JourneySchemaResponse result = apiInstance.getJourneySchema(operation);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#getJourneySchema");
+      System.err.println("Status code: " + e.getCode());
+      // getErrorMessages() flattens any error-envelope shape to a List<String>;
+      // the raw body remains on getResponseBody().
+      System.err.println("Error messages: " + e.getErrorMessages());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **operation** | **String**| The authoring operation whose schema you need. | [enum: create, duplicate, update, update_node] |
+
+### Return type
+
+[**JourneySchemaResponse**](JourneySchemaResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The schema and its applicability. |  -  |
+| **400** | Missing or unsupported operation. |  -  |
+| **429** | Rate Limit Exceeded |  -  |
+| **0** | Unexpected error |  -  |
+
 <a name="getNotification"></a>
 # **getNotification**
 > NotificationWithMeta getNotification(appId, notificationId)
@@ -4798,7 +4869,7 @@ public class Example {
 
 <a name="viewTemplates"></a>
 # **viewTemplates**
-> TemplatesListResponse viewTemplates(appId, limit, offset, channel)
+> TemplatesListResponse viewTemplates(appId, limit, offset, channel, name)
 
 View templates
 
@@ -4830,8 +4901,9 @@ public class Example {
     Integer limit = 10; // Integer | Maximum number of templates. Default and max is 50.
     Integer offset = 0; // Integer | Pagination offset.
     String channel = "push"; // String | Filter by delivery channel.
+    String name = "Welcome"; // String | Return only templates whose name contains this text, ignoring case.
     try {
-      TemplatesListResponse result = apiInstance.viewTemplates(appId, limit, offset, channel);
+      TemplatesListResponse result = apiInstance.viewTemplates(appId, limit, offset, channel, name);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling DefaultApi#viewTemplates");
@@ -4855,6 +4927,7 @@ public class Example {
 | **limit** | **Integer**| Maximum number of templates. Default and max is 50. | [optional] [default to 50] |
 | **offset** | **Integer**| Pagination offset. | [optional] [default to 0] |
 | **channel** | **String**| Filter by delivery channel. | [optional] [enum: push, email, sms] |
+| **name** | **String**| Return only templates whose name contains this text, ignoring case. | [optional] |
 
 ### Return type
 
